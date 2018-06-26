@@ -1,0 +1,85 @@
+.lookHistory {
+    border: 1px solid #a6a6a6;
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    margin-left: 5%;
+    height: 200rpx;
+    margin-top: 20rpx;
+}
+
+.look-img {
+    width: 150rpx;
+    height: 150rpx;
+    padding-top: 25rpx;
+    padding-left: 50rpx;
+}
+
+.look-text {
+    display: flex;
+    padding-top: 20rpx;
+    padding-bottom: 20rpx;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-left: 30rpx;
+}
+
+.look-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #d0631a;
+}
+
+.look-title-Lesson {
+    padding-top: 10rpx;
+    font-size: 13px;
+    color: #a6a6a6;
+}
+
+.look-title-time {
+    padding-top: 10rpx;
+    font-size: 13px;
+}
+
+.Prompt {
+    color: red;
+    text-align: center;
+    margin-top: 200rpx;
+}
+
+.Prompt image {
+    height: 400rpx;
+    width: 400rpx;
+    margin-top: 20rpx;
+}
+
+.movie-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    color: #6a5acd;
+    margin-top: 30rpx;
+    letter-spacing: 3px;
+}
+
+.contactTxt {
+    width: 80%;
+    margin-left: 10%;
+    font-size: 13px;
+    margin-top: 40rpx;
+}
+
+.contactTxt image {
+    width: 100%;
+    height: 400rpx;
+    text-align: center;
+}
+
+.contactBtn {
+    font-size: 15px;
+    line-height: 20px;
+    margin-top: 50rpx;
+    width: 80%;
+    margin-left: 10%;
+    font-family: FangSong;
+}

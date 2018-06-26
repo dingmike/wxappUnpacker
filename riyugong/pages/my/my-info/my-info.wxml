@@ -1,0 +1,34 @@
+<form bindreset="formReset" bindsubmit="formSubmit">
+    <view class="container" wx:if="{{pigyemian}}">
+        <view class="info-head">
+            <text class="info-head-title">头像</text>
+            <image class="info-head-img" src="{{userInfo.avatarUrl}}"></image>
+        </view>
+        <view class="info-nickName">
+            <text class="info-head-title">昵称</text>
+            <text class="info-head-title">{{userInfo.nickName}}</text>
+        </view>
+        <view class="info-form">
+            <view class="info-sex">
+                <view class="info-sextitle">性别</view>
+                <picker bindchange="bindPickerChange" name="sex" range="{{array}}" value="{{index}}">
+                    <view class="picker">
+            {{array[index]}}
+          </view>
+                </picker>
+            </view>
+            <view class="info-input">
+                <view class="info-sextitle">手机号</view>
+                <input bindinput="modifyStyle" class="input-item" maxlength="11" name="phone" style="text-align:right" type="number" value="{{getUser.phone}}"></input>
+                <button bindgetphonenumber="getPhoneNumber" class="phonebtn" openType="getPhoneNumber">获取</button>
+            </view>
+            <view class="info-input">
+                <view class="info-sextitle">微信号</view>
+                <input bindinput="modifyStyle" class="input-item" name="weixin" style="text-align:right" type="text" value="{{getUser.weixin}}"></input>
+            </view>
+        </view>
+        <view class="Preservation">
+            <button disabled="{{disabled}}" formType="submit" type="primary">保存</button>
+        </view>
+    </view>
+</form>

@@ -1,0 +1,13 @@
+<view class="container">
+    <view class="contactTxt">
+        <image src="/images/coimg/weixin.jpg"></image>
+    </view>
+    <view class="contactBtn">
+        <text>大家好，我是共读君～
+
+有疑问的小伙伴可以加我微信进行咨询:igongdu，添加时请备注"共读咨询"哦～
+
+21天口语达人养成计划期待您的加入！
+(๑˙ー˙๑)</text>
+    </view>
+</view>

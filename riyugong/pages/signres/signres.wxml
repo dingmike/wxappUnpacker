@@ -1,0 +1,16 @@
+<view class="container">
+    <view class="Achievementsimg">
+        <canvas canvasId="myCanvas" class="myCanvas" style="width: {{phoneWidth}}px; height: {{phoneHeight}}px;"></canvas>
+    </view>
+    <view class="Achievementsbtn">
+        <view bindtap="shareImg" class="shareImg">
+            <image src="/image/icon/share.png"></image>
+        </view>
+        <view bindtap="extendRead" class="shareImg">
+            <image src="/image/icon/yanshen.png"></image>
+        </view>
+        <view bindtap="returnIndex" class="returnIndex">
+            <image src="/image/icon/return.png"></image>
+        </view>
+    </view>
+</view>

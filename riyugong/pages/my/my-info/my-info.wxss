@@ -1,0 +1,81 @@
+.info-head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid #a6a6a6;
+    height: 170rpx;
+}
+
+.phonebtn {
+    margin-right: 0px;
+    font-size: 13px;
+    background-color: #fff;
+    line-height: 100rpx;
+}
+
+.info-head-img {
+    width: 120rpx;
+    height: 120rpx;
+    padding-top: 25rpx;
+    padding-right: 30rpx;
+}
+
+.info-head-title {
+    line-height: 170rpx;
+    padding-left: 30rpx;
+    color: #a6a6a6;
+    font-size: 14px;
+}
+
+.info-nickName {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid #a6a6a6;
+    height: 100rpx;
+}
+
+.info-nickName text {
+    line-height: 100rpx;
+    padding-right: 30rpx;
+}
+
+.info-sex {
+    line-height: 100rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid #a6a6a6;
+    height: 100rpx;
+}
+
+.info-sextitle {
+    margin-left: 30rpx;
+    color: #A6A6A6;
+    font-size: 14px;
+}
+
+.picker {
+    margin-right: 30rpx;
+    font-size: 14px;
+}
+
+.info-input {
+    line-height: 100rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid #a6a6a6;
+    height: 100rpx;
+}
+
+.Preservation {
+    margin-top: 100rpx;
+    width: 90%;
+    margin-left: 5%;
+}
+
+.input-item {
+    margin: auto 30rpx;
+    font-size: 14px;
+}

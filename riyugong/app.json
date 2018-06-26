@@ -1,0 +1,41 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/orale/orale",
+        "pages/orale/orale-detail/orale-detail",
+        "pages/explain/explain",
+        "pages/signres/signres",
+        "pages/submitInfo/submitInfo",
+        "pages/my/my",
+        "pages/my/my-info/my-info",
+        "pages/my/my-look/my-look",
+        "pages/my/my-pay/my-pay",
+        "pages/my/my-card/my-card",
+        "pages/orale/orale-extend/orale-extend",
+        "pages/my/my-faq/my-faq",
+        "pages/auth/auth"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "口语练习计划",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "selectedColor": "#FEAB1A",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath": "images/tabar/home.png",
+                "selectedIconPath": "images/tabar/home-sele.png"
+            },
+            {
+                "pagePath": "pages/my/my",
+                "text": "我的",
+                "iconPath": "images/tabar/my.png",
+                "selectedIconPath": "images/tabar/my-sele.png"
+            }
+        ]
+    }
+}

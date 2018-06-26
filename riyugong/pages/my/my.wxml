@@ -1,0 +1,14 @@
+<view class="container" wx:if="{{load}}">
+    <view class="personal">
+        <image class="personal-head" src="{{userInfo.avatarUrl}}"></image>
+        <text>{{userInfo.nickName}}</text>
+    </view>
+    <view class="myInfo">
+        <view bindtap="myItems" class="myInfo-moninfo" data-method="{{item.clickEvent}}" wx:for="{{myBtnData}}">
+            <view class="myInfo-mon">
+                <image class="myInfo-mon-img" src="{{item.imgPath}}"></image>
+                <text class="myInfo-mon-title">{{item.title}}</text>
+            </view>
+        </view>
+    </view>
+</view>

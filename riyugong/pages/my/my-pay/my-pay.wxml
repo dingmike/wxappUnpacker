@@ -1,0 +1,21 @@
+<view class="container">
+    <view class="showDataNull" wx:if="{{showDatasNull}}">
+        <image class="showImg" src="/image/null.png"></image>
+        <view>
+            <text>没有购买任何课程！</text>
+        </view>
+    </view>
+    <view class="choice-content">
+        <view bindtap="choiceTapType" class="box15" data-bgimg="{{item.bgimg}}" data-type="{{item.type}}" wx:for="{{choiceDatas}}" wx:for-item="chs">
+            <block wx:for="{{choiceData}}" wx:for-item="ch">
+                <view class="items-Img" wx:if="{{chs.type==ch.type}}">
+                    <image class="items-Imgs" src="{{ch.img}}"></image>
+                </view>
+                <view class="items-text" wx:if="{{chs.type==ch.type}}">
+                    <text>{{ch.type}}</text>
+                </view>
+            </block>
+            <view class="box15_ribbon"></view>
+        </view>
+    </view>
+</view>

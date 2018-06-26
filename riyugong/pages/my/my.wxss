@@ -1,0 +1,63 @@
+page {
+    background-color: #efeff4;
+    height: 100%;
+}
+
+.personal {
+    display: flex;
+    flex-direction: column;
+    vertical-align: middle;
+    padding-top: 80rpx;
+    text-align: center;
+    background-color: white;
+    padding-bottom: 80rpx;
+}
+
+.personal-head {
+    width: 128rpx;
+    height: 128rpx;
+    vertical-align: middle;
+    border-radius: 128rpx/128rpx;
+    margin: auto;
+    margin-bottom: 10rpx;
+}
+
+.myInfo {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20rpx;
+}
+
+.myInfo-moninfo {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 120rpx;
+    line-height: 120rpx;
+    margin-bottom: 5rpx;
+}
+
+.myInfo-mon {
+    display: flex;
+    flex-direction: row;
+}
+
+.myInfo-mon-img {
+    width: 50rpx;
+    height: 50rpx;
+    margin-left: 40rpx;
+    margin-top: 35rpx;
+}
+
+.myInfo-mon-title {
+    margin-left: 30rpx;
+}
+
+.myInfo-mon-guide {
+    width: 50rpx;
+    height: 50rpx;
+    float: right;
+    margin-top: 35rpx;
+    margin-right: 20rpx;
+}

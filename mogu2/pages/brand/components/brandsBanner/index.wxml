@@ -1,0 +1,59 @@
+<template name="brandsBanner">
+    <block wx:if="{{bannerList&&bannerList.length>0}}">
+        <template is="heading_icon_line" data="{{title:$headingTitle,titleIcon:$headingTitleIcon,height:$headingHeight,bgColor:$headingBgColor,margin:$headingMargin,padding:$headingPadding,color:$headingColor}}"></template>
+        <view class="brandsShowEntry" wx:for="{{bannerList}}" wx:key="index">
+            <view class="brandsWrap" wx:if="{{item.itemList&&item.pcEnter&&item.brandId}}">
+                <template is="brandImg" data="{{item:item,index:index,ptpC:ptpC,crownIcoWebp:crownIcoWebp}}"></template>
+                <view class="brandsImgListWrap">
+                    <view bindtap="$navigate" class="brandsImgBlock" data-acm="{{img.acm||''}}" data-href="{{img.link}}" data-ptp-c="{{ptpC}}" data-ptp-d="{{index}}" wx:for="{{item.itemList}}" wx:for-item="img" wx:key="index">
+                        <image class="brandsImgEntry" src="{{img.aftImg}}"></image>
+                        <view class="priceWrap">
+                            <view class="priceNow longHidden" style="font-family:Arial;">{{img.discountPrice?'¥'+img.discountPrice:''}}</view>
+                            <view class="pricePre longHidden" style="font-family:Arial;">{{img.price?'¥'+img.price:''}}</view>
+                        </view>
+                    </view>
+                    <view bindtap="$navigate" class="brandsImgBlock" data-brand-id="{{item.brandId||''}}" data-brand-title="{{item.name||''}}" data-href="/pages/brandShop/index" data-ptp-c="{{ptpC}}" data-ptp-d="0">
+                        <view class="brandsMoreImg">
+                            <view class="brandsMoreIcon">
+                                <view class="m-icon m-icon-arrow-right brandIcon"></view>
+                            </view>
+                            <text class="watchMore longHidden">查看更多</text>
+                            <text class="totalNum longHidden">{{item.itemCount?item.itemCount+'款':''}}</text>
+                        </view>
+                    </view>
+                    <view class="brandsPlaceholder"></view>
+                </view>
+            </view>
+            <view class="brandsNormalWrap" wx:elif="{{item.pcEnter&&item.brandId}}">
+                <template is="brandImg" data="{{item:item,index:index,ptpC:ptpC,crownIcoWebp:crownIcoWebp}}"></template>
+                <view class="brandsNormalBottomBar">
+                    <view class="brandsNormalTip longHidden">{{item.lowestDiscount>0?'全场'+item.lowestDiscount+'折起':'历史新低价'}}</view>
+                    <view class="brandsNormalNum longHidden">{{item.clickTotal>0?'已抢'+item.clickTotal+'件':'热卖中'}}</view>
+                </view>
+            </view>
+        </view>
+    </block>
+</template>
+<template name="brandImg">
+    <view bindtap="$navigate" class="brandsBigImg" data-brand-id="{{item.brandId||''}}" data-brand-title="{{item.name||''}}" data-href="/pages/brandShop/index" data-ptp-c="{{ptpC||''}}" data-ptp-d="{{index}}">
+        <view class="brandsTitleWrap">
+            <view class="todayKing" wx:if="{{item.sort===0}}">
+                <image class="kingImg" src="{{crownIcoWebp||''}}"></image>
+                <view class="kingTitle longHidden">今日王牌</view>
+            </view>
+            <view class="brandsTitle">
+                <view class="brandsLogoWrap longHidden">
+                    <image class="brandsLogo" src="{{item.brandLogo||''}}" wx:if="{{item.brandLogo}}"></image>
+                    <block wx:else>{{item.name?item.name:''}}</block>
+                </view>
+                <view class="brandsSubtitle longHidden">{{item.description||'历史新低价'}}</view>
+                <view class="brandsEntry longHidden">{{item.promotionDesc||'历史新低价'}}</view>
+            </view>
+        </view>
+        <view class="brandsImgWrap">
+            <image class="brandsImg" src="{{item.pcEnter||''}}"></image>
+        </view>
+        <view class="brandsNum longHidden">{{item.clickTotal>0?'已抢'+item.clickTotal+'件':'热卖中'}}</view>
+    </view>
+</template>
+<import src="../../../../components/heading/index.wxml"></import>

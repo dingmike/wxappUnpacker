@@ -1,0 +1,92 @@
+.ftWrap {
+    position: fixed;
+    left: 30rpx;
+    bottom: 48rpx;
+    min-width: 300rpx;
+    height: 96rpx;
+    padding: 14rpx;
+    opacity: 0;
+    border-radius: 59.5rpx;
+    background-color: #000;
+    z-index: 100;
+}
+
+.ft-show-true {
+    animation: tipShow 1s 1 forwards;
+}
+
+.ft-show-false {
+    animation: tipHide .8s 1;
+}
+
+.ftIcon {
+    width: 68rpx;
+    height: 68rpx;
+    border-radius: 60rpx;
+}
+
+.ftTips {
+    margin-left: 20rpx;
+    min-width: 200rpx;
+    color: #fff;
+    font-size: 24rpx;
+}
+
+.ftTip {
+    max-width: 400rpx;
+    height: 33rpx;
+    line-height: 33rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.ftTipBottom {
+    opacity: .7;
+}
+
+.ftLeftCursor {
+    margin-left: 10rpx;
+    color: #fff;
+    font-size: 24rpx;
+}
+
+@-webkit-keyframes tipShow {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: .8;
+    }
+}
+
+@keyframes tipShow {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: .8;
+    }
+}
+
+@-webkit-keyframes tipHide {
+    from {
+        opacity: .8;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes tipHide {
+    from {
+        opacity: .8;
+    }
+
+    to {
+        opacity: 0;
+    }
+}

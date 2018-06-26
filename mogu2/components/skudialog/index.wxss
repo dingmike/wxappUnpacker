@@ -1,0 +1,250 @@
+@import "../sku/index.wxss";
+
+.module-base-skudialog {
+    z-index: 300;
+}
+
+.module-base-skudialog .skudialog-goods {
+    padding: 30rpx 32rpx;
+    height: 200rpx;
+    flex: none;
+}
+
+.module-base-skudialog .goods-imgs {
+    width: 200rpx;
+    max-height: 300rpx;
+    position: relative;
+    bottom: 0;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,.1);
+}
+
+.module-base-skudialog .goods-imgs--img {
+    width: 200rpx;
+    height: 300rpx;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+.module-base-skudialog .goods-goods {
+    flex: 1;
+    margin-left: 30rpx;
+}
+
+.module-base-skudialog .goods-close {
+    font-size: 30rpx;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 88rpx;
+    height: 88rpx;
+}
+
+.module-base-skudialog .goods-goods--price {
+    color: #333333;
+}
+
+.module-base-skudialog .goods-goods--price-unit {
+    font-size: 24rpx;
+    margin-top: 15rpx;
+    font-family: Arial;
+}
+
+.module-base-skudialog .goods-goods--price-text {
+    font-size: 56rpx;
+}
+
+.module-base-skudialog .goods-goods--presale {
+}
+
+.module-base-skudialog .goods-goods--presale-deposit {
+    font-size: 36rpx;
+    color: #333333;
+    margin-right: 10rpx;
+    font-family: Arial;
+}
+
+.module-base-skudialog .goods-goods--presale-total {
+    font-size: 24rpx;
+    color: #999999;
+    font-family: Arial;
+}
+
+.module-base-skudialog .goods-goods--stock {
+    font-size: 24rpx;
+    color: #333333;
+}
+
+.module-base-skudialog .goods-goods--message {
+    font-size: 24rpx;
+}
+
+.module-base-skudialog .goods-goods--message-title {
+    color: #333333;
+    white-space: nowrap;
+}
+
+.module-base-skudialog .goods-goods--message-text {
+    color: #333333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 280rpx;
+}
+
+.module-base-skudialog .goods-goods--message-text.goods-choose {
+    color: #fb4747;
+}
+
+.module-base-skudialog .skudialog-skus {
+    overflow: auto;
+}
+
+.module-base-skudialog .skudialog-btns {
+    height: 100rpx;
+    flex: none;
+}
+
+.module-base-skudialog .btns-confirm {
+    display: block;
+    flex: 1;
+    line-height: 100rpx;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 28rpx;
+}
+
+.module-base-skudialog .btns-confirm--btn {
+    width: 100%;
+    height: 100%;
+}
+
+.module-base-skudialog .btns-confirm--buy {
+    background-image: linear-gradient(to left top,#fb4747,#ff8c5e);
+    color: #ffffff;
+}
+
+.module-base-skudialog .btns-confirm--cart {
+    background: #FFEEEE;
+    color: #fb4747;
+}
+
+.module-base-skudialog .btns-confirm--buy.disabled {
+    background: #999999;
+}
+
+.module-base-skudialog .btns-confirm--cart.disabled {
+    background: #CDCDCD;
+    color: #999999;
+}
+
+@-webkit-keyframes slideUp {
+    from {
+        height: 0;
+        bottom: -100rpx;
+    }
+
+    to {
+        height: 100%;
+        bottom: 0;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        height: 0;
+        bottom: -100rpx;
+    }
+
+    to {
+        height: 100%;
+        bottom: 0;
+    }
+}
+
+@-webkit-keyframes slideDown {
+    from {
+        max-height: 100%;
+        bottom: 0;
+    }
+
+    to {
+        height: 0;
+        bottom: -100rpx;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        max-height: 100%;
+        bottom: 0;
+    }
+
+    to {
+        height: 0;
+        bottom: -100rpx;
+    }
+}
+
+.base-dialog {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    transform: translate3d(-50%,0,0);
+    left: 50%;
+    z-index: 200;
+}
+
+.base-dialog.show-true {
+    animation: slideUp 400ms;
+}
+
+.base-dialog.show-false {
+    animation: slideDown 400ms;
+}
+
+.base-dialog.show-null {
+    display: none;
+}
+
+.base-dialog .base-dialog--inner {
+    position: absolute;
+    max-height: 75%;
+    width: 100%;
+    background: #ffffff;
+    bottom: 0;
+}
+
+.button-reset {
+    display: block;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: inherit;
+    text-align: inherit;
+    text-decoration: inherit;
+    line-height: inherit;
+    border-radius: inherit;
+    -webkit-tap-highlight-color: inherit;
+    overflow: inherit;
+    color: inherit;
+    background-color: inherit;
+}
+
+.button-reset::after {
+    display: none;
+    content: none;
+    width: auto;
+    height: auto;
+    position: inherit;
+    top: auto;
+    left: auto;
+    border: none;
+    transform: none;
+    transform-origin: none;
+    box-sizing: border-box;
+    border-radius: 0;
+}

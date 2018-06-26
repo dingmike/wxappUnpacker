@@ -1,0 +1,84 @@
+.moreGroup {
+    width: 750rpx;
+    background-color: #fff;
+    margin-bottom: 20rpx;
+}
+
+.moreGroup__head {
+    padding: 30rpx;
+}
+
+.moreGroup__head view:first-child {
+    font-weight: 600;
+    font-size: 28rpx;
+}
+
+.moreGroup__item {
+    width: 100%;
+    height: 320rpx;
+    background-color: #fff;
+}
+
+.moreGroup__item image {
+    margin-left: 15rpx;
+    width: 240rpx;
+    height: 240rpx;
+    background: #f8f8f8 url(https://static.seecsee.com/images/h5/placehold.svg) 50% no-repeat;
+}
+
+.moreGroup__item .itemInfo {
+    width: 450rpx;
+    height: 240rpx;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+}
+
+.moreGroup__item .itemInfo .itemName {
+    min-height: 80rpx;
+    font-size: 26rpx;
+    margin-top: 10rpx;
+}
+
+.moreGroup__item .itemInfo .price {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    -webkit-box-align: end;
+    align-items: flex-end;
+}
+
+.moreGroup__item .itemInfo .price .curPrice {
+    height: 56rpx;
+}
+
+.moreGroup__item .itemInfo .price .curPrice text:first-child {
+    font-size: 24rpx;
+    color: #ff3b30;
+}
+
+.moreGroup__item .itemInfo .price .curPrice text:last-child {
+    font-size: 40rpx;
+    color: #ff3b30;
+}
+
+.moreGroup__item .itemInfo .price .origPrice {
+    font-size: 24rpx;
+    color: #9d9d9d;
+    text-decoration: line-through;
+}
+
+.moreGroup__item .itemInfo button {
+    width: 150rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    border-radius: 4rpx;
+    background-color: #ff3b30;
+    margin-top: 30rpx;
+    margin-left: 0;
+    font-size: 24rpx;
+}

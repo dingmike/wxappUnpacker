@@ -1,0 +1,26 @@
+.recommend-header {
+    display: flex;
+    height: 40rpx;
+    margin: 32rpx 0 6rpx;
+    justify-content: center;
+    align-items: center;
+}
+
+.recommend-line {
+    width: 66rpx;
+    height: 1rpx;
+    background-color: #c5c5c5;
+}
+
+.recommend-diamond {
+    width: 6rpx;
+    height: 6rpx;
+    background-color: #c5c5c5;
+    transform: rotateZ(45deg);
+}
+
+.recommend-title {
+    margin: 0 16rpx;
+    color: #666;
+    font-size: 28rpx;
+}

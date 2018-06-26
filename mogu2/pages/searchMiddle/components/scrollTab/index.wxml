@@ -1,0 +1,13 @@
+<template name="scrollTab">
+    <view class="scrollTab-height" wx:if="{{navList&&navList.length>1}}">
+        <view class="scrollTab-box">
+            <view class="scrollTab-list flex f-fd-r f-fw-n f-fs-0 f-jc-fs">
+                <view bindtap="{{$scope}}.changeTab" class="scrollTab-item f-fs-0" data-item="{{item}}" data-tab-index="{{index}}" wx:if="{{item&&item.navTitle}}" wx:for="{{navList}}" wx:key="index">
+                    <view class="scrollTab-item-text flex f-fd-r f-fs-0 f-jc-c {{activeIndex===index?'scrollTab-item-text-active':''}}">
+                        <text>{{item.navTitle||''}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

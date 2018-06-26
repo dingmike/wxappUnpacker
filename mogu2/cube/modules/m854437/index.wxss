@@ -1,0 +1,57 @@
+.MCUBE_MOD_ID_854437 .long-cut {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.MCUBE_MOD_ID_854437 .nav-box {
+    width: 100%;
+}
+
+.MCUBE_MOD_ID_854437 .nav-fixed {
+    z-index: 50;
+    position: fixed;
+    left: 0;
+    width: 100%;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: left top;
+}
+
+.MCUBE_MOD_ID_854437 .nav-border {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1rpx;
+}
+
+.MCUBE_MOD_ID_854437 .nav-scroll {
+    height: 100%;
+}
+
+.MCUBE_MOD_ID_854437 .nav-list {
+    width: 100%;
+    display: flex;
+    flex-shrink: 0;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.MCUBE_MOD_ID_854437 .nav-item {
+    display: block;
+    height: 100%;
+    font-size: 28rpx;
+    flex-shrink: 0;
+}
+
+.MCUBE_MOD_ID_854437 .nav-title {
+    height: 100%;
+    padding: 0 4rpx;
+    border-bottom-width: 4rpx;
+    border-bottom-style: solid;
+    background-position: left center;
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+}

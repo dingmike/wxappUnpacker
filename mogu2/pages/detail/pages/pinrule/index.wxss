@@ -1,0 +1,24 @@
+.rules {
+    background: #ffffff;
+    margin-bottom: 45rpx;
+}
+
+.rules-rule {
+    padding: 0 32rpx;
+}
+
+.rules-rule--title {
+    margin-top: 40rpx;
+    font-size: 32rpx;
+    color: #333333;
+}
+
+.rules-rule--desc {
+    font-size: 24rpx;
+    margin-top: 16rpx;
+    line-height: 30rpx;
+}
+
+page {
+    background-color: #ffffff;
+}

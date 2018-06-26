@@ -1,0 +1,24 @@
+<template name="pintuanJoin">
+    <view class="module-social-pintuan-join">
+        <view class="join-title" style="{{$color.secondaryTextTx}}">以下小伙伴正在发起拼团，您可以直接参与：</view>
+        <view class="join-tuan flex f-ff-cn">
+            <view bindtap="{{$scope}}.onJoinClick" class="join-tuan--item order flex f-ai-c f-jc-sb" data-from-page="detail" data-href="{{item.link}}" wx:for="{{joinTuanList}}">
+                <view class="order-user flex f-ai-c">
+                    <image class="order-user--avatar" lazyLoad="{{true}}" src="{{item.avatar}}"></image>
+                    <view class="order-user--uname" style="{{$color.mainTextTx}}">{{item.nick}}</view>
+                </view>
+                <view class="order-tuan flex">
+                    <view class="order-tuan--info info flex f-ff-cn f-ai-fe f-jc-c">
+                        <view class="info-title" style="{{$color.mainTx}}">还差{{item.remainNum}}人成团</view>
+                        <view class="info-time flex f-ai-c" style="{{$color.dimTx}}">剩余
+                            <template is="countdown" data="{{...$countdown0,numClass:'info-time--num',symbolClass:'info-time--symbol'}}" wx:if="{{index===0}}"></template>
+                            <template is="countdown" data="{{...$countdown1,numClass:'info-time--num',symbolClass:'info-time--symbol'}}" wx:elif="{{index===1}}"></template>
+                        </view>
+                    </view>
+                    <view class="order-tuan--btn flex f-ai-c f-jc-c" style="{{$color.mainBg}}">去参团</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+<import src="../../../../../components/countdown/index.wxml"></import>

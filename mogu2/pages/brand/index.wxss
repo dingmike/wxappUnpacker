@@ -1,0 +1,22 @@
+@import "../../components/topTabBar/index.wxss";
+
+@import "../../components/meiliSwiper/index.wxss";
+
+@import "../../components/activeEntry/index.wxss";
+
+@import "../../components/scrollGoods/index.wxss";
+
+@import "../../components/walltemplate/item_tuan.wxss";
+
+@import "components/brandsBanner/index.wxss";
+
+.brand-description-box {
+    width: 750rpx;
+    height: 70rpx;
+    overflow: hidden;
+}
+
+.brand-description-img {
+    width: 100%;
+    height: 100%;
+}

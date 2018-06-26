@@ -1,0 +1,268 @@
+<view wx:if="{{is_getting===true}}">
+    <view class="seeloading" id="seeloading">
+        <view class="img_view">
+            <image alt="see" class="seeloading_img" src="/images/seeloading.png"></image>
+        </view>
+        <view class="loading_info">正在加载...</view>
+    </view>
+</view>
+<view class="container groupon-detail" style="height: {{windowHeight}}px" wx:if="{{is_getting===false}}">
+    <view bindtap="goToDetail" class="item-head item-flex">
+        <view class="item-head__img">
+            <image src="{{item.itemImgurl+'?imageView2/1/w/250/h/250/q/80'}}"></image>
+            <view class="sold-out" wx:if="{{item.sellOut}}">
+                <view class="sold-out__con">
+                    <text class="zh">已售罄</text>
+                    <text class="en">Sold out</text>
+                </view>
+            </view>
+        </view>
+        <view class="item-head__info">
+            <view class="info-brand">{{item.brandName}}</view>
+            <view class="info-name">{{item.sellPoint}}</view>
+            <view class="info-oriprice">￥{{item.skuPrice}}</view>
+            <view class="info-price item-flex">
+                <text>￥{{item.price}}</text>
+                <label class="tips {{item.type==3||item.type==4?'tipsRed':''}}">
+                    <text class="{{item.type==3||item.type==4?'red':''}}"></text>{{item.type==3?'抽奖团':item.type==4?'超级团':grouponSuccessNumber+'人团'}}</label>
+                <label wx:if="{{item.type==2}}">新人专享</label>
+                <label wx:if="{{item.type!=2&&item.type!=3&&item.type!=4}}">立省¥{{item.savePrice}}</label>
+            </view>
+        </view>
+    </view>
+    <view class="item-card">
+        <block wx:if="{{item.status==1&&item.type!=4}}">
+            <view class="item-card__title row">
+          已有{{joinedNumber}}人参与，还差<text class="red">{{unJoinedNumber}}</text>人拼团成功
+        </view>
+            <view class="item-card__time">仅剩
+  <view class="list-counter">
+                    <text wx:if="{{$counterDown$day>0}}">{{$counterDown$day}}天</text>
+                    <label>{{$counterDown$hr>9?$counterDown$hr:'0'+$counterDown$hr}}</label>:<label>{{$counterDown$min>9?$counterDown$min:'0'+$counterDown$min}}</label>:<label>{{$counterDown$sec>9?$counterDown$sec:'0'+$counterDown$sec}}</label>
+                </view>
+失效</view>
+        </block>
+        <view class="item-card__title column" wx:elif="{{item.status==3&&item.type!=4}}">
+            <view>已有{{item.joinedNumber}}人参与，<text class="green">拼团成功</text>
+            </view>
+            <text>团ID：{{item.grouponActivityId}}</text>
+        </view>
+        <view class="item-card__title" wx:elif="{{item.status==4&&item.type!=4}}">
+          参与人数不足{{groupSuccessNumber}}人，<text class="red">拼团失败</text>
+        </view>
+        <block wx:else></block>
+        <view class="item-card__member item-flex">
+            <view style="{{(item.grouponSuccessNumber>=16||item.type==4)&&index==0?item.type==4?'width:750rpx;height:300rpx':'width:750rpx':'min-width:100rpx;'}}" wx:if="{{index<16}}" wx:for="{{item.userList}}" wx:for-item="list" wx:key="{{index}}">
+                <image class="crown" src="https://static.seecsee.com/xcx/images/king.svg" wx:if="{{item.type==4&&list.captain}}"></image>
+                <view class="somebody" wx:if="{{item.grouponSuccessNumber>16&&index==15}}">···<text wx:if="{{item.type==4}}">+1</text>
+                </view>
+                <image src="{{list.headimg}}" wx:else></image>
+                <text class="captainTips" style="{{item.grouponSuccessNumber>=16&&index==0?'left:40%':''}}" wx:if="{{list.captain&&item.type!=4}}">团长</text>
+            </view>
+            <view wx:if="{{item.unJoinedNumber!=0}}" wx:for="{{imgArray}}" wx:key="{{index}}">
+                <view class="nobody">
+                    <image src="/images/invalid_name.png"></image>
+                </view>
+            </view>
+            <view class="superGroupTitle" wx:if="{{item.type==4}}">
+                <view>
+                    <text class="lineLeft"></text>
+                    <text class="superCaptainTips">团长</text>{{item.appTitle}}
+            <text class="lineRight"></text>
+                </view>
+                <view>
+            {{item.desc}}
+          </view>
+            </view>
+        </view>
+        <text class="waitLottery" wx:if="{{item.action==8}}">等待开奖</text>
+        <button bindtap="goToBuyIt" class="item-card__btn {{item.action==1&&'green'}}" data-id="{{item.action}}" openType="{{item.action==1&&'share'}}" wx:if="{{item.action!=7&&item.action!=0}}">
+            <image alt="see" class="img" src="/images/icon_wechat_w.png" wx:if="{{item.action==1}}"></image>{{item.actionDesc}}</button>
+        <view class="shareWeChat item-flex item-column" wx:if="{{wxData.assistantFlag}}">
+            <view class="shareChatNum item-flex">微信添加<text> 开奖助手 </text>查看中奖结果</view>
+            <view class="secretSignal item-flex">
+                <image src="http://static.seecsee.com/xcx/images/wechat_6deb68e6.png"></image>
+                <text>微信号 {{wxData.groupName}}</text>
+            </view>
+            <view>
+                <button bindtap="$groupWeChatCover$showCover" class="addButton" type="primary">去添加</button>
+                <view bindtap="$groupWeChatCover$closeCover" catchtouchmove="$groupWeChatCover$catchtouchmove" class="wechatNumberCover" wx:if="{{$groupWeChatCover$isShowCover}}"></view>
+                <view catchtouchmove="$groupWeChatCover$catchtouchmove" class="wechatNumberInfo item-flex item-column" wx:if="{{$groupWeChatCover$isShowCover}}">
+                    <view class="wechatNumberInfo__title">开奖助手微信号</view>
+                    <text class="wechatNumberInfo__number">{{$groupWeChatCover$wxData.groupName}}</text>
+                    <button bindtap="$groupWeChatCover$copy" class="copyButton" size="mini" type="primary">复制微信号</button>
+                    <image bindtap="$groupWeChatCover$previewImage" mode="aspectFill" src="{{$groupWeChatCover$wxData.codeUrl}}"></image>
+                    <text class="wechatNumberInfo__tips">点击二维码，长按保存
+通过“扫一扫”识别</text>
+                    <text bindtap="$groupWeChatCover$closeCover" class="wechatNumberInfo__close"></text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="groupon-state">
+        <view class="groupon-state__head item-flex item-between">
+            <view>{{$groupState$groupStateData.type==3?'抽奖团玩法':'拼团玩法'}}</view>
+            <view bindtap="$groupState$openOrder">详细规则{{$groupState$type}}</view>
+        </view>
+        <view class="groupon-state__step" wx:if="{{$groupState$groupStateData.type!=3}}">
+            <view class="line"></view>
+            <view>
+                <view class="circle">1</view>
+                <view>
+                    <text>开团或参团
+</text>
+                    <text class="red">完成支付
+视为开/参团成功</text>
+                </view>
+            </view>
+            <view>
+                <view class="circle">2</view>
+                <view>
+                    <text>分享拼团给好友
+</text>
+                    <text class="red">邀请参团</text>
+                </view>
+            </view>
+            <view>
+                <view class="circle">3</view>
+                <view>
+                    <text class="red">在规定的拼团时间
+内达到拼团人数
+</text>
+                    <text>即拼团成功
+</text>
+                    <text class="red">人数不足</text>自动退款
+        </view>
+            </view>
+        </view>
+        <view class="groupon-state__lottery" wx:else>
+            <view class="secretSignal" wx:if="{{$groupState$groupStateData.isShowTips}}">
+        添加　
+        <image src="https://image.seecsee.com/wechat_icon.png"></image>
+                <text class="bold">开奖助手(微信号:{{$groupState$groupStateData.wxNumber}})为好友</text>
+        ，才能查看抽奖结果
+        </view>
+            <view class="activityTime">活动时间：{{$groupState$groupStateData.activityStartTime+' - '+$groupState$groupStateData.activityEndTime}}</view>
+            <view class="activityInfo">
+                <text class="num">1.</text>
+                <text>只有参与拼团，而且拼团成功的用户，才有资格参与抽奖。</text>
+            </view>
+            <view class="activityInfo">
+                <text class="num">2.</text>
+                <text>活动结束后24小时内，从有资格抽奖的用户中，随机抽取中奖者。</text>
+            </view>
+            <view class="activityInfo">
+                <text class="num">3.</text>
+                <text>参与活动人人有奖，一等奖为本商品（1人），参与奖退款并赠送专享优惠劵。</text>
+            </view>
+            <view class="activityInfo">
+                <text class="num">4.</text>
+                <text>抽奖结束后，中奖商品3天内发货，参与奖专属优惠劵当天发放。</text>
+            </view>
+            <view class="activityInfo">
+                <text class="num">5.</text>
+                <text>本活动真实有效，最终解释权归SEE小电铺所有。</text>
+            </view>
+        </view>
+    </view>
+    <view bindtap="$groupState$closeOrder" class="groupon-order" wx:if="{{$groupState$showOrder}}"></view>
+    <view class="cover" wx:if="{{$groupState$showOrder}}">
+        <view class="cover__title">拼团详细规则</view>
+        <view class="cover__info">
+            <text>1. <text class="bold">开团</text>：在拼团活动期间，用户进入拼团商品详情页，点击我要开团，下单完成支付后视为开团成功，并成为该团团长。
+
+      2. <text class="bold">参团</text>：进入他人团详情页面，点击参团，下单完成支付后视为参团成功。
+
+      3. <text class="bold">优惠券的使用</text>：除拼团专用券外，购买拼团商品时，一般不可使用优惠券。
+
+      4. <text class="bold">拼团成功</text>：在成团有效期内（若距离拼团活动结束时间小于成团有效期，则以活动结束时间为准），完成支付的用户达到指定拼团人数，则拼团成功，商家将开始发货。
+
+      5. <text class="bold">拼团失败</text>：在拼团有效期后，完成支付的用户未达到指定拼团人数，则拼团失败。若高峰期间同时支付的人过多，将以支付时间先后为准，超出拼团人数限制的用户将参团失败。参团失败的订单，订单将进入退款中，系统会在1-7个工作日内处理退款，届时款项将退回至原支付账户。
+
+      6. <text class="bold">订单退款退货</text>：拼团订单在收货前不支持发起退款。用户在收到拼团商品后，若不满拼团商品质量，双方经协商可由商家在后台发起退货退款流程。
+
+      7. <text class="bold">新人专享团</text>：部分拼团活动仅限新人参与，即仅限在该小电铺内未发生过支付行为的用户有资格开团或参团。</text>
+        </view>
+        <text bindtap="$groupState$closeOrder" class="cover__close"></text>
+    </view>
+    <view class="moreGroup" wx:if="{{$moreGroup$moreGroupData&&$moreGroup$moreGroupData.length>0}}">
+        <view class="moreGroup__head item-flex item-between">
+            <view>更多拼团</view>
+        </view>
+        <view bindtap="$moreGroup$goToGroupon" class="moreGroup__item item-flex item-around" data-id="{{item.grouponActivityId}}" wx:for="{{$moreGroup$moreGroupData}}" wx:key="grouponActivityId">
+            <image mode="aspectFill" src="{{item.itemImgurl}}"></image>
+            <view class="itemInfo">
+                <text class="itemName text-ellipsis-double">{{item.itemName}}</text>
+                <view class="price">
+                    <view class="curPrice">
+                        <text>￥</text>
+                        <text>{{item.price}}</text>
+                    </view>
+                    <text class="origPrice">{{'￥'+item.skuPrice}}</text>
+                </view>
+                <button size="mini" type="primary">去开团</button>
+            </view>
+        </view>
+    </view>
+    <view class="item-btn">
+        <navigator class="mall_btn" openType="switchTab" url="/pages/mall">回到商城首页<text class="triangle"></text>
+        </navigator>
+    </view>
+    <view class="partner">
+        <image class="tencent-cooperation" mode="widthFix" src="https://image.seecsee.com/mallBackgroungimage.png"></image>
+    </view>
+</view>
+<view class="service_msg" wx:if="{{isSelectedSKU}}">
+    <view animation="{{animationShadow}}" bindtap="closeSku" class="msg_bg" wx:if="{{isSelectedSKU}}"></view>
+    <view animation="{{animationData}}" class="msg_cart">
+        <text bindtap="closeSku" class="close">X</text>
+        <view class="buy-con {{$skuSelect$isIpx?'fix-ipx-sku':''}}">
+            <view class="section item-flex heard">
+                <view class="image">
+                    <image mode="aspectFill" src="{{$skuSelect$sku_info.imgurl+'?imageView2/1/w/300/h/300/q/60'}}"></image>
+                </view>
+                <view class="show-content">
+                    <view class="show-content__title">{{$skuSelect$itemInfo.item_name}}</view>
+                    <view class="show-content__brand">{{$skuSelect$itemInfo.brand_name}}</view>
+                    <view class="show-content__price">
+                        <text class="name">{{$skuSelect$sku_info.price}}</text>
+                        <text class="del">{{$skuSelect$sku_info.ori_price}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="content">
+                <form bindsubmit="$skuSelect$formSubmit">
+                    <view class="section type-list" wx:for="{{$skuSelect$itemInfo.sku_model.sku_props}}" wx:for-index="idx" wx:for-item="skuProps" wx:key="prop_id">
+                        <view class="type-list__title">
+                            <text>{{skuProps.prop_name}}：</text>{{$skuSelect$selectInfo[idx]||''}}</view>
+                        <view bindtap="$skuSelect$radioChange" class="sku_item {{!item.is_disabled&&item.checked?'on':''}} {{item.is_disabled?'off':''}}" data-checked="{{item.checked}}" data-disabled="{{item.is_disabled}}" data-index="{{idx}}" data-sku_name="{{item.name}}" data-type_index="{{index}}" data-value="{{skuProps.prop_id}}:{{item.value_id}}" wx:for="{{skuProps.values}}" wx:key="value_id">
+                            <text>{{item.name}}</text>
+                        </view>
+                    </view>
+                    <view class="section item-flex item-between count-list">
+                        <view class="count-list__title">
+                            <text>数量</text>
+                        </view>
+                        <view class="counter {{$skuSelect$counter$style}}">
+                            <text bindtap="$skuSelect$counter$minus" class="control" style="background-color:{{$skuSelect$counter$num<=1?'#e7e7e7':'none'}}">  -  </text>
+                            <input bindinput="$skuSelect$counter$bindKeyInput" class="count" disabled="true" max="{{$skuSelect$counter$maxNumber}}" min="1" name="buy_num" type="number" value="{{$skuSelect$counter$num}}"></input>
+                            <text bindtap="$skuSelect$counter$plus" class="control" data-type="{{$skuSelect$counter$type}}" style="background-color:{{$skuSelect$counter$num==$skuSelect$counter$maxNumber||$skuSelect$counter$type==2?'#e7e7e7':'none'}}">  +  </text>
+                        </view>
+                    </view>
+                    <view class="btn-area">
+                        <button class="btn-area__btn" disabled="{{$skuSelect$disabled}}" formType="submit" style="background-color:{{$skuSelect$disabled?'gray':'#FE3B2E'}}" type="primary"> 确认 </button>
+                    </view>
+                </form>
+            </view>
+            <view class="wetoast {{$skuSelect$toast$reveal?'wetoast_show':''}}">
+                <view class="wetoast__mask"></view>
+                <view animation="{{$skuSelect$toast$animationData}}" class="wetoast__bd">
+                    <view class="wetoast__bd__img {{$skuSelect$toast$imgClassName||''}}" wx:if="{{$skuSelect$toast$icon}}">
+                        <icon color="{{$skuSelect$toast$config.color}}" size="{{$skuSelect$toast$config.size}}" type="{{$skuSelect$toast$config.type}}"></icon>
+                    </view>
+                    <view class="wetoast__bd__title {{$skuSelect$toast$titleClassName||''}}" wx:if="{{$skuSelect$toast$title}}">{{$skuSelect$toast$title}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

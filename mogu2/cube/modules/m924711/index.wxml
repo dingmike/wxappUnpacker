@@ -1,0 +1,16 @@
+<template name="924711">
+    <import src="../../../components/loading/index.wxml"></import>
+    <import src="../../../components/toast/index.wxml"></import>
+    <import src="./components/loadingErrorView/index.wxml"></import>
+    <import src="./components/seckill/index.wxml"></import>
+    <import src="./components/tabNavigation/index.wxml"></import>
+    <import src="./components/roomList/index.wxml"></import>
+    <template is="loading" data="{{...$loading}}"></template>
+    <template is="toast" data="{{...$toast}}"></template>
+    <template is="loadingErrorView" data="{{show:showLoadingErrorView}}"></template>
+    <block wx:if="{{showList}}">
+        <template is="seckill" data="{{...$seckill}}"></template>
+        <template is="tabNavigation" data="{{...$tabNavigation,bgImg:skinData.tabNavBgImg,selectedColor:skinData.tabItemSelectedColor,unselectedColor:skinData.tabItemUnselectedColor}}"></template>
+        <template is="roomList" data="{{...$roomList,minHeight:minListHeight}}"></template>
+    </block>
+</template>

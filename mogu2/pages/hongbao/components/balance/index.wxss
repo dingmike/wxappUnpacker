@@ -1,0 +1,51 @@
+.balance {
+    margin: 0 30rpx 20rpx;
+    padding: 20rpx 30rpx;
+    background-color: #ff5777;
+    background-repeat: no-repeat;
+    background-image: url(https://s10.mogucdn.com/p2/160927/upload_8g2dck5cf7fj7debia9a2igllcbe9_98x106.png);
+    background-position: 100% center;
+    background-size: auto 60%;
+    background-origin: content-box;
+    color: #fff;
+    text-align: center;
+}
+
+.balance-num {
+    font-size: 70rpx;
+    line-height: 70rpx;
+}
+
+.balance-hint {
+    font-size: 24rpx;
+}
+
+.balance-text {
+    font-size: 28rpx;
+    font-weight: 100;
+}
+
+.new-balace {
+    background-color: #fff;
+    padding: 35rpx 40rpx 35rpx 30rpx;
+    margin-bottom: 20rpx;
+}
+
+.new-balance-text,.new-balance-num {
+    font-size: 35rpx;
+    color: #333;
+}
+
+.inner {
+    padding-right: 30rpx;
+    background-image: url(https://s10.mogucdn.com/p2/160927/upload_7gd5lkk69b2k4a56i91ggj2i229ck_16x29.png);
+    background-repeat: no-repeat;
+    background-position: 100% center;
+    background-size: 16rpx 29rpx;
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+    overflow: hidden;
+}

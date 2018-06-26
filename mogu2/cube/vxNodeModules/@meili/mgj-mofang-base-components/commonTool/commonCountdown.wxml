@@ -1,0 +1,12 @@
+<template name="common-countdown">
+    <view class="{{classData}} {{__vx_class}}" id="{{countDownId}}" style="{{__vx_style}}">
+        <text class="timeshow" style="font-size: {{numstyle.fontSize/100*100+'rpx'}}; color: {{numstyle.color}}; background-color: {{numstyle.backgroundColor}}; border-radius: {{numstyle.borderRadius/100*100+'rpx'}}; padding: {{numstyle.padding/100*100+'rpx'}};">{{days}}</text>
+        <text class="countdown-label" style="font-size: {{fontstyle.fontSize/100*100+'rpx'}}; color: {{fontstyle.color}}; margin-left: {{fontstyle.marginLR/100*100+'rpx'}}; margin-right: {{fontstyle.marginLR/100*100+'rpx'}};">{{fontstyle.type==1?':':'天'}}</text>
+        <text class="timeshow" style="font-size: {{numstyle.fontSize/100*100+'rpx'}}; color: {{numstyle.color}}; background-color: {{numstyle.backgroundColor}}; border-radius: {{numstyle.borderRadius/100*100+'rpx'}}; padding: {{numstyle.padding/100*100+'rpx'}};">{{hours}}</text>
+        <text class="countdown-label" style="font-size: {{fontstyle.fontSize/100*100+'rpx'}}; color: {{fontstyle.color}}; margin-left: {{fontstyle.marginLR/100*100+'rpx'}}; margin-right: {{fontstyle.marginLR/100*100+'rpx'}};">{{fontstyle.type==1?':':'时'}}</text>
+        <text class="timeshow {{classNumM}}" style="font-size: {{numstyle.fontSize/100*100+'rpx'}}; color: {{numstyle.color}}; background-color: {{numstyle.backgroundColor}}; border-radius: {{numstyle.borderRadius/100*100+'rpx'}}; padding: {{numstyle.padding/100*100+'rpx'}};"></text>
+        <text class="countdown-label" style="font-size: {{fontstyle.fontSize/100*100+'rpx'}}; color: {{fontstyle.color}}; margin-left: {{fontstyle.marginLR/100*100+'rpx'}}; margin-right: {{fontstyle.marginLR/100*100+'rpx'}};">{{fontstyle.type==1?':':'分'}}</text>
+        <text class="timeshow {{classNumS}}" style="font-size: {{numstyle.fontSize/100*100+'rpx'}}; color: {{numstyle.color}}; background-color: {{numstyle.backgroundColor}}; border-radius: {{numstyle.borderRadius/100*100+'rpx'}}; padding: {{numstyle.padding/100*100+'rpx'}};"></text>
+        <text class="countdown-label" style="font-size: {{fontstyle.fontSize/100*100+'rpx'}}; color: {{fontstyle.color}}; margin-left: {{fontstyle.marginLR/100*100+'rpx'}}; margin-right: {{fontstyle.marginLR/100*100+'rpx'}};">{{fontstyle.type==1?'':'秒'}}</text>
+    </view>
+</template>

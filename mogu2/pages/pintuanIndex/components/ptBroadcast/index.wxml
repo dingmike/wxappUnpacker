@@ -1,0 +1,12 @@
+<template name="ptBroadcast">
+    <view class="ptBroadcast-wrap" hidden="{{!isShow}}">
+        <view class="ptBroadcast-avatar">
+            <image class="ptBroadcast-avatar-image" mode="aspectFill" src="{{avatar}}"></image>
+        </view>
+        <view class="ptBroadcast-info">
+            <text class="ptBroadcast-info-text">最新拼团来自</text>
+            <text class="ptBroadcast-info-text ptBroadcast-info-nick">{{nick}}</text>
+            <text class="ptBroadcast-info-text">，{{number}}秒前</text>
+        </view>
+    </view>
+</template>

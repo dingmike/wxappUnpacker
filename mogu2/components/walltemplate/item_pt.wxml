@@ -1,0 +1,122 @@
+<template name="wallPtMore">
+    <view bindtap="$redirect" class="wallPtMore-wrap" data-from-page="detail" data-href="{{link}}" style="margin-bottom: {{marginBottom===0?0:marginBottom+'rpx'}}; margin-top: {{marginTop===0?0:marginTop+'rpx'}};" wx:if="{{link}}">
+        <view>
+            <text class="wallPtMore-text">{{name}}</text>
+        </view>
+        <view>
+            <text class="wallPtMore-right">更多</text>
+            <text class="m-icon m-icon-arrow-right wallPtMore-icon"></text>
+        </view>
+    </view>
+    <view class="wallPtMore-wrap" style="margin-bottom: {{marginBottom===0?0:marginBottom+'rpx'}}; margin-top: {{marginTop===0?0:marginTop+'rpx'}};" wx:else>
+        <view>
+            <text class="wallPtMore-text">{{name}}</text>
+        </view>
+    </view>
+</template>
+<template name="wallPtTabNav">
+    <view id="scrollIntoViewId" style="height:0;"></view>
+    <view class="wall_nav_box {{scrollNavStickyClass}}" id="wall_nav_box" wx:if="{{navData&&navData.length}}">
+        <view class="nav_middle {{scrollNavFixedClass}}">
+            <view class="nav_tabs_scroll">
+                <view class="scroll_box  border-box">
+                    <view bindtap="{{$scope}}.sortTab" class="nav_tab {{tab.onClass}}" data-fcid="{{tab.fcid}}" data-pid="{{tab.pid}}" data-tab-index="{{index}}" wx:for="{{navData}}" wx:for-item="tab" wx:key="tabList">
+                        <view class="t_text content-box box-center-y" style="min-width: {{750/navData.length-32*navData.length}}rpx" wx:if="{{navData&&navData.length>0&&navData.length<5}}">{{tab.name}}</view>
+                        <view class="t_text content-box box-center-y" wx:else>{{tab.name}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="wallPtOrderList">
+    <view bindtap="$navigate" class="goods_item goods_item_v61 ptWall-item" data-acm="{{item.acm}}" data-href="{{item.item_xcx_url}}" data-ptp-c="{{ptpC||''}}" wx:for="{{wallList}}" wx:key="itemList">
+        <view class="ptWall-item-image-wrap">
+            <image class="ptWall-item-image" mode="aspectFill" src="{{item.image}}"></image>
+            <block wx:if="{{item.ptClassify}}">
+                <view class="ptWall-item-normal ptWall-item-new" wx:if="{{item.ptClassify==='1'}}">老带新</view>
+                <view class="ptWall-item-normal" wx:elif="{{item.ptClassify==='2'&&item.ptLabel}}">{{item.ptLabel}}</view>
+            </block>
+        </view>
+        <view class="ptWall-item-info">
+            <view class="ptWall-item-info-title">{{item.title}}</view>
+            <view class="ptWall-item-info-descr">{{item.itemAdvantageDesc}}</view>
+            <view class="ptWall-item-info-price">
+                <text class="ptWall-item-info-price-tuanPrice-dollar" style="font-family:Arial;">￥</text>
+                <text class="ptWall-item-info-price-tuanPrice">{{item.discountPrice}}</text>
+                <text class="ptWall-item-info-price-oldPrice" style="font-family:Arial;">￥{{item.price}}</text>
+            </view>
+            <view class="ptWall-item-info-tag">
+                <block wx:if="{{item.pintuanAvatar&&item.pintuanAvatar!=='-1'}}">
+                    <view class="ptWall-item-info-tag-tuanAvatarList" wx:if="{{item.pintuanAvatarArr}}">
+                        <image class="ptWall-item-info-tag-tuanAvatarItem" mode="aspectFill" src="{{user}}" wx:for="{{item.pintuanAvatarArr}}" wx:for-item="user"></image>
+                    </view>
+                    <image class="ptWall-item-info-tag-tuanAvatarItem" mode="aspectFill" src="{{item.pintuanAvatar}}" wx:elif="{{item.pintuanAvatar}}"></image>
+                    <text class="ptWall-item-info-tag-tuanInfo">刚刚成团了</text>
+                </block>
+                <block wx:elif="{{item.pintuanItemSale}}">
+                    <view class="ptWall-item-info-tag-tuanAvatarList" wx:if="{{item.pintuanAvatarArr}}">
+                        <image class="ptWall-item-info-tag-tuanAvatarItem" mode="aspectFill" src="{{user}}" wx:for="{{item.pintuanAvatarArr}}" wx:for-item="user" wx:key="{{*this}}"></image>
+                    </view>
+                    <text class="ptWall-item-info-tag-tuanInfo">已团{{item.pintuanItemSale}}件</text>
+                </block>
+                <text class="ptWall-item-info-tag-tuanInfo" wx:else>{{item.ptUserCount}}人成团</text>
+            </view>
+            <block wx:if="{{item.displayTag&&item.displayTag==='SELL_OUT'}}">
+                <view class="ptWall-item-info-btn ptWall-item-info-btn-out">去看看</view>
+                <image class="ptWall-item-info-soldOutImage" mode="aspectFill" src="https://s10.mogucdn.com/mlcdn/c45406/170624_0374e45428kf5li3fl7e9l8ldj4cf_116x140.png"></image>
+            </block>
+            <view class="ptWall-item-info-btn ptWall-item-info-btn-ing" wx:else>去开团</view>
+        </view>
+    </view>
+</template>
+<template name="wallPtItemsBox">
+    <view class="J_items_box" id="J_items_box" style="min-height:{{$wall.scrollBoxHeight}}px">
+        <block wx:if="{{$wall.itemPackageList}}">
+            <view class="goods_list_mod clearfix" wx:for="{{$wall.itemPackageList}}" wx:for-item="itemList" wx:key="itemPackageList">
+                <view bindtap="$wall.linkClick" class="goods_item goods_item_v61 ptWall-item" data-acm="{{item.acm}}" data-link="{{item.item_xcx_url}}" id="pagani_log_{{item.tradeItemId}}_{{item.index}}" wx:for="{{$wall[itemList.name]}}" wx:key="itemList">
+                    <view class="ptWall-item-image-wrap">
+                        <image class="ptWall-item-image" mode="aspectFill" src="{{item.img}}"></image>
+                        <block wx:if="{{item.ptClassify}}">
+                            <view class="ptWall-item-normal ptWall-item-new" wx:if="{{item.ptClassify==='1'}}">老带新</view>
+                            <view class="ptWall-item-normal" wx:elif="{{item.ptClassify==='2'&&item.ptLabel}}">{{item.ptLabel}}</view>
+                        </block>
+                    </view>
+                    <view class="ptWall-item-info">
+                        <view class="ptWall-item-info-title">{{item.title}}</view>
+                        <view class="ptWall-item-info-descr">{{item.itemAdvantageDesc}}</view>
+                        <view class="ptWall-item-info-tag">
+                            <block wx:if="{{item.pintuanAvatar&&item.pintuanAvatar!=='-1'}}">
+                                <view class="ptWall-item-info-tag-tuanAvatarList" wx:if="{{item.pintuanAvatarArr&&item.pintuanAvatarArr.length>0}}">
+                                    <image class="ptWall-item-info-tag-tuanAvatarItem" mode="aspectFill" src="{{user}}" wx:for="{{item.pintuanAvatarArr}}" wx:for-index="userindex" wx:for-item="user" wx:key="userindex"></image>
+                                </view>
+                                <image class="ptWall-item-info-tag-tuanAvatarItem" mode="aspectFill" src="{{item.pintuanAvatar}}" wx:elif="{{item.pintuanAvatar}}"></image>
+                                <text class="ptWall-item-info-tag-tuanInfo">刚刚成团了</text>
+                            </block>
+                            <block wx:elif="{{item.pintuanItemSale}}">
+                                <view class="ptWall-item-info-tag-tuanAvatarList" wx:if="{{item.pintuanAvatarArr}}">
+                                    <image class="ptWall-item-info-tag-tuanAvatarItem" mode="aspectFill" src="{{user}}" wx:for="{{item.pintuanAvatarArr}}" wx:for-item="user" wx:key="{{*this}}"></image>
+                                </view>
+                                <text class="ptWall-item-info-tag-tuanInfo">已团{{item.pintuanItemSale}}件</text>
+                            </block>
+                            <text class="ptWall-item-info-tag-tuanInfo" wx:else>{{item.ptUserCount}}人成团</text>
+                        </view>
+                        <view class="ptWall-item-info-price">
+                            <text class="ptWall-item-info-price-tuanPrice-dollar" style="font-family:Arial;">￥</text>
+                            <text class="ptWall-item-info-price-tuanPrice">{{item.price}}</text>
+                            <text class="ptWall-item-info-price-oldPrice" style="font-family:Arial;">￥{{item.orgPrice}}</text>
+                        </view>
+                        <block wx:if="{{item.displayTag&&item.displayTag==='SELL_OUT'}}">
+                            <view class="ptWall-item-info-btn ptWall-item-info-btn-out">去看看</view>
+                            <image class="ptWall-item-info-soldOutImage" mode="aspectFill" src="https://s10.mogucdn.com/mlcdn/c45406/170624_0374e45428kf5li3fl7e9l8ldj4cf_116x140.png"></image>
+                        </block>
+                        <view class="ptWall-item-info-btn ptWall-item-info-btn-ing" wx:else>去开团</view>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <view class="wall_loading" wx:if="{{!$wall.endContent}}">正在加载中...</view>
+        <view class="wall_loading" wx:elif="{{$wall.endContent=='end'}}">没有更多商品了~</view>
+        <view class="wall_loading" wx:elif="{{$wall.endContent=='noResult'}}">抱歉！没找到相关商品~</view>
+    </view>
+</template>

@@ -1,0 +1,29 @@
+<template name="scrollGoods">
+    <view class="scroll-goods" style="background-color:{{boxBgColor}};margin:{{boxMargin}};" wx:if="{{list&&list.length>0}}">
+        <view class="scroll-goods-header" wx:if="{{$headingTitle}}">
+            <template is="heading_more" data="{{title:$headingTitle,titleIcon:$headingTitleIcon,height:$headingHeight,bgColor:$headingBgColor,margin:$headingMargin,padding:$headingPadding,color:$headingColor,moreText:$headingMoreText,moreTextColor:$headingMoreTextColor,moreLink:$headingMoreLink,wxaMoreLink:$headingWxaMoreLink,appId:$headingAppId,canLaunch:$headingCanLaunch}}"></template>
+            <view class="scroll-goods-countdown-box" wx:if="{{showCountDown}}">
+                <view class="scroll-goods-countdown-tips">{{leftTimeDes||'本场仅剩'}}</view>
+                <template is="countdown" data="{{...$countdown,className:'scroll-goods-countdown',numClass:'scroll-cart-num',symbolClass:'scroll-cart-symbol'}}"></template>
+            </view>
+        </view>
+        <view class="scroll-goods-content">
+            <view class="scroll-goods-scroll">
+                <view class="scroll-goods-flex scroll-goods-{{centerClass}}">
+                    <view bindtap="$navigate" class="scroll-goods-item" data-acm="{{item.acm||''}}" data-href="{{item.item_xcx_url_backup||item.item_xcx_url||item.shop_xcx_url||''}}" data-ptp-c="{{ptpC}}" data-ptp-d="{{index}}" wx:for="{{list}}" wx:key="index">
+                        <text class="scroll-goods-discount" style="background-color: {{priceColor||'rgba(252, 60, 100, .8)'}};" wx:if="{{showDiscount&&item.discount&&item.discount>0&&item.discount<10}}">{{item.discount}}折</text>
+                        <view class="scroll-goods-image-box">
+                            <image class="scroll-goods-image scroll-goods-image_showDiscount" mode="aspectFill" src="{{item.suffix_img||''}}" wx:if="{{showDiscount}}"></image>
+                            <image class="scroll-goods-image" mode="aspectFill" src="{{item.suffix_img||''}}" wx:else></image>
+                        </view>
+                        <view class="scroll-goods-title" style="color:{{titleColor||'#666'}}">{{item.title||''}}</view>
+                        <view class="scroll-goods-price" style="color:{{priceColor||'rgba(252, 60, 100, .8)'}};font-family:Arial;">{{item.price?'¥'+item.price:''}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+<import src="../scrollGoods/index.wxml"></import>
+<import src="../countdown/index.wxml"></import>
+<import src="../heading/index.wxml"></import>

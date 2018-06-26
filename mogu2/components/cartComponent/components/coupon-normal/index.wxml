@@ -1,0 +1,27 @@
+<template name="couponList-normal">
+    <view class="couponlist flex f-ai-fe" hidden="{{!show}}">
+        <view catchtouchmove="{{$scope}}.couponTouch" class="ui-mask"></view>
+        <view class="couponlist-content-normal flex f-fd-c">
+            <view catchtouchmove="{{$scope}}.couponTouch" class="couponlist-content--title flex f-ai-c">
+                <text bindtap="{{$scope}}.closeCoupon" class="couponlist-shopname">{{shopName}}</text>
+                <text bindtap="{{$scope}}.closeCoupon" class="couponlist-content--close">╳</text>
+            </view>
+            <form bindsubmit="{{$scope}}.formSubmitHandler" reportSubmit="true">
+                <scroll-view scrollY class="couponlist-content-normal--list">
+                    <view class="couponlistItem" wx:if="{{item.isNeedGet}}" wx:for="{{list}}" wx:key="campId">
+                        <view class="couponlistItem-item flex">
+                            <view class="couponlistItem-item--content">
+                                <view class="couponlistItem-item--cash">{{item.effectDesc}}</view>
+                                <view class="couponlistItem-item--infor">{{item.limitDesc}}</view>
+                                <view class="couponlistItem-item--date">使用期限{{item.validTime}}</view>
+                            </view>
+                            <button class="couponlistItem-item--btn f-as-c {{item.isAlreadGet?'':'couponlistItem-item--get'}}" data-campid="{{!item.isAlreadGet&&item.campId}}" data-type="getShopCoupon" formType="submit">
+                {{item.isAlreadGet?'已领取':'领取'}}
+              </button>
+                        </view>
+                    </view>
+                </scroll-view>
+            </form>
+        </view>
+    </view>
+</template>

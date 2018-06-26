@@ -1,0 +1,58 @@
+<template name="scratch">
+    <view class="scratch-wrap" style="height: {{lottery.height}}rpx" wx:if="{{lottery}}">
+        <view class="lottery-wrap" wx:if="{{lotteryStatus===0}}">
+            <image class="lottery-bg" mode="widthFix" src="{{lottery.defautBGImage}}"></image>
+            <view class="lottery-info">
+                <view class="lottery-title">{{lottery.mainTitle}}</view>
+                <view class="lottery-text">{{lottery.subTitle}}</view>
+                <button bindtap="{{$scope}}.getLottery" class="lottery-btn" style="background: {{lottery.clickBGColor}};">{{lottery.clickTitle}}</button>
+            </view>
+        </view>
+        <view class="lottery-result-wrap" wx:if="{{lotteryStatus!==0}}">
+            <canvas bindtouchend="{{$scope}}.touchEnd" bindtouchmove="{{$scope}}.touchMove" bindtouchstart="{{$scope}}.touchStart" canvasId="scratch" class="lottery-mask" disableScroll="true" wx:if="{{lotteryStatus===1}}"></canvas>
+            <view class="lottery-detail-wrap" wx:if="{{gift&&gift.isReady}}">
+                <image class="lottery-bg" mode="widthFix" src="{{lottery.prizeBGImage}}" style="height: {{lottery.height}}rpx"></image>
+                <view class="lottery-result">
+                    <view class="lottery-fail" wx:if="{{!gift.giftType}}">
+                        <view class="lottery-fail-title">{{lottery.failedMainTitle}}</view>
+                        <view class="lottery-fail-text">{{lottery.failedSubTitle}}</view>
+                    </view>
+                    <view class="lottery-success" wx:if="{{gift.giftType}}">
+                        <view class="coupon" wx:if="{{gift.giftType=='platformCoupon'||gift.giftType=='shopCoupon'}}">
+                            <view class="coupon-title">{{gift.giftContent.mainTitle}}</view>
+                            <view class="flex coupon-content">
+                                <view class="coupon-type">{{gift.giftContent.couponName}}</view>
+                                <view class="coupon-desc">¥{{gift.giftContent.cutPrice}}<text class="coupon-extra">满{{gift.giftContent.limitPrice}}元可用</text>
+                                </view>
+                            </view>
+                            <button bindtap="{{$scope}}.navigate" class="lottery-btn guide-content-btn" data-url="{{gift.giftContent.goUrl}}">{{gift.giftContent.opPrompt||'立即使用'}}</button>
+                        </view>
+                        <view class="goods-wrap" wx:if="{{gift.giftType=='welfareItem'}}">
+                            <view class="coupon-title">恭喜刮得福利商品</view>
+                            <view class="flex goods-info">
+                                <image class="goods-image" mode="aspectFill" src="{{gift.giftContent.picUrl}}"></image>
+                                <view class="flex f-fd-c f-jc-sb goods-desc">
+                                    <view class="goods-title">{{gift.giftContent.itemName}}</view>
+                                    <view class="flex goods-price-info">
+                                        <view class="goods-price-tag">{{gift.giftContent.priceTip}}</view>
+                                        <view class="goods-price-now">¥ {{gift.giftContent.price}}</view>
+                                        <view class="goods-price-origin">¥ {{gift.giftContent.oldPrice}}</view>
+                                    </view>
+                                </view>
+                                <view class="goods-buy">
+                                    <button bindtap="{{$scope}}.navigate" class="lottery-btn guide-content-btn" data-url="{{gift.giftContent.goUrl}}">{{gift.giftContent.opPrompt||'立即领取'}}</button>
+                                    <view class="goods-tips">{{gift.giftContent.remainTime}}小时后恢复原价</view>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="guide-content" wx:if="{{gift.giftType=='recommendGift'||gift.giftType=='guideContent'}}">
+                            <view class="lottery-title guide-content-title">{{gift.giftContent.giftName}}</view>
+                            <view class="lottery-text guide-content-text">{{gift.giftContent.subTitle}}</view>
+                            <button bindtap="{{$scope}}.navigate" class="lottery-btn guide-content-btn" data-url="{{gift.giftContent.goUrl}}">{{gift.giftContent.opPrompt||'立即领取'}}</button>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

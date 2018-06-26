@@ -1,0 +1,14 @@
+.countdown {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.countdown__left {
+    margin-right: 10rpx;
+}
+
+.countdown__item {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}

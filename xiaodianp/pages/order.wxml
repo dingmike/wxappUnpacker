@@ -1,0 +1,112 @@
+<view>
+    <view wx:if="{{isShow===false}}">
+        <view class="seeloading" id="seeloading">
+            <view class="img_view">
+                <image alt="see" class="seeloading_img" src="/images/seeloading.png"></image>
+            </view>
+            <view class="loading_info">正在加载...</view>
+        </view>
+    </view>
+    <view class="page-container order-con" wx:else>
+        <view class="top-tab flex-wrp flex-tab ">
+            <view bindtap="switchTab" class="toptab flex-item {{type==idx?'active':''}}" data-idx="{{idx}}" wx:for="{{navTab}}" wx:for-index="idx" wx:for-item="itemName" wx:key="id">
+        {{itemName}}
+      </view>
+        </view>
+        <view class="order" wx:if="{{listOrder.length>0}}">
+            <view class="order-container">
+                <view class="order-item" wx:for="{{listOrder}}" wx:for-item="order" wx:key="id">
+                    <view bindtap="clickOrder" data-id="{{order.summary_info.order_id}}">
+                        <view class="order-item-top">
+                            <image class="flag-img" src="{{order.summary_info.country_flag+'?imageView2/0/w/300/h/300/q/80'}}"></image>
+                            <view class="order-ship-country">
+                                <text>{{order.summary_info.ship_country}}</text>
+                            </view>
+                            <view class="{{order.summary_info.status=='10001'?'order-status-need-pay':'order-status'}}">
+                                <text>{{order.summary_info.status_str}}</text>
+                            </view>
+                        </view>
+                        <view class="order-item-middle" wx:if="{{order.order_list.length>1}}">
+                            <view class="order-item-image" wx:for="{{order.order_list}}" wx:for-item="items" wx:key="id">
+                                <image mode="aspectFill" src="{{items.item_imgurl+'?imageView2/0/w/300/h/300/q/80'}}"></image>
+                            </view>
+                        </view>
+                        <view class="order-item-middle" wx:if="{{order.order_list.length===1}}">
+                            <view class="order-item-image">
+                                <image mode="aspectFill" src="{{order.order_list[0].item_imgurl+'?imageView2/0/w/300/h/300/q/80'}}"></image>
+                            </view>
+                            <view class="order-item-text-info">
+                                <text class="order-item-name">{{order.order_list[0].item_name}}</text>
+                                <text class="order-item-attr">{{order.order_list[0].attr_value}}</text>
+                            </view>
+                            <view class="order-item-price">
+                                <text>￥{{order.order_list[0].total_fee}}</text>
+                                <text>x{{order.order_list[0].quantity}}</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view>
+                        <view class="order-item-bottom">
+                            <view class="order-total-price">
+                                <view>
+                                    <text>实付款：</text>
+                                    <text>￥{{order.summary_info.total_fee}}</text>
+                                </view>
+                            </view>
+                            <view class="order-pay">
+                                <button bindtap="clickRefund" data-id="{{order.summary_info.order_id}}" size="mini" type="default" wx:if="{{!order.summary_info.groupinfo&&order.summary_info.status==20006&&order.summary_info.refund_status==0}}">退款</button>
+                                <button bindtap="toGroupInfo" data-id="{{order.summary_info.groupinfo.id}}" hoverStayTime="700" size="mini" type="default" wx:if="{{order.summary_info.groupinfo&&order.summary_info.status==20006&&order.summary_info.refund_status==0}}">{{order.summary_info.order_type==='3'?'中奖详情':'拼团详情'}}</button>
+                                <button bindtap="toGroupInfo" data-id="{{order.summary_info.groupinfo.id}}" hoverStayTime="700" size="mini" type="default" wx:if="{{order.summary_info.groupinfo&&(order.summary_info.status==30002||order.summary_info.status==20004)&&order.summary_info.refund_status==1&&order.summary_info.order_type==3}}">中奖详情</button>
+                            </view>
+                            <view class="order-pay" wx:if="{{order.summary_info.status==20002||order.summary_info.status==20003||order.summary_info.status==2007||order.summary_info.status==20008||order.summary_info.status==30001||order.summary_info.status==30004}}">
+                                <button bindtap="clickTransInfo" data-id="{{order.summary_info.order_id}}" size="mini" type="default">订单动态</button>
+                            </view>
+                            <view class="order-pay" wx:if="{{order.summary_info.status==20003||order.summary_info.status==20002}}">
+                                <button bindtap="clickConfirm" data-id="{{order.summary_info.order_id}}" size="mini" type="default">确认收货</button>
+                            </view>
+                            <view class="order-pay" wx:if="{{order.summary_info.remain_second>0&&order.summary_info.status==10001}}">
+                                <view>
+                                    <text>{{order.summary_info.remain_second_str}}</text>
+                                </view>
+                                <button bindtap="clickRepay" class="pay-button" data-id="{{order.summary_info.order_id}}" data-isGrouponOrder="{{order.summary_info.groupinfo?true:false}}" size="mini" type="default">付款</button>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="upload" wx:if="{{loadList}}">
+                <image class="uploadImage" src="/images/uploadImg.png"></image>
+                <text wx:if="{{$upload$showFoot}}">已经拉到底，没有更多了！</text>
+                <text wx:else>正在加载中...</text>
+            </view>
+        </view>
+        <view class="loading" wx:if="{{is_getting===true}}">
+            <view class="seeloading" id="seeloading">
+                <view class="img_view">
+                    <image alt="see" class="seeloading_img" src="/images/seeloading.png"></image>
+                </view>
+                <view class="loading_info">正在加载...</view>
+            </view>
+        </view>
+        <view class="empty-text" wx:if="{{listOrder.length==0&&is_getting===false}}">
+            <text class="text">暂无订单</text>
+        </view>
+        <modal bindcancel="listenerCancel" bindconfirm="listenerConfirm" cancelText="再看看" class="modal" confirmText="确认" style="display:{{hiddenModal?'none':'block'}}" title="退款" wx:if="{{isShow===true}}">
+            <view class="modal-header" wx:if="{{refund.show_type==1}}">请选择退款理由</view>
+            <view class="modal-body">
+                <view wx:if="{{refund.show_type==0}}">退款后订单无法恢复哦，确定要退款吗？</view>
+                <block wx:if="{{refund.show_type==1}}">
+                    <radio-group bindchange="radioChange" class="radio-group" name="reason">
+                        <label class="type-list__radio" wx:for="{{refund.options}}">
+                            <radio value="{{item}}"></radio>{{item}}
+                </label>
+                    </radio-group>
+                    <input bindinput="setOtherReason" type="text" value="{{refund.otherReason}}" wx:if="{{refund.reason=='其他'}}"></input>
+                </block>
+            </view>
+        </modal>
+        <view class="wetips {{$tips$reveal?'wetips-show':''}}">
+            <text>{{$tips$title}}</text>
+        </view>
+    </view>
+</view>

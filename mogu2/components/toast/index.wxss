@@ -1,0 +1,31 @@
+.ui-toast-overlay {
+    position: fixed;
+    display: flex;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    z-index: 1000;
+}
+
+.ui-toast {
+    margin: 0 auto;
+    pointer-events: auto;
+    display: block;
+    min-width: 300rpx;
+    max-width: 428rpx;
+    min-height: 80rpx;
+    background-color: rgba(0,0,0,.7);
+    padding: 24rpx 32rpx;
+    text-align: center;
+    border-radius: 10rpx;
+}
+
+.ui-toast-msg {
+    color: #fff;
+    font-size: 28rpx;
+    line-height: 32rpx;
+}

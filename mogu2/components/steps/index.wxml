@@ -1,0 +1,14 @@
+<template name="steps">
+    <view class="steps">
+        <view class="step flex {{index<current?'finish':index==current?'process':''}}" wx:for="{{stepsList}}" wx:key="index">
+            <view class="step-icon flex f-fd-c f-ai-c">
+                <view class="step-dot"></view>
+                <view class="step-line f-fg-1" wx:if="{{index!==stepsList.length-1}}"></view>
+            </view>
+            <view class="step-content">
+                <view class="step-desc" wx:if="{{item.stepDesc}}">{{item.stepDesc}}</view>
+                <view class="step-title" wx:if="{{item.stepTitle}}">{{item.stepTitle}}</view>
+            </view>
+        </view>
+    </view>
+</template>

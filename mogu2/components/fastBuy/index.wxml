@@ -1,0 +1,57 @@
+<template name="fastBuy">
+    <template is="mask" data="{{...$mask}}" wx:if="{{!noMask}}"></template>
+    <template is="goodsNumDialog" data="{{...$goodsNumDialog}}"></template>
+    <template is="toast" data="{{...$toast}}"></template>
+    <view class="fast-buy {{type}}-fast-buy" hidden="{{!isShow}}">
+        <template is="loading" data="{{...$loading}}"></template>
+        <view class="fast-buy-titlebar" wx:if="{{type!=='normal'}}">
+            <text class="fast-buy-title">快捷下单</text>
+            <view bindtap="{{$scope}}.callClickFastBuy" class="fast-buy-close">╳</view>
+        </view>
+        <view class="fast-buy-scoll {{type}}-fast-buy-scroll">
+            <view class="bondedgoods-text-tip" wx:if="{{hasBondedGoods}}">海外商品需经海关清关,中国海关需核对必要的身份信息</view>
+            <template is="virtualBox" data="{{...$virtualBox}}" wx:if="{{virtualChargeAccount||addPhoneNumber}}"></template>
+            <template is="address" data="{{...$address}}" wx:if="{{hasData&&chooseAddress}}"></template>
+            <template is="bonded" data="{{...$bondedGoods,identityNum:identityNum,needIdentityPic:needIdentityPic}}" wx:if="{{hasBondedGoods}}"></template>
+            <view class="ui-panel">
+                <template is="shop" data="{{...$shop,hasBondedGoods:hasBondedGoods}}" wx:if="{{$shop}}"></template>
+                <form bindsubmit="{{$scope}}.formSubmitHandler" reportSubmit="true" wx:if="{{choosePromotion}}">
+                    <button class="salebar flex salebar-all" data-handler="callClickAllSale" data-promotion-key="{{selectedPromotionKey}}" formType="submit">
+                        <text bindtap="callClickAllSale" class="{{titleClass}}" data-promotion-key="{{selectedPromotionKey}}">全场优惠：</text>
+                        <text bindtap="callClickAllSale" class="salebar-desc" data-promotion-key="{{selectedPromotionKey}}">{{selectedPromotionDesc||'无可用优惠'}}</text>
+                        <text bindtap="callClickAllSale" class="{{discountFee>0?'salebar-price salebar-price--red':'salebar-price'}}" data-promotion-key="{{selectedPromotionKey}}">{{discountFeeStr}}</text>
+                        <view bindtap="callClickAllSale" class="m-icon m-icon-arrow-right salebar-arrow" data-promotion-key="{{selectedPromotionKey}}" wx:if="{{choosePromotion&&(promotionList.length||!oldPlatformPromotion)}}"></view>
+                    </button>
+                </form>
+                <view class="salebar flex salebar-all" wx:if="{{repayStage}}">
+                    <text class="switch-title">{{switchTitle}}</text>
+                    <text class="salebar-desc salebar-fenqi-desc pink" wx:if="{{switchDesc}}">{{switchDesc}}</text>
+                    <switch bindchange="{{$scope}}.switchChange" bindtap="{{$scope}}.clickSwitch" checked="{{canRepayStage&&openRepayStage}}" color="#ff5777"></switch>
+                </view>
+                <view bindtap="{{$scope}}.callClickModifyFenqi" class="salebar flex salebar-fenqi" wx:if="{{selectFenqi}}">
+                    <text class="switch-title">{{selectFenqi}}</text>
+                    <text class="salebar-price salebar-price--red" data-promotion-key="{{selectedPromotionKey}}" wx:if="{{selectedPromotionKey}}">修改分期</text>
+                    <view class="m-icon m-icon-arrow-right salebar-arrow" data-promotion-key="{{selectedPromotionKey}}" wx:if="{{choosePromotion&&promotionList.length}}"></view>
+                </view>
+            </view>
+            <template is="paybar" data="{{...$paybar}}" wx:if="{{hasData&&type!='normal'}}"></template>
+            <template is="paybarNormal" data="{{...$paybar}}" wx:if="{{hasData&&type=='normal'}}"></template>
+            <template is="platformCoupon" data="{{...$platformCoupon}}" wx:if="{{!oldPlatformPromotion}}"></template>
+            <template is="coupon" data="{{...$couponList}}" wx:if="{{oldPlatformPromotion}}"></template>
+            <template is="fenqi" data="{{...$fenqi}}"></template>
+        </view>
+    </view>
+</template>
+<import src="../toast/index.wxml"></import>
+<import src="components/address/index.wxml"></import>
+<import src="components/shop/index.wxml"></import>
+<import src="components/payBar/index.wxml"></import>
+<import src="components/coupon/index.wxml"></import>
+<import src="components/bondedGoods/index.wxml"></import>
+<import src="components/platformCoupon/index.wxml"></import>
+<import src="../loading/index.wxml"></import>
+<import src="../mask/index.wxml"></import>
+<import src="components/payBar-normal/index.wxml"></import>
+<import src="components/virtualBox/index.wxml"></import>
+<import src="components/fenqi/index.wxml"></import>
+<import src="components/goodsNumDialog/index.wxml"></import>

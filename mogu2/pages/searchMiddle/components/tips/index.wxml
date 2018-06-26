@@ -1,0 +1,15 @@
+<template name="tips">
+    <view class="tips_wrap" style="display: {{isShowTipsWrap?'block':'none'}}; height:{{windowHeight}}px;">
+        <view catchtap="bindTipsNavigate" class="tips_item flex f-fd-r f-jc-sb" data-acm="{{tip.acm}}" data-index="{{tipIndex}}" data-q="{{tip.query}}" data-queryWord="{{tip.query}}" wx:for="{{tipsData}}" wx:for-index="tipIndex" wx:for-item="tip" wx:key="{{*this}}">
+            <view class="tip_wrap flex f-fd-c f-jc-c {{tip.tipType?'tip_wrap_none':''}}">
+                <view class="tip_name_none tip_name" wx:if="{{tip.tipType}}">
+                    <text class="tip-icon m-icon m-icon-search"></text>搜索“{{tip.query}}”</view>
+                <view class="tip_name" wx:else>{{tip.query}}</view>
+                <view class="tip_good_number" wx:if="{{tip.items}}">{{tip.items}}个商品</view>
+            </view>
+            <view class="tags_wrap flex f-fd-r f-jc-fe f-fw-w">
+                <view bindtap="bindTipsNavigate" class="tag_item" data-acm="{{tip.acm}}" data-index="{{tipIndex}}" data-q="{{tip.query}}" data-queryWord="{{tip.query}} {{item.tag}}" data-tip="{{item.tag}}" wx:if="{{tagIndex<3}}" wx:for="{{tip.tags}}" wx:for-index="tagIndex" wx:key="{{item.tag}}">{{item.tag}}</view>
+            </view>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,26 @@
+<template name="liveInfo">
+    <view class="module-social-liveinfo liveinfo" wx:if="{{liveAnchorInfos||providerName}}">
+        <view class="liveinfo-anchor flex f-ai-c" wx:for="{{liveAnchorInfos}}">
+            <view class="liveinfo-anchor--avatar avatar">
+                <image alt="" class="avatar-img" lazyLoad="{{true}}" src="{{item.avatar}}"></image>
+            </view>
+            <view class="liveinfo-anchor--info info flex f-ff-cn f-ai-fs f-jc-sa">
+                <view class="info-name main-text">{{item.name}}</view>
+                <view class="info-fans sub-text">{{item.userDesc}}</view>
+            </view>
+            <view class="liveinfo-anchor--room room flex f-ff-cn f-ai-fe">
+                <view class="room-status main-text flex f-ai-c">
+                    <view class="room-status--dot"></view>
+            {{item.title}}
+          </view>
+                <view class="room-audience sub-text">{{item.titleDesc}}</view>
+            </view>
+        </view>
+        <view bindtap="{{$scope}}.showBigImage" class="liveinfo-supplier flex f-ai-c f-jc-sb">
+            <view class="liveinfo-supplier--text flex">
+        此商品由供应商<view class="liveinfo-supplier--name">{{providerName}}</view>提供发货服务
+      </view>
+            <i class="m-icon m-icon-arrow-right"></i>
+        </view>
+    </view>
+</template>

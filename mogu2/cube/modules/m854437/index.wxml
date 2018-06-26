@@ -1,0 +1,17 @@
+<template name="854437">
+    <view class="{{__vx_class}}" style="{{__vx_style}}" wx:if="{{isShow}}">
+        <view class="nav-box" style="{{boxStyle}}" wx:if="{{list&&list.length>=minCount}}">
+            <view class="nav-fixed" style="{{fixedStyle}}">
+                <view class="nav-border" style="{{borderStyle}}"></view>
+                <scroll-view class="nav-scroll" scrollLeft="{{scrollLeft}}" scrollWithAnimation="{{true}}" scrollX="{{true}}" style="{{scrollViewStyle}}">
+                    <view class="nav-list" style="{{listStyle}}">
+                        <view bindtap="{{$scope}}._tapHandler" class="nav-item log-item acm-item" data-cube-acm="{{item.acm}}" data-cube-acm-node="{{true}}" data-data-log-content="{{item.acm}}" data-data-log-index="{{index}}" data-index="{{index}}" data-item="{{item.itemStr}}" data-pid="{{pid}}" style="{{itemStyle}}" wx:if="{{item.title}}" wx:for="{{list}}" wx:key="index">
+                            <view class="nav-title" style="{{titleHoverStyle}}" wx:if="{{activeIndex===index}}">{{item.title}}</view>
+                            <view class="nav-title" style="{{titleStyle}}" wx:else>{{item.title}}</view>
+                        </view>
+                    </view>
+                </scroll-view>
+            </view>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,43 @@
+<template name="redPacket">
+    <view class="red-packet-content" hidden="{{!showRedPacket}}">
+        <block wx:if="{{isTimeOut}}">
+            <view class="rp-title-text miss">您错过了开红包的机会 (⋟﹏⋞)</view>
+            <view class="rp-lottery-des-fail">
+                <block wx:if="{{guideMsg}}">
+                    <view class="rp-rule-info-fail" wx:for="{{guideMsg}}" wx:key="*this">
+                        {{item}}
+                    </view>
+                </block>
+            </view>
+        </block>
+        <block wx:else>
+            <view class="rp-title-text">恭喜，获得一个拼手气红包</view>
+            <view class="rp-pop-countdown flex f-jc-c f-ai-c">
+                <view class="rp-countdown-left">还有</view>
+                <view class="rp-countdown-right flex">
+                    <template is="countdown" data="{{...$countdown,className:'red-packet-countdown',numClass:'red-packet-countdown-num'}}"></template>
+                    <view class="countdown-font flex">
+                        <text class="rp-countdown-min">s</text>
+                        <text>失效</text>
+                    </view>
+                </view>
+            </view>
+            <form bindsubmit="{{$scope}}.clickStartBtn" reportSubmit="true">
+                <button class="rp-start-btn {{btnStatus}}" formType="submit" hoverClass="none"></button>
+            </form>
+            <view class="rp-lottery-des">
+                <block wx:if="{{lotteryRule}}">
+                    <view class="rp-rule-info" wx:for="{{lotteryRule}}" wx:key="*this">
+                        {{item}}
+                    </view>
+                </block>
+            </view>
+        </block>
+        <view class="rp-copyright">{{copyright}}</view>
+    </view>
+    <template is="game-pop" data="{{...$gamePop}}"></template>
+    <template is="toast" data="{{...$toast}}"></template>
+</template>
+<import src="../../components/gamePop/index.wxml"></import>
+<import src="../../components/countdown/index.wxml"></import>
+<import src="../../components/toast/index.wxml"></import>

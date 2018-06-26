@@ -1,0 +1,111 @@
+<view>
+    <view class="seeloading" id="seeloading" wx:if="{{isShow===false}}">
+        <view class="img_view">
+            <image alt="see" class="seeloading_img" src="/images/seeloading.png"></image>
+        </view>
+        <view class="loading_info">正在加载...</view>
+    </view>
+    <view class="container" wx:else>
+        <view class="heard item-flex item-around">
+            <image class="heardImage" mode="aspectFill" src="{{rewardDetailData.itemImgurl}}"></image>
+            <view class="heardInfo item-column">
+                <text class="goodName">{{rewardDetailData.brandName}}</text>
+                <text class="goodDetail">{{rewardDetailData.sellPoint}}</text>
+                <text class="origPrice">{{'￥'+rewardDetailData.skuPrice}}</text>
+                <view class="price">
+                    <text>{{'￥'+rewardDetailData.price}}</text>
+                    <label class="tips">
+                        <text></text>抽奖团</label>
+                </view>
+                <image mode="aspectFill" src="http://static.seecsee.com/xcx/images/lottery_52baa917.png"></image>
+            </view>
+        </view>
+        <view class="rewardInfo item-flex item-column">
+            <image class="gift" mode="aspectFill" src="http://static.seecsee.com/xcx/images/present_2cdbd75b.png"></image>
+            <text class="tips1">恭喜你中了二等奖</text>
+            <text class="tips2">已退款{{rewardDetailData.refundPrice}}元</text>
+            <view class="couponTitle item-flex">
+                <text>{{wxData.fansGroupFlag?'1':''}}</text>
+                <image mode="aspectFill" src="https://image.seecsee.com/icon111.png" wx:if="{{wxData.fansGroupFlag}}"></image>
+                <text>获得稀有优惠券一张</text>
+            </view>
+            <view class="coupon {{rewardDetailData.coupon.receiveFlag?'got':''}}">
+                <view class="couponInfo item-flex item-column {{rewardDetailData.coupon.receiveFlag?'got':''}}">
+                    <view class="money">
+                        <text>￥</text>
+                        <text>{{rewardDetailData.coupon.couponPrice}}</text>
+                    </view>
+                    <text class="condition">{{rewardDetailData.coupon.desc}}</text>
+                    <view bindtap="getCoupon" class="drawButton {{rewardDetailData.coupon.receiveFlag?'buttonGray':''}}">{{rewardDetailData.coupon.receiveFlag?'已领取':'领取'}}</view>
+                </view>
+            </view>
+            <text class="term">有效期：{{rewardDetailData.coupon.avaliableTimeStart+'-'+rewardDetailData.coupon.avaliableTimeEnd}}</text>
+            <view class="shareWeChat item-flex item-column" wx:if="{{wxData.fansGroupFlag}}">
+                <view class="couponTitle item-flex">
+                    <text>2</text>
+                    <text>[ {{wxData.sellerName}} ] 的私密分享群入群资格</text>
+                </view>
+                <view class="shareChatNum">
+                    <view class="item-flex item-justify-center">
+                        <text>入群暗号　</text>
+                        <text>{{wxData.fansGroupName}}</text>
+                    </view>
+                </view>
+                <view class="secretSignal item-flex">
+                    <text>暗号发送至</text>
+                    <image src="http://static.seecsee.com/xcx/images/wechat_6deb68e6.png"></image>
+                    <text>开奖助手(微信号:{{wxData.groupName}})</text>
+                </view>
+                <view>
+                    <button bindtap="$groupWeChatCover$showCover" class="addButton" type="primary">去添加</button>
+                    <view bindtap="$groupWeChatCover$closeCover" catchtouchmove="$groupWeChatCover$catchtouchmove" class="wechatNumberCover" wx:if="{{$groupWeChatCover$isShowCover}}"></view>
+                    <view catchtouchmove="$groupWeChatCover$catchtouchmove" class="wechatNumberInfo item-flex item-column" wx:if="{{$groupWeChatCover$isShowCover}}">
+                        <view class="wechatNumberInfo__title">开奖助手微信号</view>
+                        <text class="wechatNumberInfo__number">{{$groupWeChatCover$wxData.groupName}}</text>
+                        <button bindtap="$groupWeChatCover$copy" class="copyButton" size="mini" type="primary">复制微信号</button>
+                        <image bindtap="$groupWeChatCover$previewImage" mode="aspectFill" src="{{$groupWeChatCover$wxData.codeUrl}}"></image>
+                        <text class="wechatNumberInfo__tips">点击二维码，长按保存
+通过“扫一扫”识别</text>
+                        <text bindtap="$groupWeChatCover$closeCover" class="wechatNumberInfo__close"></text>
+                    </view>
+                </view>
+                <image mode="aspectFill" src="http://static.seecsee.com/xcx/images/unboxed_9d1eb2ef.png"></image>
+            </view>
+            <view class="person item-flex item-column">
+                <text>一等奖中奖者</text>
+                <view class="personInfo item-flex">
+                    <image mode="aspectFill" src="{{rewardDetailData.user.uHeadimg}}"></image>
+                    <text class="personName">{{rewardDetailData.user.uUsername}}</text>
+                    <text class="personNum">{{rewardDetailData.user.uMobile}}</text>
+                    <text class="tips3">已发放</text>
+                </view>
+            </view>
+        </view>
+        <view class="moreGroup" wx:if="{{$moreGroup$moreGroupData&&$moreGroup$moreGroupData.length>0}}">
+            <view class="moreGroup__head item-flex item-between">
+                <view>更多拼团</view>
+            </view>
+            <view bindtap="$moreGroup$goToGroupon" class="moreGroup__item item-flex item-around" data-id="{{item.grouponActivityId}}" wx:for="{{$moreGroup$moreGroupData}}" wx:key="grouponActivityId">
+                <image mode="aspectFill" src="{{item.itemImgurl}}"></image>
+                <view class="itemInfo">
+                    <text class="itemName text-ellipsis-double">{{item.itemName}}</text>
+                    <view class="price">
+                        <view class="curPrice">
+                            <text>￥</text>
+                            <text>{{item.price}}</text>
+                        </view>
+                        <text class="origPrice">{{'￥'+item.skuPrice}}</text>
+                    </view>
+                    <button size="mini" type="primary">去开团</button>
+                </view>
+            </view>
+        </view>
+        <view class="item-btn">
+            <navigator class="mall_btn" openType="switchTab" url="/pages/mall">回到商城首页<text class="triangle"></text>
+            </navigator>
+        </view>
+        <view class="partner">
+            <image class="tencent-cooperation" mode="widthFix" src="https://image.seecsee.com/mallBackgroungimage.png"></image>
+        </view>
+    </view>
+</view>

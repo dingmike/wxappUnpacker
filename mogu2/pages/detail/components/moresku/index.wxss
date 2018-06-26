@@ -1,0 +1,51 @@
+.primary-social-moresku.moresku {
+    height: 90rpx;
+    padding: 0 30rpx;
+    line-height: 90rpx;
+}
+
+.primary-social-moresku.moresku .moresku-left {
+    font-size: 24rpx;
+    color: #666666;
+    width: 75%;
+}
+
+.primary-social-moresku.moresku .moresku-left--title {
+    white-space: nowrap;
+}
+
+.primary-social-moresku.moresku .moresku-left--text {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.primary-social-moresku.moresku .moresku-left--text.goods-choose {
+    color: #fb4747;
+}
+
+.primary-social-moresku.moresku .moresku-right {
+    font-size: 24rpx;
+}
+
+.primary-social-moresku.moresku .moresku-right--icon {
+    display: block;
+    margin-left: 5rpx;
+    color: #999999;
+    align-items: center;
+    white-space: nowrap;
+    flex: none;
+    font-size: 24rpx;
+}
+
+.primary-social-moresku.moresku .moresku-sizeHelper {
+    flex: none;
+}
+
+.primary-social-moresku.moresku .moresku-sizeHelper--title {
+    color: #999999;
+}
+
+.primary-social-moresku.moresku .moresku-sizeHelper--size {
+    color: #fb4747;
+}

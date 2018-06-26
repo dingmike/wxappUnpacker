@@ -1,0 +1,23 @@
+<template name="totalMount">
+    <view class="totalMount-wrap" wx:if="{{isShow}}">
+        <view bindtap="{{$scope}}.gotoGround" class="meili-all-base-totalmount totalmount" style="background: url('{{info.background||info.defaultImage}}');background-size: 100%">
+            <view class="totalmount-ammountdown">
+                <view class="ammount-down">
+                    <view class="ammount-down-gaptip" wx:if="{{info.firstTitle}}">{{info.firstTitle}}</view>
+                    <view class="flex f-ai-fe f-jc-c ammount-price-wrap" wx:if="{{status===0}}">
+                        <text class="ammount-down-gapshow-cashtype">¥</text>
+                        <text class="ammount-price-num" wx:for="{{ammountDotLeftArray}}" wx:key="index">{{item}}</text>
+                        <text class="ammount-down-cashdot"></text>
+                        <block wx:if="{{ammountDotRightArray.length}}">
+                            <text class="ammount-price-num" wx:for="{{ammountDotRightArray}}" wx:key="index">{{item}}</text>
+                        </block>
+                    </view>
+                    <view class="ammount-down-replacebuy" wx:if="{{status===0}}">{{info.front}}<text class="ammount-down-replacebuy-item">{{info.middle}}</text>{{info.last}}</view>
+                    <view class="ammount-text" wx:if="{{status===1||status===2}}">{{info.secondTitle}}</view>
+                    <view class="ammount-text mb20" wx:if="{{status===1||status===2}}">{{info.thirdTitle}}</view>
+                    <view class="totalmount-button" style="background: url('{{info.button}}');background-size: 100%" wx:if="{{info.button}}"></view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

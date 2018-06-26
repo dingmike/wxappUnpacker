@@ -1,0 +1,11 @@
+.component-express.express {
+    margin: 13rpx 30rpx 18rpx;
+}
+
+.component-express.express .express__columns {
+}
+
+.component-express.express .express__columns--content {
+    font-size: 22rpx;
+    line-height: 30rpx;
+}

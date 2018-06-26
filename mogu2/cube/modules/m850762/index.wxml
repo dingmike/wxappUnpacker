@@ -1,0 +1,29 @@
+<template name="850762">
+    <view class="{{__vx_class}}" style="{{__vx_style}}">
+        <view bindtap="{{$scope}}.$vx_launch" class="signIn signIn-ed" data-app-id="{{signInAppId}}" data-fallback="{{configData.signInContent[0].link}}" data-href="{{signInXcxHref}}" style="{{signInBoxStyle}}" wx:if="{{isSignIn}}">
+            <form bindsubmit="{{$scope}}.$vx_formSubmitHandler" class="from_submit_wrap" reportSubmit="true">
+                <button formType="submit"></button>
+            </form>
+            <view class="signIn-title long-cut" style="{{signInTitleStyle}}" wx:if="{{configData.signInContent[0].title}}">{{configData.signInContent[0].title}}</view>
+            <view class="signIn-btn signIn-ed-btn long-cut" wx:if="{{configData.signInContent[0].btnText||configData.signInContent[0].btnIcon}}">
+                <text class="signIn-btn-box signIn-ed-btn-box long-cut" style="{{signInBtnStyle}}">
+                    <text class="iconfont {{configData.signInContent[0].btnIcon}}"></text>
+                    <text> {{configData.signInContent[0].btnText}}</text>
+                </text>
+            </view>
+        </view>
+        <view bindtap="{{$scope}}.$vx_launch" class="signIn signIn-un" data-app-id="{{unSignInAppId}}" data-fallback="{{configData.unSignInContent[0].link}}" data-href="{{unSignInXcxHref}}" style="{{unSignInBoxStyle}}" wx:else>
+            <form bindsubmit="{{$scope}}.$vx_formSubmitHandler" class="from_submit_wrap" reportSubmit="true">
+                <button formType="submit"></button>
+            </form>
+            <view class="signIn-title long-cut" style="{{unSignInTitleStyle}}" wx:if="{{configData.unSignInContent[0].title}}">{{configData.unSignInContent[0].title}}</view>
+            <view class="signIn-btn signIn-un-btn long-cut" wx:if="{{configData.unSignInContent[0].btnText||configData.unSignInContent[0].btnIcon}}">
+                <text class="signIn-btn-box signIn-un-btn-box long-cut" style="{{unSignInBtnStyle}}">
+                    <text class="iconfont {{configData.unSignInContent[0].btnIcon}}"></text>
+                    <text> {{configData.unSignInContent[0].btnText}}</text>
+                </text>
+            </view>
+        </view>
+    </view>
+</template>
+<import src="../../../cube-core/componentClass/internalComponents/mvwImage/index.wxml"></import>

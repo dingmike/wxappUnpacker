@@ -1,0 +1,6 @@
+<template name="launchApp">
+    <view class="component__launchapp launchapp flex f-ai-c f-jc-sb" style="background-image: url({{image}})" wx:if="{{isShow}}">
+        <view bindtap="{{$scope}}.handleCloseLaunch" class="component__launchapp--close m-icon m-icon-close"></view>
+        <button appParameter="{{backUrl}}" binderror="{{$scope}}.launchAppError" class="component__launchapp--btn flex f-ai-c f-jc-c" openType="launchApp">打开</button>
+    </view>
+</template>

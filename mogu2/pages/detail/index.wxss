@@ -1,0 +1,59 @@
+@import "../../__wuBaseWxss__/113.wxss";
+
+@import "../../components/mask/index.wxss";
+
+@import "../../components/countdown/index.wxss";
+
+@import "../../components/error/index.wxss";
+
+@import "components/video/index.wxss";
+
+@import "common/components.wxss";
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    animation: fadeIn .8s ease both;
+}
+
+@-webkit-keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+.fadeOut {
+    animation: fadeOut .8s ease both;
+}

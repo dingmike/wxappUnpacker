@@ -1,0 +1,17 @@
+<template name="captcha">
+    <view class="shieldcaptain-warpper" wx:if="{{show}}">
+        <view class="desc">
+            <text>请点击图片旋转至正向朝上</text>
+            <text bindtap="{{$scope}}.handleRefresh" class="refresh-img">换一组</text>
+        </view>
+        <view class="img-con">
+            <view class="img-list">
+                <view bindtap="{{$scope}}.handleClick" data-index="{{index}}" style="background-image: url({{imgUrl}});transform: rotate({{clickCount[index]*90}}deg);" wx:if="{{imgUrl}}" wx:for="{{[0,1,2,3]}}" wx:key="{{item}}"></view>
+            </view>
+            <view class="success-con" wx:if="{{showValidateResult}}">验证{{validateResult}}</view>
+            <view class="loading-con" wx:if="{{loading}}">
+                <image src="https://s10.mogucdn.com/mlcdn/c45406/171227_886hjaa162k8e1602jccbh917jcae_100x100.gif"></image>
+            </view>
+        </view>
+    </view>
+</template>

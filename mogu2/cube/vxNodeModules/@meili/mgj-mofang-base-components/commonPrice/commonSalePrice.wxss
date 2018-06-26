@@ -1,0 +1,12 @@
+.price-sale-icon {
+    font-size: 32rpx;
+    font-weight: 500;
+}
+
+.price-sale-num {
+    margin-left: -6rpx;
+}
+
+.price-sale-numwx {
+    margin-left: -6rpx;
+}

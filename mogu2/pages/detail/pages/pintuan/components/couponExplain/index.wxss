@@ -1,0 +1,57 @@
+.pintuan__couponExplain {
+    padding: 28rpx 0 30rpx;
+}
+
+.pintuan__couponExplain .coupon__title {
+    height: 33rpx;
+    line-height: 33rpx;
+    font-size: 28rpx;
+    color: #FB4747;
+    margin-left: 32rpx;
+}
+
+.pintuan__couponExplain .coupon__wrap {
+    padding-left: 32rpx;
+}
+
+.pintuan__couponExplain .coupon__list {
+    overflow: hidden;
+    margin-top: 11rpx;
+}
+
+.pintuan__couponExplain .list__sign {
+    float: left;
+    width: 10rpx;
+    height: 10rpx;
+    border-radius: 50%;
+    background-color: #999999;
+    margin: 15rpx 8rpx 0 0;
+}
+
+.pintuan__couponExplain .list__text {
+    float: left;
+    width: 668rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    font-size: 22rpx;
+    color: #999999;
+}
+
+.pintuan__couponExplain .main__text {
+    height: 80rpx;
+    line-height: 40rpx;
+}
+
+.pintuan__couponExplain .icon-weixin-style {
+    display: inline-block;
+    width: 30rpx;
+    height: 30rpx;
+    color: #DFDFDF;
+    font-size: 30rpx;
+}
+
+.pintuan__couponExplain .end__text {
+    font-size: 22rpx;
+    color: #666666;
+    margin-left: 8rpx;
+}

@@ -1,0 +1,9 @@
+<template name="common-title">
+    <view class="modal-title-wrap {{__vx_class}}" style="padding-top: {{wrapStyle*100+'rpx'}}; {{__vx_style}}" wx:if="{{styleConfig.title}}">
+        <view class="modal-title-bg">
+            <image class="modal-title-bg-img {{titleImgStyle}}" src="{{titleImg}}"></image>
+            <view class="modal-title" style="{{titleStyle}}">{{styleConfig.title}}</view>
+            <view class="modal-sub-title" style="{{titleStyle}}" wx:if="{{styleConfig.subTitle}}">{{styleConfig.subTitle}}</view>
+        </view>
+    </view>
+</template>

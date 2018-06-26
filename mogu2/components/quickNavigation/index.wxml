@@ -1,0 +1,43 @@
+<template name="quickNavigation">
+    <template is="mask" data="{{...$mask}}"></template>
+    <view bindtap="{{$scope}}.onGuideClick" class="quick-navigation-guide flex f-ai-fe" wx:if="{{!hasGuideShow&&hasGuideShow!==undefined}}">
+        <view class="quick-navigation-guide-background"></view>
+        <image class="quick-navigation-guide-image" mode="scaleToFill" src="{{guideImage}}" style="bottom: {{webIm?'120rpx':'0'}}"></image>
+    </view>
+    <view class="quick-navigation flex f-ff-cn" style="bottom: {{bottom}}rpx;">
+        <view class="navigation flex f-ff-cn f-ai-fe f-jc-sa top-show-{{topShow}}">
+            <view class="navigation-entry flex f-ff-cn f-jc-sa f-ai-fe show-{{entryShow}}">
+                <block wx:if="{{configsList&&configsList.length>0}}">
+                    <view class="entry flex f-ai-c" data-from-page="detail" data-page="{{config.page}}" style="visibility: hidden;" wx:if="{{!config.isShow}}" wx:for="{{configsList}}" wx:for-item="config" wx:key="name">
+                        <view class="entry-text">{{config.text}}</view>
+                        <image class="entry-image" src="{{config.image}}"></image>
+                    </view>
+                    <view bindtap="{{$scope}}.onNavClick" class="entry flex f-ai-c" data-from-page="detail" data-page="{{config.page}}" wx:if="{{config.isShow}}" wx:for="{{configsList}}" wx:for-item="config" wx:key="name">
+                        <view class="entry-text">{{config.text}}</view>
+                        <image class="entry-image" src="{{config.image}}"></image>
+                    </view>
+                </block>
+            </view>
+            <view class="navigation-btns">
+                <image bindtap="{{$scope}}.showEntry" class="navigation-btn nav" hidden="{{entryShow}}" src="{{navImage}}"></image>
+                <image bindtap="{{$scope}}.hideEntry" class="navigation-btn close" hidden="{{!entryShow}}" src="{{closeImage}}"></image>
+            </view>
+            <view bindtap="{{$scope}}.onImClick" class="webim flex f-ai-c f-jc-c" wx:if="{{webIm}}">
+                <view class="webim-tips flex show-{{isWebImTipsShow}}">
+                    <view class="webim-tips--text">欢迎光临 有问题记得来问我哦</view>
+                    <view class="webim-tips--arrow-left"></view>
+                    <view class="webim-tips--arrow-right"></view>
+                </view>
+                <template is="imcall" data="{{...$imCall}}"></template>
+                <image class="webim-icon" src="{{webImImage}}"></image>
+            </view>
+        </view>
+        <image bindtap="onTopClick" class="top show-{{topShow}}" mode="scaleToFill" src="{{topImage}}" wx:if="{{isNeedTop}}"></image>
+    </view>
+    <template is="footprintdialog" data="{{...$footPrintDialog}}"></template>
+    <template is="cartComponent" data="{{...$cartComponent}}"></template>
+</template>
+<import src="../mask/index.wxml"></import>
+<import src="../footprintdialog/index.wxml"></import>
+<import src="../cartComponent/index.wxml"></import>
+<import src="../imcall/index.wxml"></import>

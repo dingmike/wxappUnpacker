@@ -1,0 +1,48 @@
+<import src="../../components/mg/index.wxml"></import>
+<template is="mg" data="{{...$mg}}"></template>
+<import src="../../components/loading/index.wxml"></import>
+<import src="../../components/toast/index.wxml"></import>
+<import src="../../components/steps/index.wxml"></import>
+<template is="loading" data="{{...$loading}}"></template>
+<template is="toast" data="{{...$toast}}"></template>
+<scroll-view class="tabs" scrollLeft="{{scrollLeft}}" scrollX="true" wx:if="{{packageGroupVOList.length>1}}">
+    <view bindtap="switchTab" class="tab {{current==index?'active':''}}" data-index="{{index}}" style="width: {{tabWidth}}" wx:for="{{packageGroupVOList}}" wx:key="index">{{item.packageName}}</view>
+</scroll-view>
+<scroll-view class="logisticslist-wrap" scrollTop="{{scrollTop}}" scrollY="true">
+    <view class="meili-all-base-logisticslist logisticslist" style="margin-top: {{packageGroupVOList.length>1?'116rpx':'0'}}">
+        <view class="flex logisticslist-title" wx:if="{{expressId}}">
+            <view class="logisticslist-item" wx:if="{{consignItem}}">
+                <view class="logisticslist-item--number">{{consignItem.total}}件商品</view>
+                <image class="logisticslist-item--cover" mode="aspectFill" src="{{consignItem.image}}"></image>
+            </view>
+            <view>
+                <view wx:if="{{expressName}}">物流公司：
+                    <text class="logisticslist-title--name">{{expressName}}</text>
+                </view>
+                <view wx:if="{{expressId}}">物流单号：
+                    <text class="logisticslist-title--number">{{expressId}}</text>
+                </view>
+                <view wx:if="{{expressPhone}}">官方电话：
+                    <text bindtap="phoneCall" class="logisticslist-title--tel" data-phone="{{expressPhone}}">{{expressPhone}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="logisticslist-content">
+            <view wx:if="{{$steps.stepsList&&$steps.stepsList.length>0}}">
+                <view class="logisticslist-name">物流信息：</view>
+                <template is="steps" data="{{...$steps}}"></template>
+            </view>
+            <view class="logisticslist-info" wx:else>
+                <text wx:if="{{expressName=='其它'}}">该快递公司暂不支持在线查看物流信息</text>
+                <view wx:else>
+                    <view class="detail-content-desc" wx:if="{{expressId}}">您的快递单号暂时没有查询结果，可访问该物流公司官方网站查询</view>
+                    <view class="detail-content--time" wx:if="{{expressId&&created}}">{{created}}</view>
+                </view>
+            </view>
+            <view class="logisticslist-info" wx:if="{{!expressId}}">
+                <text>暂无物流信息...</text>
+            </view>
+        </view>
+        <view class="logisticsline"></view>
+    </view>
+</scroll-view>

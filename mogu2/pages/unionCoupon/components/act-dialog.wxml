@@ -1,0 +1,10 @@
+<template name="actDialog">
+    <view class="dialog-wrapper">
+        <view class="dialog-content">
+            <image class="dialog-image" src="https://s10.mogucdn.com/mlcdn/c45406/171025_3fi7cbhjfd563aekig1g9fc8fc2ah_312x312.png"></image>
+            <view class="dialog-h1">恭喜您获得{{info}}<text class="dialog-special">{{specialPrice}}</text>{{tailInfo}}</view>
+            <view class="dialog-h2">已存入 蘑菇街女装精选>我的>{{placeInfo}}</view>
+            <view bindtap="hideActDialog" class="dialog-button">确定</view>
+        </view>
+    </view>
+</template>

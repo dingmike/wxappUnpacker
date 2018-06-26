@@ -1,0 +1,97 @@
+.module-base-mask {
+    position: fixed;
+    background: #000000;
+    opacity: 0.5;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 99;
+}
+
+.module-base-mask.show-true {
+    animation: maskShow 400ms;
+    opacity: 0.5;
+    display: flex;
+}
+
+.module-base-mask.show-false {
+    animation: maskHide 400ms;
+    opacity: 0;
+    display: flex;
+}
+
+.module-base-mask.show-null {
+    display: none;
+}
+
+.module-base-mask.amimation-false {
+    animation: none;
+}
+
+@-webkit-keyframes maskShow {
+    0% {
+        opacity: 0;
+        display: none;
+    }
+
+    1% {
+        opacity: 0;
+        display: flex;
+    }
+
+    100% {
+        opacity: 0.5;
+        display: flex;
+    }
+}
+
+@keyframes maskShow {
+    0% {
+        opacity: 0;
+        display: none;
+    }
+
+    1% {
+        opacity: 0;
+        display: flex;
+    }
+
+    100% {
+        opacity: 0.5;
+        display: flex;
+    }
+}
+
+@-webkit-keyframes maskHide {
+    0% {
+        opacity: 0.5;
+        display: flex;
+    }
+
+    99% {
+        opacity: 0;
+        display: flex;
+    }
+
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
+@keyframes maskHide {
+    0% {
+        opacity: 0.5;
+        display: flex;
+    }
+
+    99% {
+        opacity: 0;
+        display: flex;
+    }
+
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}

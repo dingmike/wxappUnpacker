@@ -1,0 +1,22 @@
+<import src="../../components/mg/index.wxml"></import>
+<template is="mg" data="{{...$mg}}"></template>
+<import src="components/hotwords/index.wxml"></import>
+<import src="components/history/index.wxml"></import>
+<import src="components/searchHead/index.wxml"></import>
+<import src="components/tips/index.wxml"></import>
+<import src="components/shopTips/index.wxml"></import>
+<import src="components/scrollTab/index.wxml"></import>
+<view class="sb_wrap" style="height:{{windowHeight}}px;">
+    <template is="searchHead" data="{{...$searchHead}}"></template>
+    <template is="scrollTab" data="{{...$scrollTab}}"></template>
+    <view class="sb-wrap-commodity" style="display: {{!isShop?'block':'none'}}">
+        <template is="history" data="{{...$history}}"></template>
+        <template is="hotwords" data="{{...$hotwords}}"></template>
+        <template is="tips" data="{{...$tips}}"></template>
+    </view>
+    <view class="sb-wrap-shop" style="display: {{isShop?'block':'none'}}">
+        <template is="history" data="{{...$shopHistory}}"></template>
+        <template is="hotwords" data="{{...$shopHotwords}}"></template>
+        <template is="shopTips" data="{{...$shopTips}}"></template>
+    </view>
+</view>

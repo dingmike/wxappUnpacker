@@ -1,0 +1,11 @@
+<template name="paybar">
+    <view>
+        <template is="cashier" data="{{...$cashier}}"></template>
+        <view class="paybar">
+            <form bindsubmit="{{$scope}}.formSubmitHandler" reportSubmit="true">
+                <button class="paybar-btn" formType="submit">立即支付 {{totalPriceStr}}</button>
+            </form>
+        </view>
+    </view>
+</template>
+<import src="../../../cashier/index.wxml"></import>

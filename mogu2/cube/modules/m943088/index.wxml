@@ -1,0 +1,15 @@
+<template name="943088">
+    <view class="{{__vx_class}}" style="{{isRequesting?emptyStyle:baseStyle}} {{__vx_style}}" wx:if="{{isShow}}">
+        <view class="collapse-wrap" style="{{isCollapse?collapseStyle:''}}">
+            <view class="flex f-fw-w block-wrap" style="{{blockWrapStyle}}">
+                <view bindtap="{{$scope}}.$vx_navigate" class="block {{order==='col'?'block-col':'block-row'}} log-item" data-cube-acm-node="{{true}}" data-data-log-content="{{item.acm}}" data-data-log-index="{{index}}" data-href="{{item.link_xcx}}" style="{{blockStyle}}" wx:for="{{list}}" wx:key="index">
+                    <template is="mvw-image" data="{{$parent:$parent['$'+label],...$parent['$'+label]['$mvw-image_15247322526170'+'_'+index]}}"></template>
+                    <view class="block-text long-cut" style="color: {{item.titleColor}};">{{item.title}}</view>
+                    <template is="mvw-image" data="{{$parent:$parent['$'+label],...$parent['$'+label]['$mvw-image_15247322526171'+'_'+index]}}" wx:if="{{item.imageTag}}"></template>
+                </view>
+            </view>
+        </view>
+        <view bindtap="{{$scope}}.showMore" class="collapse-btn-wrap" style="{{isCollapse?moreStyle:''}}" wx:if="{{isCollapse}}"></view>
+    </view>
+</template>
+<import src="../../../cube-core/componentClass/internalComponents/mvwImage/index.wxml"></import>

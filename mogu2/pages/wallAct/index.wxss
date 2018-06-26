@@ -1,0 +1,26 @@
+@import "../../components/wall/index.wxss";
+
+@import "../../components/walltemplate/item_act.wxss";
+
+@import "../../components/getCoupon/index.wxss";
+
+@import "../../components/toast/index.wxss";
+
+@import "../../components/actCountDown/index.wxss";
+
+@import "../../components/mask/index.wxss";
+
+.count_module_block {
+    height: 82rpx;
+}
+
+.pre_flag {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 5rpx;
+    font-size: 26rpx;
+    font-weight: bold;
+    color: #fff;
+    background: #ff1b51;
+}

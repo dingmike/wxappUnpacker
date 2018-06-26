@@ -1,0 +1,7 @@
+<template name="loading">
+    <view class="loading-overlay" hidden="{{!show}}">
+        <view class="loading">
+            <view class="loading-slip"></view>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,5 @@
+<template name="loadingMoreFailureFooter">
+    <view class="live-list-loading-more-failure-footer-wrap flex f-fd-r f-jc-c f-ai-c" hidden="{{!show}}">
+        <text class="live-list-loading-more-failure-footer-text">呃,加载失败了...</text>
+    </view>
+</template>

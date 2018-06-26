@@ -1,0 +1,14 @@
+<template name="entryBar">
+    <view bindtap="{{$scope}}.onClick" class="module-base-entrybar entrybar flex f-ai-c f-jc-sb" wx:if="{{title}}">
+        <view class="entrybar-left flex f-ai-c">
+            <view class="entrybar-icon" style="{{iconStyle}}" wx:if="{{iconTitle||icon}}">{{iconTitle}}</view>
+            <view class="entrybar-text" wx:if="{{title}}">{{title}}</view>
+        </view>
+        <view class="entrybar-right flex f-ai-c">
+            <view class="entrybar-accessory" wx:if="{{accessoryTitle}}">{{accessoryTitle}}</view>
+            <i class="entrybar-arrow m-icon m-icon-arrow-right" wx:if="{{linkUrl}}"></i>
+        </view>
+    </view>
+    <template is="occupying" data wx:if="{{title}}"></template>
+</template>
+<import src="../occupying/index.wxml"></import>

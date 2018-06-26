@@ -1,0 +1,54 @@
+@import "../../../cube-core/componentClass/internalComponents/mvwImage/index.wxss";
+
+.MCUBE_MOD_ID_847329.module_row {
+    overflow: visible;
+}
+
+.MCUBE_MOD_ID_847329 .long-cut {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.MCUBE_MOD_ID_847329 .active-entry {
+    width: 100%;
+    height: auto;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: left top;
+}
+
+.MCUBE_MOD_ID_847329 .active-entry-item {
+    position: relative;
+}
+
+.MCUBE_MOD_ID_847329 .active-entry-item-image {
+    position: absolute;
+    overflow: hidden;
+}
+
+.MCUBE_MOD_ID_847329 .active-entry-item-title {
+    position: absolute;
+}
+
+.MCUBE_MOD_ID_847329 .active-entry-item-subTitle {
+    position: absolute;
+}
+
+.MCUBE_MOD_ID_847329 .active-entry-item-tag {
+    position: absolute;
+}
+
+.MCUBE_MOD_ID_847329 .collapse-wrap {
+    width: 100%;
+    overflow: hidden;
+}
+
+.MCUBE_MOD_ID_847329 .collapse-btn-wrap {
+    position: absolute;
+    width: 750rpx;
+    height: 84rpx;
+    transform: translateY(-50%);
+    background-size: cover;
+    z-index: 100;
+}

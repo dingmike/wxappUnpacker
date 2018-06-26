@@ -1,0 +1,13 @@
+<template name="virtualBox">
+    <text>{{msg}}</text>
+    <view class="virtual-box address">
+        <image class="m-icon-mobile" mode="aspectFit" src="{{iconImage}}"></image>
+        <input bindblur="{{$scope}}.onBlur" bindinput="{{$scope}}.onInput" class="mobile-input" maxlength="11" placeholder="{{placeholder}}" type="number" value="{{chargeNumber}}"></input>
+        <view class="tips flex">
+            <text class="{{tip.isCorrect?'zone-tip':'warn-tip'}}" wx:if="{{tip}}">{{tip.text}}</text>
+            <view bindtap="{{$scope}}.clearInput" class="clear-wrap flex f-jc-fe" wx:if="{{chargeNumber&&chargeNumber.length}}">
+                <icon class="clear" color="#ccc" size="14" type="clear"></icon>
+            </view>
+        </view>
+    </view>
+</template>

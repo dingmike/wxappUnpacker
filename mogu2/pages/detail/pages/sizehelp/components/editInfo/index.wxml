@@ -1,0 +1,39 @@
+<template name="editInfo">
+    <view class="sizeHelp-editInfo">
+        <view class="editInfo-content no-edit flex f-fd-r f-ai-c f-jc-sb" style="{{$color.secondaryBg}}" wx:if="{{!sizeHelperInfo.userInfoFilled}}">
+            <view class="top-edit flex f-ai-c">
+                <view class="top-img">
+                    <image class="edit-img" lazyLoad="{{true}}" mode="widthFix" src="https://s10.mogucdn.com/mlcdn/c45406/171222_565bc593ceak4ck6jf7eleai7b36c_30x30.png"></image>
+                </view>
+                <view class="edit-title" style="{{$color.mainTx}}">请完善个人配置</view>
+            </view>
+            <view bindtap="$navigate" class="m-icon m-icon-edit edit-icon" data-item-id="{{itemId}}" data-page="detailPagesSizewrite" style="{{$color.mainTx}}"></view>
+        </view>
+        <view class="editInfo-content has-edit flex f-fd-r f-ai-c f-jc-sb" wx:if="{{sizeHelperInfo.userInfoFilled}}">
+            <view class="user-info flex">
+                <view class="user-avatar">
+                    <image class="avatar-img" lazyLoad="{{true}}" src="{{avatar}}"></image>
+                </view>
+                <view class="user-size flex">
+                    <view class="height-size flex f-fd-r">
+                        <view class="size-title">身高<text class="size-unit">cm</text>
+                        </view>
+                        <view class="size-info">{{height}}</view>
+                    </view>
+                    <view class="weight-size flex f-fd-r">
+                        <view class="size-title">体重<text class="size-unit">kg</text>
+                        </view>
+                        <view class="size-info">{{weight}}</view>
+                    </view>
+                    <view class="measure-size flex f-fd-r">
+                        <view class="size-title">三围<text class="size-unit">cm</text>
+                        </view>
+                        <view class="size-info" wx:if="{{!chest&&!waist&&!hipline}}">0.0</view>
+                        <view class="size-info" wx:else>{{chest?chest:'0.0'}}/{{waist?waist:'0.0'}}/{{hipline?hipline:'0.0'}}</view>
+                    </view>
+                </view>
+            </view>
+            <view bindtap="$navigate" class="m-icon m-icon-edit edit-icon" data-item-id="{{itemId}}" data-page="detailPagesSizewrite" style="{{$color.dimTx}}"></view>
+        </view>
+    </view>
+</template>

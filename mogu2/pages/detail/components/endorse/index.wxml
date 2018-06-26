@@ -1,0 +1,7 @@
+<template name="endorse">
+    <view class="component__endorse endorse" wx:if="{{endorseImage}}">
+        <image class="endorse__content" lazyLoad="{{true}}" src="{{endorseImage}}"></image>
+    </view>
+    <template is="occupying" data wx:if="{{endorseImage}}"></template>
+</template>
+<import src="../occupying/index.wxml"></import>

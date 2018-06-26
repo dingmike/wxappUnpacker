@@ -1,0 +1,6 @@
+<template name="salesEntry">
+    <view class="salesEntry-box" style="background-color: {{bgColor||'#ffe6ed'}}; margin: {{margin||0}}; padding: {{padding||0}}" wx:if="{{activeEntryList&&activeEntryList.length>0}}">
+        <template is="activeEntry" data="{{...$activeEntry,listPadding:listPadding,...item,ptpC:ptpC,collectFormId:collectFormId}}" wx:for="{{activeEntryList}}" wx:key="index"></template>
+    </view>
+</template>
+<import src="../../components/activeEntry/index.wxml"></import>

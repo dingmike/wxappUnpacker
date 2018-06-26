@@ -1,0 +1,31 @@
+@import "../../components/meiliSwiper/index.wxss";
+
+@import "../../components/activeEntry/index.wxss";
+
+@import "../../components/walltemplate/item_pt.wxss";
+
+@import "components/ptBroadcast/index.wxss";
+
+@import "../../components/bottomNavBar/index.wxss";
+
+@import "../../components/scrollGoods/index.wxss";
+
+.wall_nav_box .nav_middle {
+    position: fixed;
+    top: 0;
+    z-index: 80;
+}
+
+.wall_nav_box .scroll_box {
+    padding: 0;
+}
+
+.wall_nav_box .nav_tabs_scroll .tab_on .t_text {
+    height: 58rpx;
+    border-radius: 100rpx;
+    border-bottom: none;
+    background-image: linear-gradient(117deg,#ff8b5e,#ff5777);
+    line-height: 58rpx;
+    color: #fff;
+    padding: 0 26rpx;
+}

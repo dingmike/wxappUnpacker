@@ -1,0 +1,20 @@
+<template name="662173">
+    <view class="pit cube_anchor_wrap {{__vx_class}}" style="margin-top: {{configData.amargin[0].marginTop+'rpx'}}; margin-bottom: {{configData.amargin[0].marginBottom+'rpx'}}; {{__vx_style}}" wx:if="{{isShow}}">
+        <block wx:if="{{bannerList}}">
+            <view wx:for="{{bannerList}}" wx:for-index="num" wx:for-item="banner" wx:key="num">
+                <view class="banner-box flex" style="height: {{banner._image.h/banner._image.w*7.5*100+'rpx'}}; margin-top: {{configData.amargin[0].paddingTop+'rpx'}};" wx:if="{{!isRequestData}}"></view>
+                <view pushWindow bindtap="{{$scope}}.$vx_navigate" class="banner-box flex log-item acm-item" data-cube-acm="{{banner.acm}}" data-cube-acm-node="{{true}}" data-data-log-content="{{banner.acm}}" data-href="{{banner.link_xcx||''}}" data-pit-index="{{num}}" style="height: {{banner._image.h/banner._image.w*7.5*100+'rpx'}}; margin-top: {{configData.amargin[0].paddingTop+'rpx'}};" wx:elif="{{banner.image}}">
+                    <template is="mvw-image" data="{{$parent:$parent['$'+label],...$parent['$'+label]['$mvw-image_15247322528890'+'_'+num]}}"></template>
+                    <form bindsubmit="{{$scope}}.$vx_formSubmitHandler" class="from_submit_wrap" reportSubmit="true">
+                        <button formType="submit"></button>
+                    </form>
+                </view>
+            </view>
+        </block>
+        <block wx:if="{{anchorData}}">
+            <template is="anchor" data="{{$parent:$parent['$'+label],...$parent['$'+label]['$anchor_15247322528891'+'_'+index]}}" wx:for="{{anchorData}}" wx:key="index"></template>
+        </block>
+    </view>
+</template>
+<import src="anchor.wxml"></import>
+<import src="../../../cube-core/componentClass/internalComponents/mvwImage/index.wxml"></import>

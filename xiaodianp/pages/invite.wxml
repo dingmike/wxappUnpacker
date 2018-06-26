@@ -1,0 +1,10 @@
+<view bindtap="previewImage" class="big-image">
+    <Image class="share-image" mode="widthFix" src="{{shareImg}}"></Image>
+</view>
+<view class="empty-title">
+    <text class="title">邀请卡说明：
+</text>
+</view>
+<view class="empty-text">
+    <text class="text">{{tips}}</text>
+</view>

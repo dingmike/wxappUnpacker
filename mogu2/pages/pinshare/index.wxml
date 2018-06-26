@@ -1,0 +1,38 @@
+<import src="../../components/mg/index.wxml"></import>
+<template is="mg" data="{{...$mg}}"></template>
+<import src="components/pinshareInfo/index.wxml"></import>
+<import src="../../components/walltemplate/item_pt.wxml"></import>
+<import src="../../components/walltemplate/item_act.wxml"></import>
+<import src="../../components/quickNavigation/index.wxml"></import>
+<import src="../../components/activeEntry/index.wxml"></import>
+<import src="../../components/heading/index.wxml"></import>
+<import src="../../components/getCoupon/index.wxml"></import>
+<import src="../../components/toast/index.wxml"></import>
+<import src="../../components/floatTip/index.wxml"></import>
+<import src="../../components/redPacket/index.wxml"></import>
+<import src="../../components/salesEntry/index.wxml"></import>
+<template is="activeEntry" data="{{...$activeEntry}}" wx:if="{{showTopBanner&&isWxshop}}"></template>
+<view class="trust flex f-jc-c f-ai-c" wx:if="{{pinTuanShareTitle}}">
+    <i class="trust-icon m-icon m-icon-weixin"></i>
+    <view class="trust-text">{{pinTuanShareTitle}}</view>
+</view>
+<template is="pinshareInfo" data="{{...$pinshareInfo}}"></template>
+<view class="home-coupon" style="background-color: {{countDownBgColor||'#ffffff'}};" wx:if="{{showCoupon&&isWxshop}}">
+    <template is="getCoupon" data="{{...$getCoupon}}"></template>
+</view>
+<template is="toast" data="{{...$toast}}"></template>
+<view class="container" wx:if="{{showActiveEntry&&isWxshop}}">
+    <template is="salesEntry" data="{{...$salesEntry}}"></template>
+</view>
+<template is="wallPtMore" data="{{...$wallPtMore}}"></template>
+<template is="wallPtOrderList" data="{{wallList:wallList,ptpC:ptpC}}"></template>
+<view class="categoryEntry-box" wx:if="{{isWxshop}}">
+    <template is="activeEntry" data="{{...$activeEntryCategory,$headingTitle:categoryEntryTitle}}"></template>
+</view>
+<view class="sign-wall" id="J_wall_box">
+    <template is="wallActItemsBox" data="{{$wall:$wall,style:itemStyle}}"></template>
+</view>
+<view bindtap="returnToLive" class="backToLive" wx:if="{{isShowReturn}}">返回直播</view>
+<template is="quickNavigation" data="{{...$quickNavigation}}"></template>
+<template is="redPacket" data="{{...$redPacket}}"></template>
+<template is="floatTip" data="{{...$floatTip}}"></template>

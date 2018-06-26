@@ -1,0 +1,48 @@
+<template name="rate">
+    <view class="component__rate rate flex f-ff-cn" wx:if="{{cRate>0}}">
+        <view bindtap="$navigate" class="rate__head flex f-ai-c f-jc-sb" data-item-id="{{itemId}}" data-page="rateList" style="{{$color.dimTx}}">
+            <view class="rate__head--title">买家评价 {{cRate}} | 销量 {{sales}}</view>
+            <i class="rate__head--icon m-icon m-icon-arrow-right"></i>
+        </view>
+        <view class="rate__tags tags flex f-fw-w" wx:if="{{rateTags&&rateTags.length>0}}">
+            <view bindtap="$navigate" class="rate__tags--item rate__tags--{{tag.emotion}}" data-emotion="{{tag.emotion}}" data-item-id="{{itemId}}" data-page="rateList" data-property="{{tag.property}}" style="{{tag.emotion==='positive'?$color.mainTx+$color.secondaryBg:$color.secondaryTextTx}}" wx:for="{{rateTags}}" wx:for-item="tag" wx:key="value">
+                {{tag.value}}({{tag.num}})
+            </view>
+        </view>
+        <view class="rate__list list" wx:if="{{list&&list.length>0}}">
+            <view bindtap="$navigate" class="list__item" data-item-id="{{itemId}}" data-page="rateList" wx:for="{{list}}" wx:for-item="rate" wx:key="rateId">
+                <view class="list__item--user user flex f-ai-c f-jc-sb" wx:if="{{rate.user}}">
+                    <view class="user__content flex">
+                        <view class="user__content--avatar">
+                            <image bindtap="onAvatarClick" class="avatar__image" lazyLoad="{{true}}" mode="scaleToFill" src="{{rate.user.avatar}}"></image>
+                        </view>
+                        <view class="user__content--info info flex f-ff-cn f-ai-fs f-jc-c">
+                            <view class="info__name" style="{{$color.mainTextTx}}">{{rate.user.uname}}</view>
+                            <view class="info__shape flex" style="{{$color.mainBd}}" wx:if="{{rate.sizeInfo}}">
+                                <view class="info__shape--fit" style="{{$color.mainBg}}">{{rate.sizeInfo.desc}}</view>
+                                <view class="info__shape--size" style="{{$color.mainTx}}" wx:if="{{rate.sizeInfo.height&&rate.sizeInfo.weight}}">{{rate.sizeInfo.height}} / {{rate.sizeInfo.weight}}</view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="user__tag" style="{{$color.dimTx}}" wx:if="{{rate.isBuyerShow}}">
+                        <view class="user__tag--title">红人体验</view>
+                        <view class="user__tag--sub">- Experience -</view>
+                    </view>
+                </view>
+                <view class="list__item--atts atts flex" style="{{$color.dimTx}}">
+                    <view class="atts__time">{{rate.created}}</view>
+                    <view class="atts__sku">{{rate.style}}</view>
+                </view>
+                <view class="list__item--content" style="{{$color.mainTextTx}}" wx:if="{{rate.content}}">
+                    {{rate.content}}
+                </view>
+                <view class="list__item--imgs imgs">
+                    <image class="imgs__item" lazyLoad="{{true}}" mode="aspectFill" src="{{image}}" wx:for="{{rate.images}}" wx:for-item="image" wx:key="*this"></image>
+                </view>
+                <view class="list__item--explain" style="{{$color.dimTx}}" wx:if="{{rate.explain}}">{{rate.explain}}</view>
+            </view>
+        </view>
+    </view>
+    <template is="occupying" data wx:if="{{cRate>0}}"></template>
+</template>
+<import src="../occupying/index.wxml"></import>

@@ -1,0 +1,28 @@
+.component__progress.progress {
+    margin: 0 32rpx 26rpx 32rpx;
+}
+
+.component__progress .progress__main {
+    width: 100%;
+    height: 12rpx;
+    border-radius: 20rpx;
+    background: #E5E5E5;
+    overflow: hidden;
+    margin-bottom: 10rpx;
+}
+
+.component__progress .progress__main--content {
+    border-radius: 20rpx;
+    height: 100%;
+}
+
+.component__progress .progress__title {
+}
+
+.component__progress .progress__title--left {
+    font-size: 24rpx;
+}
+
+.component__progress .progress__title--right {
+    font-size: 24rpx;
+}

@@ -1,0 +1,27 @@
+<view class="container">
+    <view class="addressList">
+        <view class="item" wx:for="{{listAddress}}" wx:key="id">
+            <view bindtap="clickChoice" class="detail-info" data-id="{{item.user_info_id}}">
+                <view class="addr_left">
+                    <text class="addr_text">{{item.addr}} </text>
+                    <text class="addr_text">{{item.detail_addr}}</text>
+                    <text class="name">{{item.name}} {{item.mobile}} </text>
+                </view>
+                <view class="addr_right">
+                    <text wx:if="{{type==0&&item.user_info_id==choice_info_id}}"> 已选择 </text>
+                </view>
+            </view>
+            <view class="action">
+                <view class="default-button">
+                    <image bindtap="radioChange" data-info="{{item}}" src="{{item.is_defaut_addr==='1'?'../images/cart_select.png':'../images/cart_unselect.png'}}"></image>
+                    <text> 默认地址 </text>
+                </view>
+                <button bindtap="clickEdit" class="action-button" data-id="{{item.user_info_id}}" plain="true" size="mini">编辑</button>
+                <button bindtap="clickCancel" class="action-button" data-id="{{item.user_info_id}}" plain="true" size="mini">删除</button>
+            </view>
+        </view>
+    </view>
+    <view class="btn-area {{isIpx?'fix-ipx':''}}">
+        <button bindtap="clickAdd" class="pay-button">添加地址</button>
+    </view>
+</view>

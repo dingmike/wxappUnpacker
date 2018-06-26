@@ -1,0 +1,40 @@
+<template name="shop">
+    <view class="component__shop shop" wx:if="{{isShow}}">
+        <view class="shop__head head flex f-ai-c">
+            <view bindtap="$redirect" class="head__avatar flex" data-from-page="detail" data-page="shop" data-shop-id="{{shopId}}">
+                <image class="head__avatar--img" lazyLoad="{{true}}" src="{{shopLogo}}"></image>
+            </view>
+            <view class="head__info info flex f-ff-cn f-ai-fs f-jc-sa">
+                <view class="info__title flex f-ai-c f-jc-fs">
+                    <view class="info__title--name">{{name}}</view>
+                    <image class="info__title--tag" lazyLoad="{{true}}" mode="aspectFit" src="{{tag}}" style="width: {{tagWidth}}rpx; height: {{tagHeight}}rpx;" wx:if="{{tag&&tagWidth>0&&tagHeight>0}}"></image>
+                </view>
+                <view class="info__star flex">
+                    <image class="info__star--leval" lazyLoad="{{true}}" src="https://s10.mogucdn.com/mlcdn/c45406/171227_1b8bi4acfjfijfleg4ac08chhfbda_36x38.png" wx:for="{{levelArr}}" wx:key="*this"></image>
+                </view>
+            </view>
+            <view bindtap="$redirect" class="head__entry entry flex f-jc-c" data-from-page="detail" data-jump-type="4" data-page="shop" data-shop-id="{{shopId}}">
+                <view class="entry__text flex" style="{{$color.mainTx}}">
+                    <view class="entry__text--text">进店</view>
+                    <text class="entry__text--arrow">逛逛</text>
+                </view>
+            </view>
+        </view>
+        <view class="shop__desc desc flex f-jc-sb" wx:if="{{!isHideDesc}}">
+            <view class="desc__sale flex f-ff-cn f-ai-c f-jc-c">
+                <view class="desc__sale--num flex">{{cSells}}</view>
+                <view class="desc__sale--text flex">总销量</view>
+            </view>
+            <view class="desc__fav flex f-ff-cn f-ai-c f-jc-c">
+                <view class="desc__fav--num flex">{{cFans}}</view>
+                <view class="desc__fav--text flex">收藏数</view>
+            </view>
+            <view class="desc__score flex f-ff-cn f-ai-c f-jc-c">
+                <view class="desc__score--text score flex f-ai-c" wx:for="{{score}}" wx:key="name">
+                    <view class="score__text">{{item.name}}</view>
+                    <view class="score__num score-{{item.isBetter}}" style="{{item.isBetter?$color.mainTx:''}}">{{item.score}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

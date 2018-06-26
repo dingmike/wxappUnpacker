@@ -1,0 +1,20 @@
+<template name="newBalance">
+    <view bindtap="$launch" class="new-balace" data-app-id="{{maitResource.wxa_appId}}" data-fallback="{{maitResource.link_xcx}}" data-href="{{maitResource.wxa_link}}">
+        <view class="inner">
+            <view class="title">
+                <text class="new-balance-text">可用余额：</text>
+                <text class="new-balance-num">{{amount}}元</text>
+            </view>
+            <view class="after">
+                <text class="new-balance-text">去使用</text>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="balance">
+    <view class="balance">
+        <view class="balance-text">可用余额(元)</view>
+        <view class="balance-num">{{amount}}</view>
+        <view class="balance-hint">完成下单后，可在付款时直接抵扣</view>
+    </view>
+</template>

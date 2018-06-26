@@ -1,0 +1,15 @@
+<template name="productInfo">
+    <view class="component__productInfo">
+        <view class="product__info" wx:if="{{info&&info.set}}">
+            <view class="info__key">{{info.key}}</view>
+            <view class="info__set">
+                <view class="info__set--tables table flex f-ff-cn">
+                    <view class="table__line flex f-ai-c f-jc-fs" wx:for="{{info.set}}" wx:for-index="key" wx:for-item="value">
+                        <view class="table__line--key">{{key}}</view>
+                        <view class="table__line--value">{{value}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

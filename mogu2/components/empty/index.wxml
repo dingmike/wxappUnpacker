@@ -1,0 +1,10 @@
+<template name="empty">
+    <view class="ui-empty">
+        <view class="ui-empty-box">
+            <image class="ui-empty-image" mode="fitAspect" src="{{image||_images[type]}}"></image>
+            <view class="ui-empty-text">{{text}}</view>
+            <view class="ui-empty-tip" wx:if="{{tip}}">{{tip}}</view>
+            <view bindtap="{{$scope}}.handleClick" class="ui-empty-btn" hoverClass="ui-empty-btn-active" wx:if="{{button}}">{{button}}</view>
+        </view>
+    </view>
+</template>

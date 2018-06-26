@@ -1,0 +1,11 @@
+<template name="progressBar">
+    <view class="pintuan__progressBar">
+        <view class="progress__bar">
+            <image class="progress__img" lazyLoad="{{true}}" src="https://s10.mogucdn.com/mlcdn/c45406/170913_74662i7jg692a3a9146ad9agh4kde_686x12.png" style="width: {{width}};" wx:if="{{width}}"></image>
+        </view>
+        <view class="progress__title flex f-jc-sb">
+            <view class="success__num">只差{{leftNum}}个团</view>
+            <view class="rest__num">{{openAwardNum}}个团满开奖</view>
+        </view>
+    </view>
+</template>

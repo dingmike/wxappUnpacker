@@ -1,0 +1,53 @@
+.virtual-box {
+    padding-right: 32rpx;
+}
+
+.m-icon-mobile {
+    width: 40rpx;
+    height: 40rpx;
+    position: absolute;
+    top: 50%;
+    left: 32rpx;
+    color: #999;
+    transform: translate(0,-50%);
+}
+
+.mobile-input {
+    width: 590rpx;
+    height: 104rpx;
+    padding-left: 56rpx;
+    font-size: 28rpx;
+    color: #333;
+}
+
+.tips {
+    position: absolute;
+    top: 50%;
+    right: 32rpx;
+    font-size: 0;
+    transform: translate(0,-50%);
+    -webkit-transform: -webkit-translate(0,-50%);
+    z-index: 100;
+}
+
+.clear-wrap {
+    width: 40rpx;
+    height: 104rpx;
+    align-items: center;
+}
+
+.m-clear {
+    color: #ccc;
+}
+
+.zone-tip {
+    line-height: 104rpx;
+    font-size: 28rpx;
+    color: #999;
+}
+
+.warn-tip {
+    line-height: 104rpx;
+    font-size: 28rpx;
+    color: #ff5777;
+}

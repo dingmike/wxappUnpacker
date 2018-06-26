@@ -1,0 +1,19 @@
+<template name="852136">
+    <import src="../../../components/imcall/index.wxml"></import>
+    <view class="{{__vx_class}}" id="app" style="{{__vx_style}}">
+        <view class="searchBarWrap">
+            <view class="searchBarContent searchBarFixed" style="color: {{charColor}};background: {{backColor}}; border-bottom: 1px solid {{botColor}};">
+                <view class="search-loc" wx:if="{{province}}">
+        {{province}}
+      </view>
+                <view bindtap="{{$scope}}.goMiddlePage" class="search-form" data-placeholder="{{placeholder}}" data-q="{{sbQueryWord}}">
+                    <text class="search-icon m-icon m-icon-search-mini"></text>
+                    <text class="search-placeholder">{{placeholder}}</text>
+                </view>
+                <view class="im-talk m-icon m-icon-message">
+                    <template is="imcall" data="{{...$imcall}}"></template>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,109 @@
+.coupon-container {
+    background-color: #f3f3f3;
+    position: relative;
+}
+
+.info {
+    min-height: 70rpx;
+    max-height: 70rpx;
+    overflow: hidden;
+}
+
+.coupon-overlap {
+    position: absolute;
+    background-color: #f3f3f3;
+    width: 100%;
+    height: 20rpx;
+    bottom: 0;
+    z-index: 49;
+}
+
+.coupon-list {
+    padding: 30rpx 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+.coupon-list .list-fill {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-flow: row;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    min-width: 280rpx;
+    height: 155rpx;
+}
+
+.coupon-list .list-fill .box {
+    color: #fff;
+}
+
+.coupon-list .list-fill .box:first-child {
+    margin-left: 20rpx;
+    width: 100%;
+    padding: 0 0 25rpx 15rpx;
+    background-color: #ff7070;
+    border-right: none;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-flow: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+.coupon-list .list-fill .box:first-child .rmb {
+    font-size: 28rpx;
+    font-weight: 300;
+}
+
+.coupon-list .list-fill .box:first-child .price {
+    font-weight: 600;
+    font-size: 48rpx;
+    padding-right: 18rpx;
+}
+
+.coupon-list .list-fill .box:first-child .desc,.coupon-list .list-fill .box:first-child .name {
+    font-size: 20rpx;
+}
+
+.coupon-list .list-fill .box:first-child .name {
+    font-weight: 600;
+}
+
+.coupon-list .list-fill .box:first-child .time {
+    font-size: 18rpx;
+    padding-top: 10rpx;
+}
+
+.coupon-list .list-fill .box:last-child {
+    width: 50rpx;
+    background-color: #ef6161;
+    text-align: center;
+}
+
+.coupon-list .list-fill .box:last-child .btn {
+    display: inline-block;
+    width: 80%;
+    line-height: 50rpx;
+    padding-top: 25rpx;
+    font-size: 20rpx;
+}
+
+.coupon-list .list-fill.clicked .box:first-child {
+    border-right: none;
+    background-color: #c1c1c1;
+}
+
+.coupon-list .list-fill.clicked .box:last-child {
+    background-color: #a5a5a5;
+}
+
+.coupon-list .list-fill.clicked .box:last-child .btn {
+    line-height: 30rpx;
+    padding-top: 30rpx;
+}

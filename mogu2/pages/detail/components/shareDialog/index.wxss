@@ -1,0 +1,190 @@
+.base-dialog {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    transform: translate3d(-50%,0,0);
+    left: 50%;
+}
+
+.base-dialog.show-true {
+    animation: slideUp 400ms;
+}
+
+.base-dialog.show-false {
+    animation: slideDown 400ms;
+}
+
+.base-dialog.show-null {
+    display: none;
+}
+
+.component__sharedialog--inner {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    max-height: 75%;
+    color: #333;
+    background-color: #fff;
+    background-size: cover;
+    padding-top: 20rpx;
+}
+
+.component__sharedialog .sharedialog__desc {
+    padding: 0 40rpx;
+}
+
+.component__sharedialog .desc__title--icon {
+    width: 127rpx;
+    height: 115rpx;
+    margin-left: -15rpx;
+}
+
+.component__sharedialog .desc__title--text {
+    font-size: 32rpx;
+}
+
+.component__sharedialog .desc__title--link {
+    font-size: 22rpx;
+    text-decoration: underline;
+}
+
+.component__sharedialog .rule__title {
+    height: 98rpx;
+    opacity: 0.6;
+    text-align: center;
+}
+
+.component__sharedialog .rule__title--num {
+    font-size: 28rpx;
+}
+
+.component__sharedialog .rule__title--text {
+    font-size: 22rpx;
+}
+
+.component__sharedialog .rule__line {
+    position: relative;
+    width: 4rpx;
+    height: 128rpx;
+    background: rgba(255,255,255,0.2);
+    margin: 0 34rpx 0 17rpx;
+}
+
+.sharedialog__rule--item:first-child .rule__line {
+    height: 98rpx;
+}
+
+.component__sharedialog .rule__line--dot {
+    position: absolute;
+    left: -5rpx;
+    bottom: 42rpx;
+    width: 14rpx;
+    height: 14rpx;
+    border-radius: 50%;
+    background: #fefdff;
+}
+
+.component__sharedialog .rule__content {
+    width: 500rpx;
+    height: 98rpx;
+    background: rgba(255,255,255,0.15);
+    border-top-left-radius: 49rpx;
+    border-top-right-radius: 49rpx;
+    border-bottom-right-radius: 49rpx;
+    padding: 0 20rpx 0 43rpx;
+    margin-top: 10rpx;
+}
+
+.component__sharedialog .rule__content--main {
+    font-size: 24rpx;
+    line-height: 33rpx;
+}
+
+.component__sharedialog .rule__content--sub {
+    font-size: 22rpx;
+    line-height: 30rpx;
+    margin-top: 2rpx;
+}
+
+.component__sharedialog .rule__content--tips {
+    font-size: 22rpx;
+    height: 40rpx;
+    padding: 0 10rpx;
+    background: rgba(207,81,81,0.41);
+    border-radius: 20rpx;
+}
+
+.component__sharedialog .sharedialog__panel {
+    padding: 50rpx 65rpx 40rpx;
+}
+
+.component__sharedialog .sharedialog__btn--image {
+    width: 110rpx;
+    height: 110rpx;
+}
+
+.component__sharedialog .sharedialog__btn--text {
+    font-size: 24rpx;
+    line-height: 33rpx;
+    margin-top: 20rpx;
+    text-align: center;
+}
+
+.component__sharedialog .sharedialo__cancel {
+    width: 100%;
+    height: 100rpx;
+    font-size: 32rpx;
+    color: #333;
+    border-top: solid 1rpx #e5e5e5;
+    background: rgba(255,255,255,0.7);
+}
+
+@-webkit-keyframes slideUp {
+    from {
+        height: 0;
+        bottom: -100rpx;
+    }
+
+    to {
+        height: 100%;
+        bottom: 0;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        height: 0;
+        bottom: -100rpx;
+    }
+
+    to {
+        height: 100%;
+        bottom: 0;
+    }
+}
+
+@-webkit-keyframes slideDown {
+    from {
+        max-height: 100%;
+        bottom: 0;
+    }
+
+    to {
+        height: 0;
+        bottom: -100rpx;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        max-height: 100%;
+        bottom: 0;
+    }
+
+    to {
+        height: 0;
+        bottom: -100rpx;
+    }
+}

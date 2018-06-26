@@ -1,0 +1,101 @@
+@import "../components/baseConfig/index.wxss";
+
+@import "../components/bottomBar/index.wxss";
+
+@import "../components/coupon/index.wxss";
+
+@import "../components/endorse/index.wxss";
+
+@import "../components/entryBar/index.wxss";
+
+@import "../components/express/index.wxss";
+
+@import "../components/footfav/index.wxss";
+
+@import "../components/footshop/index.wxss";
+
+@import "../components/graphic/index.wxss";
+
+@import "../components/head/index.wxss";
+
+@import "../components/launchApp/index.wxss";
+
+@import "../components/liveInfo/index.wxss";
+
+@import "../components/middleBanner/index.wxss";
+
+@import "../components/moresku/index.wxss";
+
+@import "../components/occupying/index.wxss";
+
+@import "../components/parameter/index.wxss";
+
+@import "../components/pintuan/index.wxss";
+
+@import "../components/presaleInfo/index.wxss";
+
+@import "../components/price/index.wxss";
+
+@import "../components/pricetag/index.wxss";
+
+@import "../components/productInfo/index.wxss";
+
+@import "../components/progress/index.wxss";
+
+@import "../components/promotion/index.wxss";
+
+@import "../components/quickbar/index.wxss";
+
+@import "../components/rate/index.wxss";
+
+@import "../components/recommend/index.wxss";
+
+@import "../components/ruleInfo/index.wxss";
+
+@import "../components/salestext/index.wxss";
+
+@import "../components/service/index.wxss";
+
+@import "../components/shareDialog/index.wxss";
+
+@import "../components/shop/index.wxss";
+
+@import "../components/shopDecorate/index.wxss";
+
+@import "../components/shopRecommend/index.wxss";
+
+@import "../components/swiper/index.wxss";
+
+@import "../components/tabpanel/index.wxss";
+
+@import "../components/title/index.wxss";
+
+@import "../components/topbanner/index.wxss";
+
+@import "../components/video/index.wxss";
+
+@import "../pages/pintuan/components/couponExplain/index.wxss";
+
+@import "../pages/pintuan/components/newcomer/index.wxss";
+
+@import "../pages/pintuan/components/progressBar/index.wxss";
+
+@import "../pages/pintuan/components/winningRecord/index.wxss";
+
+@import "../pages/seckill/components/address/index.wxss";
+
+@import "../pages/seckill/components/footbar/index.wxss";
+
+@import "../pages/seckill/components/sliderVerify/index.wxss";
+
+@import "../pages/sizehelp/components/editInfo/index.wxss";
+
+@import "../pages/sizehelp/components/reportInfo/index.wxss";
+
+@import "../pages/sizehelp/components/sizeImg/index.wxss";
+
+@import "../pages/sizewrite/components/exampleImg/index.wxss";
+
+@import "../pages/sizewrite/components/select/index.wxss";
+
+@import "../pages/tuangou/components/interestTag/index.wxss";

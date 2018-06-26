@@ -1,0 +1,197 @@
+.primary {
+    color: #fff;
+    background: #ff5777;
+}
+
+.meili-all-vue-base-button::after {
+    content: none;
+}
+
+.order-form--btn {
+    display: inline-block;
+}
+
+.m-icon-arrow-downs {
+    width: 22rpx;
+    height: 15rpx;
+    background: url("https://s10.mogucdn.com/mlcdn/c45406/170603_1e4ik6bcie83bh0lfbe1753e8h0ch_22x12.png") no-repeat;
+    background-size: 22rpx 12rpx;
+    display: inline-block;
+    margin-left: 5rpx;
+}
+
+.shop-more {
+    font-size: 24rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    color: #999;
+}
+
+.operate-button--white {
+    color: #666;
+    border: 1rpx solid #999;
+    background: #fdfdfd;
+}
+
+.meili-all-vue-base-button {
+    height: 56rpx;
+    line-height: 56rpx;
+    font-size: 24rpx;
+    padding: 0;
+    margin: 20rpx 20rpx 20rpx 0;
+    border-radius: 4rpx;
+    display: inline-block;
+    box-sizing: border-box;
+    vertical-align: middle;
+    cursor: pointer;
+    min-width: 150rpx;
+    text-align: center;
+}
+
+.shop-remian--time {
+    float: right;
+    color: #666;
+    font-size: 24rpx;
+}
+
+.counter-time {
+    display: inline-block;
+    padding-left: 40rpx;
+    font-size: 24rpx;
+    color: #999;
+    background: url(https://s10.mogucdn.com/pic/140731/176rwo_ieydanjzme3tgmzwmiytambqgiyde_30x30.png) no-repeat 0;
+    background-position: left center;
+    background-size: 30rpx;
+    white-space: nowrap;
+    height: 85rpx;
+    line-height: 88rpx;
+}
+
+.operate-button {
+    overflow: hidden;
+}
+
+.pay-lottery {
+    color: #f43c32;
+    font-size: 24rpx;
+    padding: 0 5rpx;
+    display: inline;
+}
+
+.order-panel--operate {
+    border-top: 1rpx solid #ececec;
+    margin: -4rpx 0 0 0;
+    vertical-align: middle;
+    height: 92rpx;
+    text-align: right;
+}
+
+.order-list-wrap {
+    overflow: hidden;
+    padding: 0 15rpx;
+}
+
+.shop-title-wrap {
+    padding: 0 20rpx;
+    font-size: 28rpx;
+    height: 85rpx;
+    line-height: 85rpx;
+    background-color: #f6f6f6;
+}
+
+.shop-title--status {
+    float: left;
+    display: inline-block;
+    color: #ff5777;
+    white-space: nowrap;
+}
+
+.shop-title--name {
+    color: #333;
+    display: inline-block;
+    max-width: 400rpx;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.shop-title {
+    padding: 0 20rpx;
+    border: 1rpx solid #ececec;
+    border-right: none;
+    border-left: none;
+    font-size: 28rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+}
+
+.meili-all-order-list-order-shop {
+    background-color: #fff;
+}
+
+.shop-info-bg {
+    background-color: #fff;
+    margin-top: 15rpx;
+    border: solid 1px #ececec;
+}
+
+.pre-sell-tail.is-active {
+    color: #333;
+}
+
+.pre-sell-tail {
+    color: #aaa;
+}
+
+.order-panel--price {
+    margin: 0 -2rpx;
+    padding: 20rpx;
+    border-top: 1rpx solid #ececec;
+    text-align: right;
+    color: #999;
+}
+
+.pay-delivery {
+    margin-right: -5rpx;
+    font-size: 24rpx;
+    display: inline;
+}
+
+.pay {
+    color: #333;
+}
+
+.pay-price--content {
+    font-size: 28rpx;
+    color: #ff5777;
+    display: inline;
+}
+
+.pay-price {
+    display: inline-block;
+    line-height: 30rpx;
+    font-size: 24rpx;
+}
+
+.pre-item-title {
+    display: block;
+    min-width: 145rpx;
+}
+
+.order-panel--pre {
+    margin: 0 -2rpx;
+    font-size: 28rpx;
+}
+
+.pre-sell--item {
+    border-top: 1px solid #ececec;
+    line-height: 88rpx;
+    padding: 0 20rpx;
+    font-size: 28rpx;
+}
+
+.pre-item-value {
+    display: block;
+    text-align: right;
+}

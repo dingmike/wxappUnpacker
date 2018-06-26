@@ -1,0 +1,31 @@
+.MCUBE_MOD_ID_924711 .live-list-live-count {
+    position: fixed;
+    width: 94rpx;
+    height: 94rpx;
+    right: 30rpx;
+    bottom: 30rpx;
+    background-color: #fff;
+    opacity: 0.95;
+    border-radius: 47rpx;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    overflow: hidden;
+}
+
+.MCUBE_MOD_ID_924711 .live-list-live-count-text {
+    max-width: 70rpx;
+    height: 34rpx;
+    color: #fb4747;
+    font-size: 24rpx;
+    line-height: 34rpx;
+    font-family: Arial,Helvetica,sans-serif;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.MCUBE_MOD_ID_924711 .live-list-live-count-line {
+    width: 67rpx;
+    height: 1rpx;
+    background-color: #fb4747;
+    margin: -1rpx 0 1rpx 0;
+}

@@ -1,0 +1,236 @@
+.super-seckill-content {
+    width: 718rpx;
+    height: 284rpx;
+    background-color: #ffffff;
+    box-shadow: 0 3rpx 14rpx 0 rgba(0,0,0,0.21);
+    margin: 0 auto;
+    display: flex;
+    font-family: PingFangSC;
+}
+
+.super-seckill-image-box {
+    height: 284rpx;
+    width: 398rpx;
+    overflow: hidden;
+    position: relative;
+}
+
+.super-seckill-image-empty {
+    position: absolute;
+    height: 284rpx;
+    width: 398rpx;
+    top: 0;
+    left: 0;
+    opacity: 0.45;
+    background: #000000;
+    z-index: 1;
+}
+
+.super-seckill-tips {
+    position: absolute;
+    width: 56rpx;
+    height: 62rpx;
+    top: 10rpx;
+    left: 10rpx;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.super-seckill-tips-image {
+    height: 100%;
+    width: 100%;
+}
+
+.super-seckill-image {
+    border: 0;
+    display: block;
+    height: 284rpx;
+    width: 284rpx;
+    margin: 0 auto;
+}
+
+.super-seckill-image-emp {
+    border: 0;
+    display: block;
+    height: 170rpx;
+    width: 170rpx;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    position: relative;
+}
+
+.super-seckill-info {
+    height: 284rpx;
+    width: 320rpx;
+    background-color: #ffffff;
+    padding: 0 24rpx;
+    overflow: hidden;
+}
+
+.super-seckill-info-title {
+    width: 100%;
+    height: 36rpx;
+    line-height: 36rpx;
+    font-size: 26rpx;
+    font-weight: 500;
+    color: #363636;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 20rpx 0 0 0;
+}
+
+.super-seckill-info-des {
+    width: 100%;
+    height: 30rpx;
+    line-height: 30rpx;
+    font-size: 22rpx;
+    font-weight: 300;
+    color: #999999;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.super-seckill-info-line {
+    margin: 14rpx 0 0 0;
+    width: 272rpx;
+    height: 12rpx;
+    border-radius: 20rpx;
+    background-color: #e5e5e5;
+    position: relative;
+}
+
+.super-seckill-info-line-now {
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 12rpx;
+    border-radius: 20rpx;
+    background-image: linear-gradient(to left,#fe722f,#ffa530);
+    position: absolute;
+}
+
+.super-seckill-info-all {
+    margin-top: 8rpx;
+    width: 100%;
+    height: 28rpx;
+    line-height: 28rpx;
+    font-size: 20rpx;
+    color: #2b2b2b;
+}
+
+.super-seckill-info-time {
+    height: 28rpx;
+    float: left;
+    max-width: 65%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: left;
+    color: #71A73A;
+}
+
+.super-seckill-info-ico {
+    height: 100%;
+    width: 28rpx;
+    margin: 0 4rpx 0 0;
+    float: left;
+}
+
+.super-seckill-info-remaining {
+    max-width: 35%;
+    min-width: 35%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 28rpx;
+    float: right;
+    text-align: right;
+}
+
+.super-seckill-info-price {
+    height: 34rpx;
+    width: 100%;
+    margin: 22rpx 0 0 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: flex;
+}
+
+.super-seckill-info-price-now {
+    max-width: 100%;
+    height: 34rpx;
+    line-height: 34rpx;
+    font-size: 24rpx;
+    font-weight: 500;
+    color: #770000;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.super-seckill-info-price-now-1 {
+    color: #71A73A;
+}
+
+.super-seckill-info-price-before {
+    max-width: 100%;
+    height: 100%;
+    line-height: 34rpx;
+    font-size: 20rpx;
+    font-weight: 300;
+    color: #707070;
+    text-decoration: line-through;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 0 0 0 8rpx;
+}
+
+.super-seckill-info-control {
+    height: 44rpx;
+    width: 100%;
+    margin: 6rpx 0 0 0;
+    border-radius: 3px;
+    border: solid 1px #770000;
+    display: flex;
+    overflow: hidden;
+}
+
+.super-seckill-info-control-1 {
+    border-color: #71A73A;
+}
+
+.control-tip {
+    flex: 1;
+    height: 42rpx;
+    line-height: 43rpx;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.super-seckill-info-control-left {
+    font-size: 20rpx;
+    font-weight: 300;
+    color: #770000;
+}
+
+.control-left-status1 {
+    color: #71A73A;
+}
+
+.super-seckill-info-control-right {
+    font-size: 22rpx;
+    color: #ffffff;
+    background: #770000;
+}
+
+.control-right-status1 {
+    background: #71A73A;
+}

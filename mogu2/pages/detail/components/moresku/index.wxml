@@ -1,0 +1,17 @@
+<template name="moresku">
+    <view bindtap="{{$scope}}.onMoreSkuClick" class="primary-social-moresku moresku flex f-ai-c f-jc-sb" wx:if="{{message&&message.text}}">
+        <view class="moresku-left flex">
+            <view class="moresku-left--title">{{message.title}}</view>
+            <view class="moresku-left--text {{message.class}}">{{message.text}}</view>
+        </view>
+        <view class="moresku-right flex">
+            <view class="moresku-sizeHelper flex" wx:if="{{sizeHelper&&sizeHelper.size}}">
+                <view class="moresku-sizeHelper--title">{{sizeHelper.title}}</view>
+                <view class="moresku-sizeHelper--size">{{sizeHelper.size}}</view>
+            </view>
+            <i class="moresku-right--icon m-icon m-icon-arrow-right"></i>
+        </view>
+    </view>
+    <template is="occupying" data wx:if="{{message&&message.text}}"></template>
+</template>
+<import src="../occupying/index.wxml"></import>

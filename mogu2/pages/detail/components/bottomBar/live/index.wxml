@@ -1,0 +1,8 @@
+<template name="live">
+    <button class="bottombar__btn bottombar__icon-btn bottombar__live flex f-ff-cn f-ai-c f-jc-c" data-name="{{name}}" formType="submit" hoverClass="none">
+        <view class="bottombar__icon-btn--icon live-icon">
+            <i class="live-icon--dot {{iconName}}"></i>Live
+        </view>
+        <view class="bottombar__icon-btn--text">直播中</view>
+    </button>
+</template>

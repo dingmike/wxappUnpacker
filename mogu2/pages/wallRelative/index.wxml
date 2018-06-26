@@ -1,0 +1,19 @@
+<import src="../../components/mg/index.wxml"></import>
+<template is="mg" data="{{...$mg}}"></template>
+<import src="../../components/wall/index.wxml"></import>
+<scroll-view bindscroll="$wall.scrollNavEvent" bindscrolltolower="$wall.wallScrollEvent" class="J_scroll_wallbox" enableBackToTop="true" lowerThreshold="{{$wall.bottomHeight}}" scrollIntoView="{{$wall.scrollIntoViewId}}" scrollY="true" style="height:{{$wall.scrollBoxHeight}}px">
+    <view catchtap="$wall.linkClick" class="like_goods_box" data-link="{{topGoods.url}}">
+        <view class="goods_img fl" style="background: #e5e5e5 url({{topGoods.img}}) no-repeat; background-size:100% auto;"></view>
+        <view class="goods_info fl">
+            <view class="goods_name">{{topGoods.title}}</view>
+            <view class="goods_param clearfix">
+                <view class="goods_price fl" style="font-family:Arial;"> ¥ {{topGoods.price}}</view>
+                <view class="goods_flow fl">{{topGoods.cfav}}人收藏</view>
+            </view>
+        </view>
+    </view>
+    <view class="split_title"></view>
+    <view id="J_wall_box">
+        <template is="wallExposeItemsBox" data="{{$wall:$wall}}"></template>
+    </view>
+</scroll-view>

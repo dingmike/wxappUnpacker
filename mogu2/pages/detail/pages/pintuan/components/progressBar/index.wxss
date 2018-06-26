@@ -1,0 +1,30 @@
+.pintuan__progressBar {
+    padding: 4rpx 32rpx 30rpx;
+}
+
+.pintuan__progressBar .progress__bar {
+    width: 686rpx;
+    height: 12rpx;
+    border-radius: 20rpx;
+    background-color: #E5E5E5;
+}
+
+.pintuan__progressBar .progress__img {
+    height: 12rpx;
+    display: block;
+    border-radius: 20rpx;
+}
+
+.pintuan__progressBar .progress__title {
+    width: 686rpx;
+}
+
+.pintuan__progressBar .success__num {
+    font-size: 24rpx;
+    color: #999999;
+}
+
+.pintuan__progressBar .rest__num {
+    font-size: 24rpx;
+    color: #9C89FF;
+}

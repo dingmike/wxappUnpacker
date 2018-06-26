@@ -1,0 +1,27 @@
+.module-base-error {
+    height: 100%;
+    min-height: 586rpx;
+    width: 100%;
+    text-align: center;
+}
+
+.module-base-error .error-image {
+    width: 514rpx;
+    margin-bottom: 30rpx;
+}
+
+.module-base-error .error-title {
+    color: #666666;
+    font-size: 32rpx;
+    margin-bottom: 30rpx;
+}
+
+.module-base-error .error-btn {
+    margin-bottom: 30rpx;
+    padding: 12rpx 25rpx;
+    min-width: 200rpx;
+    background: #ff5777;
+    color: #ffffff;
+    font-size: 28rpx;
+    border-radius: 8rpx;
+}

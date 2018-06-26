@@ -1,0 +1,6 @@
+<template name="loadingErrorView">
+    <view class="live-list-loading-error-view-wrap flex f-fd-c f-jc-fe f-ai-c" hidden="{{!show}}">
+        <image class="live-list-loading-error-view-image" lazyLoad="{{true}}" mode="aspectFit" src="https://s10.mogucdn.com//mlcdn/c45406/170706_20j13l7hijg2e3b480g3i21c2h39l_514x258.png"></image>
+        <text class="live-list-loading-error-view-text">呃~数据加载失败了</text>
+    </view>
+</template>

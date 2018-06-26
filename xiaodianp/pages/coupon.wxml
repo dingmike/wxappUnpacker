@@ -1,0 +1,52 @@
+<view class="page-container">
+    <view class="top-tip">注意：部分优惠券不可与拼团、秒杀等促销活动叠加使用</view>
+    <view class="top-tab flex-wrp flex-tab ">
+        <view bindtap="switchTab" class="toptab flex-item {{type==idx?'active':''}}" data-idx="{{idx}}" wx:for="{{navTab}}" wx:for-index="idx" wx:for-item="itemName" wx:key="id">
+        {{itemName}}
+      </view>
+    </view>
+    <view class="coupon" wx:if="{{listCoupon.length>0}}">
+        <view bindscrolltolower="funcMore" bindscrolltoupper="funcRefresh" scrollY="true" style="height: 100%;">
+            <view class="coupon-container">
+                <view bindtap="clickCoupon" class="coupon-item {{coupon_info.available==false?'coupon-item-not-use':type==0?'coupon-item-unused':type==1?'coupon-item-expired':type==2?'coupon-item-not-use':''}}" data-available="{{coupon_info.available}}" data-denomination="{{coupon_info.denomination}}" data-id="{{coupon_info.id}}" data-limitmoney="{{coupon_info.limitMoney}}" wx:for="{{listCoupon}}" wx:for-item="coupon_info" wx:key="id">
+                    <view class="main-coupon-item">
+                        <view class="desc_limit">
+                            <view class="desc-price">
+                                <text class="desc-rmb">{{coupon_info.denomination}}</text>
+                                <text class="currency-unit">元
+</text>
+                            </view>
+                            <view class="desc-others">
+                                <view wx:if="{{type>0||coupon_info.available==false}}">
+                                    <text class="desc_limit_status">{{type==1?'已过期':type==2?'已使用':coupon_info.available==false?'不可用':'已选择'}}</text>
+                                </view>
+                                <text class="desc_limit_money">满{{coupon_info.limitMoney}}可用
+</text>
+                            </view>
+                            <view class="hole-right"></view>
+                            <view class="hole-left"></view>
+                        </view>
+                        <view class="select-tag" wx:if="{{choice_id==coupon_info.id&&is_choice==1&&type==0}}">
+                            <em class="check-mark"></em>
+                        </view>
+                        <view class="coupon-bottom">
+                            <view class="desc-to">
+                                <text>{{coupon_info.xiaodianpuName}}</text>
+                            </view>
+                            <view class="desc_limit_time">
+                                <text>有效期：{{coupon_info.validTimeFrom}}-</text>
+                                <text>{{coupon_info.validTimeTo}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="loading" wx:if="{{is_getting===true}}">
+        <view class="offline-notice">加载中...</view>
+    </view>
+    <view class="empty-text" wx:if="{{listCoupon.length==0&&is_getting===false}}">
+        <text class="text">暂无优惠券</text>
+    </view>
+</view>

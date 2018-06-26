@@ -1,0 +1,31 @@
+.cashier-header {
+    height: 115rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #fff;
+}
+
+.cashier-header-icon {
+    width: 80rpx;
+    height: 115rpx;
+    line-height: 115rpx;
+    text-align: center;
+}
+
+.cashier-header-info {
+    flex: 1;
+    text-align: center;
+    align-items: center;
+}
+
+.cashier-header-title {
+    font-size: 34rpx;
+    color: #333333;
+}
+
+.cashier-header-extratitle {
+    font-size: 24rpx;
+    color: #999999;
+}

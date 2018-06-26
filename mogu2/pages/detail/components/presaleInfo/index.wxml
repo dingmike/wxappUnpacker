@@ -1,0 +1,29 @@
+<template name="presaleInfo">
+    <view class="module-primary-presaleinfo presaleinfo" wx:if="{{presaleDate}}">
+        <view bindtap="{{$scope}}.showDetail" class="presaleinfo-content flex f-jc-sb f-ai-c">
+            <view class="presaleinfo-content--main main flex f-ff-cn f-ai-fs" style="{{$color.secondaryTextTx}}">
+                <image class="main-title" lazyLoad="{{true}}" mode="aspectFit" src="{{titleIcon}}"></image>
+                <view class="main-text flex f-ai-c">
+                    <i class="main-title--dot"></i>{{presaleDate}}</view>
+                <view class="main-text flex f-ai-c">
+                    <i class="main-title--dot"></i>{{presaleEndDate}}</view>
+                <view class="main-text flex f-ai-c">
+                    <i class="main-title--dot"></i>{{presaleDesc}}</view>
+            </view>
+            <view class="presaleinfo-content--arrow m-icon m-icon-arrow-right" style="{{$color.dimTx}}"></view>
+        </view>
+        <view bindtap="{{$scope}}.onCloseClick" class="presaleinfo-dialog show-{{isShow}} base-dialog">
+            <view catchtap="{{$scope}}.onInnerClick" class="service-dialog--inner base-dialog--inner flex f-ff-cn">
+                <view class="presaleinfo-dialog--head head base-dialog--head">
+                    <view class="head-title">预售商品规则</view>
+                    <view bindtap="{{$scope}}.onCloseClick" class="head-close flex f-ai-c f-jc-c">╳</view>
+                </view>
+                <view class="presaleinfo-dialog--content content base-dialog--content">
+                    <view class="content-rule" wx:for="{{ruleDesc.rule}}">
+                        {{item}}
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

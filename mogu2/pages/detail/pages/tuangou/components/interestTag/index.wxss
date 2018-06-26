@@ -1,0 +1,21 @@
+.module-interest {
+    width: 750rpx;
+    height: 50rpx;
+    padding: 23rpx 32rpx 0 32rpx;
+}
+
+.tag-list {
+    width: 88rpx;
+    height: 30rpx;
+    font-size: 22rpx;
+    line-height: 30rpx;
+    color: #FB4747;
+}
+
+.tag-line {
+    width: 1rpx;
+    height: 18rpx;
+    opacity: 0.4;
+    background-color: #FB4747;
+    margin: 0 15rpx 0 15rpx;
+}

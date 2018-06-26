@@ -1,0 +1,10 @@
+@import "../goods/index.wxss";
+
+.fp-date {
+    height: 72rpx;
+    padding: 0 0 0 24rpx;
+    color: #333;
+    font-size: 28rpx;
+    line-height: 72rpx;
+    background-color: #efefef;
+}

@@ -1,0 +1,22 @@
+.module-base-entrybar.entrybar {
+    height: 90rpx;
+    padding: 0 30rpx;
+}
+
+.module-base-entrybar .entrybar-left {
+    font-size: 24rpx;
+}
+
+.module-base-entrybar .entrybar-icon {
+    padding: 5rpx 10rpx;
+    border-radius: 4rpx;
+}
+
+.module-base-entrybar .entrybar-text {
+    margin-left: 10rpx;
+}
+
+.module-base-entrybar .entrybar-right {
+    font-size: 24rpx;
+    color: #666666;
+}

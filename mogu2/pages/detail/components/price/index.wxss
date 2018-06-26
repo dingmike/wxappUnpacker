@@ -1,0 +1,95 @@
+@import "../pricetag/index.wxss";
+
+.module-primary-price.price {
+    position: relative;
+    margin: 20rpx 32rpx 24rpx 32rpx;
+}
+
+.module-primary-price .price-content {
+    line-height: 60rpx;
+    height: 60rpx;
+}
+
+.module-primary-price .price-content-now {
+}
+
+.module-primary-price .price-now-unit {
+    font-size: 24rpx;
+    font-family: Arial;
+    line-height: 30rpx;
+}
+
+.module-primary-price .price-now-price {
+    font-size: 60rpx;
+    font-weight: bolder;
+}
+
+.module-primary-price .price-content-old {
+    margin-left: 10rpx;
+    height: 60rpx;
+}
+
+.module-primary-price .price-old-price {
+    font-size: 22rpx;
+    text-decoration: line-through;
+    font-family: Arial;
+    height: 30rpx;
+    line-height: 30rpx;
+}
+
+.module-primary-price .price-old-tags {
+}
+
+.module-primary-price .price-old-tag {
+    margin-right: 6rpx;
+    font-family: Arial;
+}
+
+.module-primary-price .price-event {
+    margin-top: 7rpx;
+}
+
+.module-primary-price .price-event-unit {
+    font-size: 20rpx;
+    font-family: Arial;
+}
+
+.module-primary-price .price-event-price {
+    font-size: 40rpx;
+    font-family: Arial;
+}
+
+.module-primary-price .price-event-desc {
+    font-size: 20rpx;
+    margin-left: 10rpx;
+}
+
+.module-primary-price .price-event-tags {
+    margin-left: 10rpx;
+}
+
+.module-primary-price .price-extra {
+    width: 686rpx;
+    border-radius: 4rpx;
+    margin-top: 12rpx;
+    padding: 23rpx;
+    position: relative;
+}
+
+.module-primary-price .price-extra--arrow {
+    display: block;
+    width: 20rpx;
+    height: 20rpx;
+    border-top: 10rpx solid transparent;
+    border-left: 10rpx solid transparent;
+    border-right: 10rpx solid transparent;
+    border-bottom: 10rpx solid #FFF3E6;
+    position: absolute;
+    top: -18rpx;
+    left: 53rpx;
+}
+
+.module-primary-price .price-extra--text {
+    font-size: 24rpx;
+    color: #FA6813;
+}

@@ -1,0 +1,59 @@
+.tab-top {
+    height: 90rpx;
+    width: 750rpx;
+}
+
+.tab-top-fixed {
+    width: 750rpx;
+    height: 90rpx;
+    background: #333333;
+    position: fixed;
+    top: 0;
+    z-index: 200;
+    overflow: hidden;
+}
+
+.tab-top-scroll {
+    height: 110rpx;
+}
+
+.tab-top-flex {
+    display: flex;
+    height: 110rpx;
+    position: relative;
+}
+
+.tab-top-item {
+    position: relative;
+    height: 90rpx;
+    width: 134rpx;
+    flex-shrink: 0;
+    line-height: 90rpx;
+    font-size: 32rpx;
+    text-align: center;
+    color: #a1a1a1;
+}
+
+.tab-top-item-first {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 90rpx;
+    width: 134rpx;
+    line-height: 90rpx;
+    font-size: 32rpx;
+    text-align: center;
+    color: #a1a1a1;
+    z-index: 11;
+}
+
+.tab-top-item-line {
+    content: "";
+    width: 86rpx;
+    height: 4rpx;
+    background: #ffffff;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -43rpx;
+}

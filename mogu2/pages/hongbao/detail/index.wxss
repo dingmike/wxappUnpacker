@@ -1,0 +1,53 @@
+@import "../../../__wuBaseWxss__/175.wxss";
+
+page {
+    background-color: #fff!important;
+}
+
+.hongbao {
+    padding: 40rpx 20rpx;
+}
+
+.detail-info {
+    margin-bottom: 80rpx;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30rpx;
+    font-size: 28rpx;
+    color: #666;
+}
+
+.detail-fund-title {
+    margin-bottom: 30rpx;
+    font-size: 24rpx;
+    color: #666;
+}
+
+.detail-fund {
+    margin-bottom: 80rpx;
+    border-bottom: 1px solid #efefef;
+}
+
+.reason {
+    color: #a6a6a6;
+}
+
+.amount {
+    color: #ff5777;
+}
+
+.rule-title,.rule-content {
+    font-size: 28rpx;
+    color: #666;
+}
+
+.rule-title {
+    margin-bottom: 10rpx;
+}
+
+.rule-content {
+    line-height: 44rpx;
+}

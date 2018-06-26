@@ -1,0 +1,40 @@
+<template name="shopItem">
+    <view class="product-border" wx:for="{{productList}}" wx:for-index="idx" wx:for-item="itemName" wx:key="idx">
+        <view bindtap="{{$scope}}.gotoDetail" class="flex product" data-isChannel="{{isChannel}}" data-itemName="{{itemName}}" style="height: {{itemName.redPacketNum&&itemName.redPacketNum>0&&itemName.itemOrderOperations&&itemName.itemOrderOperations.length>0?'250rpx':'230rpx'}}">
+            <view class="item-shop-img">
+                <view>
+                    <image mode="aspectFill" src="{{itemName.imgUrl}}"></image>
+                </view>
+            </view>
+            <view class="product-des f-fg-1">
+                <view class="product-des--name">
+          {{itemName.title}}
+        </view>
+                <view class="product-des--sku" wx:if="{{itemName.orderTag||itemName.skuAttributes&&itemName.skuAttributes.length>0}}">
+                    <view class="product-des--tag" wx:if="{{itemName.orderTag}}">{{itemName.orderTag}}</view>
+                    <view class="sku-item-wrap" wx:if="{{skuItem.key&&skuItem.value}}" wx:for="{{itemName.skuAttributes}}" wx:for-item="skuItem" wx:key="index">{{skuItem.key}}：{{skuItem.value}}</view>
+                </view>
+                <view class="bonded-refund-tip" wx:if="{{itemName.orderServiceMark&&itemName.orderServiceMark.bondedGoods}}">发货后不支持退货</view>
+            </view>
+            <view class="product-price">
+                <view class="product-price--origin" wx:if="{{itemName.price!==itemName.nowPrice}}">￥{{itemName.price}}</view>
+                <view class="product-price--price" style="{{itemName.price===itemName.nowPrice?'80rpx':'40rpx'}}">￥{{itemName.nowPrice}}</view>
+                <view class="product-price--number">×{{itemName.number}}</view>
+                <view class="product-price--fee">
+                    <view class="product-price--red" wx:if="{{itemName.redPacketText&&itemName.redPacketNum>0}}">
+                使用{{itemName.redPacketText}} -￥{{itemName.redPacketNum}}
+              </view>
+                </view>
+            </view>
+            <view class="product-des--refund refund-res refund-button" wx:if="{{itemName.marketType=='market_mogujie'&&itemName.itemOrderOperations&&itemName.itemOrderOperations.length>0}}">
+                <view catchtap="{{$scope}}.operateClick" class="{{operateItem.operationTag==='return_goods_agreed'||operateItem.operationTag==='refund_or_return_seller_refused'||operateItem.operationTag==='return_goods_seller_declare_not_received'?'refund-res--status refund-res--button refund-res--red':'refund-res--status refund-res--button'}}" data-app-id="wxca3957e5474b3670" data-fallback="" data-itemName="{{itemName}}" data-operationName="{{operateItem.operationName}}" wx:if="{{operateItem.isRefundShow}}" wx:for="{{itemName.itemOrderOperations}}" wx:for-item="operateItem" wx:key="index">
+          {{operateItem.operationDesc}}
+        </view>
+            </view>
+        </view>
+        <view class="flex latest-ship-time" wx:if="{{itemName.formatedUddt}}">
+            <view>最晚发货时间：</view>
+            <view class="{{!itemName.hasShippedOrClosed?'mogu-color':''}}">{{itemName.formatedUddt}}</view>
+        </view>
+    </view>
+</template>

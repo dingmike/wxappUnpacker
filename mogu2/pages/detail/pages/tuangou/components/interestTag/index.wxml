@@ -1,0 +1,9 @@
+<template name="interestTag">
+    <view class="module-interest flex f-ai-c">
+        <view class="tag-list">正品保障</view>
+        <view class="tag-line"></view>
+        <view class="tag-list">全场包邮</view>
+        <view class="tag-line"></view>
+        <view class="tag-list">全网专享</view>
+    </view>
+</template>

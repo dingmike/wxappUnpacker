@@ -1,0 +1,7 @@
+.title-one-line {
+    display: block!important;
+}
+
+.title-two-line {
+    display: -webkit-box!important;
+}

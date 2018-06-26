@@ -1,0 +1,8 @@
+<template name="normalItem">
+    <view bindtap="$redirect" class="normal-item-wrapper" data-acm="{{item.acm}}" data-href="{{item.link}}" style="height:{{item.styleSet&&item.styleSet.bannerHeight}}rpx;" wx:if="{{item.styleSet&&item.styleSet.bannerHeight}}">
+        <image class="normal-item-image" mode="aspectFill" src="{{item.image}}" style="height:{{item.styleSet&&item.styleSet.bannerHeight}}rpx;"></image>
+    </view>
+    <view bindtap="$redirect" class="normal-item-wrapper" data-acm="{{item.acm}}" data-href="{{item.link}}" wx:else>
+        <image class="normal-item-image" mode="aspectFill" src="{{item.image}}"></image>
+    </view>
+</template>

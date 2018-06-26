@@ -1,0 +1,7 @@
+.module-base-countdown {
+    color: #999999;
+    font-size: 32rpx;
+}
+
+.module-base-countdown .countdown-item {
+}

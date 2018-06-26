@@ -1,0 +1,12 @@
+<template name="pintuanRule">
+    <view class="module-social-pintuan-rule flex f-ff-cn">
+        <view class="pintuan-rule--title flex f-ai-c f-jc-fs">
+            <image class="pintuan-rule--title-icon" mode="aspectFit" src="{{titleIcon}}"></image>
+        </view>
+        <view class="pintuan-rule--rule flex f-jc-sb">
+            <view class="rule-text">支付商品开团，邀请好友参与，成功发货失败退款</view>
+            <view bindtap="$navigate" class="rule-arrow" data-page="pinrule">详细规则<i class="rule-arrow--icon m-icon m-icon-arrow-right"></i>
+            </view>
+        </view>
+    </view>
+</template>

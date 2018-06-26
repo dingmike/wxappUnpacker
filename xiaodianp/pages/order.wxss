@@ -1,0 +1,339 @@
+@import "../__wuBaseWxss__/11.wxss";
+
+.wetips {
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    right: 0;
+    top: 0;
+    max-width: 750rpx;
+    margin: 0 auto;
+    height: 35rpx;
+    line-height: 35rpx;
+    background-color: #E53F41;
+    text-align: center;
+    color: #FFF;
+    font-size: 26rpx;
+    overflow: hidden;
+    display: none;
+    transform: translateX(0);
+}
+
+.wetips-show {
+    display: block;
+}
+
+page {
+    height: 100%;
+}
+
+.page-container {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    height: 100%;
+}
+
+.flex-wrp {
+    display: -webkit-box;
+    display: flex;
+}
+
+.flex-tab {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    -webkit-box-align: stretch;
+    align-items: stretch;
+}
+
+.flex-item {
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    text-align: center;
+    margin: 0 25rpx;
+}
+
+.top-tab {
+    width: 750rpx;
+    height: 90rpx;
+    background: #fff;
+    font-size: 15px;
+    line-height: 100rpx;
+    margin: 0 0 4rpx 0;
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+}
+
+.toptab.active {
+    color: #fe3b2e;
+    border-bottom: solid 4rpx #fe3b2e;
+}
+
+.order-container {
+    background-color: #f2f2f2;
+    width: 100%;
+    padding-top: 90rpx;
+}
+
+.order-item {
+    padding: 20rpx;
+    margin-top: 20rpx;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    background-color: white;
+    border-bottom: 2rpx solid #f1f1f1;
+}
+
+.flag-img {
+    width: 45rpx;
+    height: 30rpx;
+    padding: 0 15rpx 0 5rpx;
+}
+
+.order-item-top {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    -webkit-box-align: center;
+    align-items: center;
+    font-size: 28rpx;
+    font-weight: 400;
+    padding-bottom: 20rpx;
+}
+
+.order-ship-country {
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+}
+
+.order-status {
+    padding-right: 10rpx;
+}
+
+.order-status-need-pay {
+    color: #fe3b2e;
+    padding-right: 15rpx;
+}
+
+.order-item-middle {
+    padding: 60rpx 0;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    border-bottom: 1rpx solid #f1f1f1;
+    border-top: 1rpx solid #f1f1f1;
+}
+
+.order-item-image {
+    margin-right: 6rpx;
+    width: 150rpx;
+    height: 150rpx;
+    background: #f8f8f8 url(https://static.seecsee.com/images/h5/placehold.svg) 50% no-repeat;
+}
+
+.order-item-image image {
+    width: 150rpx;
+    height: 150rpx;
+}
+
+.order-item-name {
+    color: black;
+}
+
+.order-item-text-info {
+    padding: 10rpx;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    font-size: 24rpx;
+    color: #989998;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    width: 20%;
+}
+
+.order-item-text-info text {
+    line-height: 32rpx;
+    letter-spacing: 2rpx;
+    color: #545454;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.order-item-text-info text:last-of-type {
+    margin: auto 0 0;
+}
+
+.order-item-price {
+    font-size: 26rpx;
+    display: -webkit-box;
+    display: flex;
+    padding: 10rpx;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-align: end;
+    align-items: flex-end;
+}
+
+.order-item-price text:last-of-type {
+    font-weight: 250;
+    font-size: 24rpx;
+}
+
+.order-item-bottom {
+    font-size: 28rpx;
+    clear: both;
+    padding-top: 20rpx;
+    -webkit-box-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: flex;
+}
+
+.order-item-bottom:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.order-total-price {
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    float: left;
+    background-color: #fff;
+    font-size: 26rpx;
+}
+
+.order-total-price text:first-of-type {
+    color: #9e9e9e;
+}
+
+.order-pay {
+    float: right;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding-left: 10rpx;
+}
+
+.order-pay .pay-button {
+    color: #fe3b2e;
+}
+
+.order-pay button {
+    border: 0;
+    font-weight: 400;
+    color: #000;
+    background: #efefef;
+    font-size: 12px!important;
+    padding: 0 18rpx!important;
+    border-radius: 4rpx;
+}
+
+.order-pay button::after {
+    content: none;
+}
+
+.order-pay text {
+    color: #9e9e9e;
+    padding-right: 20rpx;
+    font-size: 24rpx;
+}
+
+.empty-text {
+    padding-top: 400rpx;
+    border-radius: 5rpx;
+    text-align: center;
+    font-size: 28rpx;
+    color: #545454;
+    letter-spacing: 2rpx;
+    background-color: #fff;
+}
+
+.offline-notice {
+    margin: 10rpx 10rpx 0 10rpx;
+    padding: 10rpx 0 40rpx 0;
+    padding-top: 100px;
+    border-radius: 5rpx;
+    text-align: center;
+    font-size: 24rpx;
+    color: #999;
+}
+
+.order-con .modal {
+    display: none;
+}
+
+.order-con .modal-header {
+    color: #333;
+}
+
+.order-con .modal-body .type-list__radio {
+    display: block;
+    margin-top: 15rpx;
+}
+
+.order-con .modal-body input {
+    border: 1px solid #d9d9d9;
+    margin-top: 20rpx;
+    border-radius: 10rpx;
+    padding: 0 10rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+}
+
+.seeloading {
+    margin-top: 160px;
+    background-color: #ffffff;
+    text-align: center;
+    color: #999;
+    font-size: 13px;
+    padding: 50rpx 0 50rpx 0;
+    heigth: 100%;
+    width: 100%;
+}
+
+.seeloading .img_view .seeloading_img {
+    margin-top: 0;
+    width: 78rpx;
+    height: 78rpx;
+    border-radius: 50%;
+}
+
+.seeloading_gray {
+    background-color: #f2f2f2;
+    text-align: center;
+    color: #999;
+    font-size: 13px;
+    padding: 50rpx 0 50rpx 0;
+    heigth: 100%;
+    width: 100%;
+}
+
+.seeloading_gray .img_view .seeloading_img {
+    margin-top: 0;
+    width: 78rpx;
+    height: 78rpx;
+    border-radius: 50%;
+}
+
+.button-hover {
+    opacity: .6;
+}

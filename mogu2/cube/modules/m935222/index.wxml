@@ -1,0 +1,37 @@
+<template name="935222">
+    <view class="top_module {{__vx_class}}" style="{{topModuleStyle}} {{__vx_style}}" wx:if="{{!isEmpty}}">
+        <block wx:if="{{topGoodsData.length==0}}">
+            <view class="top_title flex f-fd-r f-ai-c f-jc-sb"></view>
+            <view class="scroll-wrap"></view>
+        </block>
+        <block wx:elif="{{topGoodsData&&topGoodsData.length>0}}">
+            <view pushWindow bindtap="{{$scope}}.$vx_navigate" class="top_title flex f-fd-r f-ai-c f-jc-sb" data-href="{{titleSetting.moreXCXLink||''}}">
+                <view class="top_title_l longCut">{{titleSetting.title||'人气榜单商品'}}</view>
+                <view class="top_title_r top_icon flex f-fd-r" wx:if="{{titleSetting.moreXCXLink||titleSetting.moreH5Link}}">
+                    <view class="top_title_more longCut">{{titleSetting.moreContent||'全部'}}</view>
+                    <view class="iconfont mf-arrow-right"></view>
+                </view>
+            </view>
+            <scroll-view bindscroll="{{$scope}}.scrollEvt" class=" scroll-wrap " scrollX="{{true}}">
+                <view class="top-wrap inflex">
+                    <block wx:if="{{topGoodsData}}">
+                        <view pushWindow bindtap="{{$scope}}.$vx_navigate" class="top-goods flex f-fd-c log-item acm-item" data-cube-acm="{{goods.acm}}" data-cube-acm-node="{{true}}" data-data-log-content="{{goods.acm}}" data-data-log-iid="{{goods.item_id}}" data-href="{{goods.item_xcx_url}}" wx:for="{{topGoodsData}}" wx:for-item="goods" wx:key="index">
+                            <template is="mvw-image" data="{{$parent:$parent['$'+label],...$parent['$'+label]['$mvw-image_15247322523980'+'_'+index]}}"></template>
+                            <view class="top_atm_rank" style="background: {{styleSetting.rankBgColor}};">NO.{{index+1}}</view>
+                            <view class="top_atm_des longCut" wx:if="{{goods.activityDesc}}">{{goods.activityDesc}}</view>
+                            <template is="common-goods-title" data="{{$parent:$parent['$'+label],...$parent['$'+label]['$common-goods-title_15247322523991'+'_'+index]}}"></template>
+                            <view class="goods-price-info">
+                                <template is="common-sale-price" data="{{$parent:$parent['$'+label],...$parent['$'+label]['$common-sale-price_15247322524182'+'_'+index]}}"></template>
+                                <template is="common-origin-price" data="{{$parent:$parent['$'+label],...$parent['$'+label]['$common-origin-price_15247322524183'+'_'+index]}}"></template>
+                            </view>
+                        </view>
+                    </block>
+                </view>
+            </scroll-view>
+        </block>
+    </view>
+</template>
+<import src="../../../cube-core/componentClass/internalComponents/mvwImage/index.wxml"></import>
+<import src="../../vxNodeModules/@meili/mgj-mofang-base-components/commonTitle/commonGoodsTitle.wxml"></import>
+<import src="../../vxNodeModules/@meili/mgj-mofang-base-components/commonPrice/commonOriginPrice.wxml"></import>
+<import src="../../vxNodeModules/@meili/mgj-mofang-base-components/commonPrice/commonSalePrice.wxml"></import>

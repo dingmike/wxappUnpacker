@@ -1,0 +1,22 @@
+<template name="graphic">
+    <view class="component__graphic graphic" id="moduleTabpanelGrighic">
+        <view class="graphic__desc desc" style="{{$color.secondaryTextTx}}" wx:if="{{desc}}">
+            <view class="desc__lineBar desc__lineBar--start">
+                <i class="desc__lineBar--dot dot__start"></i>
+            </view>
+            <view class="desc__text" style="{{$color.secondaryTextTx}}">{{desc}}</view>
+            <view class="desc__lineBar desc__lineBar--end">
+                <i class="desc__lineBar--dot dot__end"></i>
+            </view>
+        </view>
+        <view class="graphic__list list" wx:if="{{detailImage&&detailImage.length>0}}">
+            <view class="list__item" wx:for="{{detailImage}}" wx:for-item="detail" wx:key="key">
+                <view class="list__item--title" style="{{$color.mainTextTx}}">{{detail.key}}</view>
+                <view class="list__item--desc" style="{{$color.dimTx}}" wx:if="{{detail.desc}}">{{detail.desc}}</view>
+                <view class="list__item--imgs imgs" wx:if="{{detail.list&&detail.list.length>0}}">
+                    <image bindtap="{{$scope}}.previewImage" class="imgs__item" data-src="{{image.img}}" lazyLoad="{{true}}" mode="widthFix" src="{{image.img}}" style="width: {{image.width}}rpx; height: {{image.height}}rpx" wx:for="{{detail.list}}" wx:for-item="image"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

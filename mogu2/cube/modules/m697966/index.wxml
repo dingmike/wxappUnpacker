@@ -1,0 +1,25 @@
+<template name="697966">
+    <view class="{{__vx_class}}" id="vx_swiper" style="{{__vx_style}}">
+        <view class="placeHolder flex" style="{{emptyStyle}}" wx:if="{{!resetList}}"></view>
+        <block wx:elif="{{resetList&&resetList.length===0}}"></block>
+        <view class="swiper" wx:elif="{{resetList&&resetList.length>0}}">
+            <view class="swiper-container" style="{{boxStyle}}">
+                <view bindtouchend="{{$scope}}.handleTouchEnd" bindtouchmove="{{$scope}}.handleTouchMove" bindtouchstart="{{$scope}}.handleTouchStart" class="swiper-wrapper {{transiting?'transiting':''}}" style="width: {{(resetList.length+2)*7.5*100+'rpx'}}; transform: {{transformStyle}};">
+                    <block wx:if="{{resetList}}">
+                        <view class="swiper-slide" wx:for="{{resetList}}" wx:for-index="i" wx:key="i">
+                            <view bindtap="{{$scope}}.$vx_launch" class="swiper-slide_a log-item acm-item" data-app-id="{{item.wxa_appId||''}}" data-cube-acm="{{item.acm}}" data-cube-acm-node="{{true}}" data-data-log-content="{{item.acm}}" data-fallback="{{item.wxa_link||''}}" data-href="{{item.link_xcx}}">
+                                <template is="mvw-image" data="{{$parent:$parent['$'+label],...$parent['$'+label]['$mvw-image_15247322525350'+'_'+i]}}"></template>
+                            </view>
+                        </view>
+                    </block>
+                </view>
+                <view class="swiper-pagination" style="{{scrollPosStyle}}" wx:if="{{list&&list.length>1}}">
+                    <block wx:if="{{list}}">
+                        <view class="swiper-pagination_bullet {{i==index?'active':''}}" wx:for="{{list}}" wx:for-index="i" wx:key="i"></view>
+                    </block>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+<import src="../../../cube-core/componentClass/internalComponents/mvwImage/index.wxml"></import>

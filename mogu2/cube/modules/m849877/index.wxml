@@ -1,0 +1,40 @@
+<template name="849877">
+    <view class="{{__vx_class}}" style="{{isRequesting?emptyStyle:''}} {{__vx_style}}">
+        <view class="wrap" style="{{boxStyle}}" wx:if="{{shops&&shops.length>0}}">
+            <block wx:if="{{isShowModule}}">
+                <view class="brand-title" wx:if="{{isShowModule}}">
+                    <view>品牌特卖</view>
+                    <view bindtap="{{$scope}}.$vx_navigate" data-href="{{rightCornorLink}}">{{rightCornorTxt}}</view>
+                </view>
+                <block wx:if="{{shops.length===0}}">
+                    <block wx:if="{{standBlcoks}}">
+                        <view class="brand-shop-item" wx:if="{{isShowModule}}" wx:for="{{standBlcoks}}" wx:for-index="__key_0" wx:for-item="n" wx:key="__key_0"></view>
+                    </block>
+                </block>
+                <block wx:if="{{shops.length>0}}">
+                    <block wx:if="{{shops}}">
+                        <view class="brand-shop-item log-item acm-item" data-cube-acm="{{shop.acm}}" data-cube-acm-node="{{true}}" data-data-log-content="{{shop.acm}}" data-data-log-iid="{{shop.shop_id}}" wx:if="{{!shop.isHide}}" wx:for="{{shops}}" wx:for-item="shop" wx:key="index">
+                            <view bindtap="{{$scope}}.$vx_navigate" class="brand-shop" data-href="{{shop.link||shop.shop_xcx_url}}">
+                                <view class="brand-shop-img-wrap">
+                                    <template is="mvw-image" data="{{$parent:$parent['$'+label],...$parent['$'+label]['$mvw-image_15247322528220'+'_'+index]}}"></template>
+                                    <view class="brand-shop-image-mask" wx:if="{{shop.isEnd}}"></view>
+                                </view>
+                                <view class="brand-shop-info-wrap">
+                                    <view class="brand-shop-info">
+                                        <text class="brand-shop-name">{{shop.shopName}}</text>
+                                        <text class="brand-shop-countdown">{{shop.leftTime}}</text>
+                                    </view>
+                                    <view class="brand-shop-pro" wx:if="{{shop.promotionDesc}}">
+                                        <text class="brand-shop-icon iconfont mf-pinpaixiaobiao"></text>
+                                        <text class="brand-shop-pro-txt">{{shop.promotionDesc}}</text>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </block>
+                </block>
+            </block>
+        </view>
+    </view>
+</template>
+<import src="../../../cube-core/componentClass/internalComponents/mvwImage/index.wxml"></import>

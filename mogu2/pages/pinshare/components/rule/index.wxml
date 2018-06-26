@@ -1,0 +1,11 @@
+<template name="rule">
+    <view bindtap="$navigate" class="pt_wrap flex f-fd-r f-ai-c f-jc-sb" data-href="/pages/detail/pages/pinrule/index">
+        <view class="pt_rule_name">拼团须知</view>
+        <view class="pt_rule_items flex f-fd-r">
+            <view class="pt_rule_item" wx:for="{{rules}}" wx:key="{{index}}">
+                <view class="list-sign"></view>{{item.title}}
+      </view>
+            <view class="m-icon m-icon-arrow-right pt_arrow"></view>
+        </view>
+    </view>
+</template>

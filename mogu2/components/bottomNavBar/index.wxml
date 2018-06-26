@@ -1,0 +1,20 @@
+<template name="bottomNavBar">
+    <view class="bottom-nav-wrap" wx:if="{{isShowBottomBar&&bnbList}}">
+        <view class="bottom-nav-content">
+            <view bindtap="$redirect" class="bottom-nav-item" data-href="{{item.link}}" wx:for="{{bnbList}}" wx:key="{{*this}}">
+                <block wx:if="{{item.isActive}}">
+                    <view class="bottom-nav-item-image">
+                        <image class="bottom-nav-item-pic" src="{{item.selected}}"></image>
+                    </view>
+                    <view class="bottom-nav-item-title bottom-nav-item-title-active ">{{item.title}}</view>
+                </block>
+                <block wx:else>
+                    <view class="bottom-nav-item-image">
+                        <image class="bottom-nav-item-pic" src="{{item.image}}"></image>
+                    </view>
+                    <view class="bottom-nav-item-title">{{item.title}}</view>
+                </block>
+            </view>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,11 @@
+.mod_tag_border {
+    display: inline-flex;
+    height: 30rpx;
+    line-height: 28rpx;
+    text-align: center;
+    padding: 0 5rpx;
+    color: #ff5777;
+    font-size: 20rpx;
+    border: 1px solid #ff5777;
+    border-radius: 2rpx;
+}

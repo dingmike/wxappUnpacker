@@ -1,0 +1,67 @@
+.quality-item-wrapper {
+    font-size: 24rpx;
+    margin-bottom: 18rpx;
+    background: #fff;
+}
+
+.quality-item-icon {
+    margin-right: 5rpx;
+    margin-top: 3rpx;
+}
+
+.quality-icon-red {
+    color: #FB4747;
+}
+
+.quality-image-wrapper,.quality-item-image {
+    width: 750rpx;
+    height: 280rpx;
+    overflow: hidden;
+    position: relative;
+}
+
+.quality-end-wrapper {
+    width: 750rpx;
+    height: 280rpx;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    background: rgba(0,0,0,0.4);
+    padding: 60rpx 0 0 275rpx;
+}
+
+.quality-end-tag {
+    width: 200rpx;
+    height: 162rpx;
+    background: url(https://s10.mogucdn.com/mlcdn/c45406/171222_6jakecg03fgfb0f2db30k104cbhl7_200x162.png) no-repeat;
+    background-size: 100% auto;
+}
+
+.quality-item-bottom {
+    padding: 24rpx;
+}
+
+.quality-item-bottom-shop {
+    font-size: 30rpx;
+    color: #333;
+    max-width: 400rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.quality-item-bottom-promotion {
+    color: #FB4747;
+}
+
+.quality-bottom-promotion-desc {
+    max-width: 400rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.quality-item-bottom-right {
+    color: #999;
+}

@@ -1,0 +1,38 @@
+<import src="../../../components/mg/index.wxml"></import>
+<template is="mg" data="{{...$mg}}"></template>
+<import src="../../../components/loading/index.wxml"></import>
+<import src="../../../components/toast/index.wxml"></import>
+<template is="loading" data="{{...$loading}}"></template>
+<template is="toast" data="{{...$toast}}"></template>
+<view class="hongbao">
+    <view class="detail-info">
+        <view class="detail-item">
+            <text>支付红包可用面额：</text>
+            <text>{{hongbaoDetailInfo.amount}}元</text>
+        </view>
+        <view class="detail-item">
+            <text>支付红包原始面额：</text>
+            <text>{{hongbaoDetailInfo.originAmount}}元</text>
+        </view>
+        <view class="detail-item">
+            <text>开始时间：</text>
+            <text>{{hongbaoDetailInfo.startTime}}</text>
+        </view>
+        <view class="detail-item">
+            <text>截止时间：</text>
+            <text>{{hongbaoDetailInfo.endTime}}</text>
+        </view>
+    </view>
+    <view class="detail-fund">
+        <view class="detail-fund-title">资金详情：</view>
+        <view class="detail-item" wx:for="{{useDetails}}" wx:key="unique">
+            <text>{{item.action}} <text class="amount">{{item.amount}}元</text>
+            </text>
+            <text class="reason">{{item.comment}}</text>
+        </view>
+    </view>
+    <view class="rule">
+        <view class="rule-title">{{ruleType}}使用规则：</view>
+        <text class="rule-content">{{ruleInfo}}</text>
+    </view>
+</view>

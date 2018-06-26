@@ -1,0 +1,113 @@
+<view class="page-container">
+    <view wx:if="{{isShow===false}}">
+        <view class="offline-notice">加载中...</view>
+    </view>
+    <view class="container pay-con" wx:else>
+        <view class="IdCardTips" wx:if="{{summaryInfo.need_idcard==1}}">
+            <image src="https://image.seecsee.com/little_icon.png"></image>
+            <text>海关提示：订单中有需清关的商品，为保障顺利清关，收货地址使用的收货人姓名、身份证号、付款人真实信息请保持一致</text>
+        </view>
+        <view class="section item-flex pay-con__addr">
+            <view class="item-center">
+                <image class="addr_icon addr_icon_local" src="../images/location.png"></image>
+            </view>
+            <view bindtap="selectAddr" class="box-flex-1 addr_info">
+                <block wx:if="{{addrInfo.addr}}">
+                    <view>{{addrInfo.addr}}</view>
+                    <view>{{addrInfo.detail_addr}}</view>
+                    <view>收件人：{{addrInfo.name}} {{addrInfo.mobile}}</view>
+                </block>
+                <view wx:else>
+                    <text>添加地址</text>
+                </view>
+            </view>
+            <view class="item-center">
+                <image class="addr_icon addr_icon_arrow" src="../images/select.png"></image>
+            </view>
+        </view>
+        <view class="IdCardSave" wx:if="{{summaryInfo.need_idcard==1}}">
+            <input bindblur="editIdCard" disabled="{{isEditIdCard}}" maxlength="20" placeholder="请填写身份证号" type="idcard" value="{{addrInfo.idcard_no}}"></input>
+            <view bindtap="saveIdCard">{{isEditIdCard?'编辑':'保存'}}</view>
+        </view>
+        <view class="orderInfo">
+            <view class="orderSection" data-listItemIndex="{{index}}" wx:for="{{itemList}}" wx:for-index="listItemIndex" wx:for-item="listItem" wx:key="express.ex_id">
+                <view class="sectionName" wx:if="{{itemList.length>1}}">
+                    <text>{{listItem.package_name}}</text>
+                    <icon bindtap="iconCheck" color="#FE3B2E" size="15" type="info"></icon>
+                </view>
+                <view class="section" data-itemIndex="{{index}}" data-listItemIndex="{{listItemIndex}}" wx:for="{{listItem.lit_order_list}}" wx:for-index="itemIndex" wx:key="{{index}}">
+                    <view class="goodsInfo pay-con__card">
+                        <view class="card_img">
+                            <image mode="aspectFill" src="{{(item.sku.sku_imgurl||item.spu.item_imgurl)+'?imageView2/1/w/200/h/200/q/80'}}"></image>
+                        </view>
+                        <view class="card_info">
+                            <text class="card-item-name">{{item.spu.item_name}}</text>
+                            <text class="card-item-attr">{{item.sku.attr_name}}</text>
+                        </view>
+                        <view class="card_num">
+                            <text>￥{{item.sku.sku_price}}</text>
+                            <text>x{{item.buy_num}}</text>
+                        </view>
+                    </view>
+                    <view class="comment">
+                        <text>备注：</text>
+                        <view class="comment-input">
+                            <input bindblur="saveComment" data-wpysavecomment-a="{{listItemIndex}}" data-wpysavecomment-b="{{itemIndex}}" maxlength="60" placeholder="选填，60字以内"></input>
+                        </view>
+                    </view>
+                </view>
+                <view bindtap="expressDesc" class="express_fee" data-wpyexpressdesc-a="{{listItem.express.express_desc}}">
+                    <text>运费</text>
+                    <view wx:if="{{listItem.includeSeckillOrderFlag}}">
+                        <text class="fee_tips" wx:if="{{listItem.ship_fee>0}}">促销立省</text>
+                        <text class="ship {{listItem.ship_fee>0?'del':''}}">￥{{listItem.ship_fee}}</text>
+                    </view>
+                    <view class="item-flex" wx:else>
+                        <text class="fee_tips" style="{{aId||'border:none'}}">{{aId?'促销立省':listItem.express.express_mini_desc}}</text>
+                        <text class="ship {{aId&&listItem.ship_fee>0?'del':''}}">￥{{listItem.ship_fee}}</text>
+                    </view>
+                </view>
+                <view bindtap="expressDesc" class="tax_fee" data-wpyexpressdesc-a="{{listItem.express.express_desc}}" wx:if="{{listItem.express.tax_type!=1}}">
+                    <text>税费</text>
+                    <view wx:if="{{listItem.includeSeckillOrderFlag}}">
+                        <text class="fee_tips">促销立省</text>
+                        <text class="ship del">￥{{listItem.tax_fee}}</text>
+                    </view>
+                    <view wx:else>
+                        <text class="fee_tips" wx:if="{{aId}}">促销立省</text>
+                        <text class="ship {{aId?'del':''}}" wx:if="{{listItem.express.tax_prepay==1}}">￥{{listItem.tax_fee}}</text>
+                        <text class="ship {{aId?'del':''}}" wx:else>{{aId?'':'暂不缴纳 预估'}}￥{{listItem.tax_fee}}</text>
+                    </view>
+                </view>
+                <view class="total_fee" wx:if="{{itemList.length>1}}">小计（含运费和税费）：<text>￥{{listItem.total_fee}}</text>
+                </view>
+            </view>
+        </view>
+        <view bindtap="pageCouponChoice" class="section coupon">
+            <view class="coupon-item">
+                <text>优惠券</text>
+                <text class="coupon-desc">({{num_coupon_can_user}}张可用)</text>
+            </view>
+            <view class="item-center">
+                <text class="coupon-use" wx:if="{{couponMessage===''}}">未使用</text>
+                <text class="coupon-message">{{couponMessage}}</text>
+                <image class="coupon_icon_arrow" src="../images/select.png"></image>
+            </view>
+        </view>
+        <form reportSubmit bindsubmit="formSubmit">
+            <view class="btn-area item-flex">
+                <view class="box-flex-1 btn-area__pay item-center">合计：<text>￥{{summaryInfo.total_fee}}</text>
+                </view>
+                <button class="btn-area__btn" formType="submit" type="primary"> 立即支付 </button>
+            </view>
+        </form>
+    </view>
+    <view bindtap="closeOrder" class="groupon-order" wx:if="{{showExpressDesc}}"></view>
+    <view class="cover" wx:if="{{showExpressDesc}}">
+        <view class="cover__title">运费详情</view>
+        <view class="cover__info">
+            <text>{{expressDesc}}</text>
+        </view>
+        <text bindtap="closeOrder" class="cover__close"></text>
+    </view>
+</view>

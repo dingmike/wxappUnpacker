@@ -1,0 +1,55 @@
+<template name="878777">
+    <view class="popup-module {{__vx_class}}" style="{{__vx_style}}">
+        <view class="lot-popup-overlay" wx:if="{{lotPopShow}}">
+            <view class="lot-popup-content red-packet-content log-item acm-item" data-cube-acm="{{lotPopSetting.acm}}" data-cube-acm-node="{{true}}" data-data-log-content="{{lotPopSetting.acm}}" style="background-image: {{'url('+lotPopSetting.backgroundImg+')'}};" wx:if="{{lotPopSetting.popType==='lotteryPop'}}">
+                <view catchtap="{{$scope}}.closeLotPop" class="lot-popup-close"></view>
+                <view class="lot-popup-info" wx:if="{{lotPopMiss}}">
+                    <view class="lp-title-text miss">您错过了开红包的机会 (⋟﹏⋞)</view>
+                    <view class="lp-lottery-des miss" wx:if="{{lotPopSetting.lotteryRule}}">
+                        <view class="lp-rule flex">
+                            <view class="lp-rule-icon"></view>
+                            <view class="lp-rule-title">规则详情</view>
+                            <view class="lp-rule-icon"></view>
+                        </view>
+                        <block wx:if="{{lotPopSetting.lotteryRule}}">
+                            <view class="lp-rule-info" wx:for="{{lotPopSetting.lotteryRule}}" wx:for-index="__key_0" wx:for-item="ruleItem" wx:key="__key_0">
+                  {{ruleItem}}
+                </view>
+                        </block>
+                    </view>
+                </view>
+                <view class="lot-popup-info" wx:else>
+                    <view class="lp-title-text">您获得了一次开红包的机会！</view>
+                    <view class="lp-pop-countdown flex">
+                        <view class="lp-countdown-text">还有</view>
+                        <view class="lp-countdown-mid">{{lotPopLT}}</view>
+                        <view class="lp-countdown-second">s</view>
+                        <view class="lp-countdown-text">失效</view>
+                    </view>
+                    <view bindtap="{{$scope}}.clickStartBtn" class="lp-start-btn {{lotPopBtnStatus}}">
+                        <form bindsubmit="{{$scope}}.$vx_formSubmitHandler" reportSubmit="true">
+                            <button formType="submit"></button>
+                        </form>
+                    </view>
+                    <view class="lp-lottery-des" wx:if="{{lotPopSetting.lotteryRule}}">
+                        <view class="lp-rule flex">
+                            <view class="lp-rule-icon"></view>
+                            <view class="lp-rule-title">规则详情</view>
+                            <view class="lp-rule-icon"></view>
+                        </view>
+                        <block wx:if="{{lotPopSetting.lotteryRule}}">
+                            <view class="lp-rule-info" wx:for="{{lotPopSetting.lotteryRule}}" wx:for-index="__key_1" wx:for-item="ruleItem" wx:key="__key_1">
+                  {{ruleItem}}
+                </view>
+                        </block>
+                    </view>
+                </view>
+            </view>
+            <view bindtap="{{$scope}}.jumpFun" class="lot-popup-content log-item acm-item" data-acm="{{lotPopSetting.acm}}" data-cube-acm="{{lotPopSetting.acm}}" data-cube-acm-node="{{true}}" data-data-log-content="{{lotPopSetting.acm}}" data-href="{{lotPopSetting.h5PopLink}}" data-xcx-href="{{lotPopSetting.wxPopLink}}" style="background-image: {{'url('+lotPopSetting.backgroundImg+')'}};" wx:else>
+                <view catchtap="{{$scope}}.closeLotPop" class="lot-popup-close"></view>
+            </view>
+        </view>
+        <template is="mvw-game-pop" data="{{$parent:$parent['$'+label],...$parent['$'+label]['$mvw-game-pop_15247322522710']}}"></template>
+    </view>
+</template>
+<import src="../../vxNodeModules/@meili/vue-game-pop/src/components/gamePop.wxml"></import>

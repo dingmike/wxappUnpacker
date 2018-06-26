@@ -1,0 +1,29 @@
+<import src="../../components/mg/index.wxml"></import>
+<template is="mg" data="{{...$mg}}"></template>
+<import src="../../components/end/index.wxml"></import>
+<import src="../../components/toast/index.wxml"></import>
+<import src="../../components/loading/index.wxml"></import>
+<template is="toast" data="{{...$toast}}"></template>
+<template is="loading" data="{{...$loading}}"></template>
+<block wx:if="{{feedbackList.length>0}}">
+    <view class="fdl_item" wx:for="{{feedbackList}}" wx:key="{{item.id}}">
+        <view class="p-t-18 {{item.images?'':'p-b-18'}}">
+            <view class="m-b-6 f-28 text-lighter">{{item.created}}</view>
+            <view class="text-dark f-28">
+                <text>{{item.content}}</text>
+            </view>
+            <image bindtap="previewImage" class="feedback-image" data-image="{{item.images}}" mode="aspectFill" src="{{item.images}}" wx:if="{{item.images}}"></image>
+        </view>
+        <view class="box-b-b p-t-24 p-b-24 f-28 text-light" wx:if="{{item.status==0||item.status==1}}">
+            <text wx:if="{{item.status==1}}">[蘑菇街客服]：{{item.message}}</text>
+            <text wx:if="{{item.status==0}}">待回复</text>
+        </view>
+    </view>
+    <template is="end" data="{{...$end}}" wx:if="{{showEnd}}"></template>
+</block>
+<view class="empty-wrap flex f-jc-c" wx:if="{{feedbackList.length==0&&hasLoad}}">
+    <view>
+        <image class="empty-image" src="http://s10.mogucdn.com/p2/161213/upload_61ech6ihe399d85abhjhcigd38444_514x260.png"></image>
+        <view class="empty-tip">暂时没有反馈信息</view>
+    </view>
+</view>

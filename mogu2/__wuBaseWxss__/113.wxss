@@ -1,0 +1,156 @@
+@import "112.wxss";
+
+.module {
+    background-color: #ffffff;
+}
+
+navigator {
+    box-sizing: border-box;
+}
+
+form {
+    box-sizing: border-box;
+}
+
+button {
+    display: block;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: inherit;
+    text-align: inherit;
+    text-decoration: inherit;
+    line-height: inherit;
+    border-radius: inherit;
+    -webkit-tap-highlight-color: inherit;
+    overflow: inherit;
+    color: inherit;
+    background-color: inherit;
+}
+
+button::after {
+    display: none;
+    content: none;
+    width: auto;
+    height: auto;
+    position: inherit;
+    top: auto;
+    left: auto;
+    border: none;
+    transform: none;
+    transform-origin: none;
+    box-sizing: border-box;
+    border-radius: 0;
+}
+
+@-webkit-keyframes slideUp {
+    from {
+        height: 0;
+    }
+
+    to {
+        height: 100%;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        height: 0;
+    }
+
+    to {
+        height: 100%;
+    }
+}
+
+@-webkit-keyframes slideDown {
+    from {
+        max-height: 100%;
+    }
+
+    to {
+        height: 0;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        max-height: 100%;
+    }
+
+    to {
+        height: 0;
+    }
+}
+
+.base-dialog {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 200;
+}
+
+.base-dialog.show-true {
+    animation: slideUp 400ms;
+}
+
+.base-dialog.show-false {
+    animation: slideDown 400ms;
+}
+
+.base-dialog.show-null {
+    display: none;
+}
+
+.base-dialog .base-dialog--inner {
+    position: absolute;
+    max-height: 75%;
+    width: 100%;
+    background: #ffffff;
+    bottom: 0;
+}
+
+.base-dialog .base-dialog--head.head {
+    position: relative;
+    color: #999999;
+}
+
+.base-dialog .head-title {
+    font-size: 32rpx;
+    line-height: 88rpx;
+    text-align: center;
+}
+
+.base-dialog .head-close {
+    position: absolute;
+    font-size: 28rpx;
+    right: 0;
+    top: 0;
+    height: 88rpx;
+    width: 88rpx;
+}
+
+.base-dialog .base-dialog--content.content {
+    overflow: auto;
+    padding-bottom: 64rpx;
+}
+
+.footentry {
+    display: block;
+    height: 100%;
+}
+
+.footentry__btn {
+    width: 116rpx;
+    height: 100%;
+}
+
+.footentry__btn--icon {
+    font-size: 38rpx;
+}
+
+.footentry__btn--text {
+    font-size: 20rpx;
+}

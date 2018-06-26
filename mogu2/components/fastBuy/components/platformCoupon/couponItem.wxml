@@ -1,0 +1,24 @@
+<template name="couponItem">
+    <view class="promotion-desc" wx:if="{{data.desc}}">
+        <view class="icon-tip">{{data.desc}}</view>
+    </view>
+    <view class="item-coupon-wrap">
+        <view class="price-bar-wrap flex">
+            <view class="price-text">
+                <text class="money-symbol {{(type=='available'||type=='addon')&&'mogu-color'}}">￥</text>
+                <text class="item-coupon-price {{(type=='available'||type=='addon')&&'mogu-color'}}" wx:if="data.parameter && data.parameter.cutPrice">{{data.parameter&&data.parameter.cutPrice/100}}</text>
+                <text>满{{data.parameter.limitPrice/100}}元可用</text>
+            </view>
+            <view wx:if="{{type=='available'}}">
+                <radio checked="{{activeKey===data.promotionKey}}" color="#FB4747"></radio>
+            </view>
+        </view>
+        <view class="desc-bar-wrap flex">
+            <view class="new-promotion-name {{(type=='available'||type=='addon')&&'mogu-border-color mogu-color'}}">{{data.name}}</view>
+            <view class="new-promotion-desc">{{data.restrictDesc}}</view>
+        </view>
+        <view class="time-bar-wrap flex">
+            {{data.startTime}} - {{data.endTime}}
+        </view>
+    </view>
+</template>

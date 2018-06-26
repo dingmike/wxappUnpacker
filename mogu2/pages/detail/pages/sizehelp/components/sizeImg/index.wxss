@@ -1,0 +1,9 @@
+.sizeHelp-img {
+    width: 750rpx;
+    min-height: 500rpx;
+    font-size: 0;
+}
+
+.sizeHelp-img .measure-img {
+    width: 750rpx;
+}

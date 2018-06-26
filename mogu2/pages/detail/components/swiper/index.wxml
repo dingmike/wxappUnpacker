@@ -1,0 +1,15 @@
+<template name="swiper">
+    <view class="module-primary-swiper swiper" style="height: {{maxHeight}}rpx;" wx:if="{{topImages&&topImages.length>0}}">
+        <view bindtouchcancel="{{$scope}}.handleTouchCancel" bindtouchend="{{$scope}}.handleTouchEnd" bindtouchmove="{{$scope}}.handleTouchMove" bindtouchstart="{{$scope}}.handleTouchStart" class="swiper-scroll">
+            <view class="swiper-content flex f-jc-c" style="width: {{topImages.length>1?540*topImages.length+40:750}}rpx;left: {{-scrollLeft}}rpx;transition-duration: {{transitionDuration}};{{topImages.length>1?'padding: 0 10rpx 0 30rpx;':'padding: 0;'}}">
+                <view class="swiper-video" style="{{topImages.length>1?'margin-right: 20rpx;':''}}" wx:if="{{videoCover}}">
+                    <image class="swiper-image" mode="aspectFit" src="{{videoCover}}" style="height: {{maxHeight}}rpx;"></image>
+                    <view class="swiper-video-mask flex f-ai-c f-jc-c">
+                        <button bindtap="{{$scope}}.videoPlay" class="swiper-video-btn" formType="submit" hoverClass="none"></button>
+                    </view>
+                </view>
+                <image bindtap="{{$scope}}.showBigImage" class="swiper-image {{imageLoadHistory[index]?'fadeIn':''}}" data-index="{{index}}" mode="aspectFit" src="{{imageLoadHistory[index]?item:placeholder}}" style="height: {{maxHeight}}rpx;{{topImages.length>1?'margin-right: 20rpx;':''}}background-size: {{imageLoadHistory[index]?'100% '+imageSizeList[index].height+'rpx;':'100%;'}}" wx:if="{{!(videoCover&&index===0)}}" wx:for="{{topImages}}" wx:key="item"></image>
+            </view>
+        </view>
+    </view>
+</template>

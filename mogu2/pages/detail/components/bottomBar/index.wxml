@@ -1,0 +1,17 @@
+<template name="bottomBar">
+    <view class="cpmponent__bottombar--occupying"></view>
+    <div class="cpmponent__bottombar--tips" wx:if="{{bottomBar&&bottomBar.tipsText}}">{{bottomBar.tipsText}}</div>
+    <view class="cpmponent__bottombar bottombar flex {{bottomBar&&bottomBar.tipsText?'':'cpmponent__bottombar--border'}}" wx:if="{{bottomBar&&bottomBar.buttons&&bottomBar.buttons.length>0}}">
+        <form bindsubmit="{{$scope}}.onButtonClick" class="bottombar__{{item.type}}" reportSubmit="true" style="{{item.width?'width:'+item.width+'rpx;flex:none;':''}}" wx:for="{{bottomBar.buttons}}" wx:key="name">
+            <template is="{{item.type}}" data="{{...item,isFaved:isFaved,liveStatus:liveStatus,$color:$color,isPopUpShow:isPopUpShow}}"></template>
+        </form>
+    </view>
+    <view bindtap="{{$scope}}.hideLotteryResult" class="lottery" wx:if="{{lotteryResultImage&&isLotteryResultShow}}">
+        <image class="lottery-image" mode="aspectFit" src="{{lotteryResultImage}}"></image>
+    </view>
+    <template is="skuDialog" data="{{...$skuDialog}}"></template>
+</template>
+<import src="../bottomBar/icon/index.wxml"></import>
+<import src="../bottomBar/button/index.wxml"></import>
+<import src="../bottomBar/live/index.wxml"></import>
+<import src="../../../../components/skudialog/index.wxml"></import>

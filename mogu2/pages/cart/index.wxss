@@ -1,0 +1,27 @@
+@import "../../components/cartComponent/index.wxss";
+
+@import "../../components/wall/index.wxss";
+
+.wall-list-title {
+    height: 40rpx;
+    margin: 32rpx 0 6rpx;
+}
+
+.wall-text {
+    margin: 0 16rpx;
+    color: #666;
+    font-size: 28rpx;
+}
+
+.wall-line {
+    width: 66rpx;
+    height: 1rpx;
+    background-color: #c5c5c5;
+}
+
+.wall-diamond {
+    width: 8rpx;
+    height: 8rpx;
+    background-color: #c5c5c5;
+    transform: rotateZ(45deg);
+}

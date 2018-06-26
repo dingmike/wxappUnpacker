@@ -1,0 +1,155 @@
+@import "../../../cube-core/componentClass/internalComponents/mvwImage/index.wxss";
+
+@import "../../vxNodeModules/@meili/mgj-mofang-base-components/commonTitle/commonGoodsTitle.wxss";
+
+@import "../../vxNodeModules/@meili/mgj-mofang-base-components/commonPrice/commonSalePrice.wxss";
+
+.MCUBE_MOD_ID_934383 .brand-sale {
+    background: #efefef;
+}
+
+.MCUBE_MOD_ID_934383 .brand-header {
+    overflow: hidden;
+    width: 750rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    background-color: #fff;
+    font-size: 28rpx;
+}
+
+.MCUBE_MOD_ID_934383 .head-title {
+    display: inline-block;
+    width: 196rpx;
+    margin-left: 24rpx;
+    font-size: inherit;
+    color: #000;
+}
+
+.MCUBE_MOD_ID_934383 .head-right-cornor {
+    float: right;
+    margin-right: 24rpx;
+    font-size: inherit;
+    color: #999;
+}
+
+.MCUBE_MOD_ID_934383 .head-right-cornor-text {
+    display: inline-block;
+    max-width: 112rpx;
+    height: 100rpx;
+}
+
+.MCUBE_MOD_ID_934383 .head-right-cornor-icon {
+    vertical-align: top;
+    display: inline-block;
+}
+
+.MCUBE_MOD_ID_934383 .brand-box {
+    position: relative;
+    display: block;
+    width: 750rpx;
+    height: 574rpx;
+    margin-bottom: 20rpx;
+}
+
+.MCUBE_MOD_ID_934383 .brand-box:last-child {
+    margin-bottom: 0;
+}
+
+.MCUBE_MOD_ID_934383 .brand-box-head {
+    position: relative;
+    display: block;
+    width: 750rpx;
+    height: 220rpx;
+}
+
+.MCUBE_MOD_ID_934383 .brand-box-head-image {
+    width: 100%;
+    height: 220rpx;
+}
+
+.MCUBE_MOD_ID_934383 .brand-box-head-subscript {
+    position: absolute;
+    top: 0;
+    left: 10rpx;
+    width: 70rpx;
+    height: 70rpx;
+}
+
+.MCUBE_MOD_ID_934383 .brand-goods-wrap {
+    position: relative;
+    height: 354rpx;
+    box-sizing: border-box;
+    padding: 18rpx 0;
+    background: #fff;
+}
+
+.MCUBE_MOD_ID_934383 .brand-goods-list {
+    position: relative;
+    height: 318rpx;
+    padding: 0 18rpx;
+}
+
+.MCUBE_MOD_ID_934383 .brand-goods-list:first-child {
+    margin-left: 0;
+}
+
+.MCUBE_MOD_ID_934383 .brand-goods-list:last-child {
+    margin-right: 0;
+}
+
+.MCUBE_MOD_ID_934383 .brand-good {
+    position: relative;
+    display: block;
+    width: 180rpx;
+    height: 318rpx;
+    margin: 0 9rpx;
+    text-align: center;
+}
+
+.MCUBE_MOD_ID_934383 .brand-good-image {
+    width: 180rpx;
+    height: 240rpx;
+    border-radius: 5rpx;
+}
+
+.MCUBE_MOD_ID_934383 .brand-good-discount {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 62rpx;
+    height: 30rpx;
+    background: rgba(255,255,255,0.5);
+    border-radius: 5rpx;
+    text-align: center;
+    font-size: 20rpx;
+    color: #666;
+}
+
+.MCUBE_MOD_ID_934383 .brand-good-title {
+    width: 180rpx;
+    font-size: 24rpx;
+    color: #666;
+    line-height: 24rpx;
+}
+
+.MCUBE_MOD_ID_934383 .brand-good-price {
+    font-size: 26rpx;
+    color: #FB4747;
+}
+
+.MCUBE_MOD_ID_934383 .brand-more {
+    position: relative;
+    display: block;
+    width: 180rpx;
+    height: 240rpx;
+    margin: 0 9rpx;
+    line-height: 240rpx;
+    text-align: center;
+    background-size: cover;
+}
+
+.MCUBE_MOD_ID_934383 .brand-more-text {
+    font-size: 22rpx;
+    color: #000;
+}

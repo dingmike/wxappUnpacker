@@ -1,0 +1,8 @@
+<template name="button">
+    <button class="bottombar__btn bottombar__button-btn flex f-ff-cn f-ai-c f-jc-c {{isDisabled?'disabled':''}}" data-disable="{{isDisabled}}" data-name="{{name}}" formType="submit" hoverClass="none" style="{{bgColorStyle}}{{textColorStyle}}">
+        <view class="bottombar__button-btn--text {{nextText?'has-next':''}}">{{prefix}}<i class="m-icon m-icon-{{iconName}}" wx:if="{{iconName}}"></i>{{text}}</view>
+        <view class="bottombar__button-btn--next-text">{{nextText}}</view>
+        <template is="popup" data="{{...popup,isPopUpShow:isPopUpShow}}"></template>
+    </button>
+</template>
+<import src="../popup/index.wxml"></import>

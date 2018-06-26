@@ -1,0 +1,32 @@
+<template name="price">
+    <view class="module-primary-price price flex f-ff-cn f-jc-c f-ac-fs">
+        <view class="price-content flex f-ai-c">
+            <view class="price-content-now price-now flex" style="{{$color.mainTextTx}}">
+                <view class="price-now-unit flex">{{currency}}</view>
+                <view class="price-now-price flex">{{nowPrice}}</view>
+                <view class="price-now-price flex" wx:if="{{highNowPrice}}">{{priceSplit}}</view>
+                <view class="price-now-unit flex" wx:if="{{highNowPrice}}">{{currency}}</view>
+                <view class="price-now-price flex" wx:if="{{highNowPrice}}">{{highNowPrice}}</view>
+            </view>
+            <view class="price-content-old price-old flex f-ff-cn f-jc-sa">
+                <view class="price-old-price flex" style="{{$color.dimTx}}" wx:if="{{oldPrice}}">{{currency+oldPrice}}</view>
+                <view class="price-old-tags flex" wx:if="{{priceTags&&priceTags.length>0}}">
+                    <template is="pricetag" data="{{...tag,className:'price-old-tag',$color:$color}}" wx:if="{{tag&&tag.text}}" wx:for="{{priceTags}}" wx:for-item="tag" wx:key="text"></template>
+                </view>
+            </view>
+        </view>
+        <view class="price-event flex f-ai-c" wx:if="{{eventPrice}}">
+            <view class="price-event-unit flex" style="color: {{eventPriceColor}};">{{eventPriceUnit}}</view>
+            <view class="price-event-price flex" style="color: {{eventPriceColor}};">{{eventPrice}}</view>
+            <template is="pricetag" data="{{...eventPriceDesc,className:'price-event-desc',$color:$color}}" wx:if="eventPriceDesc && eventPriceDesc.text"></template>
+            <block wx:if="{{eventTags&&eventTags.length>0}}">
+                <template is="pricetag" data="{{...tag,className:'price-event-tags f-as-fe',$color:$color}}" wx:for="{{eventTags}}" wx:for-item="tag" wx:key="text"></template>
+            </block>
+        </view>
+        <view class="price-extra flex f-ai-c f-jc-fs" style="background-color: {{item.bgColor}}" wx:if="{{extraDescs&&extraDescs.length>0}}" wx:for="{{extraDescs}}" wx:key="desc">
+            <view class="price-extra--arrow" style="border-bottom-color: {{item.bgColor}}"></view>
+            <view class="price-extra--text" style="color: {{item.textColor}}">{{item.desc}}</view>
+        </view>
+    </view>
+</template>
+<import src="../pricetag/index.wxml"></import>

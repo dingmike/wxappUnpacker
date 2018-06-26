@@ -1,0 +1,60 @@
+<view>
+    <view class="userinfo">
+        <view class="userNameView">
+            <text class="userinfo-nickname">{{user_info.u_username}}</text>
+            <text class="userinfo-sign" wx:if="{{user_info.u_sign!=''}}">{{user_info.u_sign}}</text>
+        </view>
+        <image backgroundSize="cover" bindtap="bindDebug" class="userinfo-avatar" src="{{user_info.u_headimg}}"></image>
+    </view>
+    <view class="cellView bottom">
+        <navigator class="cell item-flex item-justify-center" hoverClass="none" url="order">
+            <image src="/images/order_icon.png"></image>
+            <view class="box-flex-1">
+                <text>我的订单</text>
+            </view>
+            <view class="arrow"></view>
+        </navigator>
+    </view>
+    <view class="cellView">
+        <view bindtap="clickAddress" class="cell item-flex item-justify-center" hoverClass="none">
+            <image src="/images/location_icon.png"></image>
+            <view class="box-flex-1">
+                <text>地址管理</text>
+            </view>
+            <view class="arrow"></view>
+        </view>
+    </view>
+    <view class="cellView bottom">
+        <navigator class="cell item-flex item-justify-center" hoverClass="none" url="coupon?is_choice=0">
+            <image src="/images/coupon_icon.png"></image>
+            <view class="box-flex-1">
+                <text>我的优惠券</text>
+            </view>
+            <view class="arrow"></view>
+        </navigator>
+    </view>
+    <view class="cellView bottom">
+        <button bindtap="gotoContact" class="cell item-flex item-justify-center contact" hoverClass="none" openType="{{serviceData.is_zhuiyi?'contact':''}}" sessionFrom="4">
+            <image src="/images/server_icon.png"></image>
+            <view class="box-flex-1">
+                <text>联系客服</text>
+            </view>
+            <view class="arrow"></view>
+        </button>
+    </view>
+    <view class="cellView bottom" wx:if="{{xiaochengxuInfo.url_share_png}}">
+        <navigator class="cell item-flex item-justify-center" hoverClass="none" url="invite?shareImg={{xiaochengxuInfo.url_share_png}}">
+            <image src="/images/invite_icon.png"></image>
+            <view class="box-flex-1">
+                <text>生成邀请卡</text>
+            </view>
+            <view class="arrow"></view>
+        </navigator>
+    </view>
+    <view bindtap="handleApply" class="applyBtn" wx:if="{{xiaochengxuInfo.url_apply_png}}">
+        <text class="coupon">申请我的小电铺</text>
+    </view>
+    <view class="partner">
+        <image class="tencent-cooperation" mode="widthFix" src="https://image.seecsee.com/mallBackgroungimage.png"></image>
+    </view>
+</view>

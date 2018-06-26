@@ -1,0 +1,5 @@
+@import "../../../components/wall/index.wxss";
+
+.MCUBE_MOD_ID_850835 {
+    overflow: visible!important;
+}

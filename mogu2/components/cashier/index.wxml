@@ -1,0 +1,36 @@
+<template name="cashier">
+    <template is="toast" data="{{...$toast}}"></template>
+    <template is="loading" data="{{...$loading}}"></template>
+    <block wx:if="{{isShow}}">
+        <template is="mask" data="{{isShow:true}}"></template>
+        <view class="cashier-component">
+            <template is="header" data="{{...$header}}"></template>
+            <view class="cashier-container">
+                <view hidden="{{!showConfig.home}}">
+                    <template is="home" data="{{...$home}}"></template>
+                </view>
+                <view hidden="{{!showConfig.installment}}">
+                    <template is="installment" data="{{...$installment}}"></template>
+                </view>
+                <view hidden="{{!showConfig.message}}">
+                    <template is="message" data="{{...$message}}"></template>
+                </view>
+                <view hidden="{{!showConfig.pwd}}">
+                    <template is="pwd" data="{{...$pwd}}"></template>
+                </view>
+                <view hidden="{{!showConfig.result}}">
+                    <template is="result" data="{{...$result}}"></template>
+                </view>
+            </view>
+        </view>
+    </block>
+</template>
+<import src="../toast/index.wxml"></import>
+<import src="../loading/index.wxml"></import>
+<import src="../mask/index.wxml"></import>
+<import src="components/header/index.wxml"></import>
+<import src="mockPages/home/index.wxml"></import>
+<import src="mockPages/installment/index.wxml"></import>
+<import src="mockPages/message/index.wxml"></import>
+<import src="mockPages/pwd/index.wxml"></import>
+<import src="mockPages/result/index.wxml"></import>

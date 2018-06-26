@@ -1,0 +1,90 @@
+.totalmount {
+    width: 100%;
+    height: 330rpx;
+    background-color: linear-gradient(to bottom,#ff9f80,#ff677B);
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border-radius: 10rpx;
+    padding-top: 25rpx;
+    color: #fff;
+}
+
+.ammount-down {
+    text-align: center;
+}
+
+.mb20 {
+    margin-bottom: 40rpx;
+}
+
+.column .txt:last-child {
+    border-right: none;
+}
+
+.ammount-down-gaptip {
+    margin-top: 15rpx;
+    font-size: 24rpx;
+    letter-spacing: 1rpx;
+}
+
+.ammount-down-replacebuy {
+    font-size: 30rpx;
+    margin-top: 18rpx;
+    letter-spacing: 2rpx;
+}
+
+.ammount-down-replacebuy-item {
+    color: rgb(255,222,66);
+    font-size: 34rpx;
+    margin: 0 8rpx;
+}
+
+.totalmount-button {
+    width: 200rpx;
+    height: 50rpx;
+    margin: 0 auto;
+    border-radius: 100rpx;
+    margin-top: 20rpx;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.ammount-text {
+    height: 55rpx;
+    line-height: 55rpx;
+    font-size: 36rpx;
+    color: #fff;
+    margin-top: 8rpx;
+}
+
+.ammount-price-num {
+    width: 70rpx;
+    height: 70rpx;
+    display: inline-block;
+    border-radius: 8rpx;
+    color: rgb(255,95,112);
+    font-size: 60rpx;
+    background-color: #fff;
+    margin: 0 7rpx;
+    line-height: 70rpx;
+}
+
+.ammount-price-wrap {
+    margin-top: 24rpx;
+}
+
+.ammount-down-gapshow-cashtype {
+    height: 22rpx;
+    margin: 22rpx 7rpx;
+    display: inline-block;
+}
+
+.ammount-down-cashdot {
+    width: 12rpx;
+    height: 12rpx;
+    display: inline-block;
+    margin: 3rpx 7rpx;
+    border-radius: 100%;
+    background-color: #fff;
+}

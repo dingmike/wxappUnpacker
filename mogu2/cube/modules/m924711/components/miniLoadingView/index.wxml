@@ -1,0 +1,5 @@
+<template name="miniLoadingView">
+    <view class="live-list-mini-loading-view-wrap flex f-fd-r f-jc-c f-ai-c" hidden="{{!show}}">
+        <view class="live-list-mini-loading-view"></view>
+    </view>
+</template>

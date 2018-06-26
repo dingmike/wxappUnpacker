@@ -1,0 +1,154 @@
+@import "components/orderCard/index.wxss";
+
+@import "components/shopItem/index.wxss";
+
+@import "../../../components/loading/index.wxss";
+
+@import "../../../components/toast/index.wxss";
+
+@import "../../../components/empty/index.wxss";
+
+@import "../../../components/end/index.wxss";
+
+@import "../../../components/walltemplate/item_pt.wxss";
+
+@import "../../../components/cashier/index.wxss";
+
+.ui-empty {
+    background-color: #fff;
+    margin-top: 20rpx;
+}
+
+.pt-wall-wrap {
+    margin-top: 20rpx;
+}
+
+.entrance {
+    background: url(https://s10.mogucdn.com/mlcdn/c45406/180125_12fh4bkl90eia58ieb2b702j16f3g_90x90.gif) no-repeat;
+    background-size: 100%;
+    position: fixed;
+    display: block;
+    bottom: 39rpx;
+    right: 32rpx;
+    width: 90rpx;
+    z-index: 10;
+    height: 90rpx;
+}
+
+.switch-order-wrap {
+    background-color: #fff;
+    padding-top: 17rpx;
+    height: 90rpx;
+    text-align: center;
+    line-height: 90rpx;
+}
+
+.tab {
+    position: relative;
+}
+
+.isAjaxLoading {
+    height: 40rpx;
+    line-height: 40rpx;
+    margin-top: 10rpx;
+    font-size: 24rpx;
+    color: #999;
+    text-align: center;
+}
+
+.new-btn {
+    box-sizing: border-box;
+    height: 58rpx;
+    width: 45%;
+    border-radius: 57rpx;
+    display: inline-block;
+    color: #fff;
+}
+
+.old-btn {
+    box-sizing: border-box;
+    display: inline-block;
+    height: 58rpx;
+    color: #fff;
+    width: 55%;
+    border-radius: 57rpx;
+}
+
+.swtich-active {
+    background-color: #fff;
+    color: #666666;
+}
+
+.tab-inner {
+    width: 20%;
+}
+
+.switch-list-wrap {
+    height: 58rpx;
+    box-sizing: content-box;
+    line-height: 58rpx;
+    background-color: #b5b5b5;
+    border-radius: 57rpx;
+    border: solid 2rpx #b5b5b5;
+    width: 400rpx;
+    margin: 0 auto;
+    font-size: 24rpx;
+}
+
+.tip-clear {
+    float: right;
+    margin-right: 22rpx;
+    height: 66rpx;
+    line-height: 66rpx;
+}
+
+.order-tips {
+    line-height: 33rpx;
+    font-size: 24rpx;
+    color: #ffffff;
+    width: 662rpx;
+    display: inline-block;
+}
+
+.rectangle-5 {
+    padding: 20rpx 0 20rpx 16rpx;
+    min-height: 106rpx;
+    background-color: #666666;
+}
+
+.tab-wrap {
+    color: #666;
+    background-color: #f8f8f8;
+}
+
+.tab-wrap .tab {
+    box-sizing: border-box;
+    margin: 0 14rpx;
+    font-size: 30rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+    text-align: center;
+}
+
+.tab-active {
+    color: #ff5777!important;
+    border-bottom: solid #ff5777 1px;
+}
+
+.order-list-wrap {
+    background-color: rgb(239,239,239);
+}
+
+.tab-number {
+    position: absolute;
+    top: 10rpx;
+    right: -5rpx;
+    padding: 0 10rpx;
+    font-size: 20rpx;
+    color: #fff;
+    height: 29rpx;
+    line-height: 29rpx;
+    text-align: center;
+    border-radius: 200rpx;
+    background-color: #ff5777;
+}

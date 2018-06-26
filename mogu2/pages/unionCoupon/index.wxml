@@ -1,0 +1,20 @@
+<import src="../../components/mg/index.wxml"></import>
+<template is="mg" data="{{...$mg}}"></template>
+<import src="../../components/loading/index.wxml"></import>
+<import src="../../components/toast/index.wxml"></import>
+<import src="components/itemInfo/itemInfo.wxml"></import>
+<import src="components/rule/index.wxml"></import>
+<import src="components/couponLeft/index.wxml"></import>
+<import src="components/header/index.wxml"></import>
+<import src="components/couponDialog/index.wxml"></import>
+<import src="components/act-dialog.wxml"></import>
+<template is="loading" data="{{...$loading}}"></template>
+<template is="toast" data="{{...$toast}}"></template>
+<template is="itemInfo" data="{{itemInfo:itemInfo,styleConfig:styleConfig,actId:actId}}"></template>
+<template is="header" data="{{itemInfo:itemInfo,couponInfo:couponInfo,ifShowDialog:ifShowDialog,isShowAct:isShowAct,styleConfig:styleConfig,isHideShopIcon:isHideShopIcon}}"></template>
+<template is="couponDialog" data="{{couponInfo:couponInfo}}" wx:if="{{ifShowDialog}}"></template>
+<view class="rule-container">
+    <template is="rule" data="{{list:instruction,title:'活动说明'}}"></template>
+    <template is="rule" data="{{list:rules,title:'规则说明'}}"></template>
+</view>
+<template is="actDialog" data="{{...rewardInfo}}" wx:if="{{isShowActDialog}}"></template>

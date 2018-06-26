@@ -1,0 +1,102 @@
+@import "../../../../../../__wuBaseWxss__/112.wxss";
+
+.sizeHelp-editInfo .editInfo-content {
+    width: 750rpx;
+}
+
+.sizeHelp-editInfo .no-edit {
+    height: 100rpx;
+    padding: 30rpx 36rpx 30rpx 36rpx;
+}
+
+.sizeHelp-editInfo .has-edit {
+    height: 144rpx;
+    padding: 32rpx 40rpx 32rpx 32rpx;
+    background-color: #fff;
+}
+
+.sizeHelp-editInfo .top-edit {
+}
+
+.sizeHelp-editInfo .top-img {
+    width: 30rpx;
+    height: 30rpx;
+    font-size: 0;
+}
+
+.sizeHelp-editInfo .edit-img {
+    width: 30rpx;
+    height: 30rpx;
+}
+
+.sizeHelp-editInfo .edit-title {
+    font-size: 28rpx;
+    margin-left: 10rpx;
+}
+
+.sizeHelp-editInfo .edit-icon {
+    font-size: 28rpx;
+}
+
+.sizeHelp-editInfo .user-info {
+}
+
+.sizeHelp-editInfo .user-avatar {
+    width: 80rpx;
+    height: 80rpx;
+    font-size: 0;
+    border-radius: 50%;
+}
+
+.sizeHelp-editInfo .avatar-img {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+}
+
+.sizeHelp-editInfo .user-size {
+    width: 488rpx;
+    height: 80rpx;
+    margin-left: 40rpx;
+    padding-right: 20rpx;
+    border-right: 1rpx solid #e5e5e5;
+}
+
+.sizeHelp-editInfo .height-size {
+    min-width: 73rpx;
+}
+
+.sizeHelp-editInfo .weight-size {
+    min-width: 73rpx;
+    margin-left: 60rpx;
+}
+
+.sizeHelp-editInfo .measure-size {
+    min-width: 73rpx;
+    max-width: 202rpx;
+    margin-left: 50rpx;
+}
+
+.sizeHelp-editInfo .size-title {
+    height: 40rpx;
+    line-height: 40rpx;
+    font-size: 24rpx;
+    color: #999;
+    text-align: center;
+}
+
+.sizeHelp-editInfo .size-info {
+    max-width: 202rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    font-size: 28rpx;
+    color: #333;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.sizeHelp-editInfo .size-unit {
+    font-size: 16rpx;
+}

@@ -1,0 +1,10 @@
+{
+    "extEnable": true,
+    "extAppid": "wxbdd7918b3850291c",
+    "ext": {
+        "authorizer_appid": "wxbdd7918b3850291c",
+        "collection_id": 91110,
+        "device_type": 1008,
+        "attr": {}
+    }
+}

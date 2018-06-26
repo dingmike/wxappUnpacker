@@ -1,0 +1,41 @@
+.pt_wrap {
+    height: 90rpx;
+    width: 750rpx;
+    padding: 0 24rpx;
+    margin-top: 18rpx;
+    background: #fff;
+}
+
+.pt_rule_name {
+    width: 130rpx;
+    height: 40rpx;
+    font-size: 28rpx;
+    color: #333;
+}
+
+.pt_rule_items {
+    max-width: 550rpx;
+    height: 33rpx;
+    font-size: 24rpx;
+    color: #999;
+    overflow: hidden;
+}
+
+.pt_rule_item {
+    margin-right: 15rpx;
+}
+
+.list-sign {
+    float: left;
+    width: 5rpx;
+    height: 5rpx;
+    border-radius: 50%;
+    background-color: #999;
+    margin: 15rpx 5rpx 0 0;
+}
+
+.pt_arrow {
+    margin-left: -10rpx;
+    font-size: 26rpx;
+    color: #999;
+}

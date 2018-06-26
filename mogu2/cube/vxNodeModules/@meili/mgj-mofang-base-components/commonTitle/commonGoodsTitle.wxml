@@ -1,0 +1,5 @@
+<template name="common-goods-title">
+    <view class="item-title-wrap title-base {{classData}} {{__vx_class}}" style="{{__vx_style}}" wx:if="{{titleInfo}}">
+  {{titleInfo}}
+</view>
+</template>

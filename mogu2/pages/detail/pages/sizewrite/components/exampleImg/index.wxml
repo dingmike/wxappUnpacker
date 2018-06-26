@@ -1,0 +1,5 @@
+<template name="exampleImg">
+    <view class="sizeWrite-image">
+        <image class="example-img" lazyLoad="{{true}}" mode="widthFix" src="https://s10.mogucdn.com/mlcdn/c45406/171220_3a7ee8a1d2i5hicb0a43l1f4il88h_750x534.png"></image>
+    </view>
+</template>

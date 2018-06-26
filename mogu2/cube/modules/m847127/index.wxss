@@ -1,0 +1,38 @@
+@import "../../../cube-core/componentClass/internalComponents/mvwImage/index.wxss";
+
+.MCUBE_MOD_ID_847127 .suspend-tip {
+    position: fixed;
+    min-width: 360rpx;
+    height: 60rpx;
+    border-radius: 100rpx;
+    overflow: hidden;
+    color: #fff;
+    background: rgba(0,0,0,0.5);
+    z-index: 150;
+    font-size: 24rpx;
+    display: flex;
+    line-height: 60rpx;
+    padding-right: 24rpx;
+}
+
+.MCUBE_MOD_ID_847127 .suspend-user-logo {
+    height: 60rpx;
+    width: 60rpx;
+    overflow: hidden;
+    margin: 0 20rpx 0 0;
+}
+
+.MCUBE_MOD_ID_847127 .suspend-user-img {
+    width: 60rpx;
+    height: 90rpx;
+}
+
+.MCUBE_MOD_ID_847127 .suspend-user-desc {
+    background: url(https://s10.mogucdn.com/mlcdn/c45406/171226_23dl21k7dcl1230cbg8cd315a8610_12x22.png) right center no-repeat;
+    background-size: 12rpx 22rpx;
+    padding-right: 20rpx;
+    max-width: 500rpx;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}

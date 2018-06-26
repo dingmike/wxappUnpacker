@@ -1,0 +1,7 @@
+@import "../detail/index.wxss";
+
+@import "../detail-dialog/index.wxss";
+
+@import "../rule/index.wxss";
+
+@import "../../../../components/gamePop/index.wxss";

@@ -1,0 +1,84 @@
+@import "components/pinshareInfo/index.wxss";
+
+@import "../../components/walltemplate/item_pt.wxss";
+
+@import "../../components/wall/index.wxss";
+
+@import "../../components/walltemplate/item_act.wxss";
+
+@import "../../components/quickNavigation/index.wxss";
+
+@import "../../components/activeEntry/index.wxss";
+
+@import "../../components/heading/index.wxss";
+
+@import "../../components/floatTip/index.wxss";
+
+@import "../../components/redPacket/index.wxss";
+
+@import "../../components/salesEntry/index.wxss";
+
+@import "../../components/getCoupon/index.wxss";
+
+@import "../../components/toast/index.wxss";
+
+.trust {
+    width: 100%;
+    height: 56rpx;
+    background: #ffe7e7;
+    color: #ff5777;
+    font-size: 24rpx;
+}
+
+.trust-icon {
+    font-size: 40rpx;
+    margin-right: 4rpx;
+}
+
+.categoryEntry-box {
+    width: 100%;
+    background: #fff;
+    overflow: hidden;
+    margin-top: 16rpx;
+}
+
+.categoryEntry-title {
+    width: 100%;
+    height: 40rpx;
+    line-height: 40rpx;
+    padding: 0 24rpx;
+    margin-top: 20rpx;
+    color: #666;
+    font-size: 28rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.backToLive {
+    position: fixed;
+    right: 0;
+    top: 40%;
+    width: 140rpx;
+    height: 52rpx;
+    opacity: 0.45;
+    border-radius: 200rpx 0 0 200rpx;
+    background-color: #000;
+    line-height: 52rpx;
+    font-size: 24rpx;
+    color: #fff;
+    text-align: center;
+    z-index: 10;
+}
+
+.coupon_form .coupon_submit {
+    margin: 16rpx auto;
+}
+
+.home-coupon {
+    margin-bottom: 16rpx;
+}
+
+.J_items_box {
+    margin-top: 16rpx;
+}

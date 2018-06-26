@@ -1,0 +1,8 @@
+{
+    "enablePullDownRefresh": true,
+    "backgroundColor": "#efefef",
+    "navigationBarBackgroundColor": "#FB4748",
+    "navigationBarTitleText": "蘑菇街女装",
+    "navigationBarTextStyle": "white",
+    "backgroundTextStyle": "dark"
+}

@@ -1,0 +1,25 @@
+<template name="seckillFootBar">
+    <view class="seckill-footbar">
+        <view class="occupying"></view>
+        <view class="tips flex f-ai-c f-jc-c" wx:if="{{buttonStatus.tips}}">
+            <view>{{buttonStatus.tips}}</view>
+            <template is="countdown" data="{{...$countdown,className:'seckill-countdown',numClass:'seckill-countdown--num',symbolClass:'seckill-countdown--symbol'}}" wx:if="{{status===1}}"></template>
+        </view>
+        <view class="footbar">
+            <view class="footbar-content flex">
+                <template is="footshop" data="{{...$footshop}}"></template>
+                <form bindsubmit="{{$scope}}.onBuyClick" class="footbar-content--form" reportSubmit="true">
+                    <button class="footbar-content--btn buy flex f-jc-c {{buttonStatus.disabled?'disabled':''}}" formType="submit" hoverClass="none" style="{{buttonStatus.disabled?'':$color.gradientBg}}">
+                        <view class="buy-title">{{buttonStatus.text}}</view>
+                    </button>
+                </form>
+            </view>
+        </view>
+        <template is="skuDialog" data="{{...$skuDialog}}"></template>
+        <template is="seckillSliderVerify" data="{{...$sliderverify}}"></template>
+    </view>
+</template>
+<import src="../../../../../../components/skudialog/index.wxml"></import>
+<import src="../../../../../../components/countdown/index.wxml"></import>
+<import src="../../../../components/footshop/index.wxml"></import>
+<import src="../sliderVerify/index.wxml"></import>

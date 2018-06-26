@@ -1,0 +1,76 @@
+.st_tips_wrap {
+    position: absolute;
+    top: 180rpx;
+    width: 100%;
+    height: 1300rpx;
+    background: #fff;
+    z-index: 2;
+}
+
+.st_tips_item {
+    position: relative;
+    align-items: center;
+    width: 96%;
+    height: 135rpx;
+    margin-left: 30rpx;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.st_empty_wrap {
+    width: 750rpx;
+}
+
+.st_empty-img {
+    width: 750rpx;
+    height: 330rpx;
+    margin-top: 100rpx;
+}
+
+.st_icon {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 10rpx;
+}
+
+.stTips {
+    margin-left: 20rpx;
+    max-width: 500rpx;
+    color: #333;
+    font-size: 28rpx;
+}
+
+.st_tag_icon {
+    max-width: 60rpx;
+    height: 38rpx;
+    margin-left: 10rpx;
+}
+
+.stTip {
+    max-width: 450rpx;
+    height: 38rpx;
+    line-height: 38rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.st_good_number {
+    height: 38rpx;
+    line-height: 38rpx;
+    font-size: 24rpx;
+    color: #999;
+    margin-right: 20rpx;
+}
+
+.stLeftCursor {
+    position: absolute;
+    right: 30rpx;
+    color: #666;
+    font-size: 28rpx;
+}
+
+.st_empty {
+    text-align: center;
+    font-size: 32rpx;
+    line-height: 3;
+}

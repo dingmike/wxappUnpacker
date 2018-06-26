@@ -1,0 +1,62 @@
+<form bindreset="formReset" bindsubmit="formSubmit" class="viewform">
+    <view class="section">
+        <view class="section__title">收件人：</view>
+        <view class="picker-view">
+            <input name="name" placeholder="姓名" value="{{address_info.name}}"></input>
+        </view>
+    </view>
+    <view class="section">
+        <view class="section__title">手机号：</view>
+        <view class="picker-view">
+            <input name="mobile" placeholder="手机或电话号码" type="digit" value="{{address_info.mobile}}"></input>
+        </view>
+    </view>
+    <view class="section">
+        <view class="section__title">省：</view>
+        <picker bindchange="bindChangeProvince" range="{{arrayProvince}}" value="{{indexProvince}}">
+            <view class="picker-view">
+                <view>
+                    <text name="prov_name">{{arrayProvince[indexProvince]}}</text>
+                </view>
+                <view>
+                    <image class="select-icon" src="../images/select.png"></image>
+                </view>
+            </view>
+        </picker>
+    </view>
+    <view class="section">
+        <view class="section__title">市：</view>
+        <picker bindchange="bindChangeCity" range="{{arrayCity}}" value="{{indexCity}}">
+            <view class="picker-view">
+                <view>
+                    <text name="city_name">{{arrayCity[indexCity]}}</text>
+                </view>
+                <view>
+                    <image class="select-icon" src="../images/select.png"></image>
+                </view>
+            </view>
+        </picker>
+    </view>
+    <view class="section">
+        <view class="section__title">区/县：</view>
+        <picker bindchange="bindChangeCounty" range="{{arrayCounty}}" value="{{indexCounty}}">
+            <view class="picker-view">
+                <view>
+                    <text name="area_name">{{arrayCounty[indexCounty]}}</text>
+                </view>
+                <view>
+                    <image class="select-icon" src="../images/select.png"></image>
+                </view>
+            </view>
+        </picker>
+    </view>
+    <view class="section-non-line">
+        <view class="section__title">详细地址：</view>
+        <view class="picker-view addr">
+            <textarea class="detail_addr" name="detail_addr" placeholder="街道地址" value="{{address_info.detail_addr}}"></textarea>
+        </view>
+    </view>
+    <view class="btn-area {{isIpx?'fix-ipx':''}}">
+        <button bindtap="formSubmit" class="pay-button" formType="submit">确定</button>
+    </view>
+</form>

@@ -1,0 +1,13 @@
+@import "../../../../__wuBaseWxss__/113.wxss";
+
+@import "../../../../components/error/index.wxss";
+
+@import "../../components/occupying/index.wxss";
+
+@import "components/editInfo/index.wxss";
+
+@import "components/reportInfo/index.wxss";
+
+@import "components/sizeImg/index.wxss";
+
+@import "../../components/ruleInfo/index.wxss";

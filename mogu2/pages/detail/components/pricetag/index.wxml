@@ -1,0 +1,3 @@
+<template name="pricetag">
+    <text class="pricetag flex f-ai-c f-jc-c {{className}}" style="{{$color.secondaryBg}}{{$color.mainTx}}" wx:if="{{text}}">{{text}}</text>
+</template>

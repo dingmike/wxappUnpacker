@@ -1,0 +1,300 @@
+<import src="../common/wxParse/wxParse.wxml"></import>
+<view wx:if="{{is_getting===true}}">
+    <view class="seeloading" id="seeloading">
+        <view class="img_view">
+            <image alt="see" class="seeloading_img" src="/images/seeloading.png"></image>
+        </view>
+        <view class="loading_info">正在加载...</view>
+    </view>
+</view>
+<scroll-view class="container" scrollView="scroll-view" scrollY="{{isScroll?true:false}}" style="height: {{windowHeight-(isIpx?34:0)}}px" wx:if="{{is_getting===false}}">
+    <view>
+        <view class="userinfo">
+            <image backgroundSize="cover" bindtap="gotoCollection" class="userinfo-avatar" src="{{item.xdpLogo+'?imageView2/0/w/100/h/100/q/80'}}"></image>
+            <view class="userinfo-right">
+                <text class="userinfo-nickname">{{item.xdpName}}</text>
+            </view>
+            <view bindtap="switchToCart" class="cartButton">
+                <image class="img" src="/images/cart.png"></image>
+            </view>
+        </view>
+    </view>
+    <view class="item-img">
+        <swiper indicatorDots class="swiper">
+            <swiper-item wx:for="{{item.mainImageUrls}}" wx:key="index">
+                <image class="slide-image" mode="aspectFill" src="{{item+'?imageView2/2/w/600/q/70'}}"></image>
+            </swiper-item>
+        </swiper>
+        <view class="sold-out" wx:if="{{item.activity&&item.activity.status==3}}">
+            <view class="sold-out__con">
+                <text class="zh">抢光啦</text>
+                <text class="en">Sold out</text>
+            </view>
+        </view>
+        <view class="item-flex item-between status-bar" wx:if="{{item.activity&&(item.activity.status==1||item.activity.status==3)}}">
+            <view class="item-flex status-bar__info">
+                <view class="price">¥ <label>{{item.activity.secKillPrice}}</label>
+                </view>
+                <view class="oriprice">
+                    <view class="p">¥{{item.activity.dailyPrice}}</view>
+                    <view class="l">
+                        <label>
+                            <text></text>{{item.activity.activityLabel}}</label>
+                    </view>
+                </view>
+            </view>
+            <view class="status-bar__time">
+                <view>距活动结束</view>
+                <view class="list-counter">
+                    <text wx:if="{{$counterDown$day>0}}">{{$counterDown$day}}天</text>
+                    <label>{{$counterDown$hr>9?$counterDown$hr:'0'+$counterDown$hr}}</label>:<label>{{$counterDown$min>9?$counterDown$min:'0'+$counterDown$min}}</label>:<label>{{$counterDown$sec>9?$counterDown$sec:'0'+$counterDown$sec}}</label>
+                </view>
+            </view>
+        </view>
+        <view class="item-flex item-between status-bar {{item.activity.surplusTimeToStart>0&&item.activity.surplusTimeToStart<300?'':'ready'}}" wx:if="{{item.activity&&item.activity.status==0}}">
+            <view class="item-flex status-bar__info">
+                <view class="price">¥ <label>{{item.activity.secKillPrice}}</label>
+                </view>
+                <view class="oriprice">
+                    <view class="l">
+                        <label>
+                            <text></text>{{item.activity.activityLabel}}</label>
+                    </view>
+                </view>
+            </view>
+            <view class="status-bar__time" wx:if="{{item.activity.surplusTimeToStart>0&&item.activity.surplusTimeToStart<300}}">
+                <view>距活动开始</view>
+                <view class="list-counter">
+                    <text wx:if="{{$counterDown$day>0}}">{{$counterDown$day}}天</text>
+                    <label>{{$counterDown$hr>9?$counterDown$hr:'0'+$counterDown$hr}}</label>:<label>{{$counterDown$min>9?$counterDown$min:'0'+$counterDown$min}}</label>:<label>{{$counterDown$sec>9?$counterDown$sec:'0'+$counterDown$sec}}</label>
+                </view>
+            </view>
+            <form reportSubmit bindsubmit="setRemind" class="" data-wpysetremind-a="{{item.activity.remind}}" data-wpysetremind-b="1" data-wpysetremind-c="{{item.activity.id}}" style="width: 45%;" wx:else>
+                <view class="form status-bar__time item-flex item-between">
+                    <view>
+                        <text>{{item.activity.startTime}}</text>
+                        <text>准时开抢</text>
+                    </view>
+                    <button class="form-view button" formType="submit">
+                        <image alt="see" class="icon" src="/images/1111/icon_clock_y.svg"></image>{{item.activity.remind?'已设提醒':'提醒我'}}</button>
+                </view>
+            </form>
+        </view>
+    </view>
+    <view class="short-info">
+        <block wx:if="{{item.activity}}">
+            <view class="item-con">
+                <lable class="item-name">
+                    <text class="item-limit" wx:if="{{item.activity.total>0&&item.activity.isLockStock}}">【限量{{item.activity.total}}件】</text>{{item.name}}</lable>
+                <text class="item-brands">{{item.sellPoint}}
+
+{{item.activity.status==0?item.brandName:''}}</text>
+            </view>
+            <button class="shareButton" openType="share">
+                <image class="img" src="/images/share.png"></image>分享</button>
+        </block>
+        <view class="item-con" wx:else>
+            <text class="item-name">{{item.name}}
+</text>
+            <text class="item-brand">{{item.sellPoint}}</text>
+        </view>
+    </view>
+    <view class="price-container">
+        <view class="price-tag" wx:if="{{item.activity&&(item.activity.status==1||item.activity.status==3)}}">
+            <text class="brand">{{item.brandName}}</text>
+        </view>
+        <view class="price-tag" wx:else>
+            <text class="price-on-sell">{{item.price}}</text>
+            <text class="price-origin">{{item.oriPrice}}</text>
+        </view>
+        <view class="location">
+            <image class="item-country" mode="aspectFill" src="{{item.supplyLocationLogo}}"></image>
+            <text class="item-suply">{{item.supplyLocation}} 供货</text>
+        </view>
+    </view>
+    <view bindtap="goToActivity" class="activity" data-wpygotoactivity-a="" wx:if="{{!item.activity&&item.freeMailInfo}}">
+        <text class="post-free">活动</text>
+        <text>{{item.freeMailInfo}}</text>
+        <view class="activity-button"></view>
+    </view>
+    <view class="goodsTips">
+        <view class="tips" wx:if="{{item.freeExpress===1}}">
+            <icon color="#FE3B2E" size="14" type="success"></icon>
+            <text>包邮</text>
+        </view>
+        <view class="tips" wx:if="{{item.freeTax===1}}">
+            <icon color="#FE3B2E" size="14" type="success"></icon>
+            <text>包税</text>
+        </view>
+        <view class="tips">
+            <icon color="#FE3B2E" size="14" type="success"></icon>
+            <text>1H无理由退款</text>
+        </view>
+    </view>
+    <view class="tencentTips flex-center">
+        <image mode="widthFix" src="https://image.seecsee.com/Group%203.png"></image>
+    </view>
+    <view class="{{couponData.length>0?'coupon-bottom':''}}" wx:if="{{showCoupon}}">
+        <view class="coupon-container" wx:if="{{$CouponList$couponList&&$CouponList$couponList.length>0}}">
+            <view class="coupon-list item-flex">
+                <view bindtap="$CouponList$clickGetCoupon" class="list-fill {{item.receiveFlag==0?'':'clicked'}}" data-id="{{item.id}}" data-receiveFlag="{{item.receiveFlag}}" data-wpyclickgetcoupon-a="{{$CouponList$moduleId}}" wx:for="{{$CouponList$couponList}}" wx:key="id">
+                    <view class="box">
+                        <view class="info">
+                            <text class="rmb">￥</text>
+                            <text class="price">{{item.couponPrice}}</text>
+                        </view>
+                        <view class="desc">{{item.desc}}</view>
+                        <view class="name">{{item.type?item.name:''}}</view>
+                    </view>
+                    <view class="box">
+                        <text class="btn">{{item.receiveFlag==0?'领取':'已领取'}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="coupon-overlap"></view>
+        </view>
+    </view>
+    <view class="delayNotice" wx:if="{{item.productNotices&&item.productNotices.length>0}}">
+        <view class="delayNotice-box" wx:for="{{item.productNotices}}" wx:key="*this">
+            <view class="delayNotice-title">
+                <image mode="aspectFill" src="https://image.seecsee.com/xiaodengpao.png"></image>{{item.title}}</view>
+            <text class="delayNotice-content">{{item.content}}</text>
+        </view>
+    </view>
+    <view bindtap="tabbarChoose" class="tabbar" wx:if="{{item.shoppingNoticeImgUrl&&item.shoppingNoticeImgUrl!=''}}">
+        <view class="{{tabbarChoose?'isChoose':''}}">商品详情</view>
+        <view class="{{tabbarChoose?'':'isChoose'}}">购物须知</view>
+    </view>
+    <view class="props-container" wx:if="{{tabbarChoose}}">
+        <view class="props-row" wx:if="{{prop_item.value}}" wx:for="{{props}}" wx:for-item="prop_item" wx:key="name">
+            <view class="props-name">
+                <text>{{prop_item.name}}</text>
+            </view>
+            <view class="props-value">
+                <text>{{prop_item.value}}</text>
+            </view>
+        </view>
+        <view class="props-row notice" wx:if="{{item.notice_info.length>0}}" wx:for="{{item.notice_info}}" wx:for-item="notice" wx:key="name">
+            <view class="notice_title">
+                <image class="img" src="/images/info.png"></image>
+                <text>{{notice.title}}</text>
+            </view>
+            <view class="notice_con">
+                <text>{{notice.content}}</text>
+            </view>
+        </view>
+        <view class="item-detail" wx:if="{{item.sizeTableImgurl}}">
+            <view class="item-detail-title">
+                <text>尺码表</text>
+            </view>
+            <view class="props-size-table">
+                <image class="item-size-table-img" mode="aspectFit" src="{{item.sizeTableImgurl}}"></image>
+            </view>
+            <view class="item-detail-desc">
+                <text>♥尺码表为官网提供，仅供参考，不接受尺码不符为由进行退换货，请理解</text>
+            </view>
+        </view>
+        <view class="item-detail">
+            <view class="item-detail-title">
+                <text>商品详情</text>
+            </view>
+            <view class="item-detail-desc">
+                <template is="wxParse" data="{{wxParseData:article.nodes}}"></template>
+            </view>
+            <view class="item-detail-img-list" wx:if="{{item.imageUrls.length>0}}">
+                <view class="item-detail-img-item" wx:for="{{item.imageUrls}}" wx:for-item="img_item" wx:key="img_item">
+                    <image mode="widthFix" src="{{img_item+'?imageView2/2/w/600/q/70'}}"></image>
+                </view>
+            </view>
+            <view class="item-detail-explain">
+                <view class="item-detail-title">
+                    <text>价格说明</text>
+                </view>
+                <view class="item-detail-price">
+                    <text class="first-text">划线价格：</text>
+                    <text class="secend-text">划线的价格可能是商品的专柜价吊牌价或正品零售指导价或该商品的曾经展示过的销售价等，仅供您参考。</text>
+                </view>
+                <view class="item-detail-price">
+                    <text class="first-text">未划线价格：</text>
+                    <text class="secend-text">未划线的价格是商品的销售标价，具体的成交价格可能因使用优惠券等发生变化，最终以订单结算价格为准。</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="shoppingNotice" wx:else>
+        <image mode="widthFix" src="{{item.shoppingNoticeImgUrl}}"></image>
+    </view>
+    <view class="partner">
+        <image class="tencent-cooperation" mode="widthFix" src="https://image.seecsee.com/mallBackgroungimage.png"></image>
+    </view>
+</scroll-view>
+<view class="btn-area {{isIpx?'fix-ipx':''}}" wx:if="{{is_getting===false}}">
+    <navigator class="btn-cart" hoverClass="none" openType="switchTab" url="/pages/mall">
+        <view class="icon">
+            <image class="img" src="/images/collection.png"></image>
+            <text>小电铺</text>
+        </view>
+    </navigator>
+    <button bindtap="gotoContact" class="btn-contact" hoverClass="none" openType="{{serviceData.is_zhuiyi?'contact':''}}" sessionFrom="{{item.zhuiyiType}}">
+        <view class="icon">
+            <image class="img" src="/images/server_icon.png"></image>
+            <text>客服</text>
+        </view>
+    </button>
+    <button bindtap="goToAddCart" class="add-cart-button {{item.activity&&item.activity.status==1?'activity-style':''}}" hoverClass="none" wx:if="{{!pay_disabled}}">加入购物车</button>
+    <button bindtap="goToBuyIt" class="pay-button {{pay_disabled?'unable':''}}" disabled="{{pay_disabled}}" hoverClass="none">{{pay_status_str}}</button>
+</view>
+<view class="service_msg" wx:if="{{isSelectedSKU}}">
+    <view animation="{{animationShadow}}" bindtap="closeSku" class="msg_bg" wx:if="{{isSelectedSKU}}"></view>
+    <view animation="{{animationData}}" class="msg_cart {{isIpx?'fix-ipx':''}}">
+        <text bindtap="closeSku" class="close">X</text>
+        <view class="buy-con {{$skuSelect$isIpx?'fix-ipx-sku':''}}">
+            <view class="section item-flex heard">
+                <view class="image">
+                    <image mode="aspectFill" src="{{$skuSelect$sku_info.imgurl+'?imageView2/1/w/300/h/300/q/60'}}"></image>
+                </view>
+                <view class="show-content">
+                    <view class="show-content__title">{{$skuSelect$itemInfo.item_name}}</view>
+                    <view class="show-content__brand">{{$skuSelect$itemInfo.brand_name}}</view>
+                    <view class="show-content__price">
+                        <text class="name">{{$skuSelect$sku_info.price}}</text>
+                        <text class="del">{{$skuSelect$sku_info.ori_price}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="content">
+                <form bindsubmit="$skuSelect$formSubmit">
+                    <view class="section type-list" wx:for="{{$skuSelect$itemInfo.sku_model.sku_props}}" wx:for-index="idx" wx:for-item="skuProps" wx:key="prop_id">
+                        <view class="type-list__title">
+                            <text>{{skuProps.prop_name}}：</text>{{$skuSelect$selectInfo[idx]||''}}</view>
+                        <view bindtap="$skuSelect$radioChange" class="sku_item {{!item.is_disabled&&item.checked?'on':''}} {{item.is_disabled?'off':''}}" data-checked="{{item.checked}}" data-disabled="{{item.is_disabled}}" data-index="{{idx}}" data-sku_name="{{item.name}}" data-type_index="{{index}}" data-value="{{skuProps.prop_id}}:{{item.value_id}}" wx:for="{{skuProps.values}}" wx:key="value_id">
+                            <text>{{item.name}}</text>
+                        </view>
+                    </view>
+                    <view class="section item-flex item-between count-list">
+                        <view class="count-list__title">
+                            <text>数量</text>
+                        </view>
+                        <view class="counter {{$skuSelect$counter$style}}">
+                            <text bindtap="$skuSelect$counter$minus" class="control" style="background-color:{{$skuSelect$counter$num<=1?'#e7e7e7':'none'}}">  -  </text>
+                            <input bindinput="$skuSelect$counter$bindKeyInput" class="count" disabled="true" max="{{$skuSelect$counter$maxNumber}}" min="1" name="buy_num" type="number" value="{{$skuSelect$counter$num}}"></input>
+                            <text bindtap="$skuSelect$counter$plus" class="control" data-type="{{$skuSelect$counter$type}}" style="background-color:{{$skuSelect$counter$num==$skuSelect$counter$maxNumber||$skuSelect$counter$type==2?'#e7e7e7':'none'}}">  +  </text>
+                        </view>
+                    </view>
+                    <view class="btn-area">
+                        <button class="btn-area__btn" disabled="{{$skuSelect$disabled}}" formType="submit" style="background-color:{{$skuSelect$disabled?'gray':'#FE3B2E'}}" type="primary"> 确认 </button>
+                    </view>
+                </form>
+            </view>
+            <view class="wetoast {{$skuSelect$toast$reveal?'wetoast_show':''}}">
+                <view class="wetoast__mask"></view>
+                <view animation="{{$skuSelect$toast$animationData}}" class="wetoast__bd">
+                    <view class="wetoast__bd__img {{$skuSelect$toast$imgClassName||''}}" wx:if="{{$skuSelect$toast$icon}}">
+                        <icon color="{{$skuSelect$toast$config.color}}" size="{{$skuSelect$toast$config.size}}" type="{{$skuSelect$toast$config.type}}"></icon>
+                    </view>
+                    <view class="wetoast__bd__title {{$skuSelect$toast$titleClassName||''}}" wx:if="{{$skuSelect$toast$title}}">{{$skuSelect$toast$title}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

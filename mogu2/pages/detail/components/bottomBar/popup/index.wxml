@@ -1,0 +1,6 @@
+<template name="popup">
+    <view class="popup__tips" wx:if="{{image&&isPopUpShow}}">
+        <image class="popup__tips--image" mode="aspectFit" src="{{image}}"></image>
+        <view class="popup__tips--text" style="color: {{textColor}}" wx:if="{{text}}">{{text}}</view>
+    </view>
+</template>

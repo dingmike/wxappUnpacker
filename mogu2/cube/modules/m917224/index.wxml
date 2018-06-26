@@ -1,0 +1,27 @@
+<template name="917224">
+    <view pushWindow bindtap="{{$scope}}.$vx_navigate" class="wrapper {{__vx_class}}" data-href="{{xcxBtnLink||''}}" id="shareReward" style="background-color: {{moduleBgColor}}; {{__vx_style}}">
+        <template is="mvw-image" data="{{$parent:$parent['$'+label],...$parent['$'+label]['$mvw-image_15247322520040']}}"></template>
+        <view class="sr-mask mask-left"></view>
+        <view class="sr-mask mask-right"></view>
+        <view class="marquee">
+            <view class="flex f-lr marquee-item" id="marqueeSR">
+                <text class="marquee-content" wx:for="{{marqueeInfo}}" wx:key="index">{{item}}</text>
+            </view>
+        </view>
+        <view class="flex sr-content">
+            <view class="sr-info" wx:if="{{shareCoupon}}">
+                <text class="sr-info-zd">已赚到</text>
+                <text class="sr-info-amount">{{shareCoupon}}</text>
+                <text class="sr-info-fx">分享金 | </text>
+                <text class="sr-info-value">可兑换{{shareValue}}元</text>
+            </view>
+            <view class="sr-info" wx:else>
+                <text class="sr-info-normal">{{defaultInfo}}</text>
+            </view>
+            <view class="sr-btn-wrapper">
+                <template is="mvw-image" data="{{$parent:$parent['$'+label],...$parent['$'+label]['$mvw-image_15247322520081']}}"></template>
+            </view>
+        </view>
+    </view>
+</template>
+<import src="../../../cube-core/componentClass/internalComponents/mvwImage/index.wxml"></import>

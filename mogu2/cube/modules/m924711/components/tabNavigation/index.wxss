@@ -1,0 +1,60 @@
+.MCUBE_MOD_ID_924711 .live-list-tab-navigation-placeholder {
+    width: 750rpx;
+    height: 90rpx;
+    overflow: hidden;
+}
+
+.MCUBE_MOD_ID_924711 .live-list-tab-navigation-wrap {
+    height: 90rpx;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    z-index: 999;
+}
+
+.MCUBE_MOD_ID_924711 .live-list-tab-navigation-wrap-fixed {
+    position: fixed;
+    top: 90rpx;
+}
+
+.MCUBE_MOD_ID_924711 .live-list-tab-navigation-scroll-wrap {
+    width: 750rpx;
+    height: 140rpx;
+    white-space: nowrap;
+}
+
+.MCUBE_MOD_ID_924711 .live-list-tab-navigation-scroll-item-wrap {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.MCUBE_MOD_ID_924711 .live-list-tab-navigation-tab-item-wrap {
+    height: 86rpx;
+    padding: 0 35rpx 0 35rpx;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+.MCUBE_MOD_ID_924711 .live-list-tab-navigation-tab-item-selected {
+    border-bottom: 4rpx solid #fb4747;
+}
+
+.MCUBE_MOD_ID_924711 .live-list-tab-navigation-tab-item-image {
+    width: 44rpx;
+    height: 44rpx;
+    margin-right: 10rpx;
+    overflow: hidden;
+}
+
+.MCUBE_MOD_ID_924711 .live-list-tab-navigation-tab-item-text {
+    height: 38rpx;
+    color: #666;
+    font-size: 28rpx;
+    line-height: 38rpx;
+}
+
+.MCUBE_MOD_ID_924711 .live-list-tab-navigation-tab-item-text-selected {
+    color: #fb4747;
+}

@@ -1,0 +1,25 @@
+.component__video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background: #000;
+}
+
+.component__video--content {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.component__video--close {
+    position: absolute;
+    top: 0rpx;
+    right: 0rpx;
+    padding: 20rpx;
+    color: #e5e5e5;
+}

@@ -1,0 +1,16 @@
+<template name="countdownlist">
+    <view class="module-base-countdown flex {{className}}" wx:if="timeItemsList && timeItemsList.length > 0">
+        <view class="countdown-item flex f-ai-c" wx:for="{{timeItemsList[countdownIndex]}}">
+            <view class="countdown-item--num {{numClass}}">{{item.num}}</view>
+            <view class="countdown-item--symbol {{symbolClass}}">{{item.symbol}}</view>
+        </view>
+    </view>
+</template>
+<template name="countdown">
+    <view class="module-base-countdown flex {{className}}" wx:if="{{timeItems&&timeItems.length>0}}">
+        <view class="countdown-item flex f-ai-c" wx:for="{{timeItems}}">
+            <view class="countdown-item--num {{numClass}}">{{item.num}}</view>
+            <view class="countdown-item--symbol {{symbolClass}}">{{item.symbol}}</view>
+        </view>
+    </view>
+</template>

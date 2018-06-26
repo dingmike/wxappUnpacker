@@ -1,0 +1,17 @@
+<import src="../../components/mg/index.wxml"></import>
+<template is="mg" data="{{...$mg}}"></template>
+<import src="../../components/cartComponent/index.wxml"></import>
+<import src="../../components/wall/index.wxml"></import>
+<scroll-view bindscroll="$wall.scrollNavEvent" bindscrolltolower="{{$cartComponent.scrollEvent}}" class="J_scroll_wallbox" lowerThreshold="50" scrollIntoView="{{$wall.scrollIntoViewId}}" scrollTop="{{scrollTop}}" scrollY="true" style="height:{{$wall.scrollBoxHeight}}px">
+    <template is="cartComponent" data="{{...$cartComponent}}"></template>
+    <view id="J_wall_box" style="padding-bottom: {{$cartComponent.marginBottom}}" wx:if="{{$cartComponent.cartOver}}">
+        <view class="wall-list-title flex f-jc-c f-ai-c">
+            <text class="wall-line"></text>
+            <text class="wall-diamond"></text>
+            <text class="wall-text">猜你喜欢</text>
+            <text class="wall-diamond"></text>
+            <text class="wall-line"></text>
+        </view>
+        <template is="wallItemsBox" data="{{$wall:$wall}}" wx:if="{{$cartComponent.cartOver}}"></template>
+    </view>
+</scroll-view>

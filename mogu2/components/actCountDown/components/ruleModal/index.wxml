@@ -1,0 +1,10 @@
+<template name="ruleModal">
+    <view class="ruleModalWrap" style="background: url({{bgImage}}) no-repeat;background-size:100%;" wx:if="{{isShowModal}}">
+        <view bindtap="{{$scope}}.cancelModal" class="ruleModalCancel"></view>
+        <view class="ruleModalContent">
+            <scroll-view scrollY class="ruleModalInfo">
+                <image class="ruleModalPic" mode="widthFix" src="{{ruleImage}}"></image>
+            </scroll-view>
+        </view>
+    </view>
+</template>

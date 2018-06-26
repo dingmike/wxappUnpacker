@@ -1,0 +1,3 @@
+<template name="mask">
+    <view bindtap="{{$scope}}.onMaskClick" class="module-base-mask show-{{isShow}} amimation-{{amimation}}" style="z-index: {{zIndex}};opacity: {{opacity?opacity:'none'}}" wx:if="{{isShow!==undefined}}"></view>
+</template>

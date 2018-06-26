@@ -1,0 +1,228 @@
+.module-base-sku.sku {
+}
+
+.module-base-sku.sku .sku-sizehelper {
+    height: 80rpx;
+    line-height: 80rpx;
+    width: 100%;
+    background-color: #f6f6f6;
+    padding: 0 32rpx;
+    flex: none;
+}
+
+.module-base-sku.sku .sizehelper-left {
+    font-size: 22rpx;
+    width: 70%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.module-base-sku.sku .sizehelper-title {
+    display: inline;
+    color: #666666;
+}
+
+.module-base-sku.sku .sizehelper-size {
+    display: inline;
+}
+
+.module-base-sku.sku .sizehelper-size--text {
+    display: inline;
+    color: #fb4747;
+}
+
+.module-base-sku.sku .sizehelper-size--desc {
+    display: inline;
+    color: #999999;
+}
+
+.module-base-sku.sku .sizehelper-right {
+    font-size: 24rpx;
+    color: #fb4747;
+}
+
+.module-base-sku.sku .sku-props {
+    flex: none;
+    padding: 0 8rpx 0 32rpx;
+}
+
+.module-base-sku.sku .sku-props--prop.prop {
+    margin-top: 32rpx;
+}
+
+.module-base-sku.sku .prop-label {
+    line-height: 24rpx;
+    font-size: 24rpx;
+    margin-bottom: 14rpx;
+    color: #999999;
+}
+
+.module-base-sku.sku .prop-items {
+}
+
+.module-base-sku.sku .prop-items--item {
+    min-height: 54rpx;
+    min-width: 120rpx;
+    padding: 10rpx 30rpx;
+    border: 1px solid #cccccc;
+    border-radius: 6rpx;
+    margin-right: 16rpx;
+    margin-bottom: 16rpx;
+    font-size: 24rpx;
+    cursor: pointer;
+    color: #333333;
+    text-align: center;
+}
+
+.module-base-sku.sku .prop-items--item.selected {
+    color: #fb4747;
+    border-color: #fb4747;
+}
+
+.module-base-sku.sku .prop-items--item.disabled {
+    opacity: .5;
+    border-style: dashed;
+    border-color: #E5E5E5!important;
+    color: #bfbfbf!important;
+    cursor: none;
+    background-color: #f6f6f6;
+}
+
+.module-base-sku.sku .sku-number.number {
+    margin-bottom: 40rpx;
+    margin-top: 32rpx;
+    padding: 0 8rpx 0 32rpx;
+}
+
+.module-base-sku.sku .number-label {
+    line-height: 24rpx;
+    font-size: 24rpx;
+}
+
+.module-base-sku.sku .number-limit {
+    line-height: 24rpx;
+    font-size: 24rpx;
+    color: #FB4747;
+}
+
+.module-base-sku.sku .number-num {
+    line-height: 24rpx;
+    font-size: 24rpx;
+    color: #999999;
+}
+
+.module-base-sku.sku .number-calculator {
+    height: 55rpx;
+    border: 1px solid #E5E5E5;
+    border-radius: 6rpx;
+    margin-top: 15rpx;
+    text-align: center;
+    line-height: 55rpx;
+}
+
+.module-base-sku.sku .number-calculator--operation {
+    display: block;
+    color: #FB4747;
+    font-size: 32rpx;
+    cursor: pointer;
+    min-width: 90rpx;
+    flex: none;
+}
+
+.module-base-sku.sku .number-calculator--operation.disabled {
+    color: #bfbfbf;
+    cursor: none;
+    background-color: #f6f6f6;
+}
+
+.module-base-sku.sku .number-calculator--value {
+    display: block;
+    border-left: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    color: #333333;
+    font-size: 28rpx;
+    min-width: 100rpx;
+    padding: 0 30rpx;
+    flex: none;
+    caret-color: #FB4747;
+    width: 100rpx;
+    height: 100%;
+}
+
+.module-base-sku.sku .installment {
+    padding-bottom: 21rpx;
+    border-top: 1px solid #E5E5E5;
+    padding: 32rpx 8rpx 0 32rpx;
+}
+
+.module-base-sku.sku .installment-label {
+    margin-bottom: 20rpx;
+}
+
+.module-base-sku.sku .installment-title {
+    color: #999999;
+    font-size: 24rpx;
+}
+
+.module-base-sku.sku .installment-tag {
+    height: 32rpx;
+    line-height: 32rpx;
+    text-align: center;
+    font-size: 20rpx;
+    padding: 0 6rpx;
+}
+
+.module-base-sku.sku .installment-props {
+}
+
+.module-base-sku-installment-props--item {
+    height: 96rpx;
+    width: 333rpx;
+    padding: 10rpx 30rpx;
+    border: 1px solid #cccccc;
+    border-radius: 6rpx;
+    margin-right: 16rpx;
+    margin-bottom: 16rpx;
+    font-size: 24rpx;
+    cursor: pointer;
+    text-align: center;
+}
+
+.module-base-sku-installment-props--item .item-price {
+    color: #333333;
+    font-size: 28rpx;
+}
+
+.module-base-sku-installment-props--item .item-fee {
+    color: #999999;
+    font-size: 22rpx;
+}
+
+.module-base-sku-installment-props--item.selected {
+    border-color: #FB4747;
+}
+
+.module-base-sku-installment-props--item.selected .item-price {
+    color: #FB4747;
+}
+
+.module-base-sku-installment-props--item.selected .item-fee {
+    color: #FB4747;
+}
+
+.module-base-sku-installment-props--item.disabled {
+    opacity: .5;
+    border-style: dashed;
+    border-color: #E5E5E5;
+    cursor: none;
+    background-color: #f6f6f6;
+}
+
+.module-base-sku-installment-props--item.disabled .item-price {
+    color: #bfbfbf;
+}
+
+.module-base-sku-installment-props--item.disabled .item-fee {
+    color: #bfbfbf;
+}

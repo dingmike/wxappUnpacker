@@ -1,0 +1,66 @@
+.module-social-liveinfo.liveinfo {
+    padding-left: 32rpx;
+}
+
+.module-social-liveinfo .liveinfo-anchor {
+    padding: 32rpx 32rpx 38rpx 0;
+    border-bottom: solid 1rpx #E5E5E5;
+}
+
+.module-social-liveinfo .liveinfo-anchor--avatar {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #e5e5e5;
+    margin-right: 16rpx;
+}
+
+.module-social-liveinfo .liveinfo-anchor--info {
+    flex: 1;
+}
+
+.module-social-liveinfo .liveinfo-anchor--room {
+}
+
+.module-social-liveinfo .room-status {
+}
+
+.module-social-liveinfo .room-status--dot {
+    width: 16rpx;
+    height: 16rpx;
+    border-radius: 50%;
+    background: #F5342F;
+    margin-right: 8rpx;
+}
+
+.module-social-liveinfo .main-text {
+    font-size: 28rpx;
+    line-height: 40rpx;
+    color: #333;
+}
+
+.module-social-liveinfo .sub-text {
+    font-size: 24rpx;
+    line-height: 34rpx;
+    color: #999;
+    margin-top: 4rpx;
+}
+
+.module-social-liveinfo .liveinfo-supplier {
+    height: 90rpx;
+    font-size: 24rpx;
+    color: #666;
+    padding-right: 32rpx;
+}
+
+.module-social-liveinfo .liveinfo-supplier--text {
+}
+
+.module-social-liveinfo .liveinfo-supplier--name {
+    max-width: 300rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin: 0 6rpx;
+}

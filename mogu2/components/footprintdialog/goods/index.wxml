@@ -1,0 +1,25 @@
+<template name="good">
+    <view bindtap="$navigate" class="good flex" data-href="{{item.itemLink}}">
+        <image class="good-image" mode="aspectFill" src="{{item.image}}"></image>
+        <view class="good-info flex">
+            <view class="good-top flex f-ff-cn">
+                <view class="good-title">{{item.title}}</view>
+                <view class="good-countdown flex f-ff-rn" wx:if="{{item.leftTime>0}}">
+                    <template is="countdownlist" data="{{...$countdown,countdownIndex:item.index,className:'footprint-countdown--'+(item.activityStatus===3?'start':'end'),numClass:'footprint-num',symbolClass:'footprint-symbol'}}"></template>
+                    <view class="good-countdown--text--{{item.activityStatus===3?'start':'end'}}">
+                        {{item.activityStatus===3?'后开始':item.activityStatus===4?'后结束':''}}
+                    </view>
+                </view>
+            </view>
+            <view class="good-bottom flex f-ff-cn">
+                <view class="good-promotion" style="background-image: url({{item.promotionImg}})" wx:if="{{item.promotionImg}}"></view>
+                <view class="good-price flex">
+                    <image class="good-price--icon" src="{{item.saleTypeImg}}" wx:if="{{item.saleTypeImg}}"></image>
+                    <view class="good-price-now flex f-ai-c">¥{{item.salePrice}}</view>
+                    <view class="good-price-old" wx:if="{{item.price}}">¥{{item.price}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+<import src="../../countdown/index.wxml"></import>

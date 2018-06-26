@@ -1,0 +1,119 @@
+.component__shop {
+    padding: 0 30rpx 34rpx;
+}
+
+.component__shop .shop__head {
+    margin-top: 40rpx;
+}
+
+.component__shop .head__avatar {
+    margin-right: 20rpx;
+}
+
+.component__shop .head__avatar--img {
+    display: block;
+    width: 100rpx;
+    height: 100rpx;
+    background: #e5e5e5;
+    border: 1rpx solid #e5e5e5;
+}
+
+.component__shop .head__info {
+    flex: 1;
+}
+
+.component__shop .info__title {
+}
+
+.component__shop .info__title--name {
+    color: #333;
+    font-size: 28rpx;
+}
+
+.component__shop .info__title--tag {
+    display: inline-block;
+    height: 32rpx;
+    margin-left: 10rpx;
+}
+
+.component__shop .info__star {
+    width: 125rpx;
+    height: 20rpx;
+    margin-bottom: 10rpx;
+}
+
+.component__shop .info__star--leval {
+    width: 20rpx;
+    height: 20rpx;
+    margin-right: 5rpx;
+}
+
+.component__shop .head__entry {
+    height: 60rpx;
+    border: 1rpx solid #FB4747;
+    border-radius: 4rpx;
+    padding: 0 26rpx;
+}
+
+.component__shop .entry__text {
+    font-size: 24rpx;
+    line-height: 60rpx;
+    text-align: center;
+}
+
+.component__shop .shop__desc {
+    margin-top: 20rpx;
+}
+
+.component__shop .desc__sale {
+    border-right: 1rpx solid #E5E5E5;
+    flex: 1;
+    width: 100%;
+}
+
+.component__shop .desc__fav {
+    border-right: 1rpx solid #E5E5E5;
+    flex: 1;
+    width: 100%;
+}
+
+.component__shop .desc__score {
+    width: 100%;
+    flex: 1;
+}
+
+.component__shop .desc__sale--num {
+    font-size: 36rpx;
+    color: #333333;
+}
+
+.component__shop .desc__sale--text {
+    font-size: 22rpx;
+    color: #999999;
+}
+
+.component__shop .desc__fav--num {
+    font-size: 36rpx;
+    color: #333333;
+}
+
+.component__shop .desc__fav--text {
+    font-size: 22rpx;
+    color: #999999;
+}
+
+.component__shop .desc__score--text {
+    height: 35rpx;
+    line-height: 35rpx;
+}
+
+.component__shop .score__text {
+    font-size: 22rpx;
+    color: #999999;
+}
+
+.component__shop .score__num {
+    font-size: 24rpx;
+    color: #00CC00;
+    margin-left: 8rpx;
+}

@@ -1,0 +1,135 @@
+.lottery-result--prize {
+    background: #fdf7f7;
+    width: 100%;
+    padding: 40rpx 0 40rpx 0;
+}
+
+.prize-title {
+    font-size: 60rpx;
+    text-align: center;
+    width: 322rpx;
+    background-repeat: no-repeat;
+    color: #333333;
+    line-height: 84rpx;
+}
+
+.prize-title--prize {
+    background-image: url(https://s10.mogucdn.com/mlcdn/c45406/170704_57j50b0j5k46c2ahh85e1lbj4hca8_322x67.png);
+    color: #ff5777;
+    background-position: center top;
+    background-size: 100% 67rpx;
+    height: 90rpx;
+}
+
+.prize-desc {
+    font-size: 24rpx;
+    margin-top: 8rpx;
+}
+
+.prize-desc--prize {
+    color: #ff5777;
+}
+
+.prize-desc--coupon {
+    color: #999999;
+}
+
+.prize-desc--canael {
+    color: #666666;
+}
+
+.prize-desc--notHasLottery {
+    color: #666666;
+}
+
+.prize-button {
+    height: 50rpx;
+    border-radius: 4rpx;
+    border: solid 1px #ff5777;
+    font-size: 24rpx;
+    color: #ff5777;
+    padding: 0 20rpx;
+    line-height: 50rpx;
+    text-align: center;
+    margin-top: 24rpx;
+}
+
+.lottery-result--item {
+    height: 85rpx;
+    border-top: 1rpx solid #e5e5e5;
+    padding: 0 32rpx;
+    background: #fdf7f7;
+    margin-bottom: 16rpx;
+}
+
+.item-image {
+    width: 40rpx;
+    height: 40rpx;
+    border-radius: 8rpx;
+    flex: none;
+}
+
+.item-tag {
+    height: 40rpx;
+    line-height: 40rpx;
+    padding: 0 6rpx;
+    border-radius: 4rpx;
+    background-color: #ffe8ee;
+    font-size: 22rpx;
+    color: #ff5777;
+    margin-left: 16rpx;
+    white-space: nowrap;
+    flex: none;
+}
+
+.item-title {
+    font-size: 28rpx;
+    color: #333333;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-left: 8rpx;
+}
+
+@import "../../../components/walltemplate/item_pt.wxss";
+
+.lottery-result--user {
+    background: #ffffff;
+}
+
+.user-title {
+    height: 90rpx;
+    line-height: 90rpx;
+    color: #666666;
+    font-size: 28rpx;
+    text-align: center;
+}
+
+.user-list {
+    border-top: 1rpx solid #ececec;
+}
+
+.user-list--item {
+    padding: 0 32rpx;
+    height: 100rpx;
+}
+
+.user-list--item-user {
+}
+
+.user-list--item-user-avatar {
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 50%;
+}
+
+.user-list--item-user-uname {
+    font-size: 28rpx;
+    color: #333333;
+    margin-left: 16rpx;
+}
+
+.user-list--item-order {
+    font-size: 24rpx;
+    color: #666666;
+}

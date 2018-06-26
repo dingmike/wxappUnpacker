@@ -1,0 +1,54 @@
+@import "../../../components/loading/index.wxss";
+
+@import "../../../components/toast/index.wxss";
+
+@import "components/loadingErrorView/index.wxss";
+
+@import "components/seckill/index.wxss";
+
+@import "components/tabNavigation/index.wxss";
+
+@import "components/roomList/index.wxss";
+
+.MCUBE_MOD_ID_924711 {
+}
+
+.MCUBE_MOD_ID_924711 button {
+    position: static;
+    display: block;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    box-sizing: 0;
+    font-size: 0;
+    text-align: left;
+    text-decoration: none;
+    line-height: 0;
+    border-radius: 0;
+    -webkit-tap-highlight-color: transparent;
+    overflow: hidden;
+    color: transparent;
+    background-color: transparent;
+    background: transparent;
+}
+
+.MCUBE_MOD_ID_924711 button::after {
+    content: " ";
+    width: 0px;
+    height: 0px;
+    position: static;
+    top: 0;
+    left: 0;
+    border: 0;
+    transform: 0;
+    transform-origin: 0 0;
+    box-sizing: border-box;
+    border-radius: 0;
+}
+
+.MCUBE_MOD_ID_924711 .button-hover {
+    color: transparent;
+    background: transparent;
+    background-color: transparent;
+}

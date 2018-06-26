@@ -1,0 +1,30 @@
+<view class="container" wx:if="{{activityData.length>0}}">
+    <view class="loop-wording">
+        <view class="marquee_box">
+            <view class="tips" src="../images/tips.png">
+                <image src="../images/tips.png"></image>
+            </view>
+            <view class="marquee_text" style="left:{{$loopWording$currentDistance+'px'}};font-size: {{$loopWording$size}}px;">
+                <text>{{$loopWording$loopText}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="item-container">
+        <view class="item" wx:for="{{activityData}}" wx:key="item-id">
+            <view bindtap="clickProduct" class="item-block" data-id="{{item.item_id}}">
+                <image class="head-img" mode="aspectFit" src="{{item.item_img_url+'?imageView2/5/w/360/h/360'}}"></image>
+                <view class="name-line">
+                    <text class="name">{{item.item_name}}</text>
+                </view>
+                <view class="price-view">
+                    <view class="{{item.item_price!=item.item_ori_price?'price-line':'price-line-none'}}">
+                        <text>¥{{item.item_price}}</text>
+                    </view>
+                    <view class="oriprice-line" style="padding-left:16rpx;" wx:if="{{item.item_price!=item.item_ori_price}}">
+                        <text>  ¥{{item.item_ori_price}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

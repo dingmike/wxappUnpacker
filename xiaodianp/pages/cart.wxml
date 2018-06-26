@@ -1,0 +1,156 @@
+<view wx:if="{{isShow===false}}">
+    <view class="seeloading">
+        <view class="img_view">
+            <image alt="see" class="seeloading_img" src="/images/seeloading.png"></image>
+        </view>
+        <view class="loading_info">正在加载...</view>
+    </view>
+</view>
+<view class="page-container cart-con" wx:else>
+    <view class="cart" wx:if="{{list_normal.length>0||list_expried.length>0}}">
+        <view class="cart-container">
+            <view class="activity" data-activityIndex="{{index}}" wx:if="{{list_normal.length>0}}" wx:for="{{list_normal}}" wx:for-index="activityIndex" wx:for-item="activity" wx:key="{{index}}">
+                <view class="activity-bannner" wx:if="{{activity.act_info.act_type!=0}}">
+                    <view bindtap="activityRadioChange" class="image-area" data-wpyactivityradiochange-a="{{activityIndex}}" data-wpyactivityradiochange-b="{{activity.act_info.check_type}}">
+                        <image src="{{activity.act_info.check_type=='1'?'../images/cart_select.png':'../images/cart_unselect.png'}}"></image>
+                    </view>
+                    <text class="post-free">活动</text>
+                    <text class="post-title">{{activity.act_info.title}}</text>
+                    <view bindtap="goToActivity" class="activity-button" data-wpygotoactivity-a="{{activity.act_info.ex_id}}" data-wpygotoactivity-b="{{activity.act_info.seller_id}}">{{activity.act_info.btn_tips}}</view>
+                </view>
+                <view class="cart-item" wx:for="{{activity.list_item}}" wx:for-item="cart" wx:key="sku_id">
+                    <view bindtouchmove="touchM" bindtouchstart="touchS" class="cart-item_info" data-activityIndex="{{activityIndex}}" data-cartIndex="{{index}}" data-is_expire="{{cart.is_expire}}" style="{{cart.txtStyle}}">
+                        <view bindtap="radioChange" class="image-area" data-wpyradiochange-a="{{activityIndex}}" data-wpyradiochange-b="{{cart}}">
+                            <image src="{{cart.check_type=='1'?'../images/cart_select.png':'../images/cart_unselect.png'}}"></image>
+                        </view>
+                        <view class="cart-item-middle">
+                            <view bindtap="clickCart" class="cart-item-image" data-index="{{index}}" data-item="{{cart}}">
+                                <image mode="aspectFill" src="{{cart.item_imgurl+'?imageView2/0/w/300/h/300/q/80'}}"></image>
+                            </view>
+                            <view bindtap="clickGoods" class="cart-item-text-info" data-index="{{index}}" data-item="{{cart}}">
+                                <text class="cart-item-name">{{cart.item_name}}</text>
+                                <view class="cart-item-tip" wx:if="{{cart.seckill_info&&cart.seckill_info.status==1}}">
+                                    <text>秒杀价￥{{cart.seckill_info.seckill_price}}</text>
+                                    <text>{{cart.seckill_info.start_time}}开抢</text>
+                                </view>
+                                <view class="cart-item-tip" wx:if="{{cart.seckill_info&&cart.seckill_info.status==2}}">
+                                    <label>距离秒杀结束仅剩</label>
+                                    <label wx:if="{{timeData[activityIndex][index].day>0}}">{{timeData[activityIndex][index].day}}天 </label>
+                                    <label>{{timeData[activityIndex][index].hr}}</label>:<label>{{timeData[activityIndex][index].min}}</label>:<label>{{timeData[activityIndex][index].sec}}</label>
+                                </view>
+                                <text class="cart-item-attr">{{cart.attr_value}}</text>
+                            </view>
+                            <view class="cart-item-price">
+                                <text style="color:{{cart.seckill_info.status==2&&'#ff3b30'}}">￥{{cart.seckill_info.status==2?cart.seckill_info.seckill_price:cart.sku_price}}</text>
+                                <text>x{{cart.buy_num}}</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view bindtap="del" class="cart-item_action" data-wpydel-a="{{cart.sku_id}}">
+                        <view class="delete">删除</view>
+                    </view>
+                </view>
+            </view>
+            <view class="clean-view" wx:if="{{list_expried.length>0}}">
+                <view class="clean-box">
+                    <button bindtap="clickClear" class="clean-all" size="mini">清空失效宝贝</button>
+                </view>
+            </view>
+            <view class="activity" wx:if="{{list_expried.length>0}}" wx:for="{{list_expried}}" wx:for-index="activityIndex" wx:for-item="activity" wx:key="*this">
+                <view class="cart-item" wx:for="{{activity.list_item}}" wx:for-item="cart" wx:key="sku_id">
+                    <view bindtouchmove="touchM" bindtouchstart="touchS" class="cart-item_info" data-activityIndex="{{activityIndex}}" data-cartIndex="{{index}}" data-is_expire="{{cart.is_expire}}" style="{{cart.txtStyle}}">
+                        <view class="image-area">
+                            <text>失效</text>
+                        </view>
+                        <view class="cart-item-middle">
+                            <view bindtap="clickCart" class="cart-item-image" data-index="{{index}}" data-item="{{cart}}">
+                                <image mode="aspectFill" src="{{cart.item_imgurl+'?imageView2/0/w/300/h/300/q/80'}}"></image>
+                            </view>
+                            <view bindtap="clickGoods" class="cart-item-text-info" data-index="{{index}}" data-item="{{cart}}">
+                                <text class="cart-item-name">{{cart.item_name}}</text>
+                                <text class="cart-item-attr">{{cart.attr_value}}</text>
+                            </view>
+                            <view class="cart-item-price">
+                                <text>￥{{cart.sku_price}}</text>
+                                <text>x{{cart.buy_num}}</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view bindtap="del" class="cart-item_action" data-wpydel-a="{{cart.sku_id}}">
+                        <view class="delete">删除</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="empty-text" wx:if="{{list_normal.length==0&&list_expried.length==0&&is_getting===false}}">
+        <text class="text">您的购物车还是空的，赶紧行动吧！</text>
+    </view>
+    <view class="btn-area" wx:if="{{list_normal.length>0}}">
+        <view bindtap="radioChangeAll" class="item-center">
+            <image src="{{isAllChoice===true?'../images/cart_select.png':'../images/cart_unselect.png'}}"></image>全选
+      </view>
+        <view class="total">
+            <view>合计<text class="fee">￥{{total_fee}}</text>
+            </view>
+            <text class="tips">不含运费</text>
+        </view>
+        <view>
+            <button bindtap="clickPay" class="btn-area__btn" size="default" type="">结算</button>
+        </view>
+    </view>
+</view>
+<view class="service_msg" wx:if="{{isSelectedSKU}}">
+    <view animation="{{animationShadow}}" bindtap="closeSku" class="msg_bg" wx:if="{{isSelectedSKU}}"></view>
+    <view animation="{{animationData}}" class="msg_cart">
+        <text bindtap="closeSku" class="close">X</text>
+        <view class="buy-con {{$skuSelect$isIpx?'fix-ipx-sku':''}}">
+            <view class="section item-flex heard">
+                <view class="image">
+                    <image mode="aspectFill" src="{{$skuSelect$sku_info.imgurl+'?imageView2/1/w/300/h/300/q/60'}}"></image>
+                </view>
+                <view class="show-content">
+                    <view class="show-content__title">{{$skuSelect$itemInfo.item_name}}</view>
+                    <view class="show-content__brand">{{$skuSelect$itemInfo.brand_name}}</view>
+                    <view class="show-content__price">
+                        <text class="name">{{$skuSelect$sku_info.price}}</text>
+                        <text class="del">{{$skuSelect$sku_info.ori_price}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="content">
+                <form bindsubmit="$skuSelect$formSubmit">
+                    <view class="section type-list" wx:for="{{$skuSelect$itemInfo.sku_model.sku_props}}" wx:for-index="idx" wx:for-item="skuProps" wx:key="prop_id">
+                        <view class="type-list__title">
+                            <text>{{skuProps.prop_name}}：</text>{{$skuSelect$selectInfo[idx]||''}}</view>
+                        <view bindtap="$skuSelect$radioChange" class="sku_item {{!item.is_disabled&&item.checked?'on':''}} {{item.is_disabled?'off':''}}" data-checked="{{item.checked}}" data-disabled="{{item.is_disabled}}" data-index="{{idx}}" data-sku_name="{{item.name}}" data-type_index="{{index}}" data-value="{{skuProps.prop_id}}:{{item.value_id}}" wx:for="{{skuProps.values}}" wx:key="value_id">
+                            <text>{{item.name}}</text>
+                        </view>
+                    </view>
+                    <view class="section item-flex item-between count-list">
+                        <view class="count-list__title">
+                            <text>数量</text>
+                        </view>
+                        <view class="counter {{$skuSelect$counter$style}}">
+                            <text bindtap="$skuSelect$counter$minus" class="control" style="background-color:{{$skuSelect$counter$num<=1?'#e7e7e7':'none'}}">  -  </text>
+                            <input bindinput="$skuSelect$counter$bindKeyInput" class="count" disabled="true" max="{{$skuSelect$counter$maxNumber}}" min="1" name="buy_num" type="number" value="{{$skuSelect$counter$num}}"></input>
+                            <text bindtap="$skuSelect$counter$plus" class="control" data-type="{{$skuSelect$counter$type}}" style="background-color:{{$skuSelect$counter$num==$skuSelect$counter$maxNumber||$skuSelect$counter$type==2?'#e7e7e7':'none'}}">  +  </text>
+                        </view>
+                    </view>
+                    <view class="btn-area">
+                        <button class="btn-area__btn" disabled="{{$skuSelect$disabled}}" formType="submit" style="background-color:{{$skuSelect$disabled?'gray':'#FE3B2E'}}" type="primary"> 确认 </button>
+                    </view>
+                </form>
+            </view>
+            <view class="wetoast {{$skuSelect$toast$reveal?'wetoast_show':''}}">
+                <view class="wetoast__mask"></view>
+                <view animation="{{$skuSelect$toast$animationData}}" class="wetoast__bd">
+                    <view class="wetoast__bd__img {{$skuSelect$toast$imgClassName||''}}" wx:if="{{$skuSelect$toast$icon}}">
+                        <icon color="{{$skuSelect$toast$config.color}}" size="{{$skuSelect$toast$config.size}}" type="{{$skuSelect$toast$config.type}}"></icon>
+                    </view>
+                    <view class="wetoast__bd__title {{$skuSelect$toast$titleClassName||''}}" wx:if="{{$skuSelect$toast$title}}">{{$skuSelect$toast$title}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

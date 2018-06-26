@@ -1,0 +1,7 @@
+{
+    "backgroundColor": "#ffffff",
+    "enablePullDownRefresh": true,
+    "usingComponents": {
+        "wxc-countdown": "../../packages/@minui/wxc-countdown/dist/index"
+    }
+}

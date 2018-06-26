@@ -1,0 +1,20 @@
+<template name="recommend">
+    <view class="component__recommend recommend" id="moduleTabpanelRecommend" wx:if="{{list&&list.length>0}}">
+        <view class="recommend__title flex f-ai-c f-jc-c" style="{{$color.dimTx}}">
+            <view class="recommend__title--line"></view>
+            <image class="recommend__title--icon" lazyLoad="{{true}}" src="https://s10.mogucdn.com/mlcdn/c45406/171220_6k3keaabag1c43e575hc7cfl2f35d_60x62.png"></image>
+            热卖推荐
+            <view class="recommend__title--line"></view>
+        </view>
+        <view class="recommend__list flex f-fw-w">
+            <view bindtap="$redirect" class="recommend__item item flex f-ff-cn expose-log" data-acm="{{item.acm}}" data-from-page="detail" data-href="{{item.item_url}}" data-log-iid="{{item.item_id}}" data-log-index="{{index}}" data-log-mod="{{modId}}_{{list.length}}" wx:for="{{list}}" wx:key="item_id">
+                <image class="recommend__item--image" lazyLoad="{{true}}" mode="aspectFill" src="{{item.image}}"></image>
+                <view class="recommend__item--title">{{item.title}}</view>
+                <view class="recommend__item--info info flex f-ai-c f-jc-fs">
+                    <image class="info__icon" lazyLoad="{{true}}" src="{{item.price_taglist[0]}}" wx:if="{{item.price_taglist&&item.price_taglist.length>0}}"></image>
+                    <view class="info__price">¥{{item.discountPrice}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

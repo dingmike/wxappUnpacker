@@ -1,0 +1,5 @@
+.module-occupying {
+    height: 18rpx;
+    width: 100%;
+    background: #efefef;
+}

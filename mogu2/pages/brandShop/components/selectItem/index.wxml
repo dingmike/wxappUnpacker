@@ -1,0 +1,42 @@
+<template name="selectItem">
+    <view class="select-item" style="margin:{{boxMargin}};background-color:{{boxBgColor}};" wx:if="{{list&&list.length>0}}">
+        <template is="heading_title_subTitle" data="{{title:$headingTitle,subTitle:$headingSubTitle,titleIcon:$headingTitleIcon,height:$headingHeight,bgColor:$headingBgColor,margin:$headingMargin,padding:$headingPadding,color:$headingColor,moreText:$headingMoreText,moreTextColor:$headingMoreTextColor,moreLink:$headingMoreLink,wxaMoreLink:$headingWxaMoreLink,appId:$headingAppId,canLaunch:$headingCanLaunch}}" wx:if="{{$headingTitle}}"></template>
+        <view class="select-item-content-box">
+            <view bindtap="$navigate" class="select-item-content expose-log" data-acm="{{item.acm||''}}" data-href="{{item.link||'/pages/detail/pages/normal/index?itemId='+item._tradeItemId}}" data-log-iid="{{item.iid||''}}" data-log-index="{{index}}" data-log-mod="{{modId}}_{{list.length}}" data-ptp-c="{{ptpC||''}}" data-ptp-d="{{index}}" wx:for="{{list}}" wx:key="index">
+                <view class="select-item-image-box">
+                    <image class="select-item-image" mode="aspectFill" src="{{item.suffix_img||''}}"></image>
+                    <block wx:if="{{item.discount&&item.discount>0&&item.discount<10}}">
+                        <text class="select-item-discount" wx:if="{{item.discount}}">{{item.discount+'折'}}</text>
+                    </block>
+                </view>
+                <view class="select-item-info">
+                    <view class="select-item-info-title" style="color:{{titleColor}}">{{item.title||''}}</view>
+                    <view class="select-item-info-tag" style="color:{{desColor}}">
+                        <view class="select-item-info-tag-item">{{item.promotionDesc||'历史新低价'}}</view>
+                    </view>
+                    <view class="select-item-info-line"></view>
+                    <view class="select-item-info-price">
+                        <view class="select-item-info-price-now select-item-info-price-now-{{item.saleStatus}}" style="font-family:Arial;">{{item.discountPrice?'活动价:¥'+item.discountPrice:''}}</view>
+                        <view class="select-item-info-price-before" style="font-family:Arial;">{{item.price?'¥'+item.price:''}}</view>
+                    </view>
+                    <view class="select-item-info-control select-item-info-control-{{item.saleStatus}}">
+                        <block wx:if="{{item.saleStatus===1}}">
+                            <view class="select-item-info-control-left control-tip control-left-status1">{{item.itemSale?item.itemSale+'人关注':'未开始'}}</view>
+                            <view class="select-item-info-control-right control-tip control-right-status1">即将开始</view>
+                        </block>
+                        <block wx:elif="{{item.saleStatus===3}}">
+                            <view class="select-item-info-control-left control-tip">已结束</view>
+                            <view class="select-item-info-control-right control-tip">原价购买</view>
+                        </block>
+                        <block wx:else>
+                            <view class="select-item-info-control-left control-tip">{{item.itemSale?'已抢'+item.itemSale:'进行中'}}</view>
+                            <view class="select-item-info-control-right control-tip">去抢购<text class="control-tip-icon m-icon m-icon-arrow-right"></text>
+                            </view>
+                        </block>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+<import src="../../../../components/heading/index.wxml"></import>

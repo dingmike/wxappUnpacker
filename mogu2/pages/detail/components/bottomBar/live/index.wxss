@@ -1,0 +1,16 @@
+.cpmponent__bottombar .live-icon--dot {
+    display: inline-block;
+    width: 16rpx;
+    height: 16rpx;
+    background: #F5342F;
+    border-radius: 50%;
+    margin-right: 8rpx;
+}
+
+.cpmponent__bottombar .live-icon--dot.offline {
+    background: #BBBBBB;
+}
+
+.cpmponent__bottombar .live-icon {
+    font-size: 22rpx!important;
+}

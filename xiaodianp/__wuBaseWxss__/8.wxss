@@ -1,0 +1,186 @@
+/*! Import by _C[10], whose real path we cannot found. */
+.tips {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    width: 50rpx;
+}
+
+.tips text {
+    font-size: 16rpx;
+    line-height: 22rpx;
+    font-weight: 600;
+    padding: 4rpx 0;
+    color: #fff;
+    text-align: center;
+}
+
+.triangle-topleft {
+    width: 0;
+    height: 0;
+    border-right: 6rpx solid transparent;
+}
+/*! Import end */
+.recommend-container {
+    display: -webkit-box;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    -webkit-box-align: center;
+    align-items: center;
+    padding-bottom: 20rpx;
+}
+
+.recommend-block {
+    display: -webkit-box;
+    display: flex;
+    padding: 1rpx 1rpx 1rpx 5rpx;
+    min-height: 300rpx;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    width: 100%;
+    background-color: white;
+    border-bottom: 30rpx solid #fff;
+}
+
+.recommend-block:last-child {
+    border: none;
+}
+
+.recommend-middle {
+    display: -webkit-box;
+    display: flex;
+    width: 45%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    margin: 0 40rpx auto;
+}
+
+.item-arrow {
+    width: 35rpx;
+    height: 35rpx;
+    border-top: 1px solid #e2e2e2;
+    border-right: 1px solid #e2e2e2;
+    background-color: transparent;
+    margin-left: 50rpx;
+    transform: rotate(45deg);
+}
+
+.recommend-block {
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.recommend-block .head-img {
+    width: 240rpx;
+    height: 240rpx;
+    position: relative;
+    background: #f8f8f8 url(https://static.seecsee.com/images/h5/placehold.svg) 50% no-repeat;
+    margin: 0 0 auto 70rpx;
+}
+
+.recommend-block .sold-out {
+    position: absolute;
+    top: 30rpx;
+    left: 30rpx;
+}
+
+.recommend-block .sold-out__con {
+    display: inline-block;
+    vertical-align: middle;
+    width: 180rpx;
+    height: 180rpx;
+    border: 2rpx solid #fff;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.5);
+    text-align: center;
+}
+
+.recommend-block .sold-out__con text {
+    display: block;
+    color: #fff;
+}
+
+.recommend-block .sold-out__con .zh {
+    font-size: 30rpx;
+    line-height: 30rpx;
+    margin-top: 64rpx;
+}
+
+.recommend-block .sold-out__con .en {
+    font-size: 20rpx;
+}
+
+.recommend-block image {
+    width: 240rpx;
+    height: 240rpx;
+}
+
+.recommend-block .brand-line {
+    font-size: 30rpx;
+    font-weight: 600;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.recommend-block .name-line {
+    font-size: 24rpx;
+    line-height: 32rpx;
+    color: #545454;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.recommend-block .price-view {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: baseline;
+    align-items: baseline;
+    margin: 20rpx 0 5rpx;
+}
+
+.recommend-block .price-line {
+    color: #fe3b2e;
+    font-size: 34rpx;
+    font-weight: 600;
+}
+
+.recommend-block .price-line-none {
+    font-size: 26rpx;
+    font-weight: 600;
+}
+
+.recommend-block .oriprice-line {
+    color: #888888;
+    text-decoration: line-through;
+    padding-left: 7rpx;
+    font-size: 26rpx;
+    margin-left: 10rpx;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-top: 12rpx solid transparent;
+    border-left: 16rpx solid #000;
+    border-bottom: 12rpx solid transparent;
+    margin: auto 30rpx auto auto;
+    display: inline-block;
+}
+
+.triangle.to-down {
+    transform: rotate(90deg);
+    margin-left: 10rpx;
+}
+
+.no-title-fixed {
+    margin-top: 30rpx;
+}

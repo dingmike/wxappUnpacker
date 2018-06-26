@@ -1,0 +1,9 @@
+<template name="express">
+    <view class="component-express express">
+        <view class="express__columns flex f-fd-r f-jc-sb" style="{{$color.dimTx}}" wx:if="{{columns&&columns.length>0}}">
+            <view class="express__columns--content" wx:if="{{column.name!=='sales'}}" wx:for="{{columns}}" wx:for-item="column" wx:key="name">
+                {{column.desc}}
+            </view>
+        </view>
+    </view>
+</template>

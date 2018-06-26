@@ -1,0 +1,11 @@
+<template name="progress">
+    <view class="component__progress progress" wx:if="{{isShow}}">
+        <view class="progress__main">
+            <view class="progress__main--content" style="width: {{progress}}%;background: {{background}};"></view>
+        </view>
+        <view class="progress__title flex f-ai-c f-jc-sb">
+            <view class="progress__title--left" style="color: {{leftTextColor}}">{{leftTitle}}</view>
+            <view class="progress__title--right" style="color: {{rightTextColor}}">{{rightTitle}}</view>
+        </view>
+    </view>
+</template>

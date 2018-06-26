@@ -1,0 +1,5 @@
+<template name="sizeImg">
+    <view class="sizeHelp-img" wx:if="{{sizeMeasureImg}}">
+        <image class="measure-img" lazyLoad="{{true}}" mode="widthFix" src="{{sizeMeasureImg}}"></image>
+    </view>
+</template>

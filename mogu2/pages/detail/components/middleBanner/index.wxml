@@ -1,0 +1,9 @@
+<template name="middleBanner">
+    <form bindsubmit="{{$scope}}.couponSubmitHandler" class="coupon_form" reportSubmit="true" wx:if="{{image}}">
+        <button class="coupon_submit" formType="submit">
+            <image class="coupon_image" lazyLoad="{{true}}" mode="widthFix" src="{{image}}"></image>
+        </button>
+    </form>
+    <template is="occupying" data wx:if="{{image}}"></template>
+</template>
+<import src="../occupying/index.wxml"></import>

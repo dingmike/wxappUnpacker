@@ -1,0 +1,78 @@
+.module-social-pintuan-join {
+    margin-left: 32rpx;
+    padding-right: 32rpx;
+    border-top: 1rpx solid #EFEFEF;
+}
+
+.module-social-pintuan-join .join-title {
+    height: 64rpx;
+    line-height: 64rpx;
+    font-size: 24rpx;
+}
+
+.module-social-pintuan-join .join-tuan {
+    margin-bottom: 20rpx;
+}
+
+.module-social-pintuan-join .join-tuan--item.order {
+    margin-bottom: 10rpx;
+    width: 100%;
+    height: 100rpx;
+    border-radius: 4rpx;
+    background: #f6f6f6;
+}
+
+.module-social-pintuan-join .order-user {
+}
+
+.module-social-pintuan-join .order-user--avatar {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+    margin: 0 16rpx 0 20rpx;
+}
+
+.module-social-pintuan-join .order-user--uname {
+    font-size: 28rpx;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 200rpx;
+}
+
+.module-social-pintuan-join .order-tuan {
+}
+
+.module-social-pintuan-join .order-tuan--info.info {
+    margin-right: 30rpx;
+    height: 100rpx;
+}
+
+.module-social-pintuan-join .info-title {
+    font-size: 24rpx;
+    margin-bottom: 10rpx;
+}
+
+.module-social-pintuan-join .info-time {
+    font-size: 24rpx;
+    margin-top: 10rpx;
+}
+
+.module-social-pintuan-join .info-time--num {
+    font-size: 24rpx;
+    color: #999999;
+    margin-left: 5rpx;
+}
+
+.module-social-pintuan-join .info-time--symbol {
+    font-size: 24rpx;
+    color: #999999;
+    margin-left: 5rpx;
+}
+
+.module-social-pintuan-join .order-tuan--btn {
+    width: 136rpx;
+    height: 100rpx;
+    font-size: 24rpx;
+    color: #ffffff;
+}

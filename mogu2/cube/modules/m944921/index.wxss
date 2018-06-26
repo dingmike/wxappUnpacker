@@ -1,0 +1,19 @@
+@import "../../vxNodeModules/@meili/cube-common-popup/commonActPopup.wxss";
+
+.MCUBE_MOD_ID_944921 .float-pop {
+    width: 100%;
+    height: 1rpx;
+}
+
+.MCUBE_MOD_ID_944921 .float-div {
+    width: 432rpx;
+    height: 96rpx;
+    position: fixed;
+    flex-direction: column;
+    z-index: 201;
+}
+
+.MCUBE_MOD_ID_944921 .float-img {
+    width: 100%;
+    height: 100%;
+}

@@ -1,0 +1,16 @@
+<template name="pintuan">
+    <block wx:if="{{state==5}}">
+        <template is="lotteryrule" data="{{...$lotteryRule}}" wx:if="{{tuanType===3||tuanType===8}}"></template>
+        <block wx:else>
+            <template is="pintuanRule" data="{{...$pintuanRule}}"></template>
+            <template is="pintuanJoin" data="{{...$pintuanJoin}}" wx:if="{{!isNew&&joinTuanList&&joinTuanList.length>0}}"></template>
+            <template is="pintuanSuccess" data="{{...$pintuanSuccess}}" wx:elif="{{isNew&&successTuan&&successTuan.length>0}}"></template>
+        </block>
+        <template is="occupying" data></template>
+    </block>
+</template>
+<import src="../pintuan/rule/index.wxml"></import>
+<import src="../pintuan/success/index.wxml"></import>
+<import src="../pintuan/join/index.wxml"></import>
+<import src="../pintuan/lotteryrule/index.wxml"></import>
+<import src="../occupying/index.wxml"></import>

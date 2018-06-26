@@ -1,0 +1,14 @@
+<template name="searchBar">
+    <view class="searchBarWrap">
+        <view class="searchBarContent flex f-fd-r {{isFixed?'searchBarFixed':''}}">
+            <view bindtap="{{$scope}}.goMiddlePage" class="search-form flex f-fd-r f-jc-fs" data-placeholder="{{placeholder}}" data-q="{{sbQueryWord}}">
+                <text class="search-icon m-icon m-icon-search-mini"></text>
+                <text class="search-placeholder">{{placeholder}}</text>
+            </view>
+            <view class="im-talk m-icon m-icon-message">
+                <template is="imcall" data="{{...$imcall}}"></template>
+            </view>
+        </view>
+    </view>
+</template>
+<import src="../imcall/index.wxml"></import>

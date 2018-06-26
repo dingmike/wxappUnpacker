@@ -1,0 +1,45 @@
+<template name="shareDialog">
+    <view bindtap="{{$scope}}.cancelShare" class="component__sharedialog base-dialog show-{{isShow}}" wx:if="{{isShow!==undefined}}">
+        <view catchtap="{{$scope}}.onInnerClick" class="component__sharedialog--inner sharedialog flex f-ff-cn" style="{{dialogStyle}}">
+            <view class="sharedialog__desc desc" wx:if="{{isNeedShareIntegral}}">
+                <view class="desc__title flex f-jc-sb f-ai-c">
+                    <view class="flex f-ai-c">
+                        <image class="desc__title--icon" src="{{titleIcon}}"></image>
+                        <view class="desc__title--text">{{title}}</view>
+                    </view>
+                    <button bindtap="$navigate" class="desc__title--link" data-href="{{ruleLink}}" hoverClass="none">{{ruleTitle}}</button>
+                </view>
+                <view class="desc__rule rule">
+                    <view class="sharedialog__rule--item rule__item flex f-ai-fe f-jc-sb" wx:for="{{rules}}" wx:for-item="rule">
+                        <view class="rule__title flex f-jc-c f-ff-cn">
+                            <view class="rule__title--num">{{rule.titleNumber}}</view>
+                            <view class="rule__title--text">{{rule.titleDesc}}</view>
+                        </view>
+                        <view class="rule__line">
+                            <view class="rule__line--dot"></view>
+                        </view>
+                        <view class="rule__content flex f-ai-c f-jc-sb">
+                            <view>
+                                <view class="{{ruleItem.name==='ruleTips'?'rule__content--sub':'rule__content--main'}}" wx:for="{{rule.ruleList}}" wx:for-item="ruleItem">
+                                    <text style="color: {{item.colorFlag?strongColor:color}};" wx:if="item.text" wx:for="{{ruleItem.content}}">{{item.text}}</text>
+                                </view>
+                            </view>
+                            <view class="rule__content--tips flex f-ai-c" wx:if="{{rule.tips}}">{{rule.tips}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="sharedialog__panel flex f-jc-sa">
+                <button bindtap="{{$scope}}.shareToFriend" class="sharedialog__btn" hoverClass="none" openType="share">
+                    <image class="sharedialog__btn--image" src="{{friendsIcon}}"></image>
+                    <view class="sharedialog__btn--text">好友</view>
+                </button>
+                <button bindtap="{{$scope}}.shareToMoments" class="sharedialog__btn" hoverClass="none">
+                    <image class="sharedialog__btn--image" src="{{momentsIcon}}"></image>
+                    <view class="sharedialog__btn--text">朋友圈</view>
+                </button>
+            </view>
+            <button bindtap="{{$scope}}.cancelShare" class="sharedialo__cancel flex f-ai-c f-jc-c" hoverClass="none">取消</button>
+        </view>
+    </view>
+</template>

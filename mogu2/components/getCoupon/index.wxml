@@ -1,0 +1,5 @@
+<template name="getCoupon">
+    <form bindsubmit="{{$scope}}.couponSubmitHandler" class="coupon_form expose-log" data-acm="{{acm||''}}" data-log-index="0" data-log-mod="{{modId}}_1" reportSubmit="true" style="height: {{boxHeight||'180rpx'}};" wx:if="{{img}}">
+        <button class="coupon_submit" formType="submit" style="{{img?'background-image: url('+img+'); ':''}}"></button>
+    </form>
+</template>

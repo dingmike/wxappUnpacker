@@ -1,0 +1,20 @@
+<template name="tabNavigation">
+    <view class="live-list-tab-navigation-placeholder" id="LIVE-LIST-TAB-NAVIGATION" wx:if="{{show}}">
+        <view class="live-list-tab-navigation-wrap {{fixed?'live-list-tab-navigation-wrap-fixed':''}}" style="{{bgImg&&bgImg.length>0?'background-image: url('+bgImg+');':''}}">
+            <scroll-view class="live-list-tab-navigation-scroll-wrap" scrollIntoView="{{scrollIntoViewId}}" scrollX="true">
+                <form bindsubmit="{{$scope}}.formSubmit" reportSubmit="true">
+                    <button catchtap="{{$scope}}.tabItemSelected" class="live-list-tab-navigation-scroll-item-wrap" data-selected-index="{{index}}" formType="submit" hoverClass="none" hoverStopPropagation="true" id="tabItemId_{{index}}" plain="true" style="border-style: none" wx:for="{{tabList}}" wx:for-item="tabItem" wx:key="tabItem">
+                        <view class="live-list-tab-navigation-tab-item-wrap flex f-jc-c f-ai-c live-list-tab-navigation-tab-item-selected" style="min-width:{{tabItemMinWidth}}rpx; {{selectedColor&&selectedColor.length>0?'border-bottom-color:'+selectedColor+';':''}}" wx:if="{{tabItem.selected}}">
+                            <image class="live-list-tab-navigation-tab-item-image" lazyLoad="{{true}}" mode="aspectFit" src="{{tabItem.tabIconSelected}}" wx:if="{{tabItem.tabIconSelected&&tabItem.tabIconSelected.length>0}}"></image>
+                            <text class="live-list-tab-navigation-tab-item-text live-list-tab-navigation-tab-item-text-selected" style="{{selectedColor&&selectedColor.length>0?'color:'+selectedColor+';':''}}">{{tabItem.name}}</text>
+                        </view>
+                        <view class="live-list-tab-navigation-tab-item-wrap flex f-jc-c f-ai-c" style="min-width:{{tabItemMinWidth}}rpx;" wx:else>
+                            <image class="live-list-tab-navigation-tab-item-image" lazyLoad="{{true}}" mode="aspectFit" src="{{tabItem.tabIcon}}" wx:if="{{tabItem.tabIcon&&tabItem.tabIcon.length>0}}"></image>
+                            <text class="live-list-tab-navigation-tab-item-text" style="{{unselectedColor&&unselectedColor.length>0?'color:'+unselectedColor+';':''}}">{{tabItem.name}}</text>
+                        </view>
+                    </button>
+                </form>
+            </scroll-view>
+        </view>
+    </view>
+</template>

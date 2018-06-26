@@ -1,0 +1,5 @@
+<template name="title">
+    <view class="component__title title">
+        <text class="title__text" style="{{$color.mainTextTx}}">{{itemInfo.title}}</text>
+    </view>
+</template>

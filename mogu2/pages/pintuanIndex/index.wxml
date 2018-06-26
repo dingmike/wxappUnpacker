@@ -1,0 +1,19 @@
+<import src="../../components/mg/index.wxml"></import>
+<template is="mg" data="{{...$mg}}"></template>
+<import src="../../components/meiliSwiper/index.wxml"></import>
+<import src="../../components/activeEntry/index.wxml"></import>
+<import src="../../components/walltemplate/item_pt.wxml"></import>
+<import src="components/ptBroadcast/index.wxml"></import>
+<import src="../../components/bottomNavBar/index.wxml"></import>
+<import src="../../components/scrollGoods/index.wxml"></import>
+<scroll-view bindscroll="$wall.scrollNavEvent" bindscrolltolower="$wall.wallScrollEvent" class="J_scroll_wallbox" enableBackToTop="true" lowerThreshold="{{$wall.bottomHeight}}" scrollIntoView="{{$wall.scrollIntoViewId}}" scrollY="true" style="height:{{$wall.scrollBoxHeight}}px">
+    <template is="wallPtTabNav" data="{{...$wall}}"></template>
+    <template is="ptBroadcast" data="{{...$ptBroadcast}}"></template>
+    <template is="meiliSwiper" data="{{...$meiliSwiper}}" wx:if="{{isWxshop}}"></template>
+    <template is="activeEntry" data="{{...$categoryEntry}}" wx:if="{{isWxshop}}"></template>
+    <template is="scrollGoods" data="{{...$scrollGoods}}"></template>
+    <view id="J_wall_box">
+        <template is="wallPtItemsBox" data="{{$wall:$wall}}"></template>
+    </view>
+</scroll-view>
+<template is="bottomNavBar" data="{{...$bottomNavBar}}"></template>

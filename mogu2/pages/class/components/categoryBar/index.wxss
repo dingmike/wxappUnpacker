@@ -1,0 +1,88 @@
+.categoryBarWrap {
+    margin-top: 16rpx;
+    padding-left: 32rpx;
+    width: 100%;
+    background: #fff;
+}
+
+.categoryBar {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 110rpx;
+    border-bottom: 1rpx solid #e5e5e5;
+    flex-shrink: 0;
+}
+
+.categoryBar-end {
+    border-bottom: none;
+}
+
+.categoryTitle {
+    margin-right: 24rpx;
+    max-width: 200rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    font-size: 28rpx;
+    color: #111;
+    flex-shrink: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.categorySubtitle {
+    max-width: 280rpx;
+    height: 34rpx;
+    line-height: 34rpx;
+    font-size: 24rpx;
+    color: #999;
+    flex-shrink: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.categoryEntry {
+    position: absolute;
+    top: 24rpx;
+    right: 32rpx;
+    width: 212rpx;
+    height: 64rpx;
+    border-radius: 174rpx;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.categoryImgWrap {
+    width: 52rpx;
+    height: 52rpx;
+    flex-shrink: 0;
+}
+
+.categoryImg {
+    width: 100%;
+    height: 100%;
+}
+
+.categoryEntryTitle {
+    width: 100rpx;
+    font-size: 20rpx;
+    color: #999;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.categoryIcon {
+    font-size: 20rpx;
+    color: #999;
+    flex-shrink: 0;
+}

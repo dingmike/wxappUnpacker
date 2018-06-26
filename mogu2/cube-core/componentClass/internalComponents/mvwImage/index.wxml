@@ -1,0 +1,3 @@
+<template name="mvw-image">
+    <image binderror="{{$scope}}.handleError" bindload="{{$scope}}.handleLoad" class="{{__vx_class}} lazy-image" id="{{classId}}" lazyLoad="{{lazyLoad}}" mode="{{mode}}" src="{{exUrl}}" style="{{transStyle}}"></image>
+</template>

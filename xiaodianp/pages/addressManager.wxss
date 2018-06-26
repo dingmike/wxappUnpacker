@@ -1,0 +1,152 @@
+page {
+    height: 100%;
+    background-color: #f2f2f2;
+}
+
+.container {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    width: 100%;
+    background-color: white;
+    border-top: 1px solid #f2f2f2;
+}
+
+.addressList {
+    width: 100%;
+    padding-bottom: 120rpx;
+    background-color: #f2f2f2;
+}
+
+.item {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    background-color: #fff;
+    color: #787878;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-bottom: 5px solid #f2f2f2;
+}
+
+.addr_left {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    width: 70%;
+    max-width: 280px;
+    -webkit-box-flex: 1;
+    flex: 1;
+    overflow: hidden;
+    line-height: 15px;
+    margin: auto 10px 12px;
+}
+
+.addr_left .addr_text {
+    font-size: 24rpx;
+    color: #545454;
+    letter-spacing: 2rpx;
+    margin: 2px 0;
+    margin-bottom: 6rpx;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.addr_left .default {
+    font-size: 12px;
+    color: #fd8730;
+    margin: 2px 0;
+    padding-left: 10rpx;
+}
+
+.addr_left .name {
+    font-size: 24rpx;
+    color: #545454;
+    letter-spacing: 2rpx;
+    margin: 2px 0;
+}
+
+.addr_right {
+    font-size: 24rpx;
+    color: orangered;
+    margin: auto 30rpx auto auto;
+}
+
+.btn-area {
+    position: fixed;
+    display: -webkit-box;
+    display: flex;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.btn-area button {
+    width: 100%;
+    border-radius: 0;
+    border-width: 0;
+}
+
+.pay-button::after {
+    border-radius: 0;
+}
+
+.pay-button {
+    width: 100%;
+    background-color: #fe3b2e;
+    color: #ffffff;
+}
+
+.detail-info {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    width: 100%;
+    height: 5rem;
+    border-bottom: 1rpx solid #f2f2f2;
+}
+
+.action {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    height: 25px;
+    margin: 10rpx 20rpx;
+}
+
+.action .default-button {
+    width: 70%;
+    font-size: 24rpx;
+    -webkit-box-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: flex;
+}
+
+.action .default-button image {
+    width: 36rpx;
+    height: 36rpx;
+}
+
+.action .default-button text {
+    margin: 6rpx auto auto 16rpx;
+}
+
+.action .action-button {
+    font-size: 20rpx;
+    line-height: 50rpx;
+    border: 2rpx solid #f2f2f2;
+    margin-right: 20rpx;
+    padding: 0 20rpx;
+}

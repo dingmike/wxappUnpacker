@@ -1,0 +1,33 @@
+.component__productInfo .product__info {
+    background-color: #fff;
+}
+
+.component__productInfo .info__key {
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 28rpx;
+    color: #666;
+    background-color: #efefef;
+    padding-left: 36rpx;
+}
+
+.component__productInfo .info__set--tables.table {
+    font-size: 24rpx;
+}
+
+.component__productInfo .table__line {
+    min-height: 90rpx;
+    color: #333;
+    padding: 28rpx 30rpx 28rpx 36rpx;
+    border-bottom: 1rpx solid #e5e5e5;
+}
+
+.component__productInfo .table__line--key {
+    width: 180rpx;
+    color: #333;
+    flex: none;
+}
+
+.component__productInfo .table__line--value {
+    color: #fb4747;
+}

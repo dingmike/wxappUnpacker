@@ -1,0 +1,52 @@
+.ui-end {
+    display: flex;
+    width: 100%;
+    height: 92rpx;
+    justify-content: center;
+    align-items: center;
+}
+
+.ui-end-line {
+    width: 70rpx;
+    height: 1rpx;
+    background-color: #d8d8d8;
+}
+
+.ui-end-image {
+    width: 44rpx;
+    height: 44rpx;
+    margin-left: 10rpx;
+    margin-right: 8rpx;
+    background: 50% no-repeat;
+    background-size: contain;
+}
+
+.ui-end-image-good {
+    background-image: url("//s16.mogucdn.com/p2/161213/upload_57bl76e9010115f3fj1d2k1kj5l4b_44x44.png");
+}
+
+.ui-end-image-morning {
+    background-image: url("//s16.mogucdn.com/p2/161213/upload_6c4a17j86gb0lh9hba01i464fkie2_44x44.png");
+}
+
+.ui-end-image-gugu {
+    background-image: url("//s16.mogucdn.com/p2/161213/upload_1iddk17bfe1k4257f207i467f21e8_44x44.png");
+}
+
+.ui-end-image-momo {
+    background-image: url("//s16.mogucdn.com/p2/161213/upload_2e6ig5fb6k773l546a9gj8g2k7bfg_44x44.png");
+}
+
+.ui-end-image-moli {
+    background-image: url("//s16.mogucdn.com/p2/161213/upload_124lgj5ji1h9f3ci0bdbe5k4gf1kk_44x44.png");
+}
+
+.ui-end-image-gutou {
+    background-image: url("//s16.mogucdn.com/p2/161213/upload_1122hdalb10h08kbiehd344fj6j1k_44x44.png");
+}
+
+.ui-end-text {
+    margin-right: 10rpx;
+    color: #999;
+    font-size: 24rpx;
+}

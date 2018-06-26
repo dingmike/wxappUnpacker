@@ -1,0 +1,20 @@
+<template name="ruleInfo">
+    <view class="component__ruleInfo">
+        <view class="rule__info" wx:if="{{rule&&rule.tables}}">
+            <view class="rule__key" wx:if="{{rule.key}}">{{rule.key}}</view>
+            <view class="rule__desc" wx:if="{{rule.desc}}">{{rule.desc}}</view>
+            <view class="rule__table flex f-ff-cn">
+                <view class="rule__table--item table flex f-ff-cn" wx:for="{{rule.tables}}" wx:for-index="i" wx:for-item="table" wx:key="i">
+                    <view class="table__line flex f-ai-c f-jc-fs {{j===machedSizeLine?'table__choose':''}}" wx:for="{{table}}" wx:for-index="j" wx:for-item="line" wx:key="j">
+                        <view class="table__line--recommend" wx:if="{{j===machedSizeLine}}">荐</view>
+                        <view class="table__line--item flex" wx:for="{{line}}" wx:for-index="h" wx:key="h">
+                            {{item}}
+                            <view class="table__line--units" wx:if="{{headUnits&&j===0&&h===g}}" wx:for="{{headUnits}}" wx:for-index="g" wx:for-item="units" wx:key="g">{{units}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="rule__disclaimer flex f-ai-c">{{rule.disclaimer}}</view>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,211 @@
+.J_act_items_box .goods_item {
+    height: auto;
+}
+
+.J_act_items_box .goods_item .bo_pv {
+    position: absolute;
+    top: 400rpx;
+    height: 44rpx;
+    line-height: 44rpx;
+    min-width: 40%;
+    max-width: 70%;
+    text-align: left;
+    background-image: linear-gradient(to left,rgba(0,0,0,0),rgba(0,0,0,0.65));
+    background-size: 100%;
+    padding: 0 35rpx 0 15rpx;
+    color: #fff;
+    font-size: 20rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    z-index: 3;
+}
+
+.J_act_items_box .goods_item .top_icon {
+    left: 0;
+}
+
+.J_act_items_box .goods_item .goods_info {
+    padding: 10rpx 12rpx 8rpx 12rpx;
+    overflow: hidden;
+}
+
+.J_act_items_box .goods_item .goods_info .name_box {
+    height: 34rpx;
+}
+
+.J_act_items_box .goods_item .goods_info .name_box .goods_name {
+    height: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.J_act_items_box .goods_item .goods_info .bot_box {
+    height: 47rpx;
+    overflow: hidden;
+}
+
+.J_act_items_box .goods_item .goods_info .bot_box .p_price {
+    max-width: 60%;
+    line-height: 50rpx;
+    height: 50rpx;
+    margin-top: 0;
+}
+
+.J_act_items_box .goods_item .goods_info .bot_box .p_feed {
+    max-width: 50%;
+    margin-top: 2rpx;
+    line-height: 50rpx;
+    height: 50rpx;
+    overflow: hidden;
+}
+
+.J_act_items_box .goods_item .goods_info .bot_box .p_org {
+    padding-right: 0;
+    background: none;
+    text-decoration: line-through;
+}
+
+.J_act_items_box .goods_item .goods_info .bot_box .p_tag {
+    height: 24rpx;
+    line-height: 24rpx;
+    max-width: 39%;
+    padding: 0 6rpx;
+    margin-top: 12rpx;
+    margin-right: 12rpx;
+    font-size: 18rpx;
+    box-sizing: content-box;
+    overflow: hidden;
+}
+
+.J_act_items_box .goods_item .goods_info .btn_box {
+    width: 100%;
+    height: 50rpx;
+    line-height: 50rpx;
+    border-radius: 6rpx;
+    font-size: 26rpx;
+    text-align: center;
+    margin-top: 4rpx;
+    margin-bottom: 4rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.J_act_items_box .goods_item .name_box_hastag .goods_name {
+    color: #333;
+}
+
+.J_act_items_box .goods_item .p_price {
+    color: #333;
+}
+
+.J_act_items_box .goods_item .goods_info .btn_box {
+    color: #FFFFFF;
+    background-color: #FF5777;
+}
+
+.J_act_items_box .goods_item .goods_info .p_tag {
+    color: #FFBC49;
+    border: 1rpx solid #FFBC49;
+}
+
+.wall_nav_box .nav_list {
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.25);
+    z-index: 20;
+    width: 100%;
+    height: 80rpx;
+    max-width: 750px;
+    margin: 0 auto;
+    overflow: hidden;
+    top: 0;
+}
+
+.wall_nav_box .nav_middle {
+    background: #f61d4b;
+    width: 100%;
+}
+
+.wall_nav_box .nav_tabs_scroll {
+    width: 100%;
+    height: 80rpx;
+    overflow: hidden;
+    position: relative;
+}
+
+.wall_nav_box .nav_tabs_scroll:after {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 20rpx;
+    height: 80rpx;
+    border-radius: 100% 0 0 2% 0 0 50%;
+    background-image: -wekbit-radial-gradient(ellipse at right,rgba(0,0,0,0.2) 0,rgba(0,0,0,0) 55%);
+    background-image: radial-gradient(ellipse at right,rgba(0,0,0,0.2) 0,rgba(0,0,0,0) 55%);
+    content: "";
+}
+
+.wall_nav_box .scroll_box {
+    width: 100%;
+    padding: 0 10px;
+    height: 100rpx;
+    white-space: nowrap;
+    overflow: scroll;
+    overflow-y: hidden;
+    font-size: 0;
+    overflow-scrolling: touch;
+    -webkit-text-size-adjust: none;
+}
+
+.wall_nav_box .nav_tabs_scroll .nav_tab {
+    display: inline-block;
+    padding: 6rpx 18rpx 0;
+    height: 76rpx;
+    text-align: center;
+    vertical-align: top;
+}
+
+.wall_nav_box .nav_tabs_scroll .nav_tab .t_text {
+    font-size: 28rpx;
+    color: #fff;
+    height: 72rpx;
+    line-height: 72rpx;
+    padding: 0 9rpx;
+}
+
+.wall_nav_box .nav_tabs_scroll .tab_on .t_text {
+    border-bottom: 4rpx solid #fff;
+}
+
+.wall_nav_box .nav_middle {
+    background: #F07;
+}
+
+.wall_nav_box .nav_tabs_scroll .tab_on .t_text,.wall_nav_box .tab_on .t_icon {
+    border-bottom: 5rpx solid #ffffff;
+}
+
+.wall_nav_box .nav_tabs_scroll .nav_tab .t_text {
+    color: #ffffff;
+}
+
+.wall_nav_box .nav_tabs_scroll .tab_on .t_text {
+    color: #ffffff;
+}
+
+.wall_nav_box .nav_tabs_scroll_2 .nav_tab {
+    min-width: 50%;
+}
+
+.wall_nav_box .nav_tabs_scroll_3 .nav_tab {
+    min-width: 33.3%;
+}
+
+.wall_nav_box .nav_tabs_scroll_4 .nav_tab {
+    min-width: 25%;
+}
+
+.wall_nav_box .nav_tabs_scroll_5 .nav_tab {
+    min-width: 20%;
+}

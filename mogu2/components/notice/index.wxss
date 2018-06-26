@@ -1,0 +1,89 @@
+.mg-notice {
+    position: fixed;
+    top: -100px;
+    right: 0;
+    left: 0;
+    width: auto;
+    height: 200px;
+    z-index: 9999;
+}
+
+.mg-notice .notice-icon {
+    width: 68rpx;
+    height: 68rpx;
+    margin-right: 24rpx;
+}
+
+.mg-notice .notice-box {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 24rpx;
+    background: rgba(255,255,255,0.95);
+    border-radius: 20rpx;
+    box-shadow: 0 5px 12px rgba(120,120,120,0.1);
+    padding: 24rpx;
+}
+
+.mg-notice .notice-im-call {
+    position: absolute;
+    left: 0;
+    right: 52px;
+    top: 0;
+    bottom: 0;
+    background: transparent;
+    border: none;
+}
+
+.mg-notice .notice-im-call:after {
+    border: none;
+}
+
+.mg-notice .notice-box .notice-content {
+    flex: 1;
+    overflow: hidden;
+}
+
+.mg-notice .notice-title,.notice-desc {
+    display: block;
+    line-height: 1.5;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.mg-notice .notice-title {
+    font-size: 32rpx;
+}
+
+.mg-notice .notice-desc {
+    font-size: 28rpx;
+    color: #666;
+}
+
+.mg-notice .notice-close-button {
+    background: transparent!important;
+    padding: 0 10rpx;
+    border: none;
+}
+
+.mg-notice .notice-close-button:after {
+    border: none;
+}
+
+.mg-notice .notice-close {
+    color: #fff;
+    background: #d2d2d2;
+    display: inline-block;
+    font-size: 20px;
+    line-height: 24px;
+    font-family: Arial,sans-serif;
+    vertical-align: middle;
+    width: 24px;
+    height: 24px;
+    box-sizing: border-box;
+    font-weight: 500;
+    border-radius: 999px;
+    text-align: center;
+}

@@ -1,0 +1,187 @@
+<view wx:if="{{isShow===false}}">
+    <view class="seeloading" id="seeloading">
+        <view class="img_view">
+            <image alt="see" class="seeloading_img" src="/images/seeloading.png"></image>
+        </view>
+        <view class="loading_info">正在加载...</view>
+    </view>
+</view>
+<scroll-view class="container" scrollY="{{isScroll?true:false}}" style="height: {{windowHeight-(isIpx?34:0)}}px" wx:else>
+    <view class="heardBanner" wx:if="{{!collection_data.big_banner}}">
+        <view class="userinfo" wx:if="{{collection_data.kol_info.u_headimg!==''}}">
+            <image backgroundSize="cover" class="userinfo-avatar" src="{{collection_data.kol_info.u_headimg}}"></image>
+            <view class="userinfo-right">
+                <text class="userinfo-nickname">{{collection_data.kol_info.u_username}}</text>
+                <text class="userinfo-desc">{{collection_data.kol_info.u_desc}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="big-bannner" wx:if="{{collection_data.big_banner.img}}">
+        <image bindtap="bigBannerClick" data-url="{{collection_data.big_banner.url}}" mode="widthFix" src="{{collection_data.big_banner.img}}"></image>
+    </view>
+    <view>
+        <block wx:if="{{$recommend$isphp}}">
+            <view wx:if="{{$recommend$recommendProduct.item_list.length>0}}">
+                <view class="category-title">
+                    <text class="name">热门商品</text>
+                </view>
+                <view class="recommend-container">
+                    <view bindtap="$recommend$clickProduct" class="recommend-block" data-id="{{item.item_id}}" wx:for="{{$recommend$recommendProduct.item_list}}" wx:key="item_id">
+                        <view class="head-img">
+                            <image lazyLoad="true" mode="aspectFit" src="{{item['item_imgurl']+'?imageView2/5/w/320/h/320'}}"></image>
+                        </view>
+                        <view class="recommend-middle">
+                            <view class="tips" style="position:{{$recommend$tips$position}};top:{{$recommend$tips$position=='absolute'?'20rpx':''}};left:{{$recommend$tips$position=='absolute'?'30rpx':''}};" wx:if="{{item.tag_img_id}}">
+                                <text style="background-color:{{$recommend$tips$color}};">{{$recommend$tips$text}}</text>
+                                <view class="triangle-topleft" style="border-top: 10rpx solid {{$recommend$tips$color}};"></view>
+                            </view>
+                            <text class="brand-line">{{item.brand}}</text>
+                            <text class="name-line">{{item.sell_point}}</text>
+                            <view class="price-view">
+                                <text class="{{item.price!=item.ori_price?'price-line':'price-line-none'}}">¥{{item['price']}}</text>
+                                <text class="oriprice-line" wx:if="{{item['price']!=item['ori_price']}}"> ¥{{item['ori_price']}}</text>
+                                <view class="triangle"></view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <block wx:else>
+            <view class="recommend" wx:if="{{$recommend$recommendProduct.data.length>0}}">
+                <view class="category-title" wx:if="{{$recommend$recommendProduct.icon||$recommend$recommendProduct.mainTitle}}">
+                    <view class="name">
+                        <view class="icon" wx:if="{{$recommend$recommendProduct.icon}}">
+                            <image mode="aspectFit" src="{{$recommend$recommendProduct.icon}}"></image>
+                        </view>
+                        <view class="zh">{{$recommend$recommendProduct.mainTitle}}</view>
+                        <view class="en">{{$recommend$recommendProduct.subTitle}}</view>
+                    </view>
+                </view>
+                <view class="recommend-container {{$recommend$recommendProduct.mainTitle===''?'no-title-fixed':''}}">
+                    <view bindtap="$recommend$clickProduct" class="recommend-block" data-id="{{item.itemId}}" wx:for="{{$recommend$recommendProduct.data}}" wx:key="item_id">
+                        <view class="head-img">
+                            <image lazyLoad="true" mode="aspectFit" src="{{item['itemImgurl']+'?imageView2/5/w/320/h/320'}}"></image>
+                            <view class="sold-out" wx:if="{{item.stock==0}}">
+                                <view class="sold-out__con">
+                                    <text class="zh">已售罄</text>
+                                    <text class="en">Sold out</text>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="recommend-middle">
+                            <view class="tips" style="position:{{$recommend$tips$position}};top:{{$recommend$tips$position=='absolute'?'20rpx':''}};left:{{$recommend$tips$position=='absolute'?'30rpx':''}};">
+                                <text style="background-color:{{$recommend$tips$color}};">{{$recommend$tips$text}}</text>
+                                <view class="triangle-topleft" style="border-top: 10rpx solid {{$recommend$tips$color}};"></view>
+                            </view>
+                            <text class="brand-line">{{item.brandName}}</text>
+                            <text class="name-line">{{item.sellPoint}}</text>
+                            <view class="price-view">
+                                <text class="{{item.price!=item.oriPrice?'price-line':'price-line-none'}}">¥{{item['price']}}</text>
+                                <text class="oriprice-line" wx:if="{{item['price']!=item['oriPrice']}}"> ¥{{item['oriPrice']}}</text>
+                                <view class="triangle"></view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+    <view wx:if="{{collection_data.list_item_normal.length>0}}">
+        <view class="category-title">
+            <text class="name">{{collection_data.collection_info.title_more}}</text>
+        </view>
+        <view class="item-container">
+            <view>
+                <view class="item-container" wx:if="{{$normal$isphp}}">
+                    <view class="item" id="item-list" wx:for="{{$normal$normalData}}" wx:key="item_id">
+                        <view bindtap="$normal$clickProduct" class="item-block" data-id="{{item.item_id}}">
+                            <view class="head-img">
+                                <image lazyLoad="true" mode="aspectFit" src="{{item.item_imgurl+'?imageView2/5/w/360/h/360'}}"></image>
+                            </view>
+                            <view class="name-line">
+                                <text class="name">{{item.item_name}}</text>
+                            </view>
+                            <view class="price-view">
+                                <view class="{{item.price!=item.ori_price?'price-line':'price-line-none'}}">
+                                    <text>¥{{item['price']}}</text>
+                                </view>
+                                <view class="oriprice-line" wx:if="{{item.price!=item.ori_price}}">
+                                    <text>¥{{item['ori_price']}}</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <block wx:else>
+                    <view class="nav-link" wx:if="{{$normal$categoryList.length>1}}"></view>
+                    <view class="nav-box {{$normal$isFixed?'fixed':''}}" wx:if="{{$normal$categoryList.length>1}}">
+                        <view class="nav-bar">
+                            <view bindtap="$normal$toTab" class="nav-bar_item {{$normal$toTab==index?'clicked':''}}" data-wpytotab-a="{{index}}" data-wpytotab-b="{{item.groupId}}" id="item_{{item.groupId}}" wx:for="{{$normal$categoryList}}" wx:key="groupId">
+                                <text>{{item.categoryName}}</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="category-title" wx:elif="{{$normal$categoryList.length==1}}">
+                        <view class="name">
+                            <view class="zh">{{$normal$categoryList[0].categoryName}}</view>
+                        </view>
+                    </view>
+                    <view class="item-container {{$normal$isFixed?'top':''}}" wx:if="{{$normal$categoryList.length>0}}">
+                        <view class="item" wx:for="{{$normal$normalData.length>0?$normal$normalData:$normal$categoryList[$normal$toTab].itemVOList}}" wx:key="itemId">
+                            <view bindtap="$normal$clickProduct" class="item-block" data-id="{{item.itemId}}">
+                                <view class="head-img">
+                                    <image lazyLoad="true" mode="aspectFit" src="{{item.itemImgurl+'?imageView2/5/w/360/h/360'}}"></image>
+                                    <view class="sold-out" wx:if="{{item.stock==0}}">
+                                        <view class="sold-out__con">
+                                            <text class="zh">已售罄</text>
+                                            <text class="en">Sold out</text>
+                                        </view>
+                                    </view>
+                                </view>
+                                <view class="name-line">
+                                    <text class="name">{{item.itemName}}</text>
+                                </view>
+                                <view class="price-view">
+                                    <view class="{{item.price!=item.oriPrice?'price-line':'price-line-none'}}">
+                                        <text>¥{{item['price']}}</text>
+                                    </view>
+                                    <view class="oriprice-line" wx:if="{{item.price!=item.oriPrice}}">
+                                        <text>¥{{item['oriPrice']}}</text>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view wx:if="{{$normal$normalData.length>0?!$normal$showFoot:$normal$categoryList[$normal$toTab].itemVOList.length>7}}">
+                        <button bindtap="$normal$moreBtnTap" class="more" wx:if="{{!$normal$autoLoadNormalData}}">
+            查看更多<view class="triangle to-down"></view>
+                        </button>
+                        <view class="upload" wx:else>
+                            <image class="uploadImage" src="/images/uploadImg.png"></image>
+                            <text wx:if="{{$normal$upload$showFoot}}">已经拉到底，没有更多了！</text>
+                            <text wx:else>正在加载中...</text>
+                        </view>
+                    </view>
+                </block>
+            </view>
+        </view>
+    </view>
+    <view class="partner">
+        <image class="tencent-cooperation" mode="widthFix" src="https://image.seecsee.com/mallBackgroungimage.png"></image>
+    </view>
+</scroll-view>
+<view class="tabbar flex-justify-around {{$simTabBar$isIpx?'fix-ipx':''}}">
+    <navigator class="flex-center-column" hoverClass="none" openType="switchTab" url="/pages/mall">
+        <image src="/images/collection.png"></image>
+        <text>小电铺</text>
+    </navigator>
+    <navigator class="flex-center-column" hoverClass="none" openType="switchTab" url="/pages/cart">
+        <image src="/images/cart.png"></image>
+        <text>购物车</text>
+    </navigator>
+    <navigator class="flex-center-column" hoverClass="none" openType="switchTab" url="/pages/userCenter">
+        <image src="/images/user.png"></image>
+        <text>个人中心</text>
+    </navigator>
+</view>

@@ -1,0 +1,28 @@
+<template name="activeEntry">
+    <view class="activeEntry-box" style="background-color: {{boxBgColor||'#fff'}}; margin: {{boxMargin||0}}; padding: {{boxPadding||0}}; min-height: {{boxMinHeight}}; height: {{boxHeight}}; {{boxBgImage?'background-image: url('+boxBgImage+');':''}} {{!(itemBoxShadow&&itemBoxShadow!=='none')?'overflow: hidden;':''}}" wx:if="{{list&&list.length>0}}">
+        <template is="{{$headingName}}" data="{{title:$headingTitle,titleIcon:$headingTitleIcon,height:$headingHeight,bgColor:$headingBgColor,margin:$headingMargin,padding:$headingPadding,color:$headingColor,moreText:$headingMoreText,moreTextColor:$headingMoreTextColor,fontSize:$headingFontSize,fontWeight:$headingFontWeight,moreLink:$headingMoreLink,wxaMoreLink:$headingWxaMoreLink,appId:$headingAppId,canLaunch:$headingCanLaunch}}" wx:if="{{$headingName&&$headingTitle}}"></template>
+        <form bindsubmit="{{$scope}}.formSubmitHandler" class="activeEntry-form" reportSubmit="true">
+            <view class="activeEntry-list {{isActive?'clearfix':listClassName||'flex f-fw-w f-jc-fs'}}" style="margin: {{listMargin||0}}; padding: {{listPadding||0}};">
+                <block wx:for="{{list}}" wx:key="item.acm">
+                    <view bindtap="$launch" class="activeEntry-item f-fs-0 expose-log {{isActive?'activeEntry-item-float':''}}" data-acm="{{item.acm}}" data-app-id="{{item.wxa_appId}}" data-fallback="{{item.link}}" data-href="{{item.wxa_link}}" data-log-index="{{index}}" data-log-mod="{{modId}}_{{list.length}}" data-ptp-c="{{ptpC||''}}" data-ptp-d="{{index}}" style="width: {{itemWidth||item.width+'rpx'}}; height: {{itemHeight||item.height+'rpx'}}; margin: {{isActive?'0 '+item.marginRight+'rpx '+item.marginBottom+'rpx 0':itemMargin||0}}; padding: {{itemPadding||0}}; background-color: {{itemBgColor||'rgba(255, 255, 255, 0)'}}; box-shadow: {{itemBoxShadow}}; border-radius: {{itemBorderRadius||0}};" wx:if="{{canLaunch&&item.wxa_link&&item.wxa_appId}}">
+                        <view class="activeEntry-item-image-box" style="width: {{imageWidth||'100%'}}; height: {{imageHeight||'100%'}}; margin: {{imageMargin||0}}; border-radius: {{imageBorderRadius||0}};">
+                            <image class="activeEntry-item-image" mode="aspectFill" src="{{item.wxa_suffixImage||item.suffixImage}}"></image>
+                        </view>
+                        <view class="activeEntry-item-title" style="color: {{item.titleColor||'#333'}}; width: {{titleWidth}}; height: {{titleHeight}}; line-height: {{titleHeight}}; top: {{titleTop}}; left: {{titleLeft}}; text-align: {{titleTextAlign||'left'}}; font-size: {{titleFontSize}}; font-weight: {{titleFontWight}};" wx:if="{{titleIsShow&&(item.wxa_title||item.title)}}">{{item.wxa_title||item.title}}</view>
+                        <view class="activeEntry-item-description" style="color: {{item.subtitleColor||'#666'}}; width: {{descriptionWidth}}; height: {{descriptionHeight}}; line-height: {{descriptionHeight}}; top: {{descriptionTop}}; left: {{descriptionLeft}}; text-align: {{descriptionTextAlign||'left'}}; font-size: {{descriptionFontSize}};" wx:if="{{descriptionIsShow&&(item.wxa_description||item.description)}}">{{item.wxa_description||item.description}}</view>
+                        <button class="activeEntry-form-button" formType="submit" wx:if="{{collectFormId}}"></button>
+                    </view>
+                    <view bindtap="$navigate" class="activeEntry-item f-fs-0 expose-log {{isActive?'activeEntry-item-float':''}}" data-acm="{{item.acm}}" data-href="{{item.link}}" data-log-index="{{index}}" data-log-mod="{{modId}}_{{list.length}}" data-ptp-c="{{ptpC||''}}" data-ptp-d="{{index}}" style="width: {{itemWidth||item.width+'rpx'}}; height: {{itemHeight||item.height+'rpx'}}; margin: {{isActive?'0 '+item.marginRight+'rpx '+item.marginBottom+'rpx 0':itemMargin||0}}; padding: {{itemPadding||0}}; background-color: {{itemBgColor||'rgba(255, 255, 255, 0)'}}; box-shadow: {{itemBoxShadow}}; border-radius: {{itemBorderRadius||0}};" wx:else>
+                        <view class="activeEntry-item-image-box" style="width: {{imageWidth||'100%'}}; height: {{imageHeight||'100%'}}; margin: {{imageMargin||0}}; border-radius: {{imageBorderRadius||0}};">
+                            <image class="activeEntry-item-image" mode="aspectFill" src="{{item.suffixImage}}"></image>
+                        </view>
+                        <view class="activeEntry-item-title" style="color: {{item.titleColor||'#333'}}; width: {{titleWidth}}; height: {{titleHeight}}; line-height: {{titleHeight}}; top: {{titleTop}}; left: {{titleLeft}}; text-align: {{titleTextAlign||'left'}}; font-size: {{titleFontSize}}; font-weight: {{titleFontWight}};" wx:if="{{titleIsShow&&item.title}}">{{item.title||item.wxa_title}}</view>
+                        <view class="activeEntry-item-description" style="color: {{item.subtitleColor||'#666'}}; width: {{descriptionWidth}}; height: {{descriptionHeight}}; line-height: {{descriptionHeight}}; top: {{descriptionTop}}; left: {{descriptionLeft}}; text-align: {{descriptionTextAlign||'left'}}; font-size: {{descriptionFontSize}};" wx:if="{{descriptionIsShow&&item.description}}">{{item.description||item.wxa_description}}</view>
+                        <button class="activeEntry-form-button" formType="submit" wx:if="{{collectFormId}}"></button>
+                    </view>
+                </block>
+            </view>
+        </form>
+    </view>
+</template>
+<import src="../heading/index.wxml"></import>

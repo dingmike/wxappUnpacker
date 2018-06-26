@@ -1,0 +1,11 @@
+<template name="847127">
+    <view class="{{__vx_class}}" id="app" style="{{__vx_style}}">
+        <view bindtap="{{$scope}}.$vx_navigate" class="suspend-tip pushWindow log-item acm-item" data-cube-acm="{{tip.acm}}" data-cube-acm-node="{{true}}" data-data-log-content="{{tip.acm}}" data-href="{{tip.item_xcx_url}}" style="top: {{styleConfig.top/100*100+'rpx'}}; left: {{styleConfig.left/100*100+'rpx'}}; background: {{styleConfig.bg}};" wx:if="{{tip&&isShowTip}}">
+            <view class="suspend-user-logo">
+                <template is="mvw-image" data="{{$parent:$parent['$'+label],...$parent['$'+label]['$mvw-image_15247322529630']}}"></template>
+            </view>
+            <view class="suspend-user-desc">{{tip.userInfo||''}} {{tip.orderInfo||''}}</view>
+        </view>
+    </view>
+</template>
+<import src="../../../cube-core/componentClass/internalComponents/mvwImage/index.wxml"></import>

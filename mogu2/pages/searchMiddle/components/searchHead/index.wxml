@@ -1,0 +1,25 @@
+<template name="searchHead">
+    <form bindsubmit="submitForm" class="searchWrap" reportSubmit="{{true}}">
+        <view class="searchContent flex f-fd-r f-fw-n f-fg-1">
+            <view bindtap="{{$scope}}.searchPhotoClick" class="search-photo" wx:if="{{isShowPhoto}}"></view>
+            <view class="search-form {{isShowPhoto?'':'no-photo-form'}}">
+                <input bindconfirm="searchFun" bindinput="bindKeyInput" class="h-placeholder {{isShowPhoto?'':'no-photo-placeholder'}}" confirmType="search" data-query="{{queryWord}}" maxlength="-1" placeholder="{{placeholderWord}}" placeholderStyle="color: #999;" value="{{inputWord}}"></input>
+                <view bindtap="clearInputValue" class="search-clear-wrap flex f-fd-r f-jc-c">
+                    <view class="search-clear-all m-icon m-icon-close" hidden="{{!isShowClearButton}}"></view>
+                </view>
+            </view>
+            <button bindtap="searchFun" class="search-button" data-query="{{queryWord}}" formType="submit">搜索</button>
+            <view class="search-guide-container" wx:if="{{isFirstGuide}}">
+                <view class="search-guide-img">
+                    <image class="guide-img" src="https://s10.mogucdn.com/mlcdn/c45406/171114_3je4i4043dj77lkj64ii7k0lf1f73_337x167.png"></image>
+                </view>
+                <view class="search-guide-text flex f-jc-c">
+                    <text>点击这里可以上传图片进行搜索啦</text>
+                </view>
+                <view class="search-guide-btn flex f-jc-c">
+                    <view bindtap="{{$scope}}.meKnowClick" class="guide-btn flex f-jc-c">我知道了</view>
+                </view>
+            </view>
+        </view>
+    </form>
+</template>

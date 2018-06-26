@@ -1,0 +1,62 @@
+@import "../../../../../../__wuBaseWxss__/112.wxss";
+
+.sizeHelp-report .report-list-content {
+    width: 750rpx;
+}
+
+.sizeHelp-report .report-list {
+    width: 750rpx;
+    min-height: 148rpx;
+    background-color: #fff;
+    padding-left: 32rpx;
+}
+
+.sizeHelp-report .report-wrap {
+    min-height: 148rpx;
+    padding: 36rpx 0 36rpx 0;
+    border-bottom: 1rpx solid #e5e5e5;
+}
+
+.sizeHelp-report .report-list:last-child .report-wrap {
+    border: none;
+}
+
+.sizeHelp-report .report-tag {
+    height: 64rpx;
+    font-size: 24rpx;
+    padding: 18rpx 12rpx 20rpx 12rpx;
+}
+
+.sizeHelp-report .report-content {
+    width: 530rpx;
+    margin-left: 32rpx;
+}
+
+.sizeHelp-report .report-title {
+    font-size: 24rpx;
+    color: #666;
+    height: 33rpx;
+    line-height: 33rpx;
+}
+
+.sizeHelp-report .report-message {
+    font-size: 24rpx;
+    color: #333;
+    min-height: 33rpx;
+    line-height: 35rpx;
+}
+
+.sizeHelp-report .look-more {
+    width: 750rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    font-size: 24rpx;
+    color: #999;
+    background-color: #fff;
+}
+
+.sizeHelp-report .arrow-down {
+    font-size: 24rpx;
+    line-height: 70rpx;
+    margin-left: 5rpx;
+}

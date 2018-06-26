@@ -1,0 +1,89 @@
+@import "../__wuBaseWxss__/3.wxss";
+
+.seeloading {
+    margin-top: 160px;
+    background-color: #ffffff;
+    text-align: center;
+    color: #999;
+    font-size: 13px;
+    padding: 50rpx 0 50rpx 0;
+    heigth: 100%;
+    width: 100%;
+}
+
+.seeloading .img_view .seeloading_img {
+    margin-top: 0;
+    width: 78rpx;
+    height: 78rpx;
+    border-radius: 50%;
+}
+
+.seeloading_gray {
+    background-color: #f2f2f2;
+    text-align: center;
+    color: #999;
+    font-size: 13px;
+    padding: 50rpx 0 50rpx 0;
+    heigth: 100%;
+    width: 100%;
+}
+
+.seeloading_gray .img_view .seeloading_img {
+    margin-top: 0;
+    width: 78rpx;
+    height: 78rpx;
+    border-radius: 50%;
+}
+
+.button-hover {
+    opacity: .6;
+}
+
+page {
+    background-color: #fff;
+    height: 100%;
+}
+
+.container {
+    width: 100%;
+}
+
+.banner {
+    width: 100%;
+    margin-bottom: 40rpx;
+}
+
+.banner .bannerImage {
+    width: 100%;
+    height: 320rpx;
+}
+
+.category-title {
+    display: none;
+}
+
+.item-btn {
+    background-color: #f4f4f4;
+    padding: 56rpx 0;
+}
+
+.mall_btn {
+    width: 540rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    border-radius: 8rpx;
+    background-color: #ffffff;
+    font-size: 15px;
+    margin: 0 auto;
+}
+
+.mall_btn .triangle {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-top: 12rpx solid transparent;
+    border-left: 16rpx solid #000;
+    border-bottom: 12rpx solid transparent;
+    margin-left: 20rpx;
+}

@@ -1,0 +1,491 @@
+page {
+    background-color: #f4f4f4;
+    height: 100%;
+}
+
+.pay-con {
+    background-color: #f4f4f4;
+    padding-bottom: 200rpx;
+    border-top: 2rpx solid #f4f4f4;
+}
+
+.pay-con .section {
+    background-color: #ffffff;
+    margin-top: 0;
+    text-align: left;
+    font-size: 12px;
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+}
+
+.pay-con .goodsInfo {
+    width: 100%;
+    background-color: #fff;
+    height: 250rpx;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    border-bottom: 2rpx solid #f4f4f4;
+    border-top: 2rpx solid #f4f4f4;
+}
+
+.pay-con .comment {
+    width: 100%;
+    height: 70rpx;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    -webkit-box-align: center;
+    align-items: center;
+    background-color: #f2f2f2;
+}
+
+.pay-con .comment text {
+    margin-left: 10rpx;
+}
+
+.pay-con .comment-input {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 580rpx;
+    height: 70rpx;
+    margin-left: 20rpx;
+}
+
+.pay-con .comment-input input {
+    width: 580rpx;
+}
+
+.pay-con .section_info {
+    width: 100%;
+    background-color: #f4f4f4;
+}
+
+.pay-con .btn-area {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-left: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-top: 1px solid #e9e9e9;
+    background-color: #fff;
+    z-index: 30;
+}
+
+.pay-con .btn-area view {
+    padding: 0 20rpx;
+}
+
+.pay-con .btn-area__btn {
+    width: 300rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+    background-color: #FE3B2E;
+    border-radius: 0;
+}
+
+.pay-con .btn-area__btn:after {
+    border: 0;
+}
+
+.pay-con .btn-area__pay {
+    font-size: 14px;
+}
+
+.pay-con .btn-area__pay text {
+    color: #FE3B2E;
+    font-size: 16px;
+}
+
+.pay-con__addr {
+    padding-top: 10rpx;
+    padding-bottom: 10rpx;
+    border-bottom: 20rpx solid #f4f4f4;
+}
+
+.pay-con__addr .addr_info {
+    padding-left: 20rpx;
+    font-size: 24rpx;
+    color: #545454;
+    letter-spacing: 2rpx;
+    margin: 20rpx 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.pay-con__addr .addr_icon {
+    display: block;
+}
+
+.pay-con__addr .addr_icon_local {
+    width: 32rpx;
+    height: 42rpx;
+}
+
+.pay-con__addr .addr_icon_arrow {
+    width: 24rpx;
+    height: 14rpx;
+    transform: rotate(-90deg);
+}
+
+.pay-con__card {
+    background-color: #f4f4f4;
+    height: 150rpx;
+}
+
+.pay-con__card .card_img {
+    width: 150rpx;
+    height: 150rpx;
+}
+
+.pay-con__card .card_img image {
+    width: 150rpx;
+    height: 150rpx;
+}
+
+.pay-con__card .card_info {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    font-size: 24rpx;
+    width: 380rpx;
+    height: 100%;
+    color: #989998;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+.pay-con__card .card-item-name {
+    letter-spacing: 2rpx;
+    color: #545454;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    margin: 50rpx 0 auto 20rpx;
+}
+
+.pay-con__card .card-item-attr {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: auto 0 50rpx 20rpx;
+}
+
+.pay-con__card .card_num {
+    font-size: 26rpx;
+    width: 130rpx;
+    height: 100%;
+    display: -webkit-box;
+    display: flex;
+    color: #545454;
+    margin: 0 0 0 auto;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-align: end;
+    align-items: flex-end;
+}
+
+.pay-con__card .card_num text:first-of-type {
+    margin: 50rpx 20rpx 0 auto;
+}
+
+.pay-con__card .card_num text:last-of-type {
+    margin: 10rpx 20rpx 0 auto;
+}
+
+.pay-con .coupon {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    box-sizing: border-box;
+    height: 100rpx;
+    margin-top: 10rpx;
+    padding: 10rpx 16rpx;
+    font-size: 12px;
+    background-color: #ffffff;
+}
+
+.pay-con .coupon .coupon-item {
+    padding-top: 5px;
+    -webkit-box-flex: 1;
+    flex: 1;
+}
+
+.pay-con .coupon .coupon-desc {
+    padding-left: 5px;
+    font-size: 10px;
+    color: #999;
+}
+
+.pay-con .coupon .coupon-use {
+    color: #999;
+}
+
+.pay-con .coupon .coupon-message {
+    color: #FE3B2E;
+}
+
+.pay-con .coupon text {
+    display: inline-block;
+    line-height: 12px;
+    vertical-align: middle;
+}
+
+.pay-con .coupon_icon_arrow {
+    display: inline-block;
+    vertical-align: middle;
+    width: 25rpx;
+    height: 16rpx;
+    transform: rotate(-90deg);
+}
+
+.express_fee {
+    height: 70rpx;
+    width: 710rpx;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    font-size: 26rpx;
+    color: #545454;
+    border-bottom: 2rpx solid #f4f4f4;
+    border-top: 2rpx solid #f4f4f4;
+}
+
+.fee_tips {
+    font-size: 24rpx;
+    color: #FE3B2E;
+    border: 1px solid #fe3b2e;
+    padding: 0 10rpx;
+}
+
+.tax_fee {
+    height: 70rpx;
+    width: 710rpx;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    font-size: 26rpx;
+    color: #545454;
+    border-bottom: 2rpx solid #f4f4f4;
+}
+
+.ship.del {
+    display: inline-block;
+    padding-left: 10rpx;
+    text-align: right;
+    text-decoration: line-through;
+    color: #999;
+}
+
+.ship:after {
+    content: '';
+    display: inline-block;
+    width: 14rpx;
+    height: 14rpx;
+    border-top: 1px solid #545454;
+    border-right: 1px solid #545454;
+    margin: 0 10rpx 2rpx 5rpx;
+    transform: rotate(45deg);
+}
+
+.total_fee {
+    text-align: right;
+    height: 60rpx;
+    padding: 10rpx 20rpx;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+    -webkit-box-align: center;
+    align-items: center;
+    font-size: 26rpx;
+    color: #545454;
+}
+
+.total_fee text {
+    margin-right: 10rpx;
+    color: #FE3B2E;
+    font-size: 30rpx;
+}
+
+.orderSection {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    background-color: #fff;
+    border-bottom: 40rpx solid #f4f4f4;
+}
+
+.orderSection .sectionName {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    width: 100%;
+    height: 60rpx;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.orderSection .sectionName text {
+    font-size: 26rpx;
+    color: #545454;
+    margin: auto 15rpx auto 20rpx;
+}
+
+.IdCardTips {
+    width: 100%;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    background-color: #ff7070;
+    height: 90rpx;
+}
+
+.IdCardTips image {
+    width: 46rpx;
+    height: 30rpx;
+    margin: 10rpx 20rpx;
+}
+
+.IdCardTips text {
+    font-size: 20rpx;
+    color: #fff;
+    margin-right: 10rpx;
+}
+
+.IdCardSave {
+    width: 100%;
+    height: 90rpx;
+    margin-bottom: 20rpx;
+    background-color: #fff;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.IdCardSave input {
+    width: 500rpx;
+    font-size: 26rpx;
+    margin-left: 40rpx;
+}
+
+.IdCardSave view {
+    width: 150rpx;
+    height: 90rpx;
+    background-color: #fe9402;
+    font-size: 28rpx;
+    color: #fff;
+    margin: 0 0 0 auto;
+    text-align: center;
+    line-height: 90rpx;
+}
+
+.groupon-order {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 30;
+}
+
+.cover {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 548rpx;
+    margin-top: -400rpx;
+    margin-left: -274rpx;
+    height: 800rpx;
+    border-radius: 20rpx;
+    background-color: #fff;
+    z-index: 31;
+}
+
+.cover__title {
+    font-size: 36rpx;
+    padding: 50rpx 0 44rpx;
+    text-align: center;
+}
+
+.cover__info {
+    padding: 0 30rpx 0 40rpx;
+    margin-bottom: 30rpx;
+    font-size: 26rpx;
+    height: 580rpx;
+    overflow: scroll;
+}
+
+.cover__close {
+    position: absolute;
+    top: 16rpx;
+    right: 10rpx;
+    display: inline-block;
+    width: 1.4rem;
+    height: 1.4rem;
+    z-index: 1000;
+    text-indent: -9999px;
+    overflow: hidden;
+    color: #000;
+}
+
+.cover__close:before,.cover__close:after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 45%;
+    display: block;
+    height: 60%;
+    width: 2px;
+    background-color: #ddd;
+}
+
+.cover__close:before {
+    transform: rotate(45deg);
+}
+
+.cover__close:after {
+    transform: rotate(-45deg);
+}

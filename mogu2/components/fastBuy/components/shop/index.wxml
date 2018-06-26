@@ -1,0 +1,115 @@
+<template name="shop">
+    <form bindsubmit="{{$scope}}.formSubmitHandler" reportSubmit="true">
+        <view bindtap="{{$scope}}.someDelegate" class="shop" wx:for="{{shops}}" wx:key="shopKey">
+            <view class="shopHead flex">
+                <view class="shopHead-title">
+                    <text>{{item.shopName}}</text>
+                    <text>
+                        <image class="shopHead-title--img" src="{{tagItem.image}}" wx:for="{{item.tagList}}" wx:key="image"></image>
+                    </text>
+                </view>
+                <view class="shopHead-im flex" url="imLink">
+                    <text class="m-icon m-icon-message shopHead-im--icon"></text>
+                    <text>联系商家</text>
+                    <template is="imcall" data="{{...$imCall,shopId:item.shopIdEsc}}"></template>
+                </view>
+            </view>
+            <view class="skuItem" wx:for="{{item.skuGroupList}}" wx:for-item="sku" wx:key="skuIdEsc">
+                <view class="skuItem-wrap flex">
+                    <view>
+                        <image class="skuItem-img" mode="aspectFill" src="{{sku.imgUrlHttps}}"></image>
+                    </view>
+                    <view class="skuItem-desc">
+                        <view class="skuItem-desc--title">{{sku.title}}</view>
+                        <view class="skuItem-desc-attr">
+                            <text wx:for="{{sku.skuAttrList}}" wx:for-item="skuAttr" wx:key="*this">{{skuAttr.attributeKey}}：{{skuAttr.attributeValue}}；</text>
+                        </view>
+                    </view>
+                    <view class="skuItem-price f-ai-fe flex">
+                        <view class="skuItem-price-top f-ai-fe flex">
+                            <view wx:if="{{sku.showOriginPrice}}">
+                                <text class="skuItem-price--old">¥{{sku.skuPrice}}</text>
+                            </view>
+                            <view>
+                                <text class="skuItem-price--now">¥{{sku.skuNowPrice}}</text>
+                            </view>
+                            <view class="skuItem-num flex skuItem-counter" data-type="{{showModifyNumberGroup[sku.skuIdEsc]}}" wx:if="{{!sku.showModifyNumber&&!showModifyNumberGroup[sku.skuIdEsc]}}">
+                                <text class="skuItem-num--origininput">x{{sku.quantity}}</text>
+                                <button class="m-icon m-icon-edit" data-shop="{{item.shopKey}}" data-type="showModifyNumber" formType="submit" id="{{sku.skuIdEsc}}" wx:if="{{sku.canModifyNumber}}"></button>
+                            </view>
+                            <view class="skuItem-instead flex skuItem-counter" wx:else>
+                                <button class="{{sku.quantity<=1?'skuItem-instead-number skuItem-instead--reduce skuItem-instead--disabled':'skuItem-instead-number skuItem-instead--reduce'}}" data-number="{{sku.quantity}}" data-shop="{{item.shopKey}}" data-stock="{{sku.inventory}}" data-type="callClickSub" formType="submit" id="{{sku.skuIdEsc}}">
+                                    <text class="m-icon m-icon-minus"></text>
+                                </button>
+                                <view bindtap="{{$scope}}.triggerNumInput" class="skuItem-instead--input" data-number="{{sku.quantity}}" data-shop="{{item.shopKey}}" data-stock="{{sku.inventory}}" id="{{sku.skuIdEsc}}">{{sku.quantity}}</view>
+                                <button class="{{sku.quantity>=sku.inventory?'skuItem-instead-number skuItem-instead--add skuItem-instead--disabled':'skuItem-instead-number skuItem-instead--add'}}" data-number="{{sku.quantity}}" data-shop="{{item.shopKey}}" data-stock="{{sku.inventory}}" data-type="callClickAdd" formType="submit" id="{{sku.skuIdEsc}}">
+                                    <text class="m-icon m-icon-add"></text>
+                                </button>
+                            </view>
+                        </view>
+                        <view class="skuItem-redPacket" wx:if="{{sku.redPacketPrice||sku.redPacketDesc}}">
+                            <text class="skuItem-redPacket--desc" wx:if="{{sku.redPacketDesc}}">使用{{sku.redPacketDesc}}</text>
+                            <text class="skuItem-redPacket--discount" wx:if="{{sku.redPacketPrice}}"> - ¥{{sku.redPacketPrice}}</text>
+                            <text></text>
+                        </view>
+                    </view>
+                </view>
+                <view class="skuItem-wh" wx:if="{{sku.isWareHouse}}">【入仓】蘑菇街仓库发货，不支持备注修改商品尺码/颜色</view>
+                <view class="skuItem-wh" wx:if="{{sku.bondedGoods}}">【海外商品发货后不支持退货】</view>
+            </view>
+            <view wx:if="{{isPresale}}">
+                <view class="salebar flex">
+                    <text class="shopSale salebar-price--red presaleFirstPrice">阶段1 定金：</text>
+                    <text class="salebar-price salebar-price--red">¥{{item.firstStagePrice}}</text>
+                </view>
+                <view class="salebar flex">
+                    <text class="shopSale">阶段2 尾款：</text>
+                    <text class="salebar-desc">{{item.beginTime}}</text>
+                    <text class="salebar-price">¥{{item.lastStagePrice}}</text>
+                </view>
+            </view>
+            <view wx:else>
+                <view class="salebar flex" wx:if="{{hasBondedGoods&&item.tariffResDto}}">
+                    <text class="shopSale shopTotal flex">关税：</text>
+                    <text class="salebar-price salebar-price--red" wx:if="{{!item.tariffResDto.tariffPrice}}">卖家承担</text>
+                    <text class="salebar-price salebar-price--red" wx:else>¥{{item.tariffResDto.tariffPrice/100}}</text>
+                </view>
+                <button class="salebar flex" data-promotion-key="{{item.selectedPromotionKey}}" data-shop="{{item.shopKey}}" data-type="callClickShopSale" formType="submit" wx:if="{{item.selectedPromotionKey&&item.selectedPromotionDesc}}">
+                    <text class="shopSale">店铺优惠：</text>
+                    <text class="salebar-desc" data-promotion-key="{{item.selectedPromotionKey}}" data-shop="{{item.shopKey}}" data-type="callClickShopSale">{{item.selectedPromotionDesc}}</text>
+                    <text class="{{item.selectedDiscountFee>0?'salebar-price salebar-price--red':'salebar-price'}}" data-promotion-key="{{item.selectedPromotionKey}}" data-shop="{{item.shopKey}}" data-type="callClickShopSale">-¥{{item.selectedPromotionDiscount}}</text>
+                    <view class="m-icon m-icon-arrow-right salebar-arrow" data-promotion-key="{{item.selectedPromotionKey}}" data-shop="{{item.shopKey}}" data-type="callClickShopSale" wx:if="{{item.chooseShopPromotion}}"></view>
+                </button>
+                <button class="salebar flex" data-express-code="{{item.selectedLogistics&&item.selectedLogistics.expressCode}}" data-shop="{{item.shopKey}}" data-type="callClickExpress" formType="submit" wx:if="{{item.selectedLogistics.expressCode}}">
+                    <text class="shopSale" data-express-code="{{item.selectedLogistics&&item.selectedLogistics.expressCode}}" data-shop="{{item.shopKey}}" data-type="callClickExpress">快递运费：</text>
+                    <text class="salebar-desc" data-express-code="{{item.selectedLogistics&&item.selectedLogistics.expressCode}}" data-shop="{{item.shopKey}}" data-type="callClickExpress">{{item.selectedLogistics.expressName}}</text>
+                    <text class="{{item.selectedLogistics.postage>0?'salebar-price salebar-price--red':'salebar-price'}}" data-express-code="{{item.selectedLogistics&&item.selectedLogistics.expressCode}}" data-shop="{{item.shopKey}}" data-type="callClickExpress">¥{{item.postage}}</text>
+                    <view class="m-icon m-icon-arrow-right salebar-arrow" wx:if="{{item.chooseExpress}}"></view>
+                </button>
+                <view class="salebar flex" wx:if="{{item.freight}}">
+                    <text class="shopSale shopTotal flex">退货运费补贴：</text>
+                    <text class="salebar-price">商家赠送</text>
+                </view>
+                <view class="salebar flex" wx:if="{{item.zero}}">
+                    <text class="shopSale shopTotal flex">团长免单：</text>
+                    <text class="salebar-price">-{{item.shopOriginPrice}}元</text>
+                </view>
+                <view class="salebar flex">
+                    <view class="shopTotal flex">
+                        <view class="shopSale ">店铺合计：</view>
+                        <view class="taxQues" data-handler="callClickTaxCompliance" data-shopKey="{{item.shopKey}}" wx:if="{{item.extensions.shopTag=='taxCompliance'}}">?</view>
+                        <view class="taxtip" wx:if="{{item.extensions.shopTag=='taxCompliance'&&shopTaxMap[item.shopKey]}}">该订单中如有任何商品及店铺优惠，均是按照美丽优选平台活动规则提供给用户的平台补贴，不返不退<text class="taxtiparrow"></text>
+                        </view>
+                    </view>
+                    <text class="salebar-price">¥{{item.totalPrice}}</text>
+                </view>
+            </view>
+            <view class="comment" wx:if="{{item.addComment}}">
+                <input bindblur="$fastBuy.setComment" bindinput="$fastBuy.getComment" class="comment-text" confirmType="done" id="{{item.shopKey}}" placeholder="有什么想对商家说的可以写在这里哦~" value="{{shopComments[item.shopKey]}}"></input>
+            </view>
+        </view>
+    </form>
+    <template is="coupon" data="{{...$couponList}}"></template>
+</template>
+<import src="../coupon/index.wxml"></import>
+<import src="../../../../components/imcall/index.wxml"></import>

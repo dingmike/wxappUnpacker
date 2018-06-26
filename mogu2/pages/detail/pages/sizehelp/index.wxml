@@ -1,0 +1,25 @@
+<import src="../../../../components/mg/index.wxml"></import>
+<template is="mg" data="{{...$mg}}"></template>
+<import src="../../../../components/loading/index.wxml"></import>
+<import src="../../../../components/toast/index.wxml"></import>
+<import src="../../../../components/error/index.wxml"></import>
+<import src="../../components/occupying/index.wxml"></import>
+<import src="../sizehelp/components/editInfo/index.wxml"></import>
+<import src="../sizehelp/components/reportInfo/index.wxml"></import>
+<import src="../sizehelp/components/sizeImg/index.wxml"></import>
+<import src="../../components/ruleInfo/index.wxml"></import>
+<template is="loading" data="{{...$loading}}"></template>
+<template is="toast" data="{{...$toast}}"></template>
+<scroll-view scrollY style="height: 100%; position:fixed;" wx:if="{{pageStatus==='REQUEST_SUCCESS'}}">
+    <template is="editInfo" data="{{...$editInfo}}"></template>
+    <template is="occupying" data></template>
+    <blcok wx:if="{{sizeHelperInfo.rule}}">
+        <template is="ruleInfo" data="{{...$ruleInfo}}"></template>
+        <template is="occupying" data></template>
+    </blcok>
+    <block wx:if="{{sizeHelperInfo.trialReports&&sizeHelperInfo.trialReports.length>0}}">
+        <template is="reportInfo" data="{{...$reportInfo}}"></template>
+        <template is="occupying" data></template>
+    </block>
+    <template is="sizeImg" data="{{...$sizeImg}}"></template>
+</scroll-view>

@@ -1,0 +1,133 @@
+/*! Import by _C[25], whose real path we cannot found. */
+.dialog {
+    display: none;
+    position: fixed;
+    width: 560rpx;
+    height: 555rpx;
+    left: 50%;
+    top: 50%;
+    z-index: 101;
+    overflow: hidden;
+    margin-left: -280rpx;
+    margin-top: -277.5rpx;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.dialog--show {
+    animation: dialogShow 0.5s;
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.dialog--close {
+    display: none;
+}
+
+@-webkit-keyframes dialogShow {
+    0% {
+        opacity: 0;
+        display: none;
+    }
+
+    1% {
+        opacity: 0;
+        display: flex;
+    }
+
+    100% {
+        opacity: 1;
+        display: flex;
+    }
+}
+
+@keyframes dialogShow {
+    0% {
+        opacity: 0;
+        display: none;
+    }
+
+    1% {
+        opacity: 0;
+        display: flex;
+    }
+
+    100% {
+        opacity: 1;
+        display: flex;
+    }
+}
+
+.dialog-head {
+    margin-top: 50rpx;
+    line-height: 50rpx;
+    font-size: 36rpx;
+    text-align: center;
+    color: #000;
+}
+
+.dialog-body {
+    padding: 24rpx 36rpx 30rpx;
+}
+
+.dialog-foot {
+    display: flex;
+    height: 100rpx;
+    line-height: 100rpx;
+    font-size: 36rpx;
+    text-align: center;
+    border-top: 1rpx solid #e5e5e5;
+}
+
+.dialog-foot--cancel {
+    flex: 1;
+    color: #666;
+    border-right: 1rpx solid #e5e5e5;
+}
+
+.dialog-foot--ok {
+    flex: 1;
+    color: #ff5777;
+}
+/*! Import end */
+.dialog-comment {
+    height: auto;
+    margin-top: -306.5rpx;
+}
+
+.dialog-comment--content,.dialog-comment--textarea {
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 100%;
+    height: 300rpx;
+    border-radius: 4rpx;
+    background-color: #f6f6f6;
+}
+
+.dialog-comment--textarea {
+    padding: 24rpx;
+}
+
+.rate-page--ios .dialog-comment--textarea {
+    padding: 9rpx 24rpx 9rpx 14rpx;
+}
+
+.dialog-comment--counter {
+    padding-top: 30rpx;
+    line-height: 28rpx;
+    font-size: 28rpx;
+    text-align: right;
+    color: #999;
+}
+
+.dialog-input {
+    border: solid #eee 1rpx;
+    border-radius: 5rpx;
+    width: 160rpx;
+    height: 60rpx;
+    text-align: center;
+    padding: 5rpx 10rpx;
+    margin: 0 auto;
+    color: #333;
+}

@@ -1,0 +1,28 @@
+@import "../../components/scrollGoods/index.wxss";
+
+@import "../../components/walltemplate/item_pt.wxss";
+
+@import "components/ptWallCount/index.wxss";
+
+@import "../../components/bottomNavBar/index.wxss";
+
+.pintuanLottery-banner-wrap {
+    width: 750rpx;
+    height: 230rpx;
+    overflow: hidden;
+}
+
+.pintuanLottery-banner {
+    width: 100%;
+    height: 230rpx;
+    overflow: hidden;
+}
+
+.wallPtMore-wrap {
+    padding-left: 24rpx;
+    height: 80rpx;
+}
+
+.wallPtMore-text {
+    font-size: 24rpx;
+}

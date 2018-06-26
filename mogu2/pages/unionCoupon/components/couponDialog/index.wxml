@@ -1,0 +1,4 @@
+<template name="couponDialog">
+    <view bindtap="hideDialog" class="coupon-dialog"></view>
+</template>
+<import src="../couponLeft/index.wxml"></import>

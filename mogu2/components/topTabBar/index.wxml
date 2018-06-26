@@ -1,0 +1,17 @@
+<template name="topTabBar">
+    <view class="tab-top" wx:if="{{list&&list.length>1}}">
+        <view class="tab-top-fixed" style="background-color:{{info.bgColor||'#333333'}};">
+            <view bindtap="{{$scope}}.gotoWall" class="tab-top-item-first" data-acm="{{info.acm||''}}" data-href="{{info.link}}" data-ptp-c="{{ptpC}}" data-ptp-d="0" style="color:{{info.isOn?info.hoverColor||'#ffffff':info.color||'a1a1a1'}};background-color:{{info.bgColor||'#333333'}};">{{info.cateName||'精选'}}
+            <view class="tab-top-item-line" style="background-color:{{info.hoverColor||'#ffffff'}};" wx:if="{{info.isOn}}"></view>
+            </view>
+            <scroll-view class="tab-top-scroll" scrollLeft="{{scrollLeft}}" scrollWithAnimation="true" scrollX="true">
+                <view class="tab-top-flex">
+                    <view class="tab-top-item"></view>
+                    <view bindtap="{{$scope}}.gotoWall" class="tab-top-item" data-acm="{{item.acm||''}}" data-fcid="{{item.fcid||''}}" data-href="{{info.itemLink}}" data-pid="{{info.pid||''}}" data-ptp-c="{{ptpC}}" data-ptp-d="{{index}}" data-title="{{info.headerTitle||'蘑菇街'}}" style="color:{{item.isOn?info.hoverColor||'#ffffff':info.color||'a1a1a1'}}" wx:for="{{list}}" wx:key="index">{{item.cateName||''}}
+                        <view class="tab-top-item-line" style="background-color:{{info.hoverColor||'#ffffff'}};" wx:if="{{item.isOn}}"></view>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+    </view>
+</template>

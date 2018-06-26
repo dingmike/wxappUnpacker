@@ -1,0 +1,15 @@
+<import src="../../../../components/mg/index.wxml"></import>
+<template is="mg" data="{{...$mg}}"></template>
+<import src="../../../../components/loading/index.wxml"></import>
+<import src="../../../../components/toast/index.wxml"></import>
+<template is="loading" data="{{...$loading}}"></template>
+<template is="toast" data="{{...$toast}}"></template>
+<view class="sharepic flex f-ai-c f-ff-cn">
+    <view class="sharepic-image" style="height: {{imageHeight}}rpx">
+        <image class="sharepic-image--img" lazyLoad="{{true}}" mode="aspectFill" src="{{imageUrl}}" style="height: {{imageHeight}}rpx"></image>
+    </view>
+    <button bindtap="saveImage" class="sharepic-save flex f-ai-c f-jc-c" wx:if="{{imageUrl}}">
+        <image class="sharepic-save--icon" lazyLoad="{{true}}" src="https://s10.mogucdn.com/mlcdn/c45406/171213_1cld6cfj0di0c8h963feaelf05766_34x34.png"></image>
+        <view>保存图片</view>
+    </button>
+</view>

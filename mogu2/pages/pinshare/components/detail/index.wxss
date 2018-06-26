@@ -1,0 +1,174 @@
+.components-detail-wrap {
+    width: 702rpx;
+    height: 260rpx;
+    padding: 24rpx 24rpx 0 24rpx;
+    justify-content: space-between;
+    box-sizing: content-box;
+    background: #fdf7f7;
+}
+
+.components-detail {
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    box-sizing: content-box;
+    border-radius: 4rpx;
+}
+
+.pin-good-image-wrap {
+    position: relative;
+    width: 260rpx;
+    height: 260rpx;
+    overflow: hidden;
+    background: #e5e5e5;
+    border-radius: 4rpx 0 0 4rpx;
+}
+
+.pin-good-image {
+    width: 100%;
+    height: 100%;
+}
+
+.pin-top-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 80rpx;
+    height: 36rpx;
+    line-height: 36rpx;
+    font-size: 20rpx;
+    color: #fff;
+    text-align: center;
+    border-radius: 8rpx 0 8rpx 0;
+    padding-left: 10rpx;
+    padding-right: 10rpx;
+    opacity: 0.9;
+    background-image: linear-gradient(to left,#ff6e61,#ff4db8);
+    overflow: hidden;
+}
+
+.pin-good-content {
+    position: relative;
+    width: 442rpx;
+    height: 100%;
+    padding: 28rpx 24rpx 26rpx 24rpx;
+    background: #fff;
+    border-radius: 0 4rpx 4rpx 0;
+}
+
+.pin-good-title {
+    display: -webkit-box;
+    height: 80rpx;
+    width: 100%;
+    line-height: 40rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    font-size: 28rpx;
+    color: #333;
+}
+
+.pin-good-price {
+    height: 52rpx;
+    width: 100%;
+    margin-top: 30rpx;
+}
+
+.pin-good-price-tag {
+    height: 23rpx;
+    width: 16rpx;
+    font-size: 22rpx;
+}
+
+.pin-good-cut-price {
+    height: 52rpx;
+    line-height: 52rpx;
+    font-size: 50rpx;
+    color: #ff5777;
+    margin-right: 8rpx;
+    font-weight: bolder;
+}
+
+.pin-good-dollar {
+    height: 52rpx;
+    line-height: 52rpx;
+    font-size: 26rpx;
+    color: #ff5777;
+    margin-right: 8rpx;
+    font-weight: bolder;
+}
+
+.pin-good-origin-price {
+    height: 24rpx;
+    font-size: 24rpx;
+    color: #999;
+    text-decoration: line-through;
+}
+
+.pin-good-info {
+    height: 38rpx;
+    line-height: 38rpx;
+    color: #666;
+    font-size: 18rpx;
+    overflow: hidden;
+}
+
+.pin-good-person {
+    padding: 1rpx 8rpx;
+    margin-right: 8rpx;
+    background: #eee;
+}
+
+.pin-good-cut {
+    padding: 4rpx 10rpx;
+    background: #ffedf1;
+}
+
+.pin-good-status-tag {
+    position: absolute;
+    width: 140rpx;
+    height: 140rpx;
+    right: 20rpx;
+    bottom: 20rpx;
+    z-index: 10;
+}
+
+.pin-good-success {
+    background: url(https://s10.mogucdn.com/mlcdn/c45406/170324_57eaedekk3e6ib322cldf6702dlkh_140x140.png) no-repeat;
+    background-size: 100% auto;
+}
+
+.pin-good-fail {
+    background: url(https://s10.mogucdn.com/mlcdn/c45406/170324_0ll4f04lhi6c24e7a2dhf5i7i7bh2_140x140.png) no-repeat;
+    background-size: 100% auto;
+}
+
+.components-detail-wrap-join {
+    height: 152rpx;
+}
+
+.components-detail-wrap-join .pin-good-image-wrap {
+    width: 152rpx;
+    height: 152rpx;
+}
+
+.components-detail-wrap-join .pin-good-content {
+    width: 550rpx;
+    padding-top: 8rpx;
+    padding-bottom: 6rpx;
+}
+
+.components-detail-wrap-join .pin-good-price {
+    margin: 6rpx 0 14rpx 0;
+}
+
+.components-detail-wrap-join .pin-good-status-tag {
+    position: absolute;
+    width: 120rpx;
+    height: 120rpx;
+    right: 10rpx;
+    bottom: 10rpx;
+    z-index: 10;
+}

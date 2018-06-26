@@ -1,0 +1,13 @@
+<template name="result">
+    <view class="cashier-result">
+        <block wx:if="{{isPaySuccess}}">
+            <image class="cashier-result-img" src="https://s10.mogucdn.com/mlcdn/c45406/170504_5jl82gdjebffi83lgg0c74kgce126_552x552.png"></image>
+            <text class="cashier-result-text-success">您的付款已成功</text>
+        </block>
+        <block wx:else>
+            <image class="cashier-result-img" src="https://s10.mogucdn.com/mlcdn/c45406/170504_3b6h6c4kc4l0e5a6a69h76cc3dbil_534x534.png"></image>
+            <text class="cashier-result-text-fail">您的付款失败</text>
+            <view bindtap="{{$scope}}.goHome" class="cashier-result-change">更换支付方式</view>
+        </block>
+    </view>
+</template>

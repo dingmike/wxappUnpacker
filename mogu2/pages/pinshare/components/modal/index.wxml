@@ -1,0 +1,10 @@
+<template name="modal">
+    <view class="pintuan-modal" wx:if="{{isShowModal}}">
+        <view class="modal-header">这个商品仅限新用户参团哦</view>
+        <view class="modal-body">你是蘑菇街老朋友了，可以去开个团哦</view>
+        <view class="modal-footer flex">
+            <view bindtap="{{$scope}}.clickCancel" class="modal-button f-fg-1 modal-button--cancel">取消</view>
+            <view bindtap="{{$scope}}.navigateToDetail" class="modal-button f-fg-1 modal-button--nav" data-activity-id="{{activityId}}" data-item-id="{{itemId}}">我来开团</view>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,12 @@
+<template name="bonded">
+    <view class="flex bonded-wrap f-ai-c" wx:if="{{!identityNum}}">
+        <view class="user-info-label">身份信息：</view>
+        <view class="user-info-text f-fg-1">{{needIdentityPic?'请上传身份证正反面图片':'与收件人信息保持一致'}}</view>
+        <view catchtap="{{canUseWebView?'$navigate':'{{$scope}}.goToIdentity'}}" class="goto-userinfo-btn" data-href="{{identitySrc}}">实名认证</view>
+    </view>
+    <view class="flex bonded-wrap f-ai-c" wx:if="{{identityNum}}">
+        <view class="user-info-label">身份证号：</view>
+        <view class="user-info-text f-fg-1 identity-color">{{identityNum}}</view>
+        <view catchtap="{{canUseWebView?'$navigate':'{{$scope}}.goToIdentity'}}" class=" m-icon m-icon-edit identity-icon" data-href="{{identitySrc}}"></view>
+    </view>
+</template>

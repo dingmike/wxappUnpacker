@@ -1,0 +1,35 @@
+<template name="footprint">
+    <block wx:if="{{groups&&groups.length>0}}">
+        <scroll-view scrollY bindscrolltolower="{{$scope}}.getMore" lowerThreshold="50" style="height: 100%;">
+            <template is="goodslist" data="{{groups:groups,$countdown:$countdown}}"></template>
+            <template is="end" data="{{...$end,isEnd:isEnd}}"></template>
+        </scroll-view>
+        <form bindsubmit="{{$scope}}.onClean" reportSubmit="{{true}}">
+            <button class="fp-clean" formType="submit">清空</button>
+        </form>
+    </block>
+    <template is="empty" data="{{...$empty}}" wx:elif="{{groups&&groups.length===0}}"></template>
+</template>
+<template name="footprintdialog">
+    <view bindtap="{{$scope}}.hideDialog" class="module-base-skudialog skudialog base-dialog show-{{isShow}} footprintdialog" style="z-index: {{zIndex}}" wx:if="{{isShow!==undefined}}">
+        <view catchtap="{{$scope}}.onInnerClick" class="base-dialog--inner flex f-ff-cn">
+            <view class="service-dialog--head head base-dialog--head">
+                <form bindsubmit="{{$scope}}.onClean" reportSubmit="{{true}}">
+                    <button class="dialog-fp-clean button-reset-footprint" formType="submit">清空足迹</button>
+                </form>
+                <view class="head-title">我的足迹</view>
+                <view bindtap="{{$scope}}.hideDialog" class="head-close flex f-ai-c f-jc-c">╳</view>
+            </view>
+            <scroll-view scrollY bindscrolltolower="{{$scope}}.getMore" class="service-dialog--content content " lowerThreshold="50" style="height: 90%;">
+                <block wx:if="{{groups&&groups.length>0}}">
+                    <template is="goodslist" data="{{groups:groups,$countdown:$countdown}}"></template>
+                    <template is="end" data="{{...$end,isEnd:isEnd}}"></template>
+                </block>
+                <template is="empty" data="{{...$empty}}" wx:elif="{{groups&&groups.length===0}}"></template>
+            </scroll-view>
+        </view>
+    </view>
+</template>
+<import src="../footprintdialog/goodslist/index.wxml"></import>
+<import src="../../components/empty/index.wxml"></import>
+<import src="../../components/end/index.wxml"></import>

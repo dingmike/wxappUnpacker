@@ -1,0 +1,74 @@
+<template name="dialog">
+    <view class="pin-dialog-wrap flex f-fd-c">
+        <view class="pin-dialog-content flex f-fd-c">
+            <view bindtap="$navigate" class="pin-dialog-rulelogo" data-page="pinrule" wx:if="{{!isShowRuleArea}}">规则详情</view>
+            <view class="pin-dialog-users">
+                <view class="user-con flex f-fd-r f-jc-c f-fw-w clearfix {{userInfo.isLoop&&userInfo.isFold?'oneline':'multiline'}}" wx:if="{{userInfo.userInfoList}}">
+                    <view class="user-item loop_user" wx:for="{{userInfo.userInfoList}}" wx:key="{{index}}">
+                        <view class="user-avatar {{!item.unJoin?'captain-logo-border':''}}">
+                            <image class="user-pic" src="{{item.avatar}}"></image>
+                        </view>
+                        <view class="captain-logo " wx:if="{{item.isCaptain}}">团长</view>
+                    </view>
+                </view>
+                <view class="pin-dialog-join flex f-fd-r f-jc-c {{itemData.totalNum<7&&!tuanData.isCount?'pin-dialog-join-large':''}}">
+
+          {{tuanData.proInfo.leftText}}
+          <text class="{{tuanData.proInfo.cls}}">{{tuanData.proInfo.content}}</text>
+          {{tuanData.proInfo.rightText}}
+          <view class="pin-dialog-remain" wx:if="{{tuanData.isCount}}">
+                        <view class="pin-dialog-time">
+                            <template is="countdown" data="{{...$countdown,numClass:'cart-num',symbolClass:'cart-symbol'}}"></template>
+                        </view>后结束
+          </view>
+                </view>
+            </view>
+            <view bindtap="{{$scope}}.handleShowMore" class="user-button flex f-fd-r f-jc-c f-ai-c" wx:if="{{userInfo.isLoop}}">
+          {{user.isFold}}
+          <block wx:if="{{userInfo.isFold}}">
+            查看全部
+            <view class="m-icon m-icon-arrow-down"></view>
+                </block>
+                <block wx:else>
+            收起
+            <view class="m-icon m-icon-arrow-up"></view>
+                </block>
+            </view>
+        </view>
+        <form bindsubmit="formSubmitHandler" reportSubmit="true">
+            <view class="cps-dialog-wrap flex f-fd-r" wx:if="{{tuanInfo.isCaptain&&tuanInfo.tuanStatus=='tuaning'&&!tuanInfo.isJoin&&tuanInfo.tuanTypeValue=='15'}}">
+                <button bindtap="{{$scope}}.clickSKU" class="cps-dialog-share flex f-fd-r f-ai-c f-jc-c" formType="submit">马上参团购买</button>
+                <button bindtap="canUseShare" class="cps-dialog-share flex f-fd-r f-ai-c f-jc-c" formType="submit" openType="share">邀请好友参团</button>
+            </view>
+            <block wx:else>
+                <button bindtap="canUseShare" class="pin-dialog-share flex f-fd-r f-jc-c f-ai-c pin-dialog-share-wx" formType="submit" openType="share" wx:if="{{tuanData.butInfo.butType=='share'}}">
+                    <view class="m-icon m-icon-weixin"></view>
+            分享给微信好友
+          </button>
+                <button bindtap="{{$scope}}.clickSKU" class="pin-dialog-share flex f-fd-r f-jc-c f-ai-c" formType="submit" wx:elif="{{tuanData.butInfo.butType==='buy'}}">
+            {{tuanData.butInfo.title}}
+          </button>
+                <button bindtap="{{$scope}}.goodNavigate" class="pin-dialog-share flex f-fd-r f-jc-c f-ai-c" data-href="{{tuanData.butInfo.link}}" formType="submit" wx:elif="{{tuanData.butInfo.butType=='linkTo'}}">
+            {{tuanData.butInfo.title}}
+          </button>
+                <button class="pin-dialog-share flex f-fd-r f-jc-c f-ai-c pin-dialog-share-pink" wx:elif="{{tuanData.butInfo.butType=='wechat'}}">
+            微信关注
+            <image class="pin-dialog-share-logo" src="https://s10.mogucdn.com/mlcdn/c45406/170721_050ffeik19ig3j9b0ga81c1b74041_40x40.png"></image>
+                    <text class="pin-dialog-chou">蘑菇街拼团</text>
+            查看抽奖结果
+          </button>
+            </block>
+        </form>
+    </view>
+    <template is="toast" data="{{...$toast}}"></template>
+    <template is="skuDialog" data="{{...$skuDialog}}"></template>
+    <template is="mask" data="{{...$mask}}"></template>
+    <template is="modal" data="{{...$modal}}"></template>
+    <template is="loading" data="{{...$loading}}"></template>
+</template>
+<import src="../modal/index.wxml"></import>
+<import src="../../../../components/countdown/index.wxml"></import>
+<import src="../../../../components/skudialog/index.wxml"></import>
+<import src="../../../../components/mask/index.wxml"></import>
+<import src="../../../../components/toast/index.wxml"></import>
+<import src="../../../../components/loading/index.wxml"></import>

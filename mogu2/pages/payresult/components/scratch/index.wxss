@@ -1,0 +1,200 @@
+.lottery-wrap,.lottery-result-wrap {
+    position: relative;
+    width: 750rpx;
+    height: 100%;
+}
+
+.lottery-detail-wrap {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.lottery-mask {
+    width: 750rpx;
+    height: 100%;
+    text-align: left;
+    z-index: 10;
+    background: transparent;
+}
+
+.lottery-bg {
+    width: 100%;
+    height: 100%;
+}
+
+.lottery-info,.lottery-result {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    color: #fff;
+}
+
+.lottery-title {
+    height: 60rpx;
+    line-height: 60rpx;
+    margin-top: 40rpx;
+    text-align: center;
+    font-size: 36rpx;
+}
+
+.lottery-text {
+    height: 32rpx;
+    line-height: 32rpx;
+    margin: 6rpx 0 26rpx 0;
+    font-size: 24rpx;
+    text-align: center;
+}
+
+.lottery-btn {
+    display: inline-block;
+    min-width: 170rpx;
+    height: 44rpx;
+    line-height: 44rpx;
+    padding: 0 30rpx;
+    color: #fff;
+    border-radius: 4rpx;
+    font-size: 26rpx;
+    text-align: center;
+}
+
+.lottery-btn::after {
+    content: none;
+}
+
+.lottery-fail-title {
+    margin: 66rpx 0 16rpx 0;
+    font-size: 36rpx;
+    color: #ff5777;
+}
+
+.lottery-fail-text {
+    font-size: 24rpx;
+    color: #666;
+}
+
+.guide-content-title {
+    color: #ff5777;
+}
+
+.guide-content-text {
+    color: #666;
+}
+
+.guide-content-btn {
+    border: 1px solid #ff5777;
+    line-height: 42rpx!important;
+    background: #FFEEF1;
+    color: #ff5777!important;
+}
+
+.coupon-title {
+    height: 40rpx;
+    line-height: 40rpx;
+    margin-top: 30rpx;
+    font-size: 28rpx;
+    color: #ff5777;
+}
+
+.coupon-content {
+    width: 364rpx;
+    height: 60rpx;
+    margin: 8rpx auto 18rpx auto;
+    background: url("https://s10.mogucdn.com//mlcdn/c45406/171211_0g737d5lige265k4b3fedi9k7kgi8_364x60.png") no-repeat;
+    background-size: cover;
+}
+
+.coupon-type {
+    width: 128rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 24rpx;
+}
+
+.coupon-desc {
+    width: 236rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 36rpx;
+}
+
+.coupon-extra {
+    margin-left: 20rpx;
+    font-size: 20rpx;
+    color: #ffc1ce;
+}
+
+.goods-info {
+    height: 82rpx;
+    margin: 30rpx 62rpx;
+}
+
+.goods-image {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 8rpx;
+}
+
+.goods-desc {
+    width: 360rpx;
+    height: 100%;
+    margin: 0 7rpx 0 10rpx;
+}
+
+.goods-title {
+    width: 100%;
+    height: 32rpx;
+    line-height: 32rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 24rpx;
+    color: #333;
+    text-align: left;
+}
+
+.goods-price-info {
+    width: 100%;
+}
+
+.goods-price-tag {
+    width: 78rpx;
+    height: 36rpx;
+    line-height: 36rpx;
+    margin-top: 4rpx;
+    background: #ff5777;
+    color: #fff;
+    font-size: 22rpx;
+}
+
+.goods-price-now {
+    height: 44rpx;
+    line-height: 44rpx;
+    margin-left: 10rpx;
+    color: #ff5777;
+    font-size: 32rpx;
+    font-weight: 500;
+}
+
+.goods-price-origin {
+    height: 44rpx;
+    line-height: 44rpx;
+    margin-left: 4rpx;
+    color: #999;
+    font-size: 24rpx;
+    text-decoration: line-through;
+}
+
+.goods-buy {
+    height: 100%;
+}
+
+.goods-tips {
+    line-height: 32rpx;
+    margin-top: 6rpx;
+    color: #999;
+    font-size: 20rpx;
+}

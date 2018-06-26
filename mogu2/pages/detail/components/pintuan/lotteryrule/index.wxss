@@ -1,0 +1,42 @@
+.module-social-pintuan-lotteryrule {
+    padding: 0 32rpx 32rpx 32rpx;
+}
+
+.module-social-pintuan-lotteryrule .pintuan-lotteryrule--title {
+    height: 90rpx;
+}
+
+.module-social-pintuan-lotteryrule .pintuan-lotteryrule--title-icon {
+    width: 130rpx;
+    height: 32rpx;
+}
+
+.module-social-pintuan-lotteryrule .pintuan-lotteryrule--title-arrow {
+    font-size: 24rpx;
+    color: #999999;
+    height: 100%;
+    line-height: 32rpx;
+}
+
+.module-social-pintuan-lotteryrule .pintuan-lotteryrule--content {
+}
+
+.module-social-pintuan-lotteryrule .pintuan-lotteryrule--content-desc {
+    font-size: 24rpx;
+    color: #666666;
+    line-height: 33rpx;
+    margin-bottom: 10rpx;
+}
+
+.module-social-pintuan-lotteryrule .pintuan-lotteryrule--content-desc.light {
+    height: 45rpx;
+    line-height: 45rpx;
+    background: #ffe8ee;
+    color: #FB4747;
+    font-size: 24rpx;
+    padding: 0 16rpx;
+}
+
+.module-social-pintuan-lotteryrule .pintuan-lotteryrule--content-desc-title {
+    margin-right: 11rpx;
+}

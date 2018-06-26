@@ -1,0 +1,31 @@
+<import src="../../components/mg/index.wxml"></import>
+<template is="mg" data="{{...$mg}}"></template>
+<import src="../../components/loading/index.wxml"></import>
+<import src="../../components/toast/index.wxml"></import>
+<import src="../../components/empty/index.wxml"></import>
+<import src="../../components/heading/index.wxml"></import>
+<import src="../../components/walltemplate/item_tuan.wxml"></import>
+<import src="components/shopCoupon/index.wxml"></import>
+<import src="components/superSeckill/index.wxml"></import>
+<import src="components/selectItem/index.wxml"></import>
+<template is="toast" data="{{...$toast}}"></template>
+<template is="loading" data="{{...$loading}}"></template>
+<block wx:if="{{show}}">
+    <view style="height: {{defaultHeight||'300rpx'}};">
+        <view class="shop-banner" wx:if="{{appBanner}}">
+            <image class="shop-banner-image" mode="aspectFill" src="{{appBanner}}"></image>
+        </view>
+    </view>
+    <view style="height: {{defaultHeight||'296rpx'}};">
+        <template is="shopCoupon" data="{{...$shopCoupon}}"></template>
+    </view>
+    <view style="height: {{defaultHeight||'800rpx'}};">
+        <template is="superSeckill" data="{{...$superSeckill,$headingTitle:superSeckillTitle,$headingSubTitle:superSeckillSubTitle}}" wx:if="{{showSeckill}}"></template>
+        <template is="selectItem" data="{{...$selectItem,$headingTitle:selectItemTitle,$headingSubTitle:selectItemSubTitle}}"></template>
+    </view>
+    <template is="heading_title_subTitle" data="{{...$headingWall,title:wallTitle,subTitle:wallSubTitle}}"></template>
+    <view id="J_wall_box">
+        <template is="wallTuanItemsBox" data="{{$wall:$wall}}"></template>
+    </view>
+</block>
+<template is="empty" data="{{...$empty}}" wx:else></template>

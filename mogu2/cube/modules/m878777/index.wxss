@@ -1,0 +1,141 @@
+@import "../../vxNodeModules/@meili/vue-game-pop/src/components/gamePop.wxss";
+
+.MCUBE_MOD_ID_878777 .popup-module {
+    width: 100%;
+    height: 1rpx;
+}
+
+.MCUBE_MOD_ID_878777 .lot-popup-overlay {
+    position: fixed;
+    display: flex;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.5);
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    z-index: 1000;
+}
+
+.MCUBE_MOD_ID_878777 .lot-popup-content {
+    position: relative;
+    width: 630rpx;
+    height: 714rpx;
+    margin: 0 auto;
+    pointer-events: auto;
+    display: flex;
+    flex-direction: column;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.MCUBE_MOD_ID_878777 .lot-popup-close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 84rpx;
+    height: 84rpx;
+}
+
+.MCUBE_MOD_ID_878777 .lp-title-text {
+    color: #FBF495;
+    font-size: 40rpx;
+    text-align: center;
+}
+
+.MCUBE_MOD_ID_878777 .lp-title-text.miss {
+    margin-top: 50rpx;
+}
+
+.MCUBE_MOD_ID_878777 .lot-popup-info {
+    padding-top: 91rpx;
+}
+
+.MCUBE_MOD_ID_878777 .lp-pop-countdown {
+    justify-content: center;
+}
+
+.MCUBE_MOD_ID_878777 .lp-countdown-text {
+    font-size: 28rpx;
+    color: #fff;
+    line-height: 99rpx;
+}
+
+.MCUBE_MOD_ID_878777 .lp-countdown-second {
+    font-size: 32rpx;
+    color: #FBF495;
+    line-height: 99rpx;
+}
+
+.MCUBE_MOD_ID_878777 .lp-countdown-mid {
+    font-size: 56rpx;
+    color: #FBF495;
+    line-height: 84rpx;
+}
+
+.MCUBE_MOD_ID_878777 .lp-start-btn {
+    content: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -100rpx;
+    margin-left: -100rpx;
+    width: 200rpx;
+    height: 200rpx;
+    background: url("https://s10.mogucdn.com/mlcdn/c45406/170911_853i0db8c34hbf653ja8k1lf2ige8_200x200.png");
+    background-size: 100%;
+}
+
+.MCUBE_MOD_ID_878777 .lp-start-btn.front {
+    transition: transform 150ms ease-in-out;
+    transition: transform 150ms ease-in-out,-webkit-transform 150ms ease-in-out;
+    transform: rotateY(0deg);
+}
+
+.MCUBE_MOD_ID_878777 .lp-start-btn.back {
+    transition: transform 150ms ease-in-out;
+    transition: transform 150ms ease-in-out,-webkit-transform 150ms ease-in-out;
+    transform: rotateY(-90deg);
+}
+
+.MCUBE_MOD_ID_878777 .lp-start-btn::after {
+    content: none;
+}
+
+.MCUBE_MOD_ID_878777 .lp-lottery-des {
+    margin-top: 270rpx;
+    text-align: center;
+}
+
+.MCUBE_MOD_ID_878777 .lp-rule-title {
+    color: #ffffff;
+    font-size: 28rpx;
+    margin: 0 10rpx;
+    line-height: 60rpx;
+}
+
+.MCUBE_MOD_ID_878777 .lp-rule {
+    justify-content: center;
+    align-items: center;
+}
+
+.MCUBE_MOD_ID_878777 .lp-rule-icon {
+    width: 6rpx;
+    height: 6rpx;
+    border: solid #ffffff 5rpx;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+.MCUBE_MOD_ID_878777 .lp-rule-info {
+    font-size: 24rpx;
+    color: #ffffff;
+    line-height: 38rpx;
+}
+
+.MCUBE_MOD_ID_878777 .lp-lottery-des.miss {
+    margin-top: 260rpx;
+    text-align: center;
+}

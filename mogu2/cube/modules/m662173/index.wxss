@@ -1,0 +1,16 @@
+@import "anchor.wxss";
+
+@import "../../../cube-core/componentClass/internalComponents/mvwImage/index.wxss";
+
+.MCUBE_MOD_ID_662173 .pit {
+    flex-direction: column;
+    width: 750rpx;
+}
+
+.MCUBE_MOD_ID_662173 .banner-box {
+    position: relative;
+}
+
+.MCUBE_MOD_ID_662173 .pit-img {
+    width: 750rpx;
+}

@@ -1,0 +1,21 @@
+<template name="categoryBar">
+    <view class="categoryBarWrap" wx:if="{{topList&&topList.length>0}}">
+        <template is="itemTpl" data="{{list:topList,ptpC:ptpC,modId:modId,modIndex:0}}"></template>
+    </view>
+    <view class="categoryBarWrap" wx:if="{{bottomList&&bottomList.length>0}}">
+        <template is="itemTpl" data="{{list:bottomList,ptpC:ptpC,modId:modId,modIndex:1}}"></template>
+    </view>
+</template>
+<template name="itemTpl">
+    <view bindtap="$navigate" class="categoryBar expose-log {{index===list.length-1?'categoryBar-end':''}}" data-acm="{{item.acm||''}}" data-href="{{item.link}}" data-log-index="{{index}}" data-log-mod="{{modId}}{{modIndex}}_{{list.length}}" data-ptp-c="{{ptpC||''}}" data-ptp-d="{{index}}" wx:for="{{list}}" wx:key="index">
+        <view class="categoryTitle" style="color:{{item.color}}">{{item.title||''}}</view>
+        <view class="categorySubtitle">{{item.subtitle||'畅销好货'}}</view>
+        <view class="categoryEntry">
+            <view class="categoryImgWrap">
+                <image class="categoryImg" src="{{item.tinyImg_1||''}}"></image>
+            </view>
+            <view class="categoryEntryTitle">{{item.moreTitle||'更多好货'}}</view>
+            <view class="m-icon m-icon-arrow-right categoryIcon"></view>
+        </view>
+    </view>
+</template>

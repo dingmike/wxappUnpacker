@@ -1,0 +1,51 @@
+.pintuan-modal {
+    position: fixed;
+    top: 30%;
+    left: 14%;
+    width: 540rpx;
+    word-wrap: break-word;
+    font-size: 34rpx;
+    color: #030303;
+    line-height: 1.5;
+    text-align: center;
+    border-radius: 24rpx;
+    background-color: #fafafa;
+    z-index: 100;
+}
+
+.modal-header {
+    font-weight: bold;
+    color: #444;
+    padding: 67rpx 24rpx 0;
+}
+
+.modal-body {
+    font-size: 26rpx;
+    padding: 24rpx 0 51rpx 0;
+}
+
+.modal-footer {
+    border-top: 1rpx solid #ccc;
+}
+
+.modal-button {
+    outline: none;
+    border: none;
+    font-size: inherit;
+    background-color: inherit;
+    padding: 20rpx 0;
+    display: block;
+}
+
+.modal-button::after {
+    border: none;
+}
+
+.modal-button--cancel {
+    border-right: 1rpx solid #ccc;
+    color: #666;
+}
+
+.modal-button--nav {
+    color: #ff5777;
+}

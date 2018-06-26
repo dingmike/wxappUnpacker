@@ -1,0 +1,7 @@
+@import "rule/index.wxss";
+
+@import "success/index.wxss";
+
+@import "join/index.wxss";
+
+@import "lotteryrule/index.wxss";

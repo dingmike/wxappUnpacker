@@ -1,0 +1,28 @@
+<template name="couponList">
+    <view class="flex f-ai-fe coupon-container" hidden="{{!show}}">
+        <view class="ui-mask" wx:if="{{type==='normal'}}"></view>
+        <view class="flex f-fd-c coupon-content bg-{{type}}">
+            <view bindtap="{{$scope}}.closeCoupon" class="flex f-ai-c coupon-header header-{{type}}">
+                <text class="coupon-header--title">{{shopName}}</text>
+                <text class="coupon-header--x" wx:if="{{type==='normal'}}">╳</text>
+                <text class="coupon-header--close" wx:else>返回</text>
+            </view>
+            <form bindsubmit="{{$scope}}.formSubmitHandler" class="{{type==='normal'?'':'coupon-form'}}" reportSubmit="true">
+                <scroll-view scrollY class="coupon-body">
+                    <template is="coupon" data="{{list:list}}"></template>
+                </scroll-view>
+            </form>
+        </view>
+    </view>
+</template>
+<template name="coupon">
+    <view class="flex coupon-item" wx:if="{{item.isNeedGet}}" wx:for="{{list}}" wx:key="campId">
+        <view class="coupon-item--detail">
+            <view class="coupon-item--title">{{item.effectDesc}}</view>
+            <view class="coupon-item--desc">{{item.limitDesc}}</view>
+            <view class="coupon-item--date">使用期限{{item.validTime}}</view>
+        </view>
+        <button class="f-as-c coupon-item--btn {{item.isAlreadGet?'':'coupon-item--get'}}" data-campid="{{!item.isAlreadGet&&item.campId}}" data-type="getShopCoupon" formType="submit">{{item.isAlreadGet?'已领取':'领取'}}
+        </button>
+    </view>
+</template>

@@ -1,0 +1,16 @@
+<template name="shopRecommend">
+    <view class="module-shop-recommend shop-recommend flex f-ff-cn" wx:if="{{itemList&&itemList.length>0}}">
+        <view class="head" style="{{$color.dimTx}}">商家推荐</view>
+        <view class="items flex">
+            <view bindtap="$redirect" class="item flex f-ff-cn expose-log" data-acm="{{item.acm}}" data-item-id="{{item.iid}}" data-log-iid="{{item.iid}}" data-log-index="{{index}}" data-page="detail" wx:for="{{itemList}}" wx:key="iid">
+                <image class="item__img" lazyLoad="{{true}}" mode="aspectFill" src="{{item.img}}"></image>
+                <view class="item__info flex f-ff-cn f-jc-c" style="{{$color.mainTextTx}}">
+                    <view class="item__title">{{item.title}}</view>
+                    <view class="item__price">{{item.price}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <template is="occupying" data wx:if="{{itemList&&itemList.length>0}}"></template>
+</template>
+<import src="../occupying/index.wxml"></import>

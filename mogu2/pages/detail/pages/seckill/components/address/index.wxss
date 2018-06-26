@@ -1,0 +1,39 @@
+.seckill__address.address {
+    padding: 32rpx 30rpx;
+}
+
+.seckill__address.address .address__content {
+}
+
+.seckill__address.address .address__content--title {
+    line-height: 26rpx;
+}
+
+.seckill__address.address .title__dot {
+    width: 8rpx;
+    height: 8rpx;
+    border-radius: 50%;
+    margin-right: 10rpx;
+}
+
+.seckill__address.address .title__text {
+    font-size: 26rpx;
+}
+
+.seckill__address.address .title__desc {
+    font-size: 24rpx;
+}
+
+.seckill__address.address .address__content--default {
+    width: 642rpx;
+    font-size: 24rpx;
+    line-height: 27rpx;
+    margin-top: 23rpx;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.seckill__address.address .address__arrow {
+    font-size: 24rpx;
+}

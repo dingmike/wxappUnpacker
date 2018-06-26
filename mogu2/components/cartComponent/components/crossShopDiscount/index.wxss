@@ -1,0 +1,37 @@
+.discount-banner {
+    height: 76rpx;
+    padding: 16rpx 30rpx 0;
+    background: #efefef;
+}
+
+.discount-banner--wrap {
+    height: 60rpx;
+    padding: 0 30rpx;
+    background: #fff;
+    border-radius: 999rpx;
+}
+
+.discount-banner--image {
+    height: 26rpx;
+    line-height: 25rpx;
+    font-size: 18rpx;
+    text-align: center;
+    padding: 0 5rpx;
+}
+
+.discount-banner--text {
+    flex: 1;
+    height: 32rpx;
+    line-height: 32rpx;
+    margin: 0 30rpx 0 10rpx;
+    font-size: 24rpx;
+    color: #666;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.discount-banner--icon {
+    font-size: 28rpx;
+    color: #ff5777;
+}

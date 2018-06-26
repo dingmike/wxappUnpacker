@@ -1,0 +1,118 @@
+.heading-1-box,.heading-2-box,.heading-3-box,.heading-4-box {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.heading-1-box,.heading-2-box,.heading-3-box {
+    flex-direction: row;
+}
+
+.heading-1-box {
+    justify-content: space-between;
+}
+
+.heading-2-box,.heading-3-box {
+    justify-content: center;
+}
+
+.heading-4-box {
+    justify-content: center;
+    flex-direction: column;
+}
+
+.heading-2-icon,.heading-3-icon {
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.heading-2-icon {
+    width: 34rpx;
+    height: 34rpx;
+    background-size: 34rpx 34rpx;
+}
+
+.heading-3-icon {
+    width: 32rpx;
+    height: 32rpx;
+    background-size: 32rpx 32rpx;
+}
+
+.heading-1-title,.heading-2-title,.heading-3-title,.heading-4-title {
+    max-width: 500rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.heading-1-title,.heading-2-title,.heading-3-title {
+    font-size: 28rpx;
+}
+
+.heading-1-title {
+    margin-left: 24rpx;
+}
+
+.heading-2-title {
+    margin-left: 6rpx;
+}
+
+.heading-3-title {
+    margin-left: 12rpx;
+    font-weight: bold;
+}
+
+.heading-4-title {
+    font-size: 36rpx;
+    font-weight: bold;
+}
+
+.heading-4-title-box {
+    height: 50rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.heading-4-subTitle {
+    height: 34rpx;
+    line-height: 34rpx;
+    max-width: 500rpx;
+    margin-top: -6rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 24rpx;
+    font-weight: 200;
+}
+
+.heading-2-empty {
+    width: 48rpx;
+    height: 1rpx;
+    background-color: #d8d8d8;
+    margin: 0 14rpx;
+}
+
+.heading-4-empty {
+    width: 20rpx;
+    height: 4rpx;
+    background-color: #333;
+    margin: 0 4rpx;
+}
+
+.heading-1-more {
+    max-width: 180rpx;
+    font-size: 28rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-right: 24rpx;
+}
+
+.heading-1-more-title {
+    margin-right: -8rpx;
+}

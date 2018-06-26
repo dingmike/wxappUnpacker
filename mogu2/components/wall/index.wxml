@@ -1,0 +1,244 @@
+<template name="wallExposeItemsBox">
+    <view class="wall-searchkey-wrap" wx:if="{{$wall.searchNoResultFlag}}">
+        <view class="serachkey-info-header">
+            <view class="info-text">无结果，已为你推荐"<text class="info-tag">{{$wall.searchResultInfo.rewriteKeyword}}</text>"的搜索结果</view>
+        </view>
+        <view class="serachkey-detl-header" wx:if="{{$wall.searchResultInfo.recommed&&$wall.searchResultInfo.recommed.length>0}}">
+            <view class="detl-label">
+                <text>{{$wall.searchResultInfo.tryDesc}}</text>
+            </view>
+            <view class="detl-text">
+                <text catchtap="{{$wall[$scope]}}.searchKeyClick" class="detl-text-tag" data-acm="{{$wall.searchResultInfo.acm}}" data-keyword="{{keyword}}" wx:for="{{$wall.searchResultInfo.recommed}}" wx:for-item="keyword" wx:key="keyword">{{keyword}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="wall-searchkey-wrap" wx:if="{{$wall.searchLessResultFlag}}">
+        <view class="searchkey-result-wrap">
+            <view class="result-label">
+                <text>{{$wall.searchResultInfo.tryDesc}}</text>
+            </view>
+            <view class="result-text">
+                <text catchtap="{{$wall[$scope]}}.searchKeyClick" class="result-text-tag" data-acm="{{$wall.searchResultInfo.acm}}" data-keyword="{{keyword}}" wx:for="{{$wall.searchResultInfo.recommed}}" wx:for-item="keyword" wx:key="keyword">{{keyword}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="J_items_box" id="J_items_box" style="min-height:{{$wall.scrollBoxHeight}}px">
+        <block wx:if="{{$wall.itemPackageList}}">
+            <view class="goods_list_mod clearfix" wx:for="{{$wall.itemPackageList}}" wx:for-item="itemList" wx:key="itemPackageList">
+                <block wx:for="{{$wall[itemList.name]}}" wx:key="itemList">
+                    <view catchtap="{{$wall[$scope]}}.linkClick" class="goods_item goods_item_v61 fl expose-log" data-acm="{{item.acm}}" data-cparam="{{item.cparam||''}}" data-link="{{item.link}}" data-log-btype="{{item.busType||''}}" data-log-iid="{{item.tradeItemId}}" data-log-index="{{item.index}}" data-log-mod="10020{{item.ckey}}" data-log-wall="true" data-ptp-c="{{item.ptpC}}" wx:if="{{!item.wallType||item.wallType&&item.wallType==2}}">
+                        <view class="goods_img J_dynamic_imagebox" style="background: #e5e5e5 url({{item.img}}) no-repeat center center; background-size: auto 102%;">
+                            <view class="img_bot_box">
+                                <view catchtap="{{$wall[$scope]}}.linkClick" class="img_bot_like" data-link="{{item.similarityUrl}}" data-log-btype="{{item.busType||''}}" data-log-index="{{item.index}}" data-log-mod="10020{{item.ckey}}" wx:if="{{item.hasSimilarity&&item.similarityUrl}}"></view>
+                                <view class="img_bot_wb" style="background-image: url({{item.wordBanner.image}});background-size:100% 100%" wx:if="{{item.showWordBanner}}">{{item.wordBanner.content}}</view>
+                            </view>
+                        </view>
+                        <view class="top_icon" style="background:url({{item.leftTop}}) no-repeat; background-size:100% auto;" wx:if="{{item.leftTop}}"></view>
+                        <view class="goods_info">
+                            <view class="name_container clearfix" wx:if="{{item.showUseTitle}}">
+                                <view class="name_prod_f" wx:if="{{item.useTags.length===0}}">
+                                        {{item.title}}
+                                    </view>
+                                <view class="name_prod_t" wx:else>
+                                    <view class="name_prod_ti">
+                                            {{item.title}}
+                                        </view>
+                                    <view class="name_prod_ta">
+                                        <text class="name_prod_ta_t" style="color:{{usetag.color}};background:{{usetag.bgColor}};margin-left: {{usetag.left}}rpx" wx:if="{{usetag.content}}" wx:for="{{item.useTags}}" wx:for-item="usetag" wx:key="usetags">{{usetag.content}}</text>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="name_box clearfix" wx:else>
+                                <view class="name_tags">
+                                    <view class="title_tag" style="color:{{tag.color}};background:{{tag.bgColor}};" wx:if="{{tag.content}}" wx:for="{{item.nameTags}}" wx:for-item="tag" wx:key="tags"> {{tag.content}}
+                                        </view>
+                                </view>
+                            </view>
+                            <view class="bot_box clearfix">
+                                <view class="pt_icon" style="background: url({{item.price_taglist[0]}}) no-repeat;background-size: auto 100%;" wx:if="{{item.price_taglist&&item.price_taglist[0]}}"></view>
+                                <view class="p_price fl" style="font-family:Arial;">¥{{item.price}}</view>
+                                <view class="p_feed fr">{{item.botRight}}</view>
+                                <view class="p_im fr" wx:if="{{item.showImState}}">
+                                    <template is="imcall" data="{{...$wall[$imcall],shopId:item.shopId,title:item.title,path:item.link,img:item.mainImg11,showCard:true}}"></template>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view catchtap="{{$wall[$scope]}}.linkClick" class="goods_item goods_item_v61 pagani_log_link fl" data-link="{{item.bannerLink}}" data-ptp-c="{{item.ptpC}}" id="pagani_log_{{item.tradeItemId}}_{{item.index}}" style="background: #e5e5e5 url({{item.bannerImg}}) no-repeat center center;background-size: auto 102%;" wx:elif="{{item.wallType&&item.wallType==1}}"></view>
+                </block>
+            </view>
+        </block>
+        <view class="wall_loading" wx:if="{{!$wall.endContent}}">正在加载中...</view>
+        <view class="wall_loading" wx:elif="{{$wall.endContent=='end'}}">没有更多商品了~</view>
+        <view class="wall_loading" style="display: none;" wx:elif="{{$wall.endContent=='empty'}}">自定义空面板~</view>
+        <view class="ui-empty" wx:elif="{{$wall.endContent=='noResult'}}">
+            <view class="ui-empty-box">
+                <image class="ui-empty-image" mode="fitAspect" src="https://s10.mogucdn.com/p2/161213/upload_74hhee883cbf190e3di6cljk23679_514x260.png"></image>
+                <view class="ui-empty-text">抱歉！没找到相关商品~</view>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="wallSortNav">
+    <view id="scrollIntoViewId" style="height:0;"></view>
+    <view class="wall_nav_box {{scrollNavStickyClass}}" id="wall_nav_box">
+        <view class="nav_middle {{scrollNavFixedClass}}" wx:if="{{navData&&navData.sortFilter}}">
+            <view class="tab_items clearfix">
+                <view bindtap="{{$scope}}.sortTab" class="item {{sortItem.onClass}}" data-sort="{{sortItem.sortKey}}" style="width: {{100/(navData.sortFilter.length+1)}}%" wx:for="{{navData.sortFilter}}" wx:for-item="sortItem" wx:key="sortFilter">
+                    <text class="in_border">{{sortItem.title}}</text>
+                </view>
+                <view bindtap="{{$scope}}.priceOpenTab" class="price_btn {{navData.priceTabOnClass}}" style="width: {{100/(navData.sortFilter.length+1)}}%">
+                    <text class="in_border">价格</text>
+                    <view class="show_arrow_wrap flip_off">
+                        <view class="show_arrow"></view>
+                    </view>
+                </view>
+            </view>
+            <view class="price_box price_{{navData.priceTabOnClass}}" data-type="price">
+                <view class="price_level clearfix">
+                    <view bindtap="{{$scope}}.priceSubmitTab" class="price_range_btn fl" data-max="{{pItem.max}}" data-min="{{pItem.min}}" wx:for="{{navData.priceFilter}}" wx:for-item="pItem" wx:key="priceFilter">{{pItem.min}} - {{pItem.max}}</view>
+                </view>
+                <view class="price_input clearfix">
+                    <view class="label fl">区间(元)</view>
+                    <input bindinput="{{$scope}}.priceInputChange" class="min_price fl" data-type="min" type="number" value="{{navData.priceMin}}"></input>
+                    <text class="fl"></text>
+                    <input bindinput="{{$scope}}.priceInputChange" class="max_price fl" data-type="max" type="number" value="{{navData.priceMax}}"></input>
+                    <view bindtap="{{$scope}}.priceSubmitTab" class="confirm_btn fl">确认</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="wallBaihuoLineItemsBox">
+    <view class="J_items_box" id="J_items_box" style="min-height:{{$wall.scrollBoxHeight}}px">
+        <block wx:if="{{$wall.itemPackageList}}">
+            <view class="goods_list_mod clearfix" wx:for="{{$wall.itemPackageList}}" wx:for-item="itemList" wx:key="itemPackageList">
+                <view catchtap="{{$wall[$scope]}}.linkClick" class="goods_item goods_item_baihuo_line pagani_log_link" data-acm="{{item.acm}}" data-link="{{item.link}}" data-ptp-c="{{item.ptpC}}" id="pagani_log_{{item.tradeItemId}}_{{item.index}}" wx:for="{{$wall[itemList.name]}}" wx:key="itemList">
+                    <view class="goods_img fl J_dynamic_imagebox" style="background: #e5e5e5 url({{item.mainImg11}}) no-repeat center center; background-size: auto 102%;">
+                        <template is="imcall" data="{{...$wall[$imcall],shopId:item.shopId,title:item.title,path:item.link,img:item.mainImg11,showCard:true}}" wx:if="{{item.showImFlag}}"></template>
+                    </view>
+                    <view class="top_line_icon" style="background:url({{item.leftTop}}) no-repeat; background-size:100% auto;" wx:if="{{item.leftTop}}"></view>
+                    <view class="goods_info fl">
+                        <view class="name_box" style="color:{{style.nameColor}};">{{item.title}}</view>
+                        <view class="sale_info">
+                            <image class="tuanAvatar fl" mode="aspectFill" src="{{item.pintuanAvatar}}" wx:if="{{item.pintuanAvatar&&item.pintuanAvatar!=='-1'}}"></image>
+                            <text class="tuanInfo fl" style="color:{{style.styleColor}};" wx:if="{{item.sale&&item.sale>0}}">已团{{item.sale}}件</text>
+                            <text class="tuanInfo fl" style="color:{{style.styleColor}};" wx:else>刚刚拼团了</text>
+                        </view>
+                        <view class="price_box">
+                            <text class="tuanPrice-dollar" style="font-family:Arial;color:{{style.styleColor}};">¥</text>
+                            <text class="tuanPrice" style="font-family:Arial;color:{{style.styleColor}};">{{item.price}}</text>
+                            <text class="oldPrice" style="font-family:Arial;">¥{{item.orgPrice}}</text>
+                        </view>
+                        <view class="gotuan_btn ing" style="background: {{style.buttonBg}};color: {{style.buttonColor}};">{{style.buttonText||'去开团'}}</view>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <view class="wall_loading" wx:if="{{!$wall.endContent}}">正在加载中...</view>
+        <view class="wall_loading" wx:elif="{{$wall.endContent=='end'}}">没有更多商品了~</view>
+        <view class="ui-empty" wx:elif="{{$wall.endContent=='noResult'}}">
+            <view class="ui-empty-box">
+                <image class="ui-empty-image" mode="fitAspect" src="https://s10.mogucdn.com/mlcdn/c45406/170801_39lb5if7k4bf2f1i99202h75k5bf7_514x260.png"></image>
+                <view class="ui-empty-text">抱歉！没找到相关商品~</view>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="wallBaihuoItemsBox">
+    <view class="J_items_box J_baihuo_items_box" id="J_items_box" style="min-height:{{$wall.scrollBoxHeight}}px">
+        <block wx:if="{{$wall.itemPackageList}}">
+            <view class="goods_list_mod clearfix" wx:for="{{$wall.itemPackageList}}" wx:for-item="itemList" wx:key="itemPackageList">
+                <view catchtap="{{$wall[$scope]}}.linkClick" class="goods_item goods_item_baihuo pagani_log_link fl" data-acm="{{item.acm}}" data-link="{{item.link}}" data-ptp-c="{{item.ptpC}}" id="pagani_log_{{item.tradeItemId}}_{{item.index}}" wx:for="{{$wall[itemList.name]}}" wx:key="itemList">
+                    <view class="goods_img J_dynamic_imagebox" style="background: #e5e5e5 url({{item.mainImg11}}) no-repeat center center; background-size: auto 102%;">
+                        <template is="imcall" data="{{...$wall[$imcall],shopId:item.shopId,title:item.title,path:item.link,img:item.mainImg11,showCard:true}}" wx:if="{{item.showImFlag}}"></template>
+                    </view>
+                    <view class="top_icon" style="background:url({{item.leftTop}}) no-repeat; background-size:100% auto;" wx:if="{{item.leftTop}}"></view>
+                    <view class="goods_info">
+                        <view class="name_box clearfix" style="color:{{style.nameColor}};">{{item.title}}</view>
+                        <view class="bot_box clearfix">
+                            <view class="left_box fl">
+                                <view class="price_box" style="font-family:Arial;">
+                                    <view class="now_price fl" style="color:{{style.styleColor}};">¥{{item.price}}</view>
+                                    <view class="old_price fl">¥{{item.orgPrice}}</view>
+                                </view>
+                                <view class="sale_box" wx:if="{{item.lastNickName}}">
+                                    <text class="nick">{{item.lastNickName}}</text> 刚刚团了</view>
+                                <view class="sale_box" wx:elif="{{item.sale&&item.sale>0}}">已团{{item.sale}}件</view>
+                                <view class="sale_box" wx:else>已团0件</view>
+                            </view>
+                            <view class="buy_btn fr" style="background: {{style.buttonBg}};color: {{style.buttonColor}};">{{style.buttonText||'去开团'}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <view class="wall_loading" wx:if="{{!$wall.endContent}}">正在加载中...</view>
+        <view class="wall_loading" wx:elif="{{$wall.endContent=='end'}}">没有更多商品了~</view>
+        <view class="ui-empty" wx:elif="{{$wall.endContent=='noResult'}}">
+            <view class="ui-empty-box">
+                <image class="ui-empty-image" mode="fitAspect" src="https://s10.mogucdn.com/mlcdn/c45406/170801_39lb5if7k4bf2f1i99202h75k5bf7_514x260.png"></image>
+                <view class="ui-empty-text">抱歉！没找到相关商品~</view>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="wallItemsBox">
+    <view class="J_items_box" id="J_items_box" style="min-height:{{$wall.scrollBoxHeight}}px">
+        <block wx:if="{{$wall.itemPackageList}}">
+            <view class="goods_list_mod clearfix" wx:for="{{$wall.itemPackageList}}" wx:for-item="itemList" wx:key="itemPackageList">
+                <block wx:for="{{$wall[itemList.name]}}" wx:key="itemList">
+                    <view catchtap="{{$wall[$scope]}}.linkClick" class="goods_item goods_item_v61 fl" data-acm="{{item.acm}}" data-link="{{item.link}}" data-ptp-c="{{item.ptpC}}" id="pagani_log_{{item.tradeItemId}}_{{item.index}}" wx:if="{{!item.wallType||item.wallType&&item.wallType==2}}">
+                        <view class="goods_img J_dynamic_imagebox" style="background: #e5e5e5 url({{item.img}}) no-repeat center center; background-size: auto 102%;">
+                            <view class="img_bot_box">
+                                <view catchtap="{{$wall[$scope]}}.linkClick" class="img_bot_like" data-link="{{item.similarityUrl}}" wx:if="{{item.hasSimilarity&&item.similarityUrl}}"></view>
+                                <view class="img_bot_wb" style="background-image: url({{item.wordBanner.image}});background-size:100% 100%" wx:if="{{item.showWordBanner}}">{{item.wordBanner.content}}</view>
+                            </view>
+                        </view>
+                        <view class="top_icon" style="background:url({{item.leftTop}}) no-repeat; background-size:100% auto;" wx:if="{{item.leftTop}}"></view>
+                        <view class="goods_info">
+                            <view class="name_container clearfix" wx:if="{{item.showUseTitle}}">
+                                <view class="name_prod_f" wx:if="{{item.useTags.length===0}}">
+                                        {{item.title}}
+                                    </view>
+                                <view class="name_prod_t" wx:else>
+                                    <view class="name_prod_ti">
+                                            {{item.title}}
+                                        </view>
+                                    <view class="name_prod_ta">
+                                        <text class="name_prod_ta_t" style="color:{{usetag.color}};background:{{usetag.bgColor}};margin-left: {{usetag.left}}rpx" wx:if="{{usetag.content}}" wx:for="{{item.useTags}}" wx:for-item="usetag" wx:key="usetags">{{usetag.content}}</text>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="name_box clearfix" wx:else>
+                                <view class="name_tags">
+                                    <view class="title_tag" style="color:{{tag.color}};background:{{tag.bgColor}};" wx:if="{{tag.content}}" wx:for="{{item.nameTags}}" wx:for-item="tag" wx:key="tags"> {{tag.content}}
+                                        </view>
+                                </view>
+                            </view>
+                            <view class="bot_box clearfix">
+                                <view class="pt_icon" style="background: url({{item.price_taglist[0]}}) no-repeat;background-size: auto 100%;" wx:if="{{item.price_taglist&&item.price_taglist[0]}}"></view>
+                                <view class="p_price fl" style="font-family:Arial;">¥{{item.price}}</view>
+                                <view class="p_feed fr">{{item.botRight}}</view>
+                                <view class="p_im fr" wx:if="{{item.showImState}}">
+                                    <template is="imcall" data="{{...$wall[$imcall],shopId:item.shopId,title:item.title,path:item.link,img:item.mainImg11,showCard:true}}"></template>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view catchtap="{{$wall[$scope]}}.linkClick" class="goods_item goods_item_v61 pagani_log_link fl" data-link="{{item.bannerLink}}" data-ptp-c="{{item.ptpC}}" id="pagani_log_{{item.tradeItemId}}_{{item.index}}" style="background: #e5e5e5 url({{item.bannerImg}}) no-repeat center center;background-size: auto 102%;" wx:elif="{{item.wallType&&item.wallType==1}}"></view>
+                </block>
+            </view>
+        </block>
+        <view class="wall_loading" wx:if="{{!$wall.endContent}}">正在加载中...</view>
+        <view class="wall_loading" wx:elif="{{$wall.endContent=='end'}}">没有更多商品了~</view>
+        <view class="wall_loading" style="display: none;" wx:elif="{{$wall.endContent=='empty'}}">自定义空面板~</view>
+        <view class="ui-empty" wx:elif="{{$wall.endContent=='noResult'}}">
+            <view class="ui-empty-box">
+                <image class="ui-empty-image" mode="fitAspect" src="https://s10.mogucdn.com/p2/161213/upload_74hhee883cbf190e3di6cljk23679_514x260.png"></image>
+                <view class="ui-empty-text">抱歉！没找到相关商品~</view>
+            </view>
+        </view>
+    </view>
+</template>
+<import src="../../components/imcall/index.wxml"></import>

@@ -1,0 +1,55 @@
+<template name="promotion">
+    <view class="component__promotion promotion" wx:if="{{promotions.count>0}}">
+        <view class="promotion__head">优惠活动 ({{promotions.count}})</view>
+        <scroll-view class="promotion__coupon flex" scrollX="true" wx:if="{{promotions.needGet&&promotions.needGet.length>0}}">
+            <view class="promotion__coupon--inner flex" style="width: {{promotions.needGet.length*(200+8)-8-8+64}}rpx">
+                <template is="coupon" data="{{...$coupon,...couponData,index:index,className:'promotion__coupon--item'}}" wx:for="{{promotions.needGet}}" wx:for-item="couponData" wx:key="campId"></template>
+            </view>
+        </scroll-view>
+        <view bindtap="$redirect" class="promotion__package package flex f-ai-c f-jc-sb" data-from-page="detail" data-href="/pages/wallPackage/index" data-promotion-id="{{promotions.packageSale.list[0].campId}}" data-title="{{promotions.packageSale.desc}}" wx:if="{{promotions.packageSale&&promotions.packageSale.list.length>0}}">
+            <view class="package__title flex">
+                <view class="package__title--tag tag tag-packageSale inflex f-ai-c f-jc-c"></view>
+                <view class="package__title--text">{{promotions.packageSale.list[0].limitDesc}}{{promotions.packageSale.list[0].effectDesc}}</view>
+            </view>
+            <view class="package__arrow flex f-ai-c">选择商品<i class="package__arrow--icon m-icon m-icon-arrow-right"></i>
+            </view>
+        </view>
+        <view bindtap="{{$scope}}.showDetail" class="promotion__reduce reduce flex f-ai-c f-jc-sb" wx:if="{{promotions.isReduceContentShow}}">
+            <view class="reduce__list flex f-ff-cn f-jc-c">
+                <view class="reduce__list--item list f-ai-c" wx:if="{{desc}}">
+                    <view class="list__tag tag tag-desc inflex f-ai-c f-jc-c"></view>
+                    <view class="list__text">{{desc}}</view>
+                </view>
+            </view>
+            <view class="reduce__arrow flex f-ai-c">
+                <view class="reduce__arrow--text">查看详情</view>
+                <i class="reduce__arrow--icon m-icon m-icon-arrow-right"></i>
+            </view>
+        </view>
+        <view bindtap="{{$scope}}.onCloseClick" class="promotion__dialog show-{{isDetailShow}} base-dialog" wx:if="{{promotions.isReduceContentShow}}">
+            <view catchtap="{{$scope}}.onInnerClick" class="promotion-dialog--inner base-dialog--inner flex f-ff-cn">
+                <view class="promotion-dialog--head head base-dialog--head">
+                    <view class="head-title">优惠活动</view>
+                    <view bindtap="{{$scope}}.onCloseClick" class="head-close flex f-ai-c f-jc-c">╳</view>
+                </view>
+                <view class="promotion__dialog--content content base-dialog--content">
+                    <view class="content__item flex" wx:if="{{key!=='needGet'&&key!=='packageSale'&&value.list&&value.list.length>0}}" wx:for="{{promotions}}" wx:for-index="key" wx:for-item="value">
+                        <view class="content__item--tag tag tag-{{key}}-full inflex f-ai-c f-jc-c"></view>
+                        <view class="content__item--text text flex f-ff-cn">
+                            <view bindtap="{{promotion.scope===1?'$redirect':''}}" class="text__item flex f-ai-c f-jc-sb" data-from-page="detail" data-href="/pages/wallPackage/index" data-promotion-id="{{promotion.campId}}" data-title="{{'以下商品'+promotion.limitDesc+promotion.effectDesc}}" wx:for="{{value.list}}" wx:for-item="promotion" wx:key="campId">
+                                <view class="text__item--content flex f-ff-cn">
+                                    <view class="text__item--text">{{promotion.limitDesc+promotion.effectDesc}}{{promotion.scope===1?'(指定商品享受)':''}}</view>
+                                    <view class="text__item--time">{{promotion.validTime}}</view>
+                                </view>
+                                <i class="text__item--icon m-icon m-icon-arrow-right" wx:if="{{promotion.scope===1}}"></i>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <template is="occupying" data wx:if="{{promotions.count>0}}"></template>
+</template>
+<import src="../coupon/index.wxml"></import>
+<import src="../occupying/index.wxml"></import>

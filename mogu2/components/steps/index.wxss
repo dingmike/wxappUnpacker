@@ -1,0 +1,59 @@
+.step {
+    background: #fff;
+}
+
+.step-min-height {
+    min-height: 102rpx;
+}
+
+.step-icon {
+    color: #ff5575;
+    background: #fff;
+    margin-right: 15rpx;
+}
+
+.step-content {
+    margin-bottom: 32rpx;
+}
+
+.step-desc {
+    line-height: 32rpx;
+    font-size: 28rpx;
+    color: #999;
+    background: #fff;
+    padding-right: 1rpx;
+    margin-bottom: 10rpx;
+}
+
+.step-title {
+    font-size: 24rpx;
+    color: #999;
+    line-height: 23rpx;
+}
+
+.step-dot {
+    width: 14rpx;
+    height: 14rpx;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid #ddd;
+}
+
+.step-line {
+    width: 1rpx;
+    height: 100%;
+    background: #ddd;
+}
+
+.finish .step-dot,.process .step-dot {
+    border-color: #ff5575;
+    background: #fff;
+}
+
+.finish .step-line {
+    background: #ff5575;
+}
+
+.process .step-desc,.finish .step-desc {
+    color: #333;
+}

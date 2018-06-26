@@ -1,0 +1,6 @@
+<template name="video">
+    <view class="component__video" wx:if="{{url}}">
+        <video autoplay="true" bindended="{{$scope}}.handleVideoEnd" class="component__video--content" poster="{{cover}}" showCenterPlayBtn="" showFullscreenBtn="" src="{{url}}" style="height: {{height}}px; top: {{bottom}}px;"></video>
+        <i bindtap="{{$scope}}.handleVideoEnd" class="component__video--close m-icon m-icon-close"></i>
+    </view>
+</template>

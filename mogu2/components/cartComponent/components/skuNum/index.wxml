@@ -1,0 +1,13 @@
+<template name="skuNum">
+    <view class="flex coupon-container" wx:if="{{isShow}}">
+        <view class="ui-mask"></view>
+        <view class="sku-num--box">
+            <view class="sku-num--title">修改购买数量</view>
+            <input bindinput="{{$scope}}.onInput" class="sku-num--input" focus="true" type="number" value="{{number}}"></input>
+            <view class="flex f-jc-sb sku-num--opt">
+                <view bindtap="{{$scope}}.closeBox" class="sku-num--btn">取消</view>
+                <view bindtap="{{$scope}}.onConfirm" class="sku-num--btn btn-confirm">确定</view>
+            </view>
+        </view>
+    </view>
+</template>

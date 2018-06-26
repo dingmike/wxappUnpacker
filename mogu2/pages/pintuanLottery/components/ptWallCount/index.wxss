@@ -1,0 +1,99 @@
+@import "../../../../components/countdown/index.wxss";
+
+.ptWall-item {
+    height: 290rpx;
+    padding: 20rpx 32rpx;
+}
+
+.ptWall-item-info {
+    width: 414rpx;
+}
+
+.ptWall-item-image-wrap {
+    height: 250rpx;
+    width: 250rpx;
+}
+
+.ptWall-item-count {
+    display: flex;
+    height: 40rpx;
+    padding: 0 7px;
+    background-color: rgba(255,87,119,0.12);
+    font-size: 22rpx;
+    line-height: 40rpx;
+}
+
+.module-base-countdown {
+    margin-left: 8rpx;
+    font-size: 22rpx;
+    color: #ff5777;
+}
+
+.ptWall-item-info-price {
+    position: absolute;
+    bottom: 24rpx;
+    width: 270rpx;
+    height: 50rpx;
+    font-size: 48rpx;
+    color: #999;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 50rpx;
+}
+
+.ptWall-item-info-price-tuanPrice-dollar {
+    font-size: 24rpx;
+    color: #ff5777;
+}
+
+.ptWall-item-info-price-tuanPrice {
+    font-size: 48rpx;
+    color: #ff5777;
+}
+
+.ptWall-item-info-price-oldPrice {
+    font-size: 24rpx;
+    color: #999;
+    margin-left: 6rpx;
+    text-decoration: line-through;
+}
+
+.super-wrap {
+    width: 100%;
+    height: 60rpx;
+}
+
+.super-probar-bg {
+    width: 100%;
+    height: 12rpx;
+    border-radius: 15rpx;
+    background: #E5E5E5;
+    margin-bottom: 12rpx;
+}
+
+.super-probar {
+    height: 100%;
+    border-radius: 15rpx;
+    background: linear-gradient(to right,#FF5682 0,#9C89FF 100%);
+}
+
+.super-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 36rpx;
+    line-height: 36rpx;
+    font-size: 22rpx;
+}
+
+.super-left {
+    text-align: center;
+    padding: 3rpx 10rpx;
+    color: #FF5777;
+    background: #FFE8EE;
+}
+
+.super-lottery {
+    color: #9C89FF;
+}

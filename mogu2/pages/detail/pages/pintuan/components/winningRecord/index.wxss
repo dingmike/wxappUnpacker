@@ -1,0 +1,52 @@
+.pintuan__winningRecord {
+    padding: 0 32rpx 30rpx;
+}
+
+.pintuan__winningRecord .winning__title {
+    height: 35rpx;
+}
+
+.pintuan__winningRecord .title__text {
+    font-size: 24rpx;
+    color: #666666;
+}
+
+.pintuan__winningRecord .m-icon-jump-all {
+    font-size: 24rpx;
+    color: #999999;
+}
+
+.pintuan__winningRecord .winning__list {
+    margin-top: 20rpx;
+}
+
+.pintuan__winningRecord .record__list {
+    width: 686rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    background-color: #F6F6F6;
+    border-radius: 4rpx;
+    margin-bottom: 10rpx;
+}
+
+.pintuan__winningRecord .list__left {
+}
+
+.pintuan__winningRecord .user__avatar {
+    width: 40rpx;
+    height: 40rpx;
+    border-radius: 50%;
+    background-color: #999999;
+    margin: 0 8rpx 0 20rpx;
+}
+
+.pintuan__winningRecord .user__name {
+    font-size: 24rpx;
+    color: #666666;
+}
+
+.pintuan__winningRecord .user__time {
+    font-size: 24rpx;
+    color: #999999;
+    margin-right: 20rpx;
+}

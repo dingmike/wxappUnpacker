@@ -1,0 +1,10 @@
+<template name="header">
+    <view class="cashier-header">
+        <view bindtap="{{$scope}}.leftTap" class="cashier-header-icon m-icon m-icon-{{leftIcon}}"></view>
+        <view class="cashier-header-info">
+            <view class="cashier-header-title">{{title}}</view>
+            <view class="cashier-header-extratitle" wx:if="{{page==='installment'&&extraTitle}}">{{extraTitle}}</view>
+        </view>
+        <view class="cashier-header-icon m-icon m-icon-{{rightIcon}}"></view>
+    </view>
+</template>

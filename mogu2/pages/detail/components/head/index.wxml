@@ -1,0 +1,12 @@
+<template name="head">
+    <view class="component__head head {{isLaunchAppShow?'width-launch':''}}">
+        <view bindtap="{{$scope}}.backToHome" class="head__entry flex f-ai-c f-jc-c" data-from-page="detail">
+            <i class="head__entry--icon m-icon m-icon-home"></i>
+        </view>
+        <view bindtap="{{$scope}}.showCart" class="head__entry flex f-ai-c f-jc-c">
+            <i class="head__entry--icon m-icon m-icon-shopping-cart"></i>
+        </view>
+    </view>
+    <template is="cartComponent" data="{{...$cartComponent}}"></template>
+</template>
+<import src="../../../../components/cartComponent/index.wxml"></import>

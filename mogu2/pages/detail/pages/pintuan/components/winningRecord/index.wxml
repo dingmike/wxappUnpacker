@@ -1,0 +1,20 @@
+<template name="pintuanWinningRecord">
+    <view class="pintuan__winningRecord" wx:if="{{tuanType===8&&lotteryResultList&&lotteryResultList.length>=1}}">
+        <view class="winning__title flex f-jc-sb f-ai-c">
+            <text class="title__text">中奖名单</text>
+            <view bindtap="$navigate" data-activity-id="{{activityId}}" data-page="winRecord">
+                <text class="title__text">查看全部</text>
+                <i class="m-icon m-icon-arrow-right m-icon-jump-all"></i>
+            </view>
+        </view>
+        <view class="winning__list">
+            <view class="record__list flex f-ai-c f-jc-sb" wx:for="{{lotteryResultList}}" wx:key="index">
+                <view class="list__left flex f-ai-c">
+                    <image class="user__avatar" lazyLoad="{{true}}" src="{{item.icon}}"></image>
+                    <text class="user__name">{{item.userName}}</text>
+                </view>
+                <text class="user__time">{{item.time}}</text>
+            </view>
+        </view>
+    </view>
+</template>

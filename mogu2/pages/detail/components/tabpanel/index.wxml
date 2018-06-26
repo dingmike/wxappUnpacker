@@ -1,0 +1,7 @@
+<template name="tabpanel">
+    <view class="component__tabpanel tabpanel flex f-jc-sa">
+        <view bindtap="{{$scope}}.onTabClick" class="tabpanel__item flex f-ai-c f-jc-c {{index===0?'tabpanel__item--active':''}}" data-element-id="{{item.elementId}}" data-title="{{item.title}}" style="{{index===0?$color.mainTx+$color.mainBd:$color.secondaryTextTx}}" wx:for="{{configs}}">
+            {{item.title}}
+        </view>
+    </view>
+</template>

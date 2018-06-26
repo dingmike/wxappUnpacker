@@ -1,0 +1,3 @@
+<template name="occupying">
+    <view class="module-occupying"></view>
+</template>

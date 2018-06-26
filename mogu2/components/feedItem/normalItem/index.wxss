@@ -1,0 +1,12 @@
+.normal-item-wrapper {
+    width: 750rpx;
+    height: 390rpx;
+    overflow: hidden;
+    margin-bottom: 18rpx;
+    background: #fff;
+}
+
+.normal-item-image {
+    width: 100%;
+    height: 390rpx;
+}

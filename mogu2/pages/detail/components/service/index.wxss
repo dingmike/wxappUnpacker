@@ -1,0 +1,53 @@
+.component__service.service .service__content {
+    height: 76rpx;
+    padding-right: 30rpx;
+    margin-left: 30rpx;
+    border-top: 1rpx solid #E5E5E5;
+}
+
+.component__service.service .service__content--item {
+    margin-right: 60rpx;
+}
+
+.component__service.service .item__icon {
+    font-size: 24rpx;
+}
+
+.component__service.service .item__name {
+    font-size: 22rpx;
+    white-space: nowrap;
+    margin-left: 6rpx;
+}
+
+.component__service.service .service__content--icon {
+    font-size: 24rpx;
+}
+
+.component__service.service .service__dialog--content {
+    padding-left: 32rpx;
+}
+
+.component__service.service .content__item {
+    width: 100%;
+    min-height: 100rpx;
+    padding: 20rpx 0;
+    border-bottom: solid 1px #ededed;
+}
+
+.component__service.service .content__item--text {
+    width: 100%;
+    padding-right: 112rpx;
+}
+
+.component__service.service .text__title {
+    display: block;
+    font-size: 28rpx;
+    line-height: 40rpx;
+    font-weight: 500;
+}
+
+.component__service.service .text__content {
+    display: block;
+    font-size: 24rpx;
+    line-height: 33rpx;
+}

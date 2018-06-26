@@ -1,0 +1,24 @@
+<template name="detail">
+    <view class="components-detail-wrap flex {{isJoin?'components-detail-wrap-join':''}}">
+        <view bindtap="{{$scope}}.goodRedirect" class="components-detail flex" wx:if="{{itemInfo}}">
+            <view class="pin-good-image-wrap">
+                <image class="pin-good-image" mode="widthFix" src="{{itemInfo.pic}}"></image>
+                <view class="pin-top-icon" wx:if="{{tagContent}}">{{tagContent}}</view>
+            </view>
+            <view class="pin-good-content flex f-fd-c">
+                <text class="pin-good-title">{{itemInfo.title}}</text>
+                <view class="pin-good-info flex f-fd-r f-ai-c f-jc-fs f-ac-c f-fw-n" wx:if="{{!isJoin&&itemServices}}">
+                    <text class="pin-good-person" wx:if="{{index<3}}" wx:for="{{itemServices}}" wx:key="*this">{{item.title}}</text>
+                </view>
+                <view class="pin-good-price flex f-fd-r f-ai-b">
+                    <view class="pin-good-dollar" style="font-family:Arial;">¥</view>
+                    <view class="pin-good-cut-price">{{itemInfo.price}}</view>
+                    <view class="pin-good-origin-price" style="font-family:Arial;">¥</view>
+                    <view class="pin-good-origin-price">{{itemInfo.orgPrice}}</view>
+                </view>
+                <view class="pin-good-status-tag pin-good-success" wx:if="{{status=='success'}}"></view>
+                <view class="pin-good-status-tag pin-good-fail" wx:elif="{{status=='fail'}}"></view>
+            </view>
+        </view>
+    </view>
+</template>

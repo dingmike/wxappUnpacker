@@ -1,0 +1,155 @@
+.platformCoupon {
+    background-color: #efefef;
+    padding: 20rpx!important;
+    min-height: 210rpx!important;
+    max-height: 650rpx!important;
+}
+
+.scroll-view-top {
+    min-height: 210rpx;
+    max-height: 600rpx;
+}
+
+.new-nouse-coupon {
+    height: 80rpx;
+    line-height: 80rpx;
+    background-color: #fff;
+    color: #666;
+    padding: 0 30rpx;
+}
+
+.new-nouse-text {
+    flex: 1;
+    color: #999;
+}
+
+.new-coupon-btn {
+    text-align: center;
+    height: 100rpx;
+    line-height: 100rpx;
+    color: #fff;
+    font-size: 28rpx;
+    width: 100%;
+    background: linear-gradient(to right,#FF8C5E,#FB4747);
+}
+
+.new-no-use,.new-can-use,.new-add-on,.new-cannot-use {
+    margin-bottom: 20rpx;
+}
+
+.item-coupon-wrap {
+    height: 210rpx;
+}
+
+.price-bar-wrap {
+    height: 100rpx;
+    border-bottom: dashed 1rpx #eee;
+    color: #999999;
+    align-items: center;
+}
+
+.price-text {
+    flex: 1;
+}
+
+.item-coupon-wrap {
+    font-size: 24rpx;
+    padding: 10rpx 30rpx;
+    background-color: #fff;
+    margin-bottom: 20rpx;
+}
+
+.mogu-color {
+    color: #FB4747!important;
+}
+
+.mogu-border-color {
+    border: solid 1rpx #FB4747!important;
+}
+
+.item-coupon-price {
+    font-size: 68rpx;
+    margin-right: 10rpx;
+}
+
+.desc-bar-wrap,.time-bar-wrap {
+    margin-top: 10rpx;
+    height: 30rpx;
+    color: #999;
+    line-height: 30rpx;
+}
+
+.desc-bar-wrap {
+    margin-top: 18rpx;
+}
+
+.new-promotion-name {
+    max-width: 200rpx;
+    border: solid 1rpx #999;
+    color: #999;
+    padding: 0 3rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 20rpx;
+    white-space: nowrap;
+    margin-right: 10rpx;
+    border-radius: 5rpx;
+}
+
+.new-promotion-desc {
+    flex: 1;
+    text-overflow: ellipsis;
+    font-size: 24rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 450rpx;
+    margin-right: 10rpx;
+}
+
+.promotion-type-text {
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    color: #999;
+    margin-bottom: 10rpx;
+    position: relative;
+}
+
+.money-symbol {
+    font-size: 38rpx;
+}
+
+.promotion-desc {
+    padding: 11rpx 0 0 30rpx;
+    background-color: #ffeeee;
+    color: #FB4747;
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 24rpx;
+}
+
+.icon-tip {
+    background: url(http://s3.mogucdn.com/mlcdn/c45406/180130_509g650ff87gi1jh2d1f9h00dhfah_58x50.png) no-repeat;
+    min-width: 40rpx;
+    background-position: left center;
+    background-size: 40rpx 36rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    padding: 0 0 0 45rpx;
+}
+
+.text-line {
+    width: 280rpx;
+    height: 2rpx;
+    display: inline-block;
+    background-color: #ccc;
+}
+
+.addon-text {
+    display: inline-block;
+    width: 200rpx;
+    background-color: #efefef;
+    top: 8rpx;
+    position: absolute;
+    left: 257rpx;
+}

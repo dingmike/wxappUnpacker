@@ -1,0 +1,95 @@
+.addButton {
+    background-color: #15b115;
+    width: 300rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 32rpx;
+}
+
+.wechatNumberCover {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 300;
+}
+
+.wechatNumberInfo {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 548rpx;
+    margin-top: -400rpx;
+    margin-left: -274rpx;
+    height: 820rpx;
+    border-radius: 20rpx;
+    background-color: #fff;
+    z-index: 310;
+}
+
+.wechatNumberInfo__title {
+    font-size: 36rpx;
+    margin: 60rpx auto 20rpx;
+    text-align: center;
+}
+
+.wechatNumberInfo__number {
+    font-size: 26rpx!important;
+    text-align: center;
+    color: #000!important;
+    margin-bottom: 30rpx;
+}
+
+.wechatNumberInfo__tips {
+    font-size: 24rpx;
+    color: #666666;
+    text-align: center;
+}
+
+.wechatNumberInfo .copyButton {
+    width: 210rpx;
+    background-color: #15b115;
+    font-size: 26rpx;
+    margin-bottom: 60rpx;
+}
+
+.wechatNumberInfo image {
+    width: 350rpx;
+    height: 350rpx;
+    background: #f8f8f8 url(https://static.seecsee.com/images/h5/placehold.svg) 50% no-repeat;
+    margin-bottom: 20rpx;
+}
+
+.wechatNumberInfo__close {
+    position: absolute;
+    top: 16rpx;
+    right: 10rpx;
+    display: inline-block;
+    width: 1.4rem;
+    height: 1.4rem;
+    z-index: 1000;
+    text-indent: -9999px;
+    overflow: hidden;
+    color: #000;
+}
+
+.wechatNumberInfo__close:before,.wechatNumberInfo__close:after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 45%;
+    display: block;
+    height: 60%;
+    width: 2px;
+    background-color: #ddd;
+}
+
+.wechatNumberInfo__close:before {
+    transform: rotate(45deg);
+}
+
+.wechatNumberInfo__close:after {
+    transform: rotate(-45deg);
+}

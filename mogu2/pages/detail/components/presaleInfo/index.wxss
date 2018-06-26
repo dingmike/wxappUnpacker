@@ -1,0 +1,39 @@
+.module-primary-presaleinfo.presaleinfo .presaleinfo-content {
+    background: #EEF9FF;
+    padding: 22rpx 36rpx 16rpx 31rpx;
+}
+
+.module-primary-presaleinfo.presaleinfo .presaleinfo-content--main.main {
+}
+
+.module-primary-presaleinfo.presaleinfo .main-title {
+    height: 44rpx;
+    width: 155rpx;
+    margin-bottom: 16rpx;
+}
+
+.module-primary-presaleinfo.presaleinfo .main-text {
+    font-size: 24rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    padding-left: 9rpx;
+}
+
+.module-primary-presaleinfo.presaleinfo .main-title--dot {
+    width: 8rpx;
+    height: 8rpx;
+    border-radius: 50%;
+    background: #666;
+    margin-right: 16rpx;
+}
+
+.module-primary-presaleinfo.presaleinfo .presaleinfo-content--arrow {
+    font-size: 24rpx;
+}
+
+.module-primary-presaleinfo.presaleinfo .content-rule {
+    padding: 0 32rpx;
+    font-size: 28rpx;
+    margin-bottom: 20rpx;
+    line-height: 32rpx;
+}

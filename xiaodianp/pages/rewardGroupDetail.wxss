@@ -1,0 +1,399 @@
+@import "../__wuBaseWxss__/6.wxss";
+
+@import "../__wuBaseWxss__/5.wxss";
+
+.seeloading {
+    margin-top: 160px;
+    background-color: #ffffff;
+    text-align: center;
+    color: #999;
+    font-size: 13px;
+    padding: 50rpx 0 50rpx 0;
+    heigth: 100%;
+    width: 100%;
+}
+
+.seeloading .img_view .seeloading_img {
+    margin-top: 0;
+    width: 78rpx;
+    height: 78rpx;
+    border-radius: 50%;
+}
+
+.seeloading_gray {
+    background-color: #f2f2f2;
+    text-align: center;
+    color: #999;
+    font-size: 13px;
+    padding: 50rpx 0 50rpx 0;
+    heigth: 100%;
+    width: 100%;
+}
+
+.seeloading_gray .img_view .seeloading_img {
+    margin-top: 0;
+    width: 78rpx;
+    height: 78rpx;
+    border-radius: 50%;
+}
+
+.button-hover {
+    opacity: .6;
+}
+
+page {
+    background-color: #f4f4f4;
+    height: 100%;
+}
+
+.seeloading {
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 100%;
+    margin-bottom: 40rpx;
+}
+
+.heard {
+    width: 100%;
+    height: 320rpx;
+    background-color: #fff;
+    margin-bottom: 40rpx;
+    position: relative;
+}
+
+.heard image:first-child {
+    margin-left: 15rpx;
+    width: 240rpx;
+    height: 240rpx;
+    background: #f8f8f8 url(https://static.seecsee.com/images/h5/placehold.svg) 50% no-repeat;
+}
+
+.heard image:last-child {
+    width: 160rpx;
+    height: 160rpx;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.heard .heardInfo {
+    width: 450rpx;
+    height: 240rpx;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+}
+
+.heard .heardInfo text {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.heard .heardInfo .goodName {
+    font-size: 28rpx;
+    font-weight: 600;
+    margin-top: 30rpx;
+}
+
+.heard .heardInfo .goodDetail {
+    font-size: 24rpx;
+    color: #999;
+    margin-bottom: 20rpx;
+}
+
+.heard .heardInfo .origPrice {
+    font-size: 24rpx;
+    color: #999;
+    text-decoration: line-through;
+}
+
+.heard .heardInfo .price {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.heard .heardInfo .price text {
+    font-size: 32rpx;
+}
+
+.heard .heardInfo .price .tips {
+    position: relative;
+    background: #ff3b30;
+    color: #fff;
+    font-size: 20rpx;
+    font-weight: 600;
+    padding: 4rpx 8rpx;
+    margin-left: 20rpx;
+}
+
+.heard .heardInfo .price .tips text {
+    position: absolute;
+    left: -10rpx;
+    top: 14rpx;
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 6rpx solid transparent;
+    border-bottom: 6rpx solid transparent;
+    border-right: 12rpx solid #ff3b30;
+}
+
+.rewardInfo {
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 40rpx;
+}
+
+.rewardInfo .gift {
+    width: 160rpx;
+    height: 100rpx;
+    margin-top: 50rpx;
+}
+
+.rewardInfo .tips1 {
+    font-size: 28rpx;
+    font-weight: 600;
+    margin-top: 20rpx;
+}
+
+.rewardInfo .tips2 {
+    font-size: 24rpx;
+    color: #999;
+}
+
+.rewardInfo .couponTitle {
+    width: 100%;
+    height: 128rpx;
+    position: relative;
+    margin-top: 40rpx;
+    margin-bottom: 40rpx;
+}
+
+.rewardInfo .couponTitle text:first-child {
+    width: 150rpx;
+    position: absolute;
+    top: 0;
+    left: 300rpx;
+    font-size: 128rpx;
+    color: #ffe6e5;
+    font-weight: 800;
+    line-height: 128rpx;
+    text-align: center;
+}
+
+.rewardInfo .couponTitle text:last-child {
+    bottom: 40rpx;
+    font-size: 28rpx;
+    font-weight: 600;
+    margin: auto;
+    z-index: 100;
+}
+
+.rewardInfo .couponTitle image {
+    width: 50rpx;
+    height: 60rpx;
+    position: absolute;
+    top: 10rpx;
+    left: 220rpx;
+}
+
+.rewardInfo .coupon {
+    width: 390rpx;
+    height: 210rpx;
+    background-color: #ff7070;
+}
+
+.rewardInfo .coupon .couponInfo {
+    margin: 5rpx;
+    height: 198rpx;
+    background-color: #ff7070;
+    border: 2rpx solid #fff;
+}
+
+.rewardInfo .coupon .couponInfo .money {
+    height: 60rpx;
+    margin-top: 10rpx;
+}
+
+.rewardInfo .coupon .couponInfo .money text:first-child {
+    font-size: 28rpx;
+    color: #fff;
+}
+
+.rewardInfo .coupon .couponInfo .money text:last-child {
+    font-size: 46rpx;
+    font-weight: 600;
+    color: #fff;
+}
+
+.rewardInfo .coupon .couponInfo .condition {
+    font-size: 20rpx;
+    color: #fff;
+}
+
+.rewardInfo .coupon .couponInfo .drawButton {
+    margin-top: 10rpx;
+    width: 180rpx;
+    height: 50rpx;
+    text-align: center;
+    background-color: #fff;
+    color: #ff7070;
+    font-size: 28rpx;
+    line-height: 50rpx;
+}
+
+.rewardInfo .coupon .couponInfo .buttonGray {
+    color: #a5a5a5;
+}
+
+.rewardInfo .got {
+    background-color: #a5a5a5!important;
+}
+
+.rewardInfo .term {
+    font-size: 20rpx;
+    color: #ff7070;
+    margin-top: 10rpx;
+    margin-bottom: 20rpx;
+}
+
+.rewardInfo .person {
+    width: 100%;
+    height: 160rpx;
+    border-top: 2rpx solid #f4f4f4;
+}
+
+.rewardInfo .person text:first-child {
+    font-size: 28rpx;
+    margin-top: 20rpx;
+    font-weight: 600;
+}
+
+.rewardInfo .person .personInfo {
+    width: 100%;
+}
+
+.rewardInfo .person .personInfo image {
+    width: 60rpx;
+    height: 60rpx;
+    margin-left: 50rpx;
+    border-radius: 30rpx;
+    background: #f8f8f8 url(https://static.seecsee.com/images/h5/placehold.svg) 50% no-repeat;
+}
+
+.rewardInfo .person .personInfo .personName {
+    font-size: 24rpx;
+    margin-left: 40rpx;
+}
+
+.rewardInfo .person .personInfo .personNum {
+    font-size: 24rpx;
+    margin-left: 40rpx;
+}
+
+.rewardInfo .person .personInfo .tips3 {
+    color: #15b115;
+    font-size: 24rpx;
+    margin-right: 40rpx;
+    margin-left: auto;
+}
+
+.shareWeChat {
+    width: 100%;
+    height: 600rpx;
+    background-color: #fff;
+    position: relative;
+}
+
+.shareWeChat .shareTitle {
+    margin-top: 80rpx;
+    font-size: 28rpx;
+    font-weight: 600;
+    margin-bottom: 30rpx;
+    color: #000;
+}
+
+.shareWeChat .shareChatNum {
+    width: 500rpx;
+    height: 80rpx;
+    border: solid 2rpx #ff7070;
+}
+
+.shareWeChat .shareChatNum view {
+    width: 490rpx;
+    height: 70rpx;
+    margin: 7rpx auto 0;
+    background-color: #ff7070;
+    font-size: 26rpx;
+    color: #fff;
+    text-align: center;
+}
+
+.shareWeChat .shareChatNum view text:last-child {
+    font-size: 28rpx;
+    font-weight: 600;
+}
+
+.shareWeChat .secretSignal {
+    margin: 20rpx auto;
+}
+
+.shareWeChat .secretSignal text {
+    font-weight: 600;
+    font-size: 24rpx;
+}
+
+.shareWeChat .secretSignal image {
+    width: 30rpx;
+    height: 30rpx;
+}
+
+.shareWeChat image:last-child {
+    width: 220rpx;
+    height: 220rpx;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.item-btn {
+    background-color: #f4f4f4;
+    padding: 56rpx 0;
+}
+
+.mall_btn {
+    width: 540rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    border-radius: 8rpx;
+    background-color: #ffffff;
+    font-size: 15px;
+    margin: 0 auto;
+}
+
+.mall_btn .triangle {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-top: 12rpx solid transparent;
+    border-left: 16rpx solid #000;
+    border-bottom: 12rpx solid transparent;
+    margin-left: 20rpx;
+}
+
+.partner {
+    text-align: center;
+}
+
+.partner .tencent-cooperation {
+    width: 550rpx;
+    margin: 0 auto 60rpx;
+}

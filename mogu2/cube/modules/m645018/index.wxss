@@ -1,0 +1,39 @@
+@import "../../../components/wall/index.wxss";
+
+@import "../../../components/wall/index_cube.wxss";
+
+.MCUBE_MOD_ID_645018 {
+    overflow: visible!important;
+}
+
+.MCUBE_MOD_ID_645018 .quality_coupon_wrap {
+    position: absolute;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 348rpx;
+    height: 40rpx;
+    left: 0px;
+    bottom: -2rpx;
+    align-items: center;
+}
+
+.MCUBE_MOD_ID_645018 .quality_coupon {
+    width: 348rpx;
+    color: #fff;
+    font-size: 24rpx;
+    text-align: center;
+    position: absolute;
+    vertical-align: middle;
+    top: 0;
+    height: 100%;
+}
+
+.MCUBE_MOD_ID_645018 .quality_coupon_bg {
+    position: absolute;
+    left: 0px;
+    height: 43rpx;
+    width: 348rpx;
+}

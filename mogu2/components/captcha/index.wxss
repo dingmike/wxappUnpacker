@@ -1,0 +1,82 @@
+.shieldcaptain-warpper {
+    width: 100%;
+    margin: 20rpx auto;
+    position: relative;
+    padding: 0 32rpx;
+}
+
+.shieldcaptain-warpper .desc {
+    display: flex;
+    justify-content: space-between;
+    color: #999;
+    font-size: 12px;
+}
+
+.shieldcaptain-warpper .desc .refresh-img {
+    color: #FF5777;
+}
+
+.shieldcaptain-warpper .img-con {
+    width: 100%;
+    position: relative;
+    margin-top: 20rpx;
+}
+
+.shieldcaptain-warpper .img-con .img-list {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shieldcaptain-warpper .img-con .img-list>view {
+    width: 160rpx;
+    background-size: 640rpx 160rpx;
+    transition: all ease 0.2s;
+    overflow: hidden;
+    margin-right: 6rpx;
+}
+
+.shieldcaptain-warpper .img-con .img-list>view::after {
+    content: '';
+    display: block;
+    width: 100%;
+    padding-bottom: 100%;
+}
+
+.shieldcaptain-warpper .img-con .img-list>view:nth-child(1) {
+    background-position: 0 0;
+}
+
+.shieldcaptain-warpper .img-con .img-list>view:nth-child(2) {
+    background-position: -160rpx 0;
+}
+
+.shieldcaptain-warpper .img-con .img-list>view:nth-child(3) {
+    background-position: -320rpx 0;
+}
+
+.shieldcaptain-warpper .img-con .img-list>view:nth-child(4) {
+    background-position: -480rpx 0;
+    margin-right: 0;
+}
+
+.shieldcaptain-warpper .img-con .loading-con,.shieldcaptain-warpper .img-con .success-con {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.7);
+    top: 0;
+    left: 0;
+    color: #666;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shieldcaptain-warpper .img-con .loading-con image {
+    display: block;
+    width: 80rpx;
+    height: 80rpx;
+}

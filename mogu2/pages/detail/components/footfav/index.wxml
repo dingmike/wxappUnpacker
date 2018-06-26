@@ -1,0 +1,8 @@
+<template name="footfav">
+    <form bindsubmit="{{$scope}}.onFavClick" class="component__footfav footentry" reportSubmit="true">
+        <button class="footentry__btn flex f-ff-cn f-ai-c f-jc-c" formType="submit" hoverClass="none">
+            <i class="footentry__btn--icon m-icon {{isFaved?'m-icon-star-active':'m-icon-star'}}" style="{{isFaved?$color.mainTx:$color.secondaryTextTx}}"></i>
+            <view class="footentry__btn--text" style="{{$color.secondaryTextTx}}">收藏</view>
+        </button>
+    </form>
+</template>

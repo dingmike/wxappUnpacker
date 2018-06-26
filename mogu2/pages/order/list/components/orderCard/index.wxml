@@ -1,0 +1,61 @@
+<template name="orderCard">
+    <view class="order-list-wrap" wx:for="{{orderList}}" wx:for-index="orderindex" wx:for-item="shopList" wx:key="index">
+        <view class="shop-info-bg">
+            <view class="order-pannel" wx:for="{{shopList.shopList}}" wx:for-index="skuIndex" wx:for-item="skuItem" wx:key="skuIndex">
+                <view class="meili-all-order-list-order-shop shop">
+                    <view class="shop-title-wrap" wx:if="{{skuIndex==0}}">
+                        <view class="shop-title--status" wx:if="{{shopList.orderStatusDesc}}">{{shopList.orderStatusDesc}}</view>
+                        <view class="shop-remian--time" wx:if="{{shopList.isShowRemainTime}}">
+                            <view class="counter-time">
+                  剩 {{shopList.remainTimeString}}
+              </view>
+                        </view>
+                    </view>
+                    <view class="shop-title">
+                        <view class="shop-title--name" wx:if="{{skuItem.shopName}}">{{skuItem.shopName}}</view>
+                    </view>
+                    <view bindtap="{{$scope}}.gotoDetail" class="shop-product" data-isWaitPay="{{shopList.isWaitPay}}" data-orderIndex="{{orderindex}}" data-payOrderId="{{shopList.payOrderId}}" data-shopOrderId="{{shopList.shopOrderId}}">
+                        <template is="shopItem" data="{{...$shopItem,productList:skuItem.productList,isShowMore:skuItem.isShowMore}}"></template>
+                    </view>
+                    <view bindtap="{{$scope}}.showMoreProducts" class="shop-more" data-orderindex="{{orderindex}}" data-shopindex="{{skuIndex}}" wx:if="{{skuItem.productList.length>2&&!skuItem.isShowMore}}">
+            显示其余{{skuItem.productList.length-2}}件<view class="m-icon m-icon-arrow-downs"></view>
+                    </view>
+                </view>
+            </view>
+            <view class="order-panel--pre pre-sell clearfix" wx:if="{{shopList.orderStageList}}">
+                <view class="pre-sell-pay pre-sell--item flex">
+                    <view class="pre-item-title">
+        定金（{{shopList.orderStageList.payBeginTime}}-{{shopList.orderStageList.payEndTime}}）
+      </view>
+                    <view class="{{shopList.orderStageList.stageStatus=='UN_PRE_PAY'?'is-active pre-item-value f-fg-1':'pre-item-value f-fg-1'}}">
+        ￥{{shopList.orderStageList.payGoodsPrice}}
+
+      </view>
+                </view>
+                <view class="{{shopList.orderStageList.stageStatus==='UN_TAIL_PAY'||shopList.orderStageList.stageStatus==='TAIL_PAY_SUCCESS'?'is-active pre-sell-tail pre-sell--item flex':'pre-sell-tail pre-sell--item flex'}}">
+                    <view class="pre-item-title">
+        尾款（{{shopList.orderStageList.tailBeginTime}}-{{shopList.orderStageList.tailEndTime}}）
+      </view>
+                    <view class="{{shopList.orderStageList.stageStatus=='UN_PRE_PAY'?'is-active pre-item-value f-fg-1':'pre-item-value f-fg-1'}}">
+        ￥{{shopList.orderStageList.tailGoodsPrice}}
+      </view>
+                </view>
+            </view>
+            <view class="order-panel--price pay clearfix" wx:if="{{!shopList.isWaitPay}}">
+                <view class="pay-lottery" wx:if="{{shopList.isShowLottery}}">抽奖订单</view>
+                <view class="pay-delivery" wx:if="{{shopList.shopOrderPriceRemark}}">{{shopList.shopOrderPriceRemark}}，</view>
+                <view class="pay-price" wx:if="{{shopList.payOrderPrice}}">
+       合计<view class="pay-price--content">￥{{shopList.payOrderPrice}}</view>
+                </view>
+            </view>
+            <view class="order-panel--operate operate-button" wx:if="{{shopList.sortOrderOperations&&shopList.sortOrderOperations.length>0}}">
+                <view class="order-form--btn" wx:for="{{shopList.sortOrderOperations}}" wx:for-item="operation" wx:key="index">
+                    <form bindsubmit="{{$scope}}.operateClick" data-activityId="" data-ischannel="{{shopList.isChannel}}" data-operationName="{{operation.operationName}}" data-orderIndex="{{orderindex}}" data-shopList="{{shopList}}" ordertags="{{shopList.orderTags}}" reportSubmit="true">
+                        <button class="{{operation.isWhite?'meili-all-vue-base-button operate-button--white':'meili-all-vue-base-button primary'}}" formType="submit">{{operation.operationDesc}}</button>
+                    </form>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+<import src="../shopItem/index.wxml"></import>

@@ -1,0 +1,444 @@
+@import "../../components/wall/index.wxss";
+
+@import "../../components/walltemplate/item_act.wxss";
+
+@import "../../components/salesEntry/index.wxss";
+
+page {
+    background-color: #ffab00;
+}
+
+button::after {
+    border: none;
+}
+
+.rpk-login-container {
+    position: relative;
+    width: 750rpx;
+    height: 1334rpx;
+    background: url(https://s10.mogucdn.com/mlcdn/c45406/180118_71c4a67gf67ci78jahg8jeb29d744_1125x2001.jpg) no-repeat center center;
+    background-size: 750rpx 1334rpx;
+}
+
+.rpk-login-btn {
+    position: absolute;
+    bottom: 140rpx;
+    left: 240rpx;
+    width: 280rpx;
+    height: 110rpx;
+}
+
+.main-game-container {
+    height: auto;
+    position: relative;
+}
+
+.rpk-share-container {
+    position: relative;
+    background-color: #ffab00;
+}
+
+.rpk-share-wrap {
+    position: relative;
+    width: 750rpx;
+    height: 1334rpx;
+    background: url(https://s10.mogucdn.com/mlcdn/c45406/180119_5gk6gf77dkk49b5jlg5kk2h68ea4i_750x1334.png) no-repeat center center;
+    background-size: 750rpx 1334rpx;
+}
+
+.rpk-share-content {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 632rpx;
+}
+
+.rpk-share-avator-wrap {
+    flex: 1;
+    display: flex;
+    width: 750rpx;
+    justify-content: center;
+}
+
+.rpk-share-avator {
+    width: 146rpx;
+    height: 146rpx;
+    border-radius: 146rpx;
+    background-size: 146rpx 146rpx;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.rpk-share-nickname {
+    flex: 1;
+    display: flex;
+    width: 750rpx;
+    margin-top: 8rpx;
+    justify-content: center;
+    font-size: 40rpx;
+    color: #FFFFFF;
+}
+
+.rpk-share-text1-info {
+    flex: 1;
+    display: flex;
+    width: 750rpx;
+    margin-top: 8rpx;
+    justify-content: center;
+    font-size: 30rpx;
+    color: #FEDEDF;
+}
+
+.rpk-share-text2-info {
+    flex: 1;
+    display: flex;
+    width: 750rpx;
+    margin-top: 40rpx;
+    justify-content: center;
+    font-size: 40rpx;
+    color: #FFFFFF;
+}
+
+.rpk-share-openbtn-wrap {
+    flex: 1;
+    display: flex;
+    width: 750rpx;
+    margin-top: 46rpx;
+    justify-content: center;
+}
+
+.rpk-form-openbtn {
+    position: relative;
+}
+
+.rpk-share-openbtn {
+    width: 185rpx;
+    height: 185rpx;
+    background-size: 185rpx 185rpx;
+}
+
+.form-submit {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: none;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    border: 0 solid transparent;
+}
+
+.rpk-result-wrap {
+    position: relative;
+    background-color: #ffab00;
+}
+
+.stat1001-btn {
+    position: absolute;
+    top: 372rpx;
+    height: 92rpx;
+    width: 750rpx;
+    background: url(https://s10.mogucdn.com/mlcdn/c45406/171031_62c162c0130l4a74bgeb389ee2dkc_256x90.png) no-repeat center center;
+    background-size: 256rpx 90rpx;
+}
+
+.rpk-result-header {
+    position: relative;
+    width: 750rpx;
+    height: 503rpx;
+    background-size: 750rpx 503rpx;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.rpk-result-common {
+    position: relative;
+    height: 423rpx;
+    width: 750rpx;
+    display: flex;
+    flex-direction: column;
+    background-repeat: no-repeat;
+    background-size: 750rpx 423rpx;
+    background-position: center center;
+}
+
+.rpk-form-common {
+    position: relative;
+}
+
+.result-common-title {
+    position: absolute;
+    top: 50rpx;
+    width: 750rpx;
+    text-align: center;
+    font-size: 42rpx;
+    color: #fff220;
+    height: 60rpx;
+}
+
+.result-common-subtitle {
+    position: absolute;
+    top: 105rpx;
+    width: 750rpx;
+    text-align: center;
+    font-size: 30rpx;
+    color: #fff220;
+    height: 45rpx;
+}
+
+.result-common-wrap {
+    position: absolute;
+    top: 174rpx;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.result-common-info {
+    width: 440rpx;
+    height: 185rpx;
+    display: flex;
+    flex-direction: column;
+}
+
+.result-common-cashsn {
+    flex: 2;
+    text-align: center;
+}
+
+.result-common-cashsymbol {
+    position: relative;
+    top: -50rpx;
+    color: #992f00;
+    font-size: 30rpx;
+    font-weight: bold;
+}
+
+.result-common-cashnumber {
+    color: #992f00;
+    position: relative;
+    font-size: 100rpx;
+    font-weight: bold;
+}
+
+.result-common-check {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    margin-top: -16rpx;
+    color: #992f00;
+    font-size: 26rpx;
+    font-weight: bold;
+}
+
+.result-center-wrap {
+    margin-top: 15rpx;
+    width: 750rpx;
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: flex;
+}
+
+.rpk-form-banner {
+    position: relative;
+}
+
+.rpk-result-list {
+    position: relative;
+}
+
+.result-list-tip {
+    margin-top: 50rpx;
+    height: 23rpx;
+    width: 750rpx;
+    background: url(https://s10.mogucdn.com/mlcdn/c45406/171227_8glai597lbg26068019b7fib683g8_693x23.png) no-repeat center center;
+    background-size: 693rpx 23rpx;
+}
+
+.result-list-content {
+    display: flex;
+    flex-direction: column;
+    padding: 10rpx 29rpx;
+}
+
+.result-list-element {
+    height: 140rpx;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #ffab00;
+}
+
+.result-list-element:last-child {
+    border-bottom: none;
+}
+
+.list-element-left {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+.element-left-avator-wrap {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.element-left-avator {
+    height: 70rpx;
+    width: 70rpx;
+    border-radius: 70rpx;
+    background-size: 70rpx 70rpx;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.element-left-info-wrap {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+}
+
+.element-left-info-name {
+    flex: 1;
+    font-size: 30rpx;
+    color: #FFFFFF;
+    display: flex;
+    align-items: flex-end;
+    margin-top: 10rpx;
+}
+
+.element-left-info-time {
+    flex: 1;
+    font-size: 24rpx;
+    color: #FFFFFF;
+    display: flex;
+    align-items: flex-start;
+    margin-top: 10rpx;
+}
+
+.list-element-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.element-right-text {
+    flex: 1;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    font-size: 30rpx;
+    margin-top: 10rpx;
+}
+
+.element-right-empty {
+    flex: 1;
+    margin-top: 10rpx;
+}
+
+.rpk-result-empty {
+    position: relative;
+    margin-top: 100rpx;
+}
+
+.result-empty-element {
+    height: 244rpx;
+    width: 750rpx;
+    background: url(https://s10.mogucdn.com/mlcdn/c45406/171227_4i747c7bkk69lh53caf8d8h5i0ag5_451x244.png) no-repeat center center;
+    background-size: 451rpx 244rpx;
+}
+
+.rpk-game-mask-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+    background-color: rgba(0,0,0,0.75);
+}
+
+.game-start-mask {
+    width: 750rpx;
+    height: 644rpx;
+}
+
+.game-end-mask {
+    width: 750rpx;
+    height: 935rpx;
+}
+
+.J-wall-rpk-header {
+    margin-top: 40rpx;
+    width: 750rpx;
+    height: 100rpx;
+    display: flex;
+    font-size: 32rpx;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+}
+
+.J-wall-rpk-img {
+    width: 750rpx;
+    height: 61rpx;
+}
+
+.rpk-bottom-banner {
+    margin-top: 65rpx;
+}
+
+.gif-container {
+    height: 500rpx;
+    width: 750rpx;
+}
+
+.rpk-float-banner {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 172rpx;
+    z-index: 99;
+    display: flex;
+    flex-direction: row;
+    padding-top: 10rpx;
+    padding-bottom: 25rpx;
+    background-color: #ffab00;
+}
+
+.rpk-left-banner {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.rpk-right-banner {
+    position: relative;
+    flex: 1;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.rpk-pop-banner {
+    position: absolute;
+    top: -60rpx;
+    left: 0;
+    height: 82rpx;
+    width: 218rpx;
+    background-size: 218rpx 82rpx;
+}

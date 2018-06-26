@@ -1,0 +1,52 @@
+.searchBarWrap {
+    width: 100%;
+    height: 90rpx;
+}
+
+.searchBarContent {
+    width: 100%;
+    height: 90rpx;
+    background: #fff;
+    border-bottom: 1rpx solid #e5e5e5;
+}
+
+.searchBarFixed {
+    position: fixed;
+    z-index: 1000;
+}
+
+.search-form {
+    align-items: center;
+    width: 618rpx;
+    height: 60rpx;
+    margin: 15rpx 0 15rpx 24rpx;
+    border-radius: 6rpx;
+    background: #efefef;
+    overflow: hidden;
+}
+
+.search-icon {
+    margin-left: 24rpx;
+    margin-right: 11rpx;
+    font-size: 30rpx;
+    font-weight: bold;
+    color: #bbb;
+}
+
+.search-placeholder {
+    font-size: 24rpx;
+    color: #bbb;
+    max-width: 580rpx;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.im-talk {
+    height: 90rpx;
+    width: 44rpx;
+    margin: 0 32rpx;
+    line-height: 90rpx;
+    font-size: 44rpx;
+    opacity: 0.3;
+    position: relative;
+}

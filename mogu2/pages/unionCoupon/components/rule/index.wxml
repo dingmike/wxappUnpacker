@@ -1,0 +1,13 @@
+<template name="rule">
+    <view class="rule">
+        <view class="rule--title">
+            <text class="rule--title-content">{{title}}</text>
+        </view>
+        <view class="rule--article">
+            <view class="article-item" wx:for="{{list}}" wx:key="{{index}}">
+                <view class="rule--article--index">{{index+1}}、</view>
+                <view class="rule--article--content">{{item}}</view>
+            </view>
+        </view>
+    </view>
+</template>

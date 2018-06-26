@@ -1,0 +1,27 @@
+<template name="rushItem">
+    <view bindtap="$redirect" class="rush-item-wrapper" data-acm="{{item.acm}}" data-href="{{item.listUrl}}">
+        <view class="rush-item-header flex f-jc-sb f-ai-c">
+            <view class="rush-item-header-logo flex f-ai-c">
+                <view class="mf-shandian iconfont rush-item-icon rush-icon-orange"></view>
+                <view>限时精选</view>
+            </view>
+        </view>
+        <view class="rush-item-content flex">
+            <image class="rush-item-image" mode="aspectFill" src="{{item.img}}"></image>
+            <view class="rush-item-center">
+                <view class="rush-item-title">
+                    {{item.title||''}}
+                </view>
+                <view class="rush-item-desc flex">
+                    <view class="rush-item-price">
+                        ¥{{item.salePrice||0}}
+                    </view>
+                    <view class="rush-item-tag">
+                        快抢价
+                    </view>
+                </view>
+            </view>
+            <view class="rush-item-btn"></view>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,9 @@
+<template name="crossShopDiscount">
+    <view class="discount-banner" wx:if="{{crossShopDiscountBanner&&crossShopDiscountBanner.tagDTO&&crossShopDiscountBanner.bannerText}}">
+        <view bindtap="{{$scope}}.goWall" class="discount-banner--wrap flex f-ai-c" data-page="{{crossShopDiscountBanner.url}}">
+            <view class="discount-banner--image" style="background: url({{crossShopDiscountBanner.tagDTO.image}}) no-repeat;background-size: cover;color: {{crossShopDiscountBanner.tagDTO.textColor||'#fff'}}">{{crossShopDiscountBanner.tagDTO.text}}</view>
+            <view class="discount-banner--text">{{crossShopDiscountBanner.bannerText}}</view>
+            <view class="m-icon m-icon-arrow-right discount-banner--icon"></view>
+        </view>
+    </view>
+</template>

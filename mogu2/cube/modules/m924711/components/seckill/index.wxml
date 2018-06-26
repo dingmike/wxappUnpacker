@@ -1,0 +1,41 @@
+<template name="seckill">
+    <form bindsubmit="{{$scope}}.formSubmit" reportSubmit="true" wx:if="{{showSeckill}}">
+        <view class="live-list-seckill-no-goods-wrap flex f-jc-c f-ai-c" wx:if="{{!showGoods}}">
+            <view class="live-list-seckill-header-line live-list-seckill-no-goods-header-line"></view>
+            <image class="live-list-seckill-header-icon" lazyLoad="{{true}}" mode="aspectFit" src="{{titleIcon}}"></image>
+            <text class="live-list-seckill-header-title live-list-seckill-no-goods-header-title">{{title}}</text>
+            <view class="live-list-seckill-header-line live-list-seckill-no-goods-header-line"></view>
+        </view>
+        <view class="live-list-seckill-wrap flex f-fd-c f-ai-c expose-log" data-acm="{{acm}}" style="background-image: url({{bgImage}});" wx:else>
+            <view class="live-list-seckill-header flex f-jc-c f-ai-c">
+                <view class="live-list-seckill-header-line"></view>
+                <image class="live-list-seckill-header-icon" lazyLoad="{{true}}" mode="aspectFit" src="{{titleIcon}}"></image>
+                <text class="live-list-seckill-header-title">{{title}}</text>
+                <view class="live-list-seckill-header-line"></view>
+            </view>
+            <view class="live-list-seckill-goods-list-wrap">
+                <scroll-view class="live-list-seckill-goods-list" scrollIntoView="{{scrollToView}}" scrollX="true">
+                    <button catchtap="{{$scope}}.leftIconTapped" class="live-list-seckill-goods-list-item live-list-seckill-goods-list-first-item" formType="submit" hoverClass="none" hoverStopPropagation="true" id="LEFTICON" plain="true" style="border-style:none;">
+                        <image class="live-list-seckill-goods-list-left-icon" lazyLoad="{{true}}" mode="aspectFill" src="{{leftIconUrl}}"></image>
+                    </button>
+                    <button catchtap="{{$scope}}.goodsItemTapped" class="live-list-seckill-goods-list-item" data-item-data="{{goodsItem}}" formType="submit" hoverClass="none" hoverStopPropagation="true" plain="true" style="border-style:none;" wx:for="{{goods}}" wx:for-item="goodsItem" wx:key="goodsItem">
+                        <view class="live-list-seckill-goods expose-log" data-acm="{{goodsItem.acm}}">
+                            <view class="live-list-seckill-goods-cover" style="background-image: url({{goodsItem.cover}});">
+                                <image class="live-list-seckill-goods-top-icon" lazyLoad="{{true}}" mode="aspectFit" src="{{goodsItem.topIcon}}" wx:if="{{goodsItem.topIcon&&goodsItem.topIcon.length>0}}"></image>
+                            </view>
+                            <view class="live-list-seckill-goods-price-container flex f-ai-c">
+                                <image class="live-list-seckill-goods-price-icon" lazyLoad="{{true}}" mode="aspectFit" src="{{goodsItem.priceIcon}}" wx:if="{{goodsItem.priceIcon&&goodsItem.priceIcon.length>0}}"></image>
+                                <text class="live-list-seckill-goods-price-prefix">¥</text>
+                                <text class="live-list-seckill-goods-price">{{goodsItem.price}}</text>
+                            </view>
+                            <text class="live-list-seckill-goods-save">{{goodsItem.save}}</text>
+                        </view>
+                    </button>
+                    <button catchtap="{{$scope}}.rightIconTapped" class="live-list-seckill-goods-list-item live-list-seckill-goods-list-last-item" formType="submit" hoverClass="none" hoverStopPropagation="true" plain="true" style="border-style:none;">
+                        <image class="live-list-seckill-goods-list-right-icon" lazyLoad="{{true}}" mode="aspectFill" src="{{rightIconUrl}}"></image>
+                    </button>
+                </scroll-view>
+            </view>
+        </view>
+    </form>
+</template>

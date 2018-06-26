@@ -1,0 +1,74 @@
+<import src="../../components/mg/index.wxml"></import>
+<template is="mg" data="{{...$mg}}"></template>
+<import src="../../components/walltemplate/item_act.wxml"></import>
+<import src="../../components/toast/index.wxml"></import>
+<import src="../../components/salesEntry/index.wxml"></import>
+<view class="rpk-main-container" style="height:{{bgGHeight}}rpx">
+    <view class="rpk-login-container" style="margin-top:{{bgTopMarginTop}}rpx" wx:if="{{!isLogin}}">
+        <view bindtap="loginClick" class="rpk-login-btn"></view>
+    </view>
+    <view wx:else>
+        <viiew class="rpk-game-mask-container" wx:if="{{showGameMask}}">
+            <image class="{{gameImgCls}}" mode="gamemaskimg" src="{{gameImgUrl}}"></image>
+        </viiew>
+        <view class="rpk-top-container" style="background-image: url({{homeBgImg}})">
+            <form bindsubmit="rpkFormHanddle" class="rpk-form-rule" reportSubmit="true">
+                <view class="rpk-rule-info"></view>
+                <button bindtap="showRuleView" class="form-submit" formType="submit"></button>
+            </form>
+        </view>
+        <view class="rpk-bottom-container">
+            <view class="rpk-jackpot-row" wx:for="{{prizes}}" wx:for-item="prizeItemArray" wx:key="index">
+                <view class="rpk-jackpot-wrap" wx:for="{{prizeItemArray}}" wx:for-item="prizeItem" wx:key="index">
+                    <view class="rpk-jackpot-info jk-info-{{index+1}}" style="background-image: url({{prizeItem.showPicUrl}})">
+                        <form bindsubmit="rpkFormHanddle" class="rpk-form-btn" reportSubmit="true" wx:if="{{prizeItem.isCheckShow}}">
+                            <view class="rpk-jackpot-commonbtn check-btn"></view>
+                            <button bindtap="goRedPocketPage" class="form-submit" data-level="{{prizeItem.showPosition}}" data-link="{{prizeItem.showGoUrl}}" formType="submit"></button>
+                        </form>
+                        <form bindsubmit="rpkFormHanddle" class="rpk-form-btn" reportSubmit="true" wx:if="{{prizeItem.isReplayShow}}">
+                            <view class="rpk-jackpot-commonbtn replay-btn"></view>
+                            <button bindtap="replayRedPocketPage" class="form-submit" data-level="{{prizeItem.showPosition}}" formType="submit"></button>
+                        </form>
+                        <button bindtap="goShareClick" class="rpk-jackpot-commonbtn share-btn" data-level="{{prizeItem.showPosition}}" openType="share" wx:if="{{prizeItem.isShareShow}}"></button>
+                    </view>
+                    <view class="rpk-jackpot-process process-info-{{index+1}}">
+                        <view class="process-wrap" wx:if="{{prizeItem.isCompleted}}">
+                            <view class="process-finsh"></view>
+                        </view>
+                        <view class="process-detl process-wrap" wx:else>
+                            <view class="process-processing" style="width: {{prizeItem.processWidth}}rpx" wx:if="{{prizeItem.isProcessShow}}"></view>
+                        </view>
+                        <view class="process-text">
+                                    {{prizeItem.gameText}}
+                                </view>
+                    </view>
+                </view>
+            </view>
+            <view bindtap="hideRuleView" class="rpk-mask-container" data-view="rule" wx:if="{{isRuleShow}}">
+                <view class="mask-rule-wrap">
+                    <view bindtap="ruleViewSwitch" class="rule-close"></view>
+                    <view class="rule-detl-wrap">
+                        <image class="rule-detl-img" mode="ruleimg" src="{{ruleImg}}"></image>
+                    </view>
+                </view>
+            </view>
+            <view bindtap="hideReplayView" class="rpk-mask-container mask-replay-top" data-view="replay" wx:if="{{isReplaViewShow}}">
+                <view class="mask-replay-wrap">
+                    <image class="rule-replay-img" mode="replayimg" src="https://s10.mogucdn.com/mlcdn/c45406/170930_122cbh0c52h2h5a66behe6ef2l3e6_1125x648.png"></image>
+                </view>
+            </view>
+        </view>
+        <view class="rpk-bottom-banner">
+            <template is="salesEntry" data="{{...$salesEntry,bgColor:topBgColor||'#ff9e1c'}}"></template>
+        </view>
+        <block wx:if="{{showWall}}">
+            <view class="J-wall-rpk-header">
+                <image class="J-wall-rpk-img" mode="wallimg" src="https://s10.mogucdn.com/mlcdn/c45406/171227_4g7c9410a337fi9ggb50j625k1914_750x61.jpg"></image>
+            </view>
+            <view id="J_wall_box">
+                <template is="wallActItemsBox" data="{{$wall:$wall,style:itemStyle}}"></template>
+            </view>
+        </block>
+    </view>
+    <template is="toast" data="{{...$toast}}"></template>
+</view>

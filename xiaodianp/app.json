@@ -1,0 +1,61 @@
+{
+    "pages": [
+        "pages/mall",
+        "pages/collection",
+        "pages/groupon",
+        "pages/grouponDetail",
+        "pages/rewardGroupDetail",
+        "pages/moreRewardGroup",
+        "pages/cart",
+        "pages/addressManager",
+        "pages/addressAdd",
+        "pages/pay",
+        "pages/order",
+        "pages/orderDetail",
+        "pages/commodity",
+        "pages/coupon",
+        "pages/userCenter",
+        "pages/service",
+        "pages/invite",
+        "pages/activity",
+        "pages/video",
+        "pages/web",
+        "pages/newUser",
+        "pages/search"
+    ],
+    "window": {
+        "backgroundColor": "#f2f2f2",
+        "backgroundTextStyle": "dark",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "i爱买",
+        "navigationBarTextStyle": "black",
+        "enablePullDownRefresh": true
+    },
+    "tabBar": {
+        "color": "#999",
+        "selectedColor": "#fe3b2e",
+        "borderStyle": "white",
+        "backgroundColor": "#fff",
+        "list": [
+            {
+                "pagePath": "pages/mall",
+                "text": "小电铺",
+                "iconPath": "images/collection.png",
+                "selectedIconPath": "images/collection_active.png"
+            },
+            {
+                "pagePath": "pages/cart",
+                "text": " 购物车",
+                "iconPath": "images/cart.png",
+                "selectedIconPath": "images/cart_active.png"
+            },
+            {
+                "pagePath": "pages/userCenter",
+                "text": "个人中心",
+                "iconPath": "images/user.png",
+                "selectedIconPath": "images/user_active.png"
+            }
+        ]
+    },
+    "networkTimeout": {}
+}

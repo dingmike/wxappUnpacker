@@ -1,0 +1,8 @@
+<template name="850835">
+    <import src="../../../components/wall/index.wxml"></import>
+    <view id="app">
+        <view id="J_wall_box">
+            <template is="wallExposeItemsBox" data="{{...$parent['$'+label]}}"></template>
+        </view>
+    </view>
+</template>

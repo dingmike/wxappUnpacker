@@ -1,0 +1,33 @@
+@import "../mask/index.wxss";
+
+@import "mockPages/home/index.wxss";
+
+@import "mockPages/installment/index.wxss";
+
+@import "mockPages/message/index.wxss";
+
+@import "mockPages/pwd/index.wxss";
+
+@import "mockPages/result/index.wxss";
+
+@import "components/header/index.wxss";
+
+.cashier-component {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 790rpx;
+    width: 100%;
+    z-index: 101;
+    background-color: #FAFAFA;
+    display: flex;
+    flex-direction: column;
+}
+
+.cashier-container {
+    height: 675rpx;
+}
+
+.cashier-container>view {
+    height: 100%;
+}

@@ -1,0 +1,16 @@
+<import src="../../components/mg/index.wxml"></import>
+<template is="mg" data="{{...$mg}}"></template>
+<import src="../../components/walltemplate/item_pt.wxml"></import>
+<import src="../../components/bottomNavBar/index.wxml"></import>
+<import src="../../components/redPacket/index.wxml"></import>
+<scroll-view bindscroll="$wall.scrollNavEvent" bindscrolltolower="$wall.wallScrollEvent" class="J_scroll_wallbox" enableBackToTop="true" lowerThreshold="{{$wall.bottomHeight}}" scrollIntoView="{{$wall.scrollIntoViewId}}" scrollY="true" style="height:{{$wall.scrollBoxHeight}}px">
+    <view class="pintuanActive-banner-wrap" hidden="{{!image}}">
+        <image class="pintuanActive-banner" mode="aspectFill" src="{{image}}"></image>
+    </view>
+    <view id="J_wall_box">
+        <template is="wallPtTabNav" data="{{...$wall}}"></template>
+        <template is="wallPtItemsBox" data="{{$wall:$wall}}"></template>
+    </view>
+</scroll-view>
+<template is="redPacket" data="{{...$redPacket}}" wx:if="{{isWxshop}}"></template>
+<template is="bottomNavBar" data="{{...$bottomNavBar}}"></template>

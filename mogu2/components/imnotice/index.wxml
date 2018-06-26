@@ -1,0 +1,4 @@
+<template name="imnotice">
+    <template is="notice" data="{{...$notice}}"></template>
+</template>
+<import src="../notice/index.wxml"></import>

@@ -1,0 +1,43 @@
+.color-main-bg {
+    background-color: #FB4747;
+}
+
+.color-main-tx {
+    color: #FB4747;
+}
+
+.color-main-bd {
+    border-color: #FB4747;
+}
+
+.color-secondary-bg {
+    background-color: #FFEEEE;
+}
+
+.color-gradient-bg {
+    background-image: linear-gradient(to left top,#fb4747,#ff8c5e);
+}
+
+.color-maintext-tx {
+    color: #333333;
+}
+
+.color-maintext-bg {
+    background-color: #333333;
+}
+
+.color-secondarytext-tx {
+    color: #666666;
+}
+
+.color-dim-tx {
+    color: #999999;
+}
+
+.color-disabled-bg {
+    background-color: #CDCDCD;
+}
+
+.color-page-bg {
+    background-color: #CDCDCD;
+}

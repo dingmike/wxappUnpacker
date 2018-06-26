@@ -1,0 +1,23 @@
+<import src="../../components/mg/index.wxml"></import>
+<template is="mg" data="{{...$mg}}"></template>
+<import src="../../components/wall/index.wxml"></import>
+<import src="../../components/walltemplate/item_act.wxml"></import>
+<import src="../../components/getCoupon/index.wxml"></import>
+<import src="../../components/toast/index.wxml"></import>
+<import src="../../components/actCountDown/index.wxml"></import>
+<import src="../../components/mask/index.wxml"></import>
+<scroll-view bindscroll="$wall.scrollNavEvent" bindscrolltolower="$wall.wallScrollEvent" class="J_scroll_wallbox" enableBackToTop="true" lowerThreshold="{{$wall.bottomHeight}}" scrollIntoView="{{$wall.scrollIntoViewId}}" scrollY="true" style="height:{{$wall.scrollBoxHeight}}px;background:{{bgData.background[0].color}}">
+    <view class="pre_flag" wx:if="{{preFlag}}">预发,请勿对外分享</view>
+    <view class="topBanner" style="height:{{tbData.banner[0].height}}rpx;background:url({{tbData.banner[0].img}});background-size:100% auto;" wx:if="{{tbData}}"></view>
+    <view class="count_module_block" wx:if="{{count.show}}">
+        <template is="actCountDown" data="{{...$actCountDown}}"></template>
+    </view>
+    <template is="getCoupon" data="{{...$getCoupon}}" wx:if="{{coupon.show}}"></template>
+    <view id="J_wall_box">
+        <template is="wallActTabNav" data="{{...$wall,navStyle:navStyle}}"></template>
+        <template is="wallBaihuoItemsBox" data="{{$wall:$wall,style:itemStyle}}" wx:if="{{isPt}}"></template>
+        <template is="wallActItemsBox" data="{{$wall:$wall,style:itemStyle}}" wx:else></template>
+    </view>
+    <template is="toast" data="{{...$toast}}"></template>
+    <template is="mask" data="{{...$mask}}"></template>
+</scroll-view>

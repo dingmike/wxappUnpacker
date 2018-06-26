@@ -1,0 +1,32 @@
+<template name="roomList">
+    <view class="live-list-room-list-container" style="min-height: {{minHeight}}rpx">
+        <template is="miniLoadingView" data="{{show:showLoadingView}}"></template>
+        <template is="loadingErrorView" data="{{show:showLoadingErrorView}}"></template>
+        <template is="emptyView" data="{{show:showEmptyView,image:'https://s10.mogucdn.com//mlcdn/c45406/170706_20j13l7hijg2e3b480g3i21c2h39l_514x258.png',text:'可爱的主播正在赶来的路上'}}"></template>
+        <form bindsubmit="{{$scope}}.formSubmit" reportSubmit="true">
+            <view class="live-list-room-list-wrap flex f-fd-c f-ai-c" hidden="{{!showList}}">
+                <block wx:if="{{listItems&&listItems.length}}">
+                    <block wx:for="{{listItems}}" wx:for-item="listItem" wx:key="listItem">
+                        <button catchtap="{{$scope}}.liveItemTapped" class="live-list-room-list-item-wrap" data-item-data="{{listItem}}" formType="submit" hoverClass="none" hoverStopPropagation="true" plain="true" style="border-style: none" wx:if="{{listItem.dataType&&listItem.dataType==='LIVE'}}">
+                            <template is="liveItemHost" data="{{...listItem}}"></template>
+                        </button>
+                        <button catchtap="{{$scope}}.specialSaleTapped" class="live-list-room-list-item-wrap" data-item-data="{{listItem}}" formType="submit" hoverClass="none" hoverStopPropagation="true" plain="true" style="border-style: none" wx:elif="{{listItem.dataType&&listItem.dataType==='SPECIAL_SALE'}}">
+                            <template is="specialSale" data="{{saleData:listItem}}"></template>
+                        </button>
+                    </block>
+                    <template is="loadingMoreFooter" data="{{show:showLoadingMoreView}}"></template>
+                    <template is="loadingMoreFailureFooter" data="{{show:showLoadingMoreErrorView}}"></template>
+                </block>
+                <template is="liveCount" data="{{...$liveCount}}"></template>
+            </view>
+        </form>
+    </view>
+</template>
+<import src="../miniLoadingView/index.wxml"></import>
+<import src="../loadingErrorView/index.wxml"></import>
+<import src="../emptyView/index.wxml"></import>
+<import src="./liveItemHost/index.wxml"></import>
+<import src="./specialSale/index.wxml"></import>
+<import src="../loadingMoreFooter/index.wxml"></import>
+<import src="../loadingMoreFailureFooter/index.wxml"></import>
+<import src="./liveCount/index.wxml"></import>

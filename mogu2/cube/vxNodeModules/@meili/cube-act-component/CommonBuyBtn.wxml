@@ -1,0 +1,7 @@
+<template name="common-buy-btn">
+    <view class="{{__vx_class}}" style="{{__vx_style}}">
+        <form bindsubmit="{{$scope}}.formSubmitHandler" reportSubmit="true">
+            <button class="modal-button-style" formType="submit" style="background-color:{{btnBgColor}}; font-size:{{btnFontSize}}rpx; width:{{btnWidth}}rpx; height:{{btnHeight}}rpx;line-height:{{btnHeight}}rpx;">{{btnText}}</button>
+        </form>
+    </view>
+</template>

@@ -1,0 +1,55 @@
+<template name="game-pop">
+    <block wx:if="{{info}}">
+        <template is="mask" data="{{...$mask}}"></template>
+        <view class="game-pop-bg {{info.giftType}} {{info.className||''}}" hidden="{{!showInfo}}" style="background:url({{info.bg}}) no-repeat; background-size:100%; auto;">
+            <view bindtap="{{$scope}}.close" class="game-pop-close"></view>
+            <view class="content-wrapper" wx:if="{{showContent}}">
+                <image class="game-top-logo game-width-fill" src="{{info.content.shareUserAvatar}}" wx:if="{{info.content&&info.content.shareUserAvatar}}"></image>
+                <view class="game-top-title flex f-jc-c" wx:if="{{info.content&&info.content.shareUserName}}">
+                    <view class="game-share-user">{{info.content.shareUserName||''}}</view>送你一张{{info.content.giftName||'优惠券'}}
+			</view>
+                <view class="game-top-title" wx:else>{{info.title||''}}</view>
+                <view class="game-top-desc">{{info.subTitle||''}}</view>
+                <view class="game-bottom game-bottom-card" wx:if="{{info.giftType=='memberCard'&&info.content}}">
+                    <view class="game-bottom-title">卡号：{{info.content.cardCouponCode||''}}</view>
+                    <view class="game-bottom-desc">密码：{{info.content.cardCouponPw||''}}</view>
+                </view>
+                <view class="game-bottom" wx:else>
+                    <view class="game-bottom-title">{{info.text||''}}</view>
+                    <view class="game-bottom-desc">{{info.text2||''}}</view>
+                </view>
+                <view class="game-content" wx:if="{{info.content&&(info.giftType=='platformCoupon'||info.giftType=='shopCoupon')}}">
+                    <view class="cut-price">
+                        <span class="cny">¥</span>
+                        <span>{{info.content.cutPrice||0}}</span>
+                    </view>
+                    <view class="limit-price">满{{info.content.limitPrice||0}}元可使用</view>
+                </view>
+                <view class="game-content" wx:if="{{(info.giftType=='welfareItem'||info.giftType=='itemGift'||info.giftType=='goodsGift')&&info.data}}">
+                    <view bindtap="$redirect" data-href="{{info.content.href||'javascript:void(0);'}}">
+                        <view class="good-img J-dynamic-imagebox game-width-fill" imgSrc="{{info.content.image}}"></view>
+                        <block wx:if="{{info.giftType=='welfareItem'}}">
+                            <view class="good-name">{{info.content.name||''}}</view>
+                            <view class="good-price">
+                                <span class="price">
+                                    <span class="cny">¥</span>
+                                    <span class="origin">{{info.content.price||0}}</span>
+                                </span>
+                                <del>
+                                    <span class="cny">¥</span>
+                                    <span class="del">{{info.content.del||0}}</span>
+                                </del>
+                            </view>
+                        </block>
+                    </view>
+                </view>
+                <view bindtap="{{$scope}}.closeBtn" class="game-bottom-btn" data-href="{{info.btnLink}}" style="background:{{info.btnColor}}" wx:if="{{info.btnType==1}}">{{info.btnText||''}}</view>
+                <block wx:if="{{info.btnType==2}}">
+                    <view bindtap="{{$scope}}.closeBtn" class="game-left-btn" data-href="{{info.btnLink||''}}" style="background:{{info.btnColor}}">{{info.btnText||''}}</view>
+                    <view bindtap="{{$scope}}.closeBtn" class="game-right-btn" data-href="{{info.btnRightLink||''}}" style="background:{{info.btnRightColor}}">{{info.btnRightText||''}}</view>
+                </block>
+            </view>
+        </view>
+    </block>
+</template>
+<import src="../mask/index.wxml"></import>

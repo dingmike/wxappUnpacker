@@ -1,0 +1,21 @@
+@import "swiperContent/index.wxss";
+
+@import "../../../../components/heading/index.wxss";
+
+.super-seckill-swiper-box {
+    padding: 0;
+    background: #ffffff;
+    border: 0;
+}
+
+.super-seckill-swiper {
+    height: 354rpx;
+}
+
+.super-seckill-single {
+    height: 324rpx;
+}
+
+.super-seckill-swiper-item {
+    padding: 12rpx 0 0 0;
+}

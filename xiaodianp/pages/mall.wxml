@@ -1,0 +1,492 @@
+<view class="seeloading" id="seeloading" wx:if="{{isShow===false}}">
+    <view class="img_view">
+        <image alt="see" class="seeloading_img" src="/images/seeloading.png"></image>
+    </view>
+    <view class="loading_info">小电铺加载中...</view>
+</view>
+<scroll-view scrollY bindscroll="scroll" bindscrolltolower="loadMore" enableBackToTop="true" lowerThreshold="{{windowHeight}}" scrollIntoView="{{toView}}" style="height: {{windowHeight}}px" wx:else>
+    <block wx:if="{{availableCouponList&&availableCouponList.length>0}}">
+        <view bindtap="$couponModel$closeModel" catchtouchmove="$couponModel$catchtouchmove" class="coupon-model" id="all" wx:if="{{isShow===true}}">
+            <view catchtap="$couponModel$handleTap2" class="coupon-model-cover" id="cover">
+                <view catchtap="$couponModel$closeModel" class="coupon-model-close">
+                    <image alt="x" class="close" src="/images/1111/x.svg"></image>
+                </view>
+                <view class="coupon-model-body">
+                    <view class="coupon-model-body__title">
+                        <view class="h2">专享优惠券</view>
+                        <view class="h3">
+                            <text>券还是要领的喔，万一要剁手呢</text>
+                        </view>
+                    </view>
+                    <view class="coupon-model-body__content">
+                        <view class="coupon-model-body__content_list {{$couponModel$availableCouponList.length>2&&$couponModel$availableCouponList.length!=4&&'more'}}">
+                            <view class="list" wx:if="{{index<6}}" wx:for="{{$couponModel$availableCouponList}}" wx:key="id">
+                                <view class="list_price">
+                                    <text>¥</text>{{item.couponPrice}}</view>
+                                <view class="list_desc">{{item.desc}}</view>
+                            </view>
+                        </view>
+                        <view catchtap="$couponModel$clickGetCoupon" class="coupon-model-body__content_btn">一键领取</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+    <view class="heardBanner" style="background-image:url({{kolInfo.backgroundImgUrl}});background-color:#fff;" wx:if="{{headBanner.length==0}}">
+        <view class="userinfo">
+            <image backgroundSize="cover" class="userinfo-avatar" src="{{kolInfo.logoImgUrl}}"></image>
+            <view class="userinfo-right">
+                <text class="userinfo-nickname">{{kolInfo.name}}</text>
+                <text class="userinfo-desc">{{kolInfo.introduct}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="big-banner" wx:else>
+        <image bindtap="bigBannerClick" lazyLoad="true" mode="widthFix" src="{{headBanner[0].imgUrl}}"></image>
+    </view>
+    <view class="search">
+        <view bindtap="toSearchPage" class="search-con">
+            <image src="../images/search.svg"></image>搜索想要的商品</view>
+    </view>
+    <view class="tencent-slogan">
+        <image mode="widthFix" src="https://image.seecsee.com/new-copy-12@3x.png"></image>
+    </view>
+    <block wx:for="{{$mixins$items}}" wx:for-index="$mixins$index" wx:for-item="$mixins$item" wx:key="$mixins$index">
+        <view class="swiper-container" wx:if="{{$mixins$item.type==22&&$mixins$item.data.length>0}}">
+            <swiper autoplay="auto" circular="true" class="swiper" current="{{$mixins$swiperBanner$swiperCurrent}}" duration="500" indicatorActiveColor="#fff" indicatorDots="true" interval="3000">
+                <swiper-item bindtap="$mixins$swiperBanner$clickImage" data-com-index="{{$mixins$index}}" data-wpyclickimage-a="{{item.linkUrl}}" wx:for="{{$mixins$item.data}}" wx:key="id">
+                    <image class="img" mode="aspectFill" src="{{item.imgUrl+'?imageView2/5/w/700/h/300'}}"></image>
+                </swiper-item>
+            </swiper>
+        </view>
+        <view class="banner" item="item" wx:if="{{$mixins$item.type==21&&$mixins$item.data.length>0}}">
+            <image bindtap="$mixins$banner$bigBannerClick" data-com-index="{{$mixins$index}}" data-wpybigbannerclick-a="{{$mixins$banner$item.linkUrl}}" lazyLoad="true" mode="widthFix" src="{{$mixins$banner$item.imgUrl}}" wx:for="{{$mixins$item.data}}" wx:for-index="$mixins$banner$index" wx:for-item="$mixins$banner$item" wx:key="$mixins$banner$key"></image>
+        </view>
+        <view class="coupon-container" wx:if="{{$mixins$item.type==31&&$mixins$item.data.length>0}}">
+            <view class="coupon-list item-flex">
+                <view bindtap="$mixins$coupon$clickGetCoupon" class="list-fill {{item.receiveFlag==0?'':'clicked'}}" data-com-index="{{$mixins$index}}" data-id="{{item.id}}" data-receiveFlag="{{item.receiveFlag}}" data-wpyclickgetcoupon-a="{{$mixins$item.id}}" wx:for="{{$mixins$item.data}}" wx:key="id">
+                    <view class="box">
+                        <view class="info">
+                            <text class="rmb">￥</text>
+                            <text class="price">{{item.couponPrice}}</text>
+                        </view>
+                        <view class="desc">{{item.desc}}</view>
+                        <view class="name">{{item.type?item.name:''}}</view>
+                    </view>
+                    <view class="box">
+                        <text class="btn">{{item.receiveFlag==0?'领取':'已领取'}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="coupon-overlap"></view>
+        </view>
+        <view wx:if="{{$mixins$item.type==34&&$mixins$item.data.length>0}}">
+            <view class="category-title" wx:if="{{$mixins$item.icon||$mixins$item.mainTitle}}">
+                <view class="name">
+                    <view class="icon" wx:if="{{$mixins$item.icon}}">
+                        <image mode="aspectFit" src="{{$mixins$item.icon}}"></image>
+                    </view>
+                    <view class="zh">{{$mixins$item.mainTitle}}</view>
+                    <view class="en">{{$mixins$item.subTitle}}</view>
+                </view>
+            </view>
+            <view class="lotteryGroup-container">
+                <view bindtap="$mixins$lotteryGroup$clickProduct" class="lotteryGroup-block" data-com-index="{{$mixins$index}}" data-id="{{$mixins$lotteryGroup$item.grouponActivityId}}" wx:for="{{$mixins$item.data}}" wx:for-index="$mixins$lotteryGroup$index" wx:for-item="$mixins$lotteryGroup$item" wx:key="$mixins$lotteryGroup$grouponActivityId">
+                    <view class="lotteryGroup-block__img">
+                        <image class="head-img " mode="aspectFill" src="{{$mixins$lotteryGroup$item.bannerUrl}}" style="width:{{$mixins$lotteryGroup$item.width}}rpx"></image>
+                        <view class="sold-out" wx:if="{{$mixins$lotteryGroup$item.insale==1}}">
+                            <view class="sold-out__con">
+                                <text class="zh">已售罄</text>
+                                <text class="en">Sold out</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="lotteryGroup-block__info">
+                        <view class="brand-line">
+                            <text class="limit" wx:if="{{$mixins$lotteryGroup$item.productLimit}}">【限量{{$mixins$lotteryGroup$item.productLimit}}件】</text>{{$mixins$lotteryGroup$item.itemName}}</view>
+                        <view class="price-view">
+                            <view class="price">
+                                <image class="hot" src="/images/1111/icon_hot.svg"></image>
+                                <text class="price-line">¥{{$mixins$lotteryGroup$item.price}}</text>
+                                <text class="oriprice-line"> ¥{{$mixins$lotteryGroup$item.skuPrice}}</text>
+                            </view>
+                            <view class="member-list">
+                                <image class="m-img" mode="aspectFit" src="{{($mixins$lotteryGroup$member.uImg||$mixins$lotteryGroup$member.headimg)+'?imageView2/5/w/40/h/40'}}" wx:if="{{$mixins$lotteryGroup$index<5}}" wx:for="{{$mixins$lotteryGroup$item.member}}" wx:for-index="$mixins$lotteryGroup$index" wx:for-item="$mixins$lotteryGroup$member" wx:key="$mixins$lotteryGroup$key"></image>
+                            </view>
+                        </view>
+                        <view class="buyButton">{{$mixins$lotteryGroup$item.status==2?'马上抢':'待开抢'}}</view>
+                        <view catchtap="$mixins$lotteryGroup$gotoMore" class="moreButton" data-com-index="{{$mixins$index}}" data-wpygotomore-a="{{$mixins$item.id}}">
+                            <label>查看更多<text class="triangle"></text>
+                            </label>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view wx:if="{{$mixins$item.type==33&&$mixins$item.data.length>0}}">
+            <view class="category-title" wx:if="{{$mixins$item.icon||$mixins$item.mainTitle}}">
+                <view class="name">
+                    <view class="icon" wx:if="{{$mixins$item.icon}}">
+                        <image mode="aspectFit" src="{{$mixins$item.icon}}"></image>
+                    </view>
+                    <view class="zh">{{$mixins$item.mainTitle}}</view>
+                    <view class="en">{{$mixins$item.subTitle}}</view>
+                </view>
+            </view>
+            <block wx:if="{{$mixins$item.column==1}}">
+                <view class="seckill-column-block flex-center" wx:for="{{$mixins$item.data}}" wx:for-index="$mixins$seckill$index" wx:for-item="$mixins$seckill$item" wx:key="$mixins$seckill$productId">
+                    <view bindtap="$mixins$seckill$clickProduct" class="seckill-column-block-image" data-com-index="{{$mixins$index}}" data-id="{{$mixins$seckill$item.productId}}">
+                        <image class="head-img" mode="aspectFill" src="{{$mixins$seckill$item.mainImageUrl}}"></image>
+                        <view class="sold-out" wx:if="{{$mixins$seckill$item.status===3}}">
+                            <view class="sold-out__con">
+                                <text class="zh">抢光啦</text>
+                                <text class="en">Sold out</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="flex-column-center">
+                        <view bindtap="$mixins$seckill$clickProduct" class="seckill-column-block-info" data-com-index="{{$mixins$index}}" data-id="{{$mixins$seckill$item.productId}}">
+                            <view class="brand-line text-ellipsis-double">{{$mixins$seckill$item.name}}</view>
+                            <view class="price-view flex-align-end">
+                                <text class="price-line">¥{{$mixins$seckill$item.secKillPrice}}</text>
+                                <text class="oriprice-line"> ¥{{$mixins$seckill$item.dailyPrice}}</text>
+                                <view class="limited flex-center">
+                                    <text>限量{{$mixins$seckill$item.total}}件</text>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="status flex-center">
+                            <block wx:if="{{$mixins$seckill$item.status===3}}">
+                                <view class="item-flex item-justify-center" style="color:#a3a3a3;">
+                                    <view>距结束仅剩</view>
+                                    <wxc-countdown bind:endcount="$mixins$seckill$onEndCount" countdown="{{$mixins$seckill$item.surplusTime}}" data-com-index="{{$mixins$index}}" data-wpyonendcount-a="{{$mixins$item.id}}" format="dd天hh:mm:ss"></wxc-countdown>
+                                </view>
+                                <view class="button over">已售罄</view>
+                            </block>
+                            <block wx:elif="{{$mixins$seckill$item.status===1}}">
+                                <view class="item-flex item-justify-center">
+                                    <view>距结束仅剩</view>
+                                    <wxc-countdown bind:endcount="$mixins$seckill$onEndCount" countdown="{{$mixins$seckill$item.surplusTime}}" data-com-index="{{$mixins$index}}" data-wpyonendcount-a="{{$mixins$item.id}}" format="dd天hh:mm:ss"></wxc-countdown>
+                                </view>
+                                <view bindtap="$mixins$seckill$clickProduct" class="button start" data-com-index="{{$mixins$index}}" data-id="{{$mixins$seckill$item.productId}}">
+                                    <image alt="see" class="icon" src="/images/1111/icon_flash.svg"></image>马上抢</view>
+                            </block>
+                            <form reportSubmit bindsubmit="$mixins$seckill$setRemind" data-com-index="{{$mixins$index}}" data-wpysetremind-a="{{$mixins$seckill$item.remind}}" data-wpysetremind-b="1" data-wpysetremind-c="{{$mixins$seckill$item.activityId}}" data-wpysetremind-d="{{$mixins$item.id}}" style="width: 100%;" wx:elif="{{$mixins$seckill$item.status===0}}">
+                                <view class="form item-flex">
+                                    <view class="form-view flex-center">
+                                        <view>{{$mixins$seckill$item.startTime}}</view>
+                                        <view>准时开抢</view>
+                                    </view>
+                                    <button class="form-view button {{$mixins$seckill$item.remind?'remind':'unremind'}}" formType="submit">
+                                        <image alt="see" class="icon" src="/images/1111/icon_{{$mixins$seckill$item.remind?'clock_g':'clock'}}.svg"></image>{{$mixins$seckill$item.remind?'已设提醒':'提醒我'}}</button>
+                                </view>
+                            </form>
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <view class="seckill-container" wx:else>
+                <view class="seckill-scroll">
+                    <view class="seckill-block" wx:for="{{$mixins$item.data}}" wx:for-index="$mixins$seckill$index" wx:for-item="$mixins$seckill$item" wx:key="$mixins$seckill$productId">
+                        <view bindtap="$mixins$seckill$clickProduct" class="seckill-block__img" data-com-index="{{$mixins$index}}" data-id="{{$mixins$seckill$item.productId}}">
+                            <image class="head-img" mode="aspectFit" src="{{$mixins$seckill$item.mainImageUrl+'?imageView2/5/w/320/h/320'}}"></image>
+                            <view class="sold-out" wx:if="{{$mixins$seckill$item.status===3}}">
+                                <view class="sold-out__con">
+                                    <text class="zh">抢光啦</text>
+                                    <text class="en">Sold out</text>
+                                </view>
+                            </view>
+                        </view>
+                        <view bindtap="$mixins$seckill$clickProduct" class="seckill-block__info" data-com-index="{{$mixins$index}}" data-id="{{$mixins$seckill$item.productId}}">
+                            <view class="brand-line">{{$mixins$seckill$item.name}}</view>
+                            <view class="price-view">
+                                <view>
+                                    <text class="price-line">¥{{$mixins$seckill$item.secKillPrice}}</text>
+                                    <text class="oriprice-line"> ¥{{$mixins$seckill$item.dailyPrice}}</text>
+                                </view>
+                                <view class="limited">限量{{$mixins$seckill$item.total}}件</view>
+                            </view>
+                        </view>
+                        <view class="seckill-block__status">
+                            <block wx:if="{{$mixins$seckill$item.status===3}}">
+                                <view class="item-flex item-justify-center" style="color:#a3a3a3;">
+                                    <view>距结束仅剩</view>
+                                    <wxc-countdown bind:endcount="$mixins$seckill$onEndCount" countdown="{{$mixins$seckill$item.surplusTime}}" data-com-index="{{$mixins$index}}" data-wpyonendcount-a="{{$mixins$item.id}}" format="dd天hh:mm:ss"></wxc-countdown>
+                                </view>
+                                <view class="button over">已售罄</view>
+                            </block>
+                            <block wx:elif="{{$mixins$seckill$item.status===1}}">
+                                <view class="item-flex item-justify-center">
+                                    <view>距结束仅剩</view>
+                                    <wxc-countdown bind:endcount="$mixins$seckill$onEndCount" countdown="{{$mixins$seckill$item.surplusTime}}" data-com-index="{{$mixins$index}}" data-wpyonendcount-a="{{$mixins$item.id}}" format="dd天hh:mm:ss"></wxc-countdown>
+                                </view>
+                                <view bindtap="$mixins$seckill$clickProduct" class="button start" data-com-index="{{$mixins$index}}" data-id="{{$mixins$seckill$item.productId}}">
+                                    <image alt="see" class="icon" src="/images/1111/icon_flash.svg"></image>马上抢</view>
+                            </block>
+                            <form reportSubmit bindsubmit="$mixins$seckill$setRemind" data-com-index="{{$mixins$index}}" data-wpysetremind-a="{{$mixins$seckill$item.remind}}" data-wpysetremind-b="1" data-wpysetremind-c="{{$mixins$seckill$item.activityId}}" data-wpysetremind-d="{{$mixins$item.id}}" style="width: 100%;" wx:elif="{{$mixins$seckill$item.status===0}}">
+                                <view class="form item-flex item-column">
+                                    <view class="form-view flex-center">
+                                        <view>{{$mixins$seckill$item.startTime}}</view>
+                                        <view>准时开抢</view>
+                                    </view>
+                                    <button class="form-view button {{$mixins$seckill$item.remind?'remind':'unremind'}}" formType="submit">
+                                        <image alt="see" class="icon" src="/images/1111/icon_{{$mixins$seckill$item.remind?'clock_g':'clock'}}.svg"></image>{{$mixins$seckill$item.remind?'已设提醒':'提醒我'}}</button>
+                                </view>
+                            </form>
+                        </view>
+                    </view>
+                </view>
+                <view class="seckill-overlay"></view>
+            </view>
+        </view>
+        <view wx:if="{{$mixins$item.type==32&&$mixins$item.data.length>0}}">
+            <view class="category-title" wx:if="{{$mixins$item.icon||$mixins$item.mainTitle}}">
+                <view class="name">
+                    <view class="icon" wx:if="{{$mixins$item.icon}}">
+                        <image mode="aspectFit" src="{{$mixins$item.icon}}"></image>
+                    </view>
+                    <view class="zh">{{$mixins$item.mainTitle}}</view>
+                    <view class="en"> {{$mixins$item.subTitle}}</view>
+                </view>
+            </view>
+            <view class="group-container {{$mixins$item.data[0].type==4?'superContainer':''}} {{$mixins$item.styleType==3?'flex-wrap':''}}">
+                <block wx:if="{{!$mixins$item.styleType||$mixins$item.styleType==1}}">
+                    <view bindtap="$mixins$commonGroup$clickProduct" class="group-block {{$mixins$commonGroup$item.type==4?'super':''}}" data-com-index="{{$mixins$index}}" data-id="{{$mixins$commonGroup$item.id||$mixins$commonGroup$item.grouponActivityId}}" data-type="{{$mixins$commonGroup$item.type}}" wx:for="{{$mixins$item.data}}" wx:for-index="$mixins$commonGroup$index" wx:for-item="$mixins$commonGroup$item" wx:key="$mixins$commonGroup$id">
+                        <view class="group-block__superTips" wx:if="{{$mixins$commonGroup$item.type==4}}">
+                            <image class="circle" src="{{$mixins$commonGroup$item.appIcon}}"></image>
+                            <image class="crown" src="https://static.seecsee.com/xcx/images/king.svg"></image>
+                            <text>我跟你说</text>
+                            <text>{{$mixins$commonGroup$item.introduction}}</text>
+                        </view>
+                        <view class="group-block__img">
+                            <image class="head-img" mode="aspectFill" src="{{$mixins$commonGroup$item.bannerUrl}}" style="width:{{$mixins$commonGroup$item.width}}rpx"></image>
+                            <view class="group-tips">
+                                <label></label>
+                                <text wx:if="{{$mixins$commonGroup$item.type==2}}">新人专享  </text>{{$mixins$commonGroup$item.type==3?'抽奖团':$mixins$commonGroup$item.grouponSuccessNumber+'人团'}}</view>
+                            <view class="sold-out" wx:if="{{$mixins$commonGroup$item.insale==1}}">
+                                <view class="sold-out__con">
+                                    <text class="zh">已售罄</text>
+                                    <text class="en">Sold out</text>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="group-block__info">
+                            <view class="brand-line">
+                                <text class="limit" wx:if="{{$mixins$commonGroup$item.productLimit}}">【限量{{$mixins$commonGroup$item.productLimit}}件】</text>{{$mixins$commonGroup$item.brandName}}</view>
+                            <view class="name-line">{{$mixins$commonGroup$item.sellPoint}}</view>
+                            <view class="price-view">
+                                <view class="flex-center">
+                                    <text class="price-tips">拼团价</text>
+                                    <text class="price-line">¥{{$mixins$commonGroup$item.price}}</text>
+                                    <text class="oriprice-line"> ¥{{$mixins$commonGroup$item.skuPrice}}</text>
+                                </view>
+                                <view class="member-list">
+                                    <image class="m-img" mode="aspectFit" src="{{($mixins$commonGroup$member.uImg||$mixins$commonGroup$member.headimg)+'?imageView2/5/w/40/h/40'}}" wx:if="{{$mixins$commonGroup$index<5}}" wx:for="{{$mixins$commonGroup$item.member}}" wx:for-index="$mixins$commonGroup$index" wx:for-item="$mixins$commonGroup$member" wx:key="$mixins$commonGroup$key"></image>
+                                </view>
+                                <view class="button {{$mixins$commonGroup$item.insale==1&&'over'}}">{{$mixins$commonGroup$item.insale==1?'已售罄':$mixins$commonGroup$item.status==1?'待开抢':$mixins$commonGroup$item.type==3?'我要抢':$mixins$commonGroup$item.type==4?'去参团':'去开团'}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+                <block wx:if="{{$mixins$item.styleType==2}}">
+                    <view bindtap="$mixins$commonGroup$clickProduct" class="group-single-row flex-center" data-com-index="{{$mixins$index}}" data-id="{{$mixins$commonGroup$item.id||$mixins$commonGroup$item.grouponActivityId}}" data-type="{{$mixins$commonGroup$item.type}}" wx:for="{{$mixins$item.data}}" wx:for-index="$mixins$commonGroup$index" wx:for-item="$mixins$commonGroup$item" wx:key="$mixins$commonGroup$id">
+                        <view class="group-single-row-image">
+                            <image class="head-img" mode="aspectFill" src="{{$mixins$commonGroup$item.itemImgurl}}"></image>
+                            <view class="group-tips">
+                                <label></label>
+                                <text wx:if="{{$mixins$commonGroup$item.type==2}}">新人专享  </text>{{$mixins$commonGroup$item.type==3?'抽奖团':$mixins$commonGroup$item.grouponSuccessNumber+'人团'}}</view>
+                            <view class="sold-out" wx:if="{{$mixins$commonGroup$item.insale==1}}">
+                                <view class="sold-out__con">
+                                    <text class="zh">已售罄</text>
+                                    <text class="en">Sold out</text>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="group-single-row-info">
+                            <view class="brand-line text-ellipsis">
+                                <text class="limit" wx:if="{{$mixins$commonGroup$item.productLimit}}">【限量{{$mixins$commonGroup$item.productLimit}}件】</text>{{$mixins$commonGroup$item.brandName}}</view>
+                            <view class="name-line text-ellipsis">{{$mixins$commonGroup$item.sellPoint}}</view>
+                            <view class="price-view flex-align-end item-between">
+                                <view class="flex-align-end item-justify-center">
+                                    <text class="price-tips">拼团价</text>
+                                    <text class="price-line">¥{{$mixins$commonGroup$item.price}}</text>
+                                    <text class="oriprice-line"> ¥{{$mixins$commonGroup$item.skuPrice}}</text>
+                                </view>
+                                <view class="button {{$mixins$commonGroup$item.insale==1&&'over'}}">{{$mixins$commonGroup$item.insale==1?'已售罄':$mixins$commonGroup$item.status==1?'待开抢':$mixins$commonGroup$item.type==3?'我要抢':$mixins$commonGroup$item.type==4?'去参团':'去开团'}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+                <block wx:if="{{$mixins$item.styleType==3}}">
+                    <view bindtap="$mixins$commonGroup$clickProduct" class="group-double-row flex-center item-column" data-com-index="{{$mixins$index}}" data-id="{{$mixins$commonGroup$item.id||$mixins$commonGroup$item.grouponActivityId}}" data-type="{{$mixins$commonGroup$item.type}}" wx:for="{{$mixins$item.data}}" wx:for-index="$mixins$commonGroup$index" wx:for-item="$mixins$commonGroup$item" wx:key="$mixins$commonGroup$id">
+                        <view class="group-double-row-image">
+                            <image class="head-img" mode="aspectFill" src="{{$mixins$commonGroup$item.itemImgurl}}"></image>
+                            <view class="group-tips">
+                                <label></label>
+                                <text wx:if="{{$mixins$commonGroup$item.type==2}}">新人专享  </text>{{$mixins$commonGroup$item.type==3?'抽奖团':$mixins$commonGroup$item.grouponSuccessNumber+'人团'}}</view>
+                            <view class="sold-out" wx:if="{{$mixins$commonGroup$item.insale==1}}">
+                                <view class="sold-out__con">
+                                    <text class="zh">已售罄</text>
+                                    <text class="en">Sold out</text>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="group-double-row-info">
+                            <view class="brand-line text-ellipsis-double">
+                                <text class="limit" wx:if="{{$mixins$commonGroup$item.productLimit}}">【限量{{$mixins$commonGroup$item.productLimit}}件】</text>{{$mixins$commonGroup$item.brandName}}</view>
+                            <view class="price-view">
+                                <text class="price-tips">拼团价</text>
+                                <text class="price-line">¥{{$mixins$commonGroup$item.price}}</text>
+                                <text class="oriprice-line"> ¥{{$mixins$commonGroup$item.skuPrice}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+            </view>
+        </view>
+        <view wx:if="{{$mixins$item.type==11&&$mixins$item.data.length>0}}">
+            <block wx:if="{{$mixins$recommend$isphp}}">
+                <view wx:if="{{$mixins$item.item_list.length>0}}">
+                    <view class="category-title">
+                        <text class="name">热门商品</text>
+                    </view>
+                    <view class="recommend-container">
+                        <view bindtap="$mixins$recommend$clickProduct" class="recommend-block" data-com-index="{{$mixins$index}}" data-id="{{item.item_id}}" wx:for="{{$mixins$item.item_list}}" wx:key="item_id">
+                            <view class="head-img">
+                                <image lazyLoad="true" mode="aspectFit" src="{{item['item_imgurl']+'?imageView2/5/w/320/h/320'}}"></image>
+                            </view>
+                            <view class="recommend-middle">
+                                <view class="tips" style="position:{{$mixins$recommend$tips$position}};top:{{$mixins$recommend$tips$position=='absolute'?'20rpx':''}};left:{{$mixins$recommend$tips$position=='absolute'?'30rpx':''}};" wx:if="{{item.tag_img_id}}">
+                                    <text style="background-color:{{$mixins$recommend$tips$color}};">{{$mixins$recommend$tips$text}}</text>
+                                    <view class="triangle-topleft" style="border-top: 10rpx solid {{$mixins$recommend$tips$color}};"></view>
+                                </view>
+                                <text class="brand-line">{{item.brand}}</text>
+                                <text class="name-line">{{item.sell_point}}</text>
+                                <view class="price-view">
+                                    <text class="{{item.price!=item.ori_price?'price-line':'price-line-none'}}">¥{{item['price']}}</text>
+                                    <text class="oriprice-line" wx:if="{{item['price']!=item['ori_price']}}"> ¥{{item['ori_price']}}</text>
+                                    <view class="triangle"></view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <block wx:else>
+                <view class="recommend" wx:if="{{$mixins$item.data.length>0}}">
+                    <view class="category-title" wx:if="{{$mixins$item.icon||$mixins$item.mainTitle}}">
+                        <view class="name">
+                            <view class="icon" wx:if="{{$mixins$item.icon}}">
+                                <image mode="aspectFit" src="{{$mixins$item.icon}}"></image>
+                            </view>
+                            <view class="zh">{{$mixins$item.mainTitle}}</view>
+                            <view class="en">{{$mixins$item.subTitle}}</view>
+                        </view>
+                    </view>
+                    <view class="recommend-container {{$mixins$item.mainTitle===''?'no-title-fixed':''}}">
+                        <view bindtap="$mixins$recommend$clickProduct" class="recommend-block" data-com-index="{{$mixins$index}}" data-id="{{item.itemId}}" wx:for="{{$mixins$item.data}}" wx:key="item_id">
+                            <view class="head-img">
+                                <image lazyLoad="true" mode="aspectFit" src="{{item['itemImgurl']+'?imageView2/5/w/320/h/320'}}"></image>
+                                <view class="sold-out" wx:if="{{item.stock==0}}">
+                                    <view class="sold-out__con">
+                                        <text class="zh">已售罄</text>
+                                        <text class="en">Sold out</text>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="recommend-middle">
+                                <view class="tips" style="position:{{$mixins$recommend$tips$position}};top:{{$mixins$recommend$tips$position=='absolute'?'20rpx':''}};left:{{$mixins$recommend$tips$position=='absolute'?'30rpx':''}};">
+                                    <text style="background-color:{{$mixins$recommend$tips$color}};">{{$mixins$recommend$tips$text}}</text>
+                                    <view class="triangle-topleft" style="border-top: 10rpx solid {{$mixins$recommend$tips$color}};"></view>
+                                </view>
+                                <text class="brand-line">{{item.brandName}}</text>
+                                <text class="name-line">{{item.sellPoint}}</text>
+                                <view class="price-view">
+                                    <text class="{{item.price!=item.oriPrice?'price-line':'price-line-none'}}">¥{{item['price']}}</text>
+                                    <text class="oriprice-line" wx:if="{{item['price']!=item['oriPrice']}}"> ¥{{item['oriPrice']}}</text>
+                                    <view class="triangle"></view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </view>
+        <view wx:if="{{$mixins$item.type==12&&$mixins$item.data.length>0}}">
+            <view class="item-container" wx:if="{{$mixins$normal$isphp}}">
+                <view class="item" id="item-list" wx:for="{{$mixins$normal$normalData}}" wx:key="item_id">
+                    <view bindtap="$mixins$normal$clickProduct" class="item-block" data-com-index="{{$mixins$index}}" data-id="{{item.item_id}}">
+                        <view class="head-img">
+                            <image lazyLoad="true" mode="aspectFit" src="{{item.item_imgurl+'?imageView2/5/w/360/h/360'}}"></image>
+                        </view>
+                        <view class="name-line">
+                            <text class="name">{{item.item_name}}</text>
+                        </view>
+                        <view class="price-view">
+                            <view class="{{item.price!=item.ori_price?'price-line':'price-line-none'}}">
+                                <text>¥{{item['price']}}</text>
+                            </view>
+                            <view class="oriprice-line" wx:if="{{item.price!=item.ori_price}}">
+                                <text>¥{{item['ori_price']}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <block wx:else>
+                <view class="nav-link" wx:if="{{$mixins$categoryList.length>1}}"></view>
+                <view class="nav-box {{$mixins$normal$isFixed?'fixed':''}}" wx:if="{{$mixins$categoryList.length>1}}">
+                    <view class="nav-bar">
+                        <view bindtap="$mixins$normal$toTab" class="nav-bar_item {{$mixins$normal$toTab==index?'clicked':''}}" data-com-index="{{$mixins$index}}" data-wpytotab-a="{{index}}" data-wpytotab-b="{{item.groupId}}" id="item_{{item.groupId}}" wx:for="{{$mixins$categoryList}}" wx:key="groupId">
+                            <text>{{item.categoryName}}</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="category-title" wx:elif="{{$mixins$categoryList.length==1}}">
+                    <view class="name">
+                        <view class="zh">{{$mixins$categoryList[0].categoryName}}</view>
+                    </view>
+                </view>
+                <view class="item-container {{$mixins$normal$isFixed?'top':''}}" wx:if="{{$mixins$categoryList.length>0}}">
+                    <view class="item" wx:for="{{$mixins$normal$normalData.length>0?$mixins$normal$normalData:$mixins$categoryList[$mixins$normal$toTab].itemVOList}}" wx:key="itemId">
+                        <view bindtap="$mixins$normal$clickProduct" class="item-block" data-com-index="{{$mixins$index}}" data-id="{{item.itemId}}">
+                            <view class="head-img">
+                                <image lazyLoad="true" mode="aspectFit" src="{{item.itemImgurl+'?imageView2/5/w/360/h/360'}}"></image>
+                                <view class="sold-out" wx:if="{{item.stock==0}}">
+                                    <view class="sold-out__con">
+                                        <text class="zh">已售罄</text>
+                                        <text class="en">Sold out</text>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="name-line">
+                                <text class="name">{{item.itemName}}</text>
+                            </view>
+                            <view class="price-view">
+                                <view class="{{item.price!=item.oriPrice?'price-line':'price-line-none'}}">
+                                    <text>¥{{item['price']}}</text>
+                                </view>
+                                <view class="oriprice-line" wx:if="{{item.price!=item.oriPrice}}">
+                                    <text>¥{{item['oriPrice']}}</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view wx:if="{{$mixins$normal$normalData.length>0?!$mixins$normal$showFoot:$mixins$categoryList[$mixins$normal$toTab].itemVOList.length>7}}">
+                    <button bindtap="$mixins$normal$moreBtnTap" class="more" data-com-index="{{$mixins$index}}" wx:if="{{!$mixins$autoLoadNormalData}}">
+            查看更多<view class="triangle to-down"></view>
+                    </button>
+                    <view class="upload" wx:else>
+                        <image class="uploadImage" src="/images/uploadImg.png"></image>
+                        <text wx:if="{{$mixins$normal$upload$showFoot}}">已经拉到底，没有更多了！</text>
+                        <text wx:else>正在加载中...</text>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </block>
+    <view class="partner">
+        <image class="tencent-cooperation" mode="widthFix" src="https://image.seecsee.com/mallBackgroungimage.png"></image>
+    </view>
+</scroll-view>

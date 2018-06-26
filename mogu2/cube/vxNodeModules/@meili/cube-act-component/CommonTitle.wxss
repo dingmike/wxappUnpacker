@@ -1,0 +1,46 @@
+.modal-title-wrap {
+    width: 750rpx;
+    padding-top: 20rpx;
+    padding-bottom: 20rpx;
+}
+
+.modal-title-bg {
+    width: 750rpx;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.modal-title-bg-img {
+    position: absolute;
+    width: 750rpx;
+    height: 50rpx;
+    left: 0;
+    top: 20rpx;
+    z-index: 1;
+}
+
+.modal-title-bg-img-pos {
+    top: 3rpx;
+}
+
+.modal-title,.modal-sub-title {
+    text-align: center;
+    color: #fff;
+    position: relative;
+    z-index: 2;
+}
+
+.modal-title {
+    font-size: 48rpx;
+    font-weight: bold;
+    height: 56rpx;
+    line-height: 56rpx;
+}
+
+.modal-sub-title {
+    font-size: 26rpx;
+    height: 34rpx;
+    line-height: 34rpx;
+}

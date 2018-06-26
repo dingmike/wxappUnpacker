@@ -1,0 +1,17 @@
+<template name="notice">
+    <movable-area class="mg-notice" wx:if="{{show}}">
+        <movable-view inertia outOfBounds bindtap="{{$scope}}.tap" bindtouchend="{{$scope}}.end" bindtouchstart="{{$scope}}.start" direction="vertical" style="width:100%; height: auto" x="0" y="{{y}}">
+            <view class="notice-box">
+                <button bindcontact="{{$scope}}.bindContact" businessId="{{businessId}}" class="notice-im-call" openType="contact" wx:if="{{businessId}}"></button>
+                <image alt="{{icon}}" class="notice-icon" src="{{icon}}" wx:if="{{icon}}"></image>
+                <view class="notice-content">
+                    <text class="notice-title">{{title}}</text>
+                    <text class="notice-desc">{{desc}}</text>
+                </view>
+                <button class="notice-close-button" data-iscancel="true">
+                    <i class="notice-close">×</i>
+                </button>
+            </view>
+        </movable-view>
+    </movable-area>
+</template>

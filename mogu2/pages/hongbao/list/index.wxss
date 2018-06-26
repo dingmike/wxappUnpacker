@@ -1,0 +1,213 @@
+@import "../../../components/end/index.wxss";
+
+@import "../../../__wuBaseWxss__/175.wxss";
+
+@import "../components/balance/index.wxss";
+
+@import "../components/topBanner/index.wxss";
+
+page {
+    background-color: #efefef;
+}
+
+.tab-bar {
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 140rpx;
+}
+
+.tab-bar-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.bottom-border {
+    border-bottom: solid red 1rpx;
+}
+
+.bottom-border-no {
+    border-bottom: none;
+}
+
+.selected-title {
+    color: red;
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+    font-size: 35rpx;
+}
+
+.normal-title {
+    color: black;
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+    font-size: 35rpx;
+}
+
+.hongbao-item {
+    margin-bottom: 20rpx;
+    background-color: #fff;
+}
+
+.hongbao-item-inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 48rpx 40rpx;
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-image: url(https://s10.mogucdn.com/p2/160927/upload_5556e9185id2g5k8kk5ajg8300580_70x101.png);
+    background-position: 0 center;
+    background-size: contain;
+    background-origin: content-box;
+}
+
+.hongbao-item-inner::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 40rpx;
+    z-index: 0;
+    width: 16rpx;
+    height: 29rpx;
+    transform: translateY(-50%);
+    background-image: url(https://s10.mogucdn.com/p2/160927/upload_7gd5lkk69b2k4a56i91ggj2i229ck_16x29.png);
+    background-repeat: no-repeat;
+    background-position: 100% center;
+    background-size: contain;
+}
+
+.hongbao-item-amount {
+    font-size: 28rpx;
+    padding-top: 10rpx;
+    margin-bottom: 10rpx;
+    margin-left: 90rpx;
+}
+
+.hongbao-item-type {
+    margin-left: 90rpx;
+    font-size: 28rpx;
+    color: #999;
+}
+
+.hongbao-valid-time {
+    height: 72rpx;
+    line-height: 72rpx;
+    padding: 0 40rpx;
+    border-top: 1rpx solid #e9e9e9;
+    font-size: 24rpx;
+    color: #9b9b9b;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.warn-text {
+    color: #ff6b87;
+}
+
+.alipay {
+    background-image: url(https://s10.mogucdn.com/mlcdn/c45406/170913_6ci94e3a0743795ai0h5aa19fel8c_140x202.png)!important;
+}
+
+.bfm {
+    background-image: url(https://s10.mogucdn.com/p2/170116/upload_2c6if87ge49lejjh0gj8l37cigfd5_140x202.png)!important;
+}
+
+.realname {
+    background-image: url(https://s10.mogucdn.com/mlcdn/c45406/171117_1e08efijl58498jc8e549l5g8l756_70x101.png)!important;
+}
+
+.withdraw {
+    background-image: url(https://s10.mogucdn.com/mlcdn/c45406/170821_05187bkbdce63842fj2jkjl6lfajd_69x91.png)!important;
+}
+
+.expired {
+    background-image: url(https://s10.mogucdn.com/p2/160927/upload_8g54i8kh922b1ka78k3424l297gk9_70x101.png)!important;
+}
+
+.expired-alipay {
+    background-image: url(https://s10.mogucdn.com/mlcdn/c45406/170913_10ajh262gb57c6f82ci9fcff13jhd_140x202.png)!important;
+}
+
+.expired-bfm {
+    background-image: url(https://s10.mogucdn.com/p2/170116/upload_762hjbd7ej3gab195588ee7ddagc3_140x202.png)!important;
+}
+
+.expired-realname {
+    background-image: url(https://s10.mogucdn.com/mlcdn/c45406/171120_5kbla771e04eb47ehc0l2gh26edba_70x101.png)!important;
+}
+
+.expired-withdraw {
+    background-image: url(https://s10.mogucdn.com/mlcdn/c45406/170821_1kg7835dbljbg1hh0ggf71hg3albd_69x91.png)!important;
+}
+
+.icon-expired::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 80rpx;
+    transform: translateY(-50%);
+    width: 140rpx;
+    height: 106rpx;
+    background-repeat: no-repeat;
+    background-image: url(https://s10.mogucdn.com/p2/161110/upload_498c9lk0g6h513fhahgah0aicfj4j_140x106.png);
+    background-size: contain;
+}
+
+.icon-used::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 80rpx;
+    transform: translateY(-50%);
+    width: 140rpx;
+    height: 106rpx;
+    background-repeat: no-repeat;
+    background-image: url(https://s10.mogucdn.com/p2/161110/upload_7gkg0ij41cccj7ekeg3k2eb9b41ag_140x107.png);
+    background-size: contain;
+}
+
+.withdraw-btn,.active-btn {
+    position: absolute;
+    top: 50%;
+    right: 40rpx;
+    z-index: 1;
+    transform: translateY(-50%);
+    width: 142rpx;
+    height: 46rpx;
+    line-height: 46rpx;
+    border-radius: 10rpx;
+    border: 1px solid #fd638a;
+    color: #fd638a;
+    font-size: 28rpx;
+    background-color: #fff;
+    text-align: center;
+}
+
+.empty-block {
+    padding-top: 30%;
+    text-align: center;
+    line-height: 80rpx;
+    color: #999;
+    font-size: 28rpx;
+}
+
+.empty-icon {
+    width: 218rpx;
+    height: 218rpx;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    background-color: #e5e5e5;
+    background-image: url(https://s10.mogucdn.com/p1/151008/upload_ie2tmy3dmfrtczjrgqzdambqhayde_218x218.png);
+    background-size: contain;
+    border-radius: 50%;
+}

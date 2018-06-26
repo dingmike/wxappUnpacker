@@ -1,0 +1,19 @@
+<template name="paybarNormal">
+    <view>
+        <template is="cashier" data="{{...$cashier}}"></template>
+        <view class="paybar-normal flex">
+            <view class="{{isPresale?'paybar-detail flex paybar-detail--presale':'flex paybar-detail'}}">
+                <view class="paybar-sum">
+                    <text>{{isPresale?'定金：':'总价:'}}</text>
+                    <text class="paybar-sum--red">{{totalPriceStr}}</text>
+                    <view class="payredpacket" wx:if="{{payRedpacket}}">{{payRedpacket}}</view>
+                </view>
+                <view class="paybar-num" wx:if="{{!isPresale}}">共{{num}}件商品</view>
+            </view>
+            <form bindsubmit="{{$scope}}.formSubmitHandler" reportSubmit="true">
+                <button class="paybar-normal-btn" formType="submit">提交订单</button>
+            </form>
+        </view>
+    </view>
+</template>
+<import src="../../../cashier/index.wxml"></import>

@@ -1,0 +1,215 @@
+@import "../__wuBaseWxss__/9.wxss";
+
+.tabbar {
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    background-color: #ffffff;
+    bottom: 0;
+}
+
+.tabbar image {
+    margin-top: 5px;
+    width: 30px;
+    height: 30px;
+}
+
+.tabbar text {
+    margin-top: 3px;
+    font-size: 10px;
+    height: 10px;
+    line-height: 10px;
+    color: #999;
+}
+
+@import "../__wuBaseWxss__/7.wxss";
+
+@import "../__wuBaseWxss__/8.wxss";
+
+page {
+    background-color: #fff;
+    height: 100%;
+}
+
+.userinfo {
+    display: -webkit-box;
+    display: flex;
+    padding: 30rpx;
+}
+
+.userinfo-avatar {
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 50%;
+}
+
+.userinfo-right {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    padding-left: 30rpx;
+    width: 580rpx;
+    overflow: hidden;
+}
+
+.userinfo-nickname {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    font-size: 34rpx;
+    color: #000;
+    font-weight: 900;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.userinfo-desc {
+    font-size: 24rpx;
+    color: #999;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.category-title {
+    padding: 20rpx;
+    background-color: #fff;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    position: relative;
+}
+
+.category-title .name {
+    text-align: center;
+    letter-spacing: 4rpx;
+    font-size: 28rpx;
+    color: #545454;
+    margin: 60rpx 0;
+    background-color: #fff;
+}
+
+.category-title .name:before {
+    content: '';
+    position: absolute;
+    width: 40rpx;
+    height: 5rpx;
+    background-color: #dadada;
+    margin-left: -60rpx;
+    top: 50%;
+}
+
+.category-title .name:after {
+    content: '';
+    position: absolute;
+    width: 40rpx;
+    height: 5rpx;
+    background-color: #dadada;
+    margin-left: 20rpx;
+    top: 50%;
+}
+
+.normal-name {
+    text-align: center;
+    font-size: 28rpx;
+    color: #545454;
+    margin: 60rpx 0;
+    background-color: #fff;
+}
+
+.normal-name:before {
+    content: '';
+    position: absolute;
+    width: 40rpx;
+    height: 5rpx;
+    background-color: #dadada;
+    margin-left: -60rpx;
+    top: 50%;
+}
+
+.normal-name:after {
+    content: '';
+    position: absolute;
+    width: 40rpx;
+    height: 5rpx;
+    background-color: #dadada;
+    margin-left: 80rpx;
+    top: 50%;
+}
+
+.partner {
+    text-align: center;
+}
+
+.partner .tencent-cooperation {
+    width: 550rpx;
+    margin: 0 auto 140rpx;
+}
+
+.heardBanner {
+    width: 100%;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.big-bannner {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+.big-bannner image {
+    width: 96%;
+    margin: 20rpx;
+}
+
+.seeloading {
+    margin-top: 160px;
+    background-color: #ffffff;
+    text-align: center;
+    color: #999;
+    font-size: 13px;
+    padding: 50rpx 0 50rpx 0;
+    heigth: 100%;
+    width: 100%;
+}
+
+.seeloading .img_view .seeloading_img {
+    margin-top: 0;
+    width: 78rpx;
+    height: 78rpx;
+    border-radius: 50%;
+}
+
+.seeloading_gray {
+    background-color: #f2f2f2;
+    text-align: center;
+    color: #999;
+    font-size: 13px;
+    padding: 50rpx 0 50rpx 0;
+    heigth: 100%;
+    width: 100%;
+}
+
+.seeloading_gray .img_view .seeloading_img {
+    margin-top: 0;
+    width: 78rpx;
+    height: 78rpx;
+    border-radius: 50%;
+}
+
+.button-hover {
+    opacity: .6;
+}

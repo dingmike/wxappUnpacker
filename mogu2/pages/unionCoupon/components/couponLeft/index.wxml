@@ -1,0 +1,11 @@
+<template name="couponLeft">
+    <view class="coupon--coupon-left">
+        <view class="coupon--coupon-price" style="color: {{couponInfo.isNew?styleConfig.newUserCouponColor:styleConfig.couponColor}};">
+            <text>{{cutPrice||0}}</text>
+        </view>
+        <view class="coupon--coupon-image">
+            <image class="coupon--coupon-desc" src="{{styleConfig.newUserCouponImage}}" wx:if="{{isNew}}"></image>
+            <image class="coupon--coupon-desc" src="{{styleConfig.couponImage}}" wx:if="{{!isNew}}"></image>
+        </view>
+    </view>
+</template>

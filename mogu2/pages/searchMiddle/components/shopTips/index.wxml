@@ -1,0 +1,21 @@
+<template name="shopTips">
+    <view class="st_tips_wrap" style="display: {{isShowShopTipsWrap?'block':'none'}};height:{{windowHeight}}px;">
+        <view class="st_empty_wrap" wx:if="{{isEmpty}}">
+            <image class="st_empty-img" src="https://s10.mogucdn.com/mlcdn/c45406/171220_42c1abakih0673bea23257dlkib8f_750x330.jpg"></image>
+        </view>
+        <view catchtap="bindShopTipsNavigate" class="st_tips_item flex f-fd-r" data-acm="{{tip.acm}}" data-index="{{tipIndex}}" data-link="{{tip.profileUrl}}" data-queryWord="{{tip.uname}}" wx:for="{{shopTipsData}}" wx:for-index="tipIndex" wx:for-item="tip" wx:key="{{*this}}">
+            <image class="st_icon" src="{{tip.avatar}}" wx:if="{{tip.avatar}}"></image>
+            <view class="stTips flex f-fd-c">
+                <view class="flex f-fd-r">
+                    <view class="stTip">{{tip.uname}}</view>
+                    <image class="st_tag_icon" src="{{tip.lefttop_taglist[index]['img']}}" wx:for="{{tip.lefttop_taglist}}" wx:key="*this"></image>
+                </view>
+                <view class="flex f-fd-r">
+                    <view class="st_good_number" wx:if="{{tip.cCollects}}">收藏{{tip.cCollects}}</view>
+                    <view class="st_good_number" wx:if="{{tip.cSells}}">销量{{tip.cSells}}</view>
+                </view>
+            </view>
+            <view class="stLeftCursor m-icon m-icon-arrow-right"></view>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,14 @@
+.component__tabpanel.tabpanel {
+    height: 90rpx;
+    border-bottom: solid 1rpx #e5e5e5;
+}
+
+.component__tabpanel.tabpanel .tabpanel__item {
+    width: 186rpx;
+    height: 100%;
+    font-size: 32rpx;
+}
+
+.component__tabpanel.tabpanel .tabpanel__item--active {
+    border-bottom: solid 1rpx #ff4747;
+}

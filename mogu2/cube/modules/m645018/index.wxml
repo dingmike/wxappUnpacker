@@ -1,0 +1,10 @@
+<template name="645018">
+    <import src="../../../components/wall/index_cube.wxml"></import>
+    <view id="app">
+        <template is="wallCubeActTabNav" data="{{...$parent['$'+label]['$wall'],$scope:$parent['$'+label]['$wall']['$scope']}}" wx:if="{{tabShow}}"></template>
+        <view id="J_wall_box">
+            <template is="wallCubeActItemsBox" data="{{...$parent['$'+label],style:style}}" wx:if="{{wallTml==='commonTml'}}"></template>
+            <template is="wallCubeBSItemsBox" data="{{...$parent['$'+label],style:style}}" wx:else></template>
+        </view>
+    </view>
+</template>

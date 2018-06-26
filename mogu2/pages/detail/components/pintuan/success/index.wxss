@@ -1,0 +1,76 @@
+.module-social-pintuan-success {
+    margin-left: 32rpx;
+    padding-right: 32rpx;
+    border-top: 1rpx solid #EFEFEF;
+}
+
+.module-social-pintuan-success .success-title {
+    height: 82rpx;
+    line-height: 82rpx;
+}
+
+.module-social-pintuan-success .success-title--text {
+    color: #666666;
+    font-size: 24rpx;
+}
+
+.module-social-pintuan-success .success-title--arrow {
+    font-size: 24rpx;
+    color: #FB4747;
+}
+
+.module-social-pintuan-success .success-title--icon {
+    font-size: 24rpx;
+    color: #FB4747;
+    margin-left: 5rpx;
+}
+
+.module-social-pintuan-success .success-tuan {
+    margin-bottom: 20rpx;
+}
+
+.module-social-pintuan-success .success-tuan--order.order {
+    margin-bottom: 10rpx;
+    width: 100%;
+    height: 100rpx;
+    border-radius: 4rpx;
+    background: #ffe8ee;
+}
+
+.module-social-pintuan-success .order-user {
+}
+
+.module-social-pintuan-success .order-user--avatar {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+    margin: 0 30rpx 0 20rpx;
+}
+
+.module-social-pintuan-success .order-user--uname {
+    font-size: 28rpx;
+    color: #333333;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 200rpx;
+}
+
+.module-social-pintuan-success .order-tuan {
+    line-height: 100rpx;
+    height: 100rpx;
+}
+
+.module-social-pintuan-success .order-tuan--time {
+    color: #999999;
+    font-size: 22rpx;
+    word-break: keep-all;
+}
+
+.module-social-pintuan-success .order-tuan--text {
+    color: #666666;
+    font-size: 24rpx;
+    margin-right: 30rpx;
+    margin-left: 20rpx;
+    word-break: keep-all;
+}

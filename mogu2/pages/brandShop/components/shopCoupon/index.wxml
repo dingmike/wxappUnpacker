@@ -1,0 +1,40 @@
+<template name="shopCoupon">
+    <block wx:if="{{shopInfo&&shopInfo.promotion&&shopInfo.promotion.length>0}}">
+        <view bindtap="{{$scope}}.couponHandle" class="shopCoupon-1" data-camp-id="{{shopInfo.promotion[0].proId}}" data-shop-id="{{shopInfo.shopId}}" style="{{brandCouponSuffixBg?'background-image: url('+brandCouponSuffixBg+'); ':''}}">
+            <view class="shopCoupon-1-l">
+                <view class="shopCoupon-long-l-t">
+                    <text class="shopCoupon-all-icon" style="font-family:Arial;">￥</text>
+                    <text class="shopCoupon-all-price">{{shopInfo.promotion[0].cutPrice}}</text>
+                </view>
+                <text class="shopCoupon-long-l-b long-cut">品牌券</text>
+            </view>
+            <view class="shopCoupon-1-r">
+                <text class="shopCoupon-long-r-t long-cut">{{shopInfo.promotion[0].limitPrice?'满'+shopInfo.promotion[0].limitPrice+'可用':'满额立减'}}</text>
+                <text class="shopCoupon-long-r-b long-cut">品牌特卖专享券</text>
+            </view>
+        </view>
+        <view bindtap="{{$scope}}.couponHandle" class="shopCoupon-2" data-camp-id="{{shopInfo.promotion[1].proId}}" data-shop-id="{{shopInfo.shopId}}" style="{{shopCouponSuffixBg?'background-image: url('+shopCouponSuffixBg+'); ':''}}" wx:if="{{shopInfo.promotion.length===2}}">
+            <view class="shopCoupon-2-l">
+                <view class="shopCoupon-long-l-t">
+                    <text class="shopCoupon-all-icon" style="font-family:Arial;">￥</text>
+                    <text class="shopCoupon-all-price">{{shopInfo.promotion[1].cutPrice}}</text>
+                </view>
+                <text class="shopCoupon-long-l-b long-cut">店铺券</text>
+            </view>
+            <view class="shopCoupon-2-r">
+                <text class="shopCoupon-long-r-t long-cut">{{shopInfo.promotion[1].limitPrice?'满'+shopInfo.promotion[1].limitPrice+'可用':'满额立减'}}</text>
+                <text class="shopCoupon-long-r-b long-cut">{{shopInfo.promotion[1].couponStartTimeText&&shopInfo.promotion[1].couponEndTimeText?'有效期:'+shopInfo.promotion[1].couponStartTimeText+'-'+shopInfo.promotion[1].couponEndTimeText:'有效期内使用'}}</text>
+            </view>
+        </view>
+        <view class="shopCoupon-3-box" wx:elif="{{shopInfo.promotion.length===3}}">
+            <view bindtap="{{$scope}}.couponHandle" class="shopCoupon-3" data-camp-id="{{shopInfo.promotion[index].proId}}" data-shop-id="{{shopInfo.shopId}}" wx:if="{{index!==0}}" wx:for="{{shopInfo.promotion}}" wx:key="index">
+                <view class="shopCoupon-3-t">
+                    <text class="shopCoupon-all-icon" style="font-family:Arial;">￥</text>
+                    <text class="shopCoupon-3-price">{{shopInfo.promotion[index].cutPrice}}</text>
+                    <text class="shopCoupon-all-text long-cut">{{shopInfo.promotion[index].limitPrice?'满'+shopInfo.promotion[index].limitPrice+'可用':'满额立减'}}</text>
+                </view>
+                <view class="shopCoupon-3-b long-cut">{{shopInfo.promotion[index].couponStartTimeText&&shopInfo.promotion[index].couponEndTimeText?'有效期:'+shopInfo.promotion[index].couponStartTimeText+'-'+shopInfo.promotion[index].couponEndTimeText:'有效期内使用'}}</view>
+            </view>
+        </view>
+    </block>
+</template>

@@ -1,0 +1,27 @@
+.meiliSwiper-box {
+    width: 100%;
+}
+
+.meiliSwiper-main {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: none;
+}
+
+.meiliSwiper-item {
+    overflow: hidden;
+}
+
+.meiliSwiper-image {
+    width: 100%;
+    height: 100%;
+}
+
+.meiliSwiper-main .wx-swiper-dots.wx-swiper-dots-horizontal {
+    width: 100%;
+    overflow: hidden;
+    text-align: left;
+    box-sizing: border-box;
+    padding: 0 24rpx;
+}

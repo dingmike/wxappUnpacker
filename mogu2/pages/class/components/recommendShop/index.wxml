@@ -1,0 +1,29 @@
+<template name="recommendShop">
+    <view class="recommendShop-box">
+        <template is="heading_icon_line" data="{{title:$headingTitle,titleIcon:$headingTitleIcon,height:$headingHeight,bgColor:$headingBgColor,margin:$headingMargin,padding:$headingPadding,color:$headingColor,moreText:$headingMoreText,moreTextColor:$headingMoreTextColor,moreLink:$headingMoreLink,wxaMoreLink:$headingWxaMoreLink,appId:$headingAppId,canLaunch:$headingCanLaunch}}" wx:if="{{$headingTitle}}"></template>
+        <template is="meiliSwiper" data="{{...$meiliSwiperMiddle}}"></template>
+        <block wx:if="{{list&&list.length>0}}">
+            <view class="recommendShop-shop">
+                <view class="recommendShop-shop-item {{index===list.length-1?'recommendShop-shop-item-end':''}}" wx:for="{{list}}" wx:key="index">
+                    <view class="recommendShop-shop-info">
+                        <view class="recommendShop-shop-info-logo">
+                            <image class="common-image-box" mode="aspectFill" src="{{item.shopLogoSuffix||''}}"></image>
+                        </view>
+                        <view class="recommendShop-shop-info-name common-long-cut">{{item.shopName||''}}</view>
+                        <view class="recommendShop-shop-info-sale common-long-cut">{{item.shopSale?'总销量 '+item.shopSale:item.shopFavorite?'总收藏 '+item.shopFavorite:''}}</view>
+                        <view bindtap="$navigate" class="recommendShop-shop-info-btn expose-log" data-acm="{{item.acm||''}}" data-href="{{item.shop_xcx_url}}" data-log-index="{{index}}" data-log-mod="{{shopModId}}_{{list.length}}" data-ptp-c="{{ptpC||''}}" data-ptp-d="{{index}}">进入店铺</view>
+                    </view>
+                    <view class="recommendShop-shop-goods {{item.list.length<4?'recommendShop-jc-fs':'recommendShop-jc-sb'}}" wx:if="{{item.list&&item.list.length>0}}">
+                        <view bindtap="$navigate" class="recommendShop-shop-goods-item expose-log" data-acm="{{item.acm||''}}" data-href="{{_item.item_xcx_url}}" data-log-index="{{_index}}" data-log-mod="{{goodsModId}}{{index}}_{{item.list.length}}" data-ptp-c="{{ptpC||''}}" data-ptp-d="{{_index}}" wx:for="{{item.list}}" wx:for-index="_index" wx:for-item="_item" wx:key="_index">
+                            <image class="common-image-box" mode="aspectFill" src="{{_item.imageSuffix||''}}"></image>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <template is="end" data="{{...$end,isEnd:isEnd}}"></template>
+        </block>
+    </view>
+</template>
+<import src="../../../../components/heading/index.wxml"></import>
+<import src="../../../../components/end/index.wxml"></import>
+<import src="../../../../components/meiliSwiper/index.wxml"></import>

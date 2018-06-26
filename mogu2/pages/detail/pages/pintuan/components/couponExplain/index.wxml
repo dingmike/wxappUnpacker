@@ -1,0 +1,31 @@
+<template name="pintuanCouponExplain">
+    <block wx:if="{{tuanType===10}}">
+        <view class="pintuan__couponExplain">
+            <view class="coupon__title">神券大礼包说明</view>
+            <view class="coupon__wrap">
+                <view class="coupon__list">
+                    <view class="list__sign"></view>
+                    <view class="list__text">活动时间: {{timeString}}</view>
+                </view>
+                <view class="coupon__list">
+                    <view class="list__sign"></view>
+                    <view class="list__text">包含各种大额全场优惠券;</view>
+                </view>
+                <view class="coupon__list">
+                    <view class="list__sign"></view>
+                    <view class="list__text">拼团成功即可获得礼包内神券，券包内神券数量随机获得，至少一张;</view>
+                </view>
+                <view class="coupon__list">
+                    <view class="list__sign"></view>
+                    <view class="list__text">活动期间每人最多参与券包拼团10次。</view>
+                </view>
+                <view>
+                    <i class="m-icon m-icon-weixin icon-weixin-style"></i>
+                    <text class="end__text">关注微信服务号“蘑菇街拼团”，及时获取最新进度.</text>
+                </view>
+            </view>
+        </view>
+        <template is="occupying" data></template>
+    </block>
+</template>
+<import src="../../../../components/occupying/index.wxml"></import>

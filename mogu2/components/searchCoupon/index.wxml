@@ -1,0 +1,25 @@
+<template name="searchCoupon">
+    <template is="mask" data="{{...$mask}}"></template>
+    <view animation="{{animModal}}" class="sc_wrap f-jc-c f-ai-c {{isShowModal?'sc_wrap_show flex':'sc_wrap_hide'}}">
+        <view bindtap="{{$scope}}.colseModal" class="sc_close_modal flex f-fd-r f-jc-c">{{countTime}}秒自动关闭
+      <text class="m-icon m-icon-close sc_close"></text>
+        </view>
+        <image bindtap="{{$scope}}.linkTo" class="sc_bg" src="{{redpacketSrc}}"></image>
+        <view class="sc_bg_color"></view>
+        <image animation="{{animTopFront}}" class="sc_coupon_top sc_coupon_top_front" src="{{topSrc}}"></image>
+        <image animation="{{animTopBack}}" class="sc_coupon_top sc_coupon_top_back" src="{{backSrc}}"></image>
+        <image animation="{{animLight}}" class="sc_lightlayer" src="{{lightSrc}}"></image>
+        <image animation="{{animCoin}}" class="sc_coin" src="{{coinSrc}}"></image>
+        <image animation="{{animCoupons}}" class="sc_coupon_list" src="{{couponbgSrc}}"></image>
+        <image animation="{{animCouponTip}}" class="sc_coupon_tip" src="{{couponSrc}}"></image>
+        <view animation="{{animCouponInfo}}" bindtap="{{$scope}}.linkTo" class="sc_coupon_info">
+            <view class="sc_coupon_full">{{couponFull}}</view>
+            <view class="sc_coupon_cut_price flex f-fd-r f-jc-c f-ai-fs">
+                <view class="sc_coupon_dollar" style="font-family:Arial;">￥</view>
+                <view class="sc_coupon_cut">{{couponCut}}</view>
+            </view>
+            <view class="sc_coupon_check">请在“我的-优惠券”查看</view>
+        </view>
+    </view>
+</template>
+<import src="../mask/index.wxml"></import>

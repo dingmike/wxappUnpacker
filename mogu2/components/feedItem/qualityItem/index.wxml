@@ -1,0 +1,24 @@
+<template name="qualityItem">
+    <view bindtap="$redirect" class="quality-item-wrapper" data-acm="{{item.acm}}" data-href="{{item.link}}">
+        <view class="quality-image-wrapper">
+            <image class="quality-item-image" mode="aspectFill" src="{{item.appShopHeadImg}}"></image>
+            <view class="quality-end-wrapper" wx:if="{{count=='已结束'}}">
+                <image class="quality-end-tag"></image>
+            </view>
+        </view>
+        <view class="quality-item-bottom flex f-jc-sb">
+            <view class="quality-item-bottom-left">
+                <view class="quality-item-bottom-shop">
+    				{{item.shopName||''}}
+    			</view>
+                <view class="quality-item-bottom-promotion flex" wx:if="{{item.promotionDesc}}">
+                    <view class="mf-pinpaixiaobiao iconfont quality-item-icon quality-icon-red"></view>
+                    <view class="quality-bottom-promotion-desc">{{item.promotionDesc||''}}</view>
+                </view>
+            </view>
+            <view class="quality-item-bottom-right">
+    			{{count||''}}
+    		</view>
+        </view>
+    </view>
+</template>

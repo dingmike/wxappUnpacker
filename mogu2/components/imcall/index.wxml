@@ -1,0 +1,39 @@
+<template name="imcall">
+    <button catchtap="{{$scope}}.toggleTap" class="{{allStatus[shopId]?(class||'')+' online':class||''}}" data-activityId="{{activityId}}" data-allocateType="{{allocateType}}" data-channelId="{{channelId}}" data-convId="{{convId}}" data-fromPage="{{fromPage}}" data-fromType="{{fromType}}" data-goodsId="{{goodsId}}" data-shopId="{{shopId}}" data-userId="{{userId}}" style="{{class?'':style}}" wx:if="{{useIM}}">
+        <block wx:if="{{text}}">
+                {{text}}
+            </block>
+    </button>
+    <block wx:else>
+        <button catchtap="{{$scope}}.doLogin" class="{{allStatus[shopId]?(class||'')+' online':class||''}}" style="{{class?'':style}}" wx:if="{{!isLogin}}">
+            <block wx:if="{{text}}">
+                    {{text}}
+                </block>
+        </button>
+        <button bindcontact="{{$scope}}.bindContact" catchtap="{{$scope}}.preventDefault" class="{{allStatus[shopId]?(class||'')+' online':class||''}}" openType="contact" sendMessageImg="{{img}}" sendMessagePath="{{path}}" sendMessageTitle="{{title}}" sessionFrom="{{session}}" showMessageCard="{{showCard}}" style="{{class?'':style}}" wx:elif="{{!useBusinessId}}">
+            <block wx:if="{{text}}">
+                    {{text}}
+                </block>
+        </button>
+        <button catchtap="{{$scope}}.preventDefault" class="{{allStatus[shopId]?(class||'')+' online':class||''}}" style="{{class?'':style}}" wx:elif="{{type===0||type===2}}">
+            <block wx:if="{{text}}">
+                    {{text}}
+                </block>
+        </button>
+        <button bindcontact="{{$scope}}.bindContact" businessId="{{businessIds[shopId]}}" catchtap="{{$scope}}.preventDefault" class="{{allStatus[shopId]?(class||'')+' online':class||''}}" openType="contact" sendMessageImg="{{img}}" sendMessagePath="{{path}}" sendMessageTitle="{{title}}" sessionFrom="{{session}}" showMessageCard="{{showCard}}" style="{{class?'':style}}" wx:elif="{{businessIds[shopId]>-1}}">
+            <block wx:if="{{text}}">
+                    {{text}}
+                </block>
+        </button>
+        <button catchtap="{{$scope}}.callContact" class="{{allStatus[shopId]?(class||'')+' online':class||''}}" style="{{class?'':style}}" wx:elif="{{!shopId}}">
+            <block wx:if="{{text}}">
+                    {{text}}
+                </block>
+        </button>
+        <button catchtap="{{$scope}}.noBusiness" class="{{allStatus[shopId]?(class||'')+' online':class||''}}" style="{{class?'':style}}" wx:else>
+            <block wx:if="{{text}}">
+                    {{text}}
+                </block>
+        </button>
+    </block>
+</template>

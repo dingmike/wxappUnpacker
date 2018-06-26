@@ -1,0 +1,38 @@
+.ruleModalWrap {
+    position: fixed;
+    top: 50%;
+    margin-top: -375rpx;
+    left: 12%;
+    width: 560rpx;
+    height: 750rpx;
+    z-index: 100;
+    overflow: hidden;
+    background-size: 100%;
+}
+
+.ruleModalCancel {
+    position: absolute;
+    right: 0;
+    width: 74rpx;
+    height: 74rpx;
+}
+
+.ruleModalContent {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 560rpx;
+    height: 630rpx;
+    overflow: hidden;
+}
+
+.ruleModalInfo {
+    width: 500rpx;
+    height: 630rpx;
+}
+
+.ruleModalPic {
+    width: 500rpx;
+}

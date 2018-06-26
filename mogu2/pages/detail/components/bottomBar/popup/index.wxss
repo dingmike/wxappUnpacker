@@ -1,0 +1,25 @@
+.cpmponent__bottombar .popup__tips {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: -75rpx;
+}
+
+.cpmponent__bottombar .popup__tips--text {
+    position: absolute;
+    height: 72rpx;
+    line-height: 72rpx;
+    text-align: center;
+    font-size: 28rpx;
+    width: 750rpx;
+    left: 50%;
+    transform: translate(-50%,0);
+}
+
+.cpmponent__bottombar .popup__tips--image {
+    position: absolute;
+    height: 82rpx;
+    width: 750rpx;
+    left: 50%;
+    transform: translate(-50%,0);
+}

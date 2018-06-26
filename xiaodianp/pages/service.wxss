@@ -1,0 +1,107 @@
+page {
+    background-color: #fff;
+    height: 100%;
+}
+
+.page-container {
+    background-color: #f2f2f2;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    height: 100%;
+}
+
+.service_msg {
+    text-align: center;
+}
+
+.msg_con {
+    text-align: center;
+}
+
+.msg_con label {
+    display: block;
+}
+
+.msg_con__qrc_image {
+    width: 180rpx;
+    height: 180rpx;
+    margin: 20rpx auto;
+}
+
+.msg_con__title {
+    font-weight: 700;
+    padding: 3.5rem 0 .2rem;
+    text-align: center;
+    font-size: 48rpx;
+    color: #333;
+    margin: 0;
+}
+
+.msg_con__tips {
+    font-weight: normal;
+    text-align: center;
+    border-bottom: 60rpx solid #fff;
+    font-size: 26rpx;
+    color: #999;
+    margin: 0;
+}
+
+.msg_con__content {
+    font-weight: 700;
+    text-align: center;
+    border-bottom: 60rpx solid #fff;
+    font-size: 52rpx;
+    color: #000;
+    margin: 0;
+}
+
+.msg_con__connect {
+    display: -webkit-box;
+    display: flex;
+    height: 60rpx;
+    width: 100%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    -webkit-box-align: center;
+    align-items: center;
+    color: #3A3A3A;
+}
+
+.msg_con__connect image {
+    margin-left: 205rpx;
+    width: 48rpx;
+    height: 48rpx;
+}
+
+.msg_con__connect text {
+    margin-left: 10rpx;
+    font-size: 24rpx;
+}
+
+.msg_con__time {
+    font-size: 20rpx;
+    color: #666;
+    padding-top: 20rpx;
+}
+
+.msg_con__work {
+    font-size: 20rpx;
+    color: #666;
+    width: 80%;
+    border-top: 1px solid #dcdcdc;
+    padding-top: 20rpx;
+    margin: .5rem auto 0;
+}
+
+.msg_f {
+    position: absolute;
+    bottom: 1.5rem;
+    width: 100%;
+    text-align: center;
+    font-size: 20rpx;
+    color: #999;
+}

@@ -1,0 +1,4 @@
+<template name="baseConfig">
+    <template is="game-pop" data="{{...$gamePop}}"></template>
+</template>
+<import src="../../../../components/gamePop/index.wxml"></import>

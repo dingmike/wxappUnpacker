@@ -1,0 +1,228 @@
+page {
+    background-color: #efefef;
+}
+
+.content-block {
+    margin-bottom: 20rpx;
+    padding: 0 30rpx;
+    background-color: #fff;
+}
+
+.block-title {
+    background-color: #fff;
+    padding: 30rpx 30rpx 10rpx;
+    font-size: 28rpx;
+}
+
+.hl {
+    color: #f5342f;
+}
+
+.list-block {
+    margin-bottom: 20rpx;
+}
+
+.list-container {
+    position: relative;
+    background-color: #fff;
+}
+
+.list-container::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    height: 1px;
+    background-color: #c8c7cc;
+    display: block;
+    z-index: 15;
+    transform-origin: 50% 0;
+    transform: scaleY(.5);
+}
+
+.list-item {
+    background-color: #fff;
+}
+
+.item-content {
+    padding-left: 30rpx;
+    min-height: 88rpx;
+}
+
+.item-content.item-link .item-inner {
+    padding-right: 70rpx;
+    background-image: url("https://s10.mogucdn.com/mlcdn/c45406/170911_406l0361d1c786hfd7ala9cca623a_60x120.png");
+    background-size: 20rpx 40rpx;
+    background-repeat: no-repeat;
+    background-position: 95% center;
+}
+
+.item-inner {
+    position: relative;
+    width: 100%;
+    padding-top: 16rpx;
+    padding-bottom: 14rpx;
+    min-height: 88rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+}
+
+.item-inner::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    height: 1px;
+    background-color: #c8c7cc;
+    display: block;
+    z-index: 15;
+    transform-origin: 50% 0;
+    transform: scaleY(.5);
+}
+
+.item-title {
+    max-width: 100%;
+    position: relative;
+    flex-shrink: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 28rpx;
+}
+
+.item-pic {
+    margin-top: 30rpx;
+    margin-bottom: 20rpx;
+}
+
+.media-inner {
+    display: block;
+}
+
+.accordion-item-content {
+    position: relative;
+    overflow: hidden;
+    height: 0;
+}
+
+.accordion-item-content.accordion-item-expanded {
+    height: auto;
+}
+
+.item-inner.accordion-item-expanded {
+    background-image: url("https://s10.mogucdn.com/mlcdn/c45406/170911_390e1bkhbih1icj5j9e3e24h77bbh_120x120.png")!important;
+    background-size: 40rpx 40rpx!important;
+    background-position: 99% center;
+}
+
+.faq-content {
+    font-size: 24rpx;
+    color: #999!important;
+}
+
+.line {
+    display: flex;
+    padding: 30rpx 0;
+    justify-content: space-between;
+    font-size: 28rpx;
+}
+
+.key,.value {
+    font-size: 28rpx;
+}
+
+.process-list {
+    padding-top: 20rpx;
+}
+
+.process {
+    position: relative;
+    padding-bottom: 20rpx;
+    padding-left: 10rpx;
+    z-index: 0;
+}
+
+.process.current {
+    color: #ff5777;
+}
+
+.process.current .cont::before {
+    color: #ff5777;
+}
+
+.process::before {
+    content: "";
+    position: absolute;
+    top: 22rpx;
+    left: -6rpx;
+    height: 100%;
+    border-left: 1px solid #ff5777;
+    z-index: -1;
+}
+
+.process:last-child::before {
+    display: none;
+}
+
+.process>span {
+    display: block;
+}
+
+.process .timestamp {
+    position: relative;
+    font-size: 24rpx;
+    color: #999;
+    z-index: 0;
+}
+
+.process .cont {
+    position: relative;
+    font-size: 28rpx;
+}
+
+.process .cont::before {
+    content: '';
+    width: 10rpx;
+    height: 10rpx;
+    position: absolute!important;
+    top: 14rpx;
+    left: -22rpx;
+    font-size: 16rpx!important;
+    color: #ddd;
+    line-height: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 100%;
+    z-index: -1;
+}
+
+.process.current .cont::before {
+    border-color: #ff5777;
+}
+
+.tracing-action {
+    position: relative;
+    margin-top: -10px;
+    border-top: 1rpx solid #c8c7cc;
+}
+
+.tracing-line {
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.add-tracing-number {
+    padding: 8rpx 18rpx;
+    border: 2rpx solid #979797;
+    border-radius: 6rpx;
+    font-size: 26rpx;
+    color: #333;
+}

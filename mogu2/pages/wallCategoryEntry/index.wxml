@@ -1,0 +1,42 @@
+<import src="../../components/mg/index.wxml"></import>
+<template is="mg" data="{{...$mg}}"></template>
+<import src="../../components/searchBar/index.wxml"></import>
+<import src="../../components/wall/index.wxml"></import>
+<import src="../../components/walltemplate/item_act.wxml"></import>
+<import src="../../components/loading/index.wxml"></import>
+<view class="page_box" style="height:{{$wall.scrollBoxHeight}}px;overflow:hidden;">
+    <template is="searchBar" data="{{...$searchBar}}"></template>
+    <template is="loading" data="{{...$loading}}"></template>
+    <view style="float:left;width:180rpx;height:{{$wall.scrollBoxHeight}}px;overflow:hidden;">
+        <scroll-view class="lef_scroll_box" lowerThreshold="{{$wall.bottomHeight}}" scrollIntoView="{{tabId}}" scrollY="true" style="width:195rpx;height:{{$wall.scrollBoxHeight}}px">
+            <view id="category_page_top2" style="height:0;"></view>
+            <view bindtap="handClickTab" class="tab-item J_tab {{item.activeClass}}" data-fcid="{{item.fcid}}" data-index="{{index}}" wx:for="{{leftBarList}}" wx:key="leftBarList">
+                <view class="class_p">{{item.name}}</view>
+            </view>
+            <view style="height:100rpx"></view>
+        </scroll-view>
+    </view>
+    <scroll-view bindscroll="$wall.scrollNavEvent" bindscrolltolower="$wall.wallScrollEvent" class="J_scroll_wallbox" lowerThreshold="{{$wall.bottomHeight}}" scrollIntoView="{{contentId}}" scrollY="true" style="float:left;width:568rpx;height:{{$wall.scrollBoxHeight}}px;background:#fff;">
+        <view id="category_page_top" style="height:0;"></view>
+        <view class="category_entry {{hidClass}}">
+            <view class="right-entry-content">
+                <view class="entry banner-head" wx:if="{{topBanner.img}}">
+                    <view bindtap="$navigate" class="content J_dynamic_imagebox class_a" data-href="{{topBanner.link}}" style="background: #e5e5e5 url({{topBanner.img}}) no-repeat; background-size:100% auto;"></view>
+                </view>
+                <view class="entry category-navigation" style="margin-bottom:0;padding-bottom: 0.35rem;">
+                    <view class="content clearfix">
+                        <view bindtap="$navigate" class="item fl class_a" data-href="{{cate.link}}" wx:for="{{cateBox}}" wx:for-item="cate" wx:key="cateBox">
+                            <view class="category-img J_dynamic_imagebox" style="background: #e5e5e5 url({{cate.img}}) no-repeat; background-size:100% auto;"></view>
+                            <view class="class_p">{{cate.title}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="{{hidClass}}" id="J_wall_box">
+            <template is="wallSortNav" data="{{...$wall}}"></template>
+            <template is="wallActItemsBox" data="{{$wall:$wall}}"></template>
+        </view>
+        <view style="height:100rpx"></view>
+    </scroll-view>
+</view>

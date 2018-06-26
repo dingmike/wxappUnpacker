@@ -1,0 +1,7 @@
+<template name="677783">
+    <view class="{{__vx_class}}" style="{{__vx_style}}">
+        <view bindtap="{{$scope}}.handleClick" class="to-top-btn J_toTop" style="right: {{setting[0].showRight/100*100+'rpx'}}; bottom: {{setting[0].showBottom/100*100+'rpx'}}; width: {{setting[0]._showImg.w/100*100+'rpx'}}; height: {{setting[0]._showImg.h/100*100+'rpx'}};" wx:if="{{isShow}}">
+            <image class="top-btn-img" src="{{showImg}}" style="width: {{setting[0]._showImg.w/100*100+'rpx'}}; height: {{setting[0]._showImg.h/100*100+'rpx'}};"></image>
+        </view>
+    </view>
+</template>

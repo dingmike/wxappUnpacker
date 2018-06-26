@@ -1,0 +1,16 @@
+<template name="wrapper">
+    <template is="loading" data="{{...$wrapper[$loading]}}"></template>
+    <template is="toast" data="{{...$wrapper[$toast]}}"></template>
+    <template is="video" data="{{...$wrapper[$video]}}"></template>
+    <scroll-view bindscroll="{{$wrapper[$scope]}}.scrollHandler" class="module" enableBackToTop="{{true}}" scrollIntoView="{{$wrapper.scrollIntoView}}" scrollTop="{{$wrapper.scrollTop}}" scrollY="{{!$wrapper.isPageScrollDisabled}}" style="height: {{$wrapper.windowHeight}};" wx:if="{{$wrapper.pageStatus==='REQUEST_SUCCESS'}}">
+        <template is="mask" data="{{...$wrapper[$mask]}}"></template>
+        <template is="moduleWrapper" data="{{$wrapper:$wrapper}}"></template>
+    </scroll-view>
+    <template is="error" data="{{...$wrapper[$errorPage]}}" wx:else></template>
+</template>
+<import src="../../../components/loading/index.wxml"></import>
+<import src="../../../components/toast/index.wxml"></import>
+<import src="../../../components/mask/index.wxml"></import>
+<import src="../../../components/error/index.wxml"></import>
+<import src="../components/video/index.wxml"></import>
+<import src="./components.wxml"></import>

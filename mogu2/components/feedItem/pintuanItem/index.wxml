@@ -1,0 +1,61 @@
+<template name="pintuanItem">
+    <view class="pintuan-item-wrapper">
+        <view class="pintuan-item-header flex f-jc-sb f-ai-c">
+            <view class="pintuan-item-header-logo flex f-ai-c" wx:if="{{item.bizMarkType==99}}">
+                <view class="mf-star-active iconfont pintuan-item-icon pintuan-icon-pink"></view>
+                <view>小编精选</view>
+            </view>
+            <view class="pintuan-item-header-logo flex f-ai-c" wx:if="{{item.bizMarkType==1}}">
+                <view class="mf-pinpai iconfont pintuan-item-icon pintuan-icon-purple"></view>
+                <view>品牌精选</view>
+            </view>
+            <view class="pintuan-item-header-logo flex f-ai-c" wx:if="{{item.bizMarkType==2}}">
+                <view class="mf-shandian iconfont pintuan-item-icon pintuan-icon-orange"></view>
+                <view>限时精选</view>
+            </view>
+            <view class="pintuan-item-header-sale" wx:if="{{item.started}}">
+        		{{item.saleMark||''}}
+        	</view>
+            <view class="pintuan-item-header-sale" wx:else>
+                即将开始
+            </view>
+        </view>
+        <view bindtap="$redirect" class="pintuan-item-content flex" data-acm="{{item.acm}}" data-href="{{item.displayTag=='SELL_OUT'?item.normal_item_url:item.item_xcx_url}}">
+            <view class="pintuan-item-content-left">
+                <image class="pintuan-item-content-image" mode="aspectFill" src="{{item.activityImage}}"></image>
+                <view class="pintuan-item-content-sold" wx:if="{{item.displayTag=='SELL_OUT'}}"></view>
+            </view>
+            <view class="pintuan-item-content-right">
+                <view class="pintuan-item-right-title">
+        			{{item.title||''}}
+        		</view>
+                <view class="pintuan-item-right-promotion">
+        			{{item.activityDesc||''}}
+        		</view>
+                <view class="pintuan-item-right-price">
+        			¥{{item.price||0}}
+        		</view>
+                <view class="pintuan-item-right-comment flex">
+                    <view class="pintuan-item-right-user">
+                        <image class="pintuan-item-content-image" mode="aspectFill" src="{{item.avatar}}"></image>
+                    </view>
+                    <view class="pintuan-item-right-spec" wx:if="{{item.itemComment}}">
+        				{{item.itemComment||''}}
+        			</view>
+                </view>
+            </view>
+        </view>
+        <view class="pintuan-item-bottom flex f-jc-sb">
+            <view bindtap="$redirect" class="pintuan-item-shop-name flex f-ai-c" data-acm="{{item.acm}}" data-href="{{item.shop_xcx_url}}">
+                <view class="iconfont mf-shop pintuan-item-shop-icon"></view>
+                <view class="pintuan-shop-name-desc">{{item.shopName||''}}</view>
+            </view>
+            <view bindtap="$redirect" class="pintuan-item-shop-good" data-acm="{{item.acm}}" data-href="{{item.shop_xcx_url}}" wx:if="{{item.started}}">
+        		更多同店好货
+        	</view>
+            <form bindsubmit="{{delegateHandler}}" data-comp-method="setReminder" data-comp-name="pintuanItem" data-item="{{item}}" data-remind="{{reminderData}}" reportSubmit="true" wx:else>
+                <button class="pintuan-item-shop-good" formType="submit">设置提醒</button>
+            </form>
+        </view>
+    </view>
+</template>

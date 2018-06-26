@@ -1,0 +1,19 @@
+<template name="reportInfo">
+    <view class="sizeHelp-report" wx:if="{{reportList&&reportList.length>0}}">
+        <view class="report-list-content">
+            <view class="report-list" wx:for="{{reportList}}" wx:key="index">
+                <view class="report-wrap flex f-fd-r f-ai-c">
+                    <view class="report-tag flex f-ai-c" style="{{$color.secondaryBg}}{{$color.mainTx}}">{{item.tag}}</view>
+                    <view class="report-content">
+                        <view class="report-title">{{item.title}}</view>
+                        <view class="report-message">{{item.message}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view bindtap="{{$scope}}.lookMore" class="look-more flex f-ai-c f-jc-c" wx:if="{{showMore}}">
+            <text>查看更多</text>
+            <icon class="m-icon m-icon-arrow-down arrow-down"></icon>
+        </view>
+    </view>
+</template>

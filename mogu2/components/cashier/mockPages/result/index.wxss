@@ -1,0 +1,33 @@
+.cashier-result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    font-size: 34rpx;
+}
+
+.cashier-result-img {
+    margin-top: 120rpx;
+    width: 184rpx;
+    height: 184rpx;
+}
+
+.cashier-result-text-success {
+    margin-top: 20rpx;
+    color: #F35170;
+}
+
+.cashier-result-text-fail {
+    margin-top: 20rpx;
+    color: #C9C9C9;
+}
+
+.cashier-result-change {
+    margin-top: 30rpx;
+    font-size: 28rpx;
+    padding: 20rpx 25rpx;
+    border-radius: 5rpx;
+    background-color: #fff;
+    color: #FF5777;
+    border: 1px solid #FF5777;
+}

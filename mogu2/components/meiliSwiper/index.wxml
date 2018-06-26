@@ -1,0 +1,11 @@
+<template name="meiliSwiper">
+    <view class="meiliSwiper-box" style="background-color: {{boxBgColor}}; margin: {{boxMargin}}; padding: {{boxPadding}}; height: {{boxHeight}};" wx:if="{{list&&list.length>0}}">
+        <view class="meiliSwiper-mainBox" style="width: {{swiperWidth}}; height: {{swiperHeight}}; box-shadow: {{swiperBoxShadow}};">
+            <swiper autoplay="{{autoplay}}" circular="{{circular}}" class="meiliSwiper-main" duration="{{duration}}" indicatorActiveColor="{{indicatorActiveColor}}" indicatorColor="{{indicatorColor}}" indicatorDots="{{indicatorDots&&list&&list.length>1}}" interval="{{interval}}">
+                <swiper-item bindtap="$navigate" class="meiliSwiper-item expose-log" data-acm="{{item.acm}}" data-href="{{item.link}}" data-log-index="{{index}}" data-log-mod="{{modId}}_{{list.length}}" data-ptp-c="{{ptpC||''}}" data-ptp-d="{{index}}" style="border-radius: {{itemBorderRadius||'none'}};" wx:for="{{list}}" wx:key="item.acm">
+                    <image class="meiliSwiper-image" mode="aspectFill" src="{{item.suffixImage}}"></image>
+                </swiper-item>
+            </swiper>
+        </view>
+    </view>
+</template>

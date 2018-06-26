@@ -1,0 +1,9 @@
+<template name="recommendHeader">
+    <view class="recommend-header">
+        <view class="recommend-line"></view>
+        <view class="recommend-diamond"></view>
+        <view class="recommend-title">猜你喜欢</view>
+        <view class="recommend-diamond"></view>
+        <view class="recommend-line"></view>
+    </view>
+</template>

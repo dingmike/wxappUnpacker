@@ -1,0 +1,3 @@
+@import "../components/loading/index.wxss";
+
+@import "../components/toast/index.wxss";

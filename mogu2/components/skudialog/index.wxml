@@ -1,0 +1,43 @@
+<template name="skuDialog">
+    <view bindtap="{{$scope}}.hideSku" class="module-base-skudialog skudialog base-dialog flex f-ff-cn show-{{isSkuShow}}" style="z-index: {{zIndex}}" wx:if="{{isSkuShow!==undefined}}">
+        <view catchtap="{{$scope}}.onInnerClick" class="base-dialog--inner flex f-ff-cn">
+            <view class="skudialog-goods goods flex f-jc-sb">
+                <view class="goods-imgs flex f-jc-c f-ai-fe">
+                    <view bindtap="{{$scope}}.showBigImage" class="goods-imgs--img" data-index="{{index}}" data-src="{{$sku.choose.goods.smallImg}}" style="background-image: url({{$sku.choose.goods.smallImg}})"></view>
+                </view>
+                <view class="goods-goods flex f-ff-cn f-ai-fs f-jc-sa">
+                    <view class="goods-goods--presale flex f-ai-fe" wx:if="{{isPresale}}">
+                        <view class="goods-goods--presale-deposit" wx:if="{{deposit}}">定金{{deposit}}</view>
+                        <view class="goods-goods--presale-total" wx:if="{{totalPrice}}">总价{{totalPrice}}</view>
+                    </view>
+                    <view class="goods-goods--price flex" wx:else>
+                        <view class="goods-goods--price-unit">{{$sku.choose.goods.lowPriceUnit}}</view>
+                        <view class="goods-goods--price-text">{{$sku.choose.goods.lowPrice}}</view>
+                        <view class="goods-goods--price-text" wx:if="{{$sku.choose.goods.priceSplit}}">{{$sku.choose.goods.priceSplit}}</view>
+                        <view class="goods-goods--price-unit" wx:if="{{$sku.choose.goods.priceSplit}}">{{$sku.choose.goods.highPriceUnit}}</view>
+                        <view class="goods-goods--price-text" wx:if="{{$sku.choose.goods.priceSplit}}">{{$sku.choose.goods.highPrice}}</view>
+                    </view>
+                    <view class="goods-goods--stock">库存{{$sku.choose.goods.stock}}件</view>
+                    <view class="goods-goods--message flex">
+                        <view class="goods-goods--message-title">{{$sku.choose.message.title}}</view>
+                        <view class="goods-goods--message-text {{$sku.choose.message.class}}">{{$sku.choose.message.text}}</view>
+                    </view>
+                </view>
+                <view bindtap="{{$scope}}.hideSku" class="goods-close flex f-ai-c f-jc-c">╳</view>
+            </view>
+            <template is="sku" data="{{...$sku,className:'skudialog-skus'}}"></template>
+            <view class="skudialog-btns flex f-ai-c f-jc-c">
+                <form bindsubmit="{{$scope}}.onConfirmSku" class="btns-confirm btns-confirm--buy f-jc-c f-ai-c {{isDisabled?'disabled':''}}" data-type="{{type}}" reportSubmit="true" wx:if="{{!cartShow}}">
+                    <button class="button-reset btns-confirm--btn" formType="submit" hoverClass="none">{{confirmText}}</button>
+                </form>
+                <form bindsubmit="{{$scope}}.onConfirmSku" class="btns-confirm btns-confirm--cart f-jc-c f-ai-c {{isDisabled?'disabled':''}}" data-type="{{cartType||'cart'}}" reportSubmit="true" wx:if="{{cartShow&&isCartShow}}">
+                    <button class="button-reset btns-confirm--btn" formType="submit" hoverClass="none">{{buttonStatus.cart.text}}</button>
+                </form>
+                <form bindsubmit="{{$scope}}.onConfirmSku" class="btns-confirm btns-confirm--buy f-jc-c f-ai-c {{isDisabled?'disabled':''}}" data-type="{{buyType||'buy'}}" reportSubmit="true" wx:if="{{cartShow&&isBuyShow}}">
+                    <button class="button-reset btns-confirm--btn" formType="submit" hoverClass="none">{{buttonStatus.buy.text}}</button>
+                </form>
+            </view>
+        </view>
+    </view>
+</template>
+<import src="../sku/index.wxml"></import>

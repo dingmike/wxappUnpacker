@@ -1,0 +1,40 @@
+.bonded-wrap {
+    height: 90rpx;
+    line-height: 90rpx;
+    text-align: left;
+    font-size: 28rpx;
+    padding: 0 32rpx;
+    background-color: #fff;
+    margin-top: 20rpx;
+}
+
+.user-info-label {
+    width: 140rpx;
+}
+
+.user-info-text {
+    color: #999;
+}
+
+.goto-userinfo-btn {
+    background-color: #ff5777;
+    color: #fff;
+    width: 140rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: center;
+}
+
+.identity-icon {
+    width: 70rpx;
+    height: 45rpx;
+    line-height: 45rpx;
+    font-size: 36rpx;
+    text-align: right;
+    border-left: solid 1rpx #eee;
+    padding: 0;
+}
+
+.identity-color {
+    color: #333;
+}

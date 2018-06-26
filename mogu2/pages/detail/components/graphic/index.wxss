@@ -1,0 +1,74 @@
+.component__graphic.graphic .graphic__decorate--img {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 750rpx;
+}
+
+.component__graphic.graphic .graphic__desc {
+    margin-top: 32rpx;
+    margin-bottom: 15rpx;
+    padding: 0 30rpx;
+    font-size: 30rpx;
+}
+
+.component__graphic.graphic .desc__lineBar {
+    position: relative;
+    width: 180rpx;
+    height: 1rpx;
+    background: #a3a3a5;
+}
+
+.component__graphic.graphic .desc__lineBar--start {
+    float: left;
+}
+
+.component__graphic.graphic .desc__lineBar--end {
+    float: right;
+}
+
+.component__graphic.graphic .dot__start {
+    left: 0;
+}
+
+.component__graphic.graphic .dot__end {
+    right: 0;
+}
+
+.component__graphic.graphic .desc__lineBar--dot {
+    display: inline-block;
+    width: 10rpx;
+    height: 10rpx;
+    background: #000;
+    border-radius: 50%;
+    position: absolute;
+    top: -4rpx;
+}
+
+.component__graphic.graphic .desc__text {
+    padding: 30rpx 0;
+    font-size: 28rpx;
+    line-height: 32rpx;
+    white-space: pre-wrap;
+}
+
+.component__graphic.graphic .list__item--title {
+    margin-top: 15rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    text-indent: 30rpx;
+    font-weight: 400;
+    font-size: 30rpx;
+}
+
+.component__graphic.graphic .list__item--desc {
+    margin-top: 15rpx;
+    padding: 0 30rpx;
+    font-weight: 400;
+    font-size: 28rpx;
+    white-space: pre-wrap;
+}
+
+.component__graphic.graphic .imgs__item {
+    display: block;
+    width: 750rpx;
+}

@@ -1,0 +1,6 @@
+<template name="common-sale-price">
+    <text class="inlineflex price-sale price-sale-icon {{__vx_class}}" style="{{__vx_style}}" wx:if="{{salePrice!==null&&salePrice>=0}}">
+        <text class="iconfont mf-rmb inline-flex" style="{{iconStyle}}"></text>
+        <text class="price-sale-numwx" style="{{priceStyle}}">{{salePrice}}</text>
+    </text>
+</template>

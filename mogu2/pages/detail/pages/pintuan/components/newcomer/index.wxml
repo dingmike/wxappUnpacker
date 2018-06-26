@@ -1,0 +1,10 @@
+<template name="pintuanNewcomer">
+    <block wx:if="{{isNew}}">
+        <view class="pintuan__newcomer flex f-ai-c">
+            <image class="newcomer__image" lazyLoad="{{true}}" mode="aspectFit" src="https://s10.mogucdn.com/mlcdn/c45406/170327_86e66hj1gc0gk4eh4580d32l8i733_79x73.png"></image>
+            <view class="newcomer__text">所有用户都能开团，但没有在蘑菇街购买过的用户才可参团哦，快快邀请新朋友来参团吧~</view>
+        </view>
+        <template is="occupying" data></template>
+    </block>
+</template>
+<import src="../../../../components/occupying/index.wxml"></import>

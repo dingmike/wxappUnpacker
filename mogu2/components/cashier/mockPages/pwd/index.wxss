@@ -1,0 +1,49 @@
+.cashier-pwd {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cashier-pwdnum {
+    position: relative;
+}
+
+.cashier-pwdnum-bg {
+    display: flex;
+    flex-direction: row;
+    height: 86rpx;
+    margin-top: 36rpx;
+    border: 1rpx solid #e5e5e5;
+    border-right: none;
+}
+
+.cashier-pwdnum-bg-view {
+    width: 111rpx;
+    border-right: 1rpx solid #e5e5e5;
+    background: #fff;
+}
+
+.cashier-pwdnum-input {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.cashier-pwdnum-input-view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 111rpx;
+    height: 86rpx;
+}
+
+.cashier-pwdnum-input-point {
+    width: 20rpx;
+    height: 20rpx;
+    border-radius: 20rpx;
+    background: #000;
+}

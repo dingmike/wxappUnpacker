@@ -1,0 +1,5 @@
+<template name="salestext">
+    <view class="component__salestext salestext" style="{{$color.mainTx}}">
+        {{itemInfo.slogan}}
+    </view>
+</template>

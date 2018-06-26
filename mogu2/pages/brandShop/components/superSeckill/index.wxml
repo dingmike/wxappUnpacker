@@ -1,0 +1,13 @@
+<template name="superSeckill">
+    <view class="super-seckill" style="margin:{{boxMargin}};background-color:{{boxBgColor}};" wx:if="{{list&&list.length>0}}">
+        <template is="heading_title_subTitle" data="{{title:$headingTitle,subTitle:$headingSubTitle,titleIcon:$headingTitleIcon,height:$headingHeight,bgColor:$headingBgColor,margin:$headingMargin,padding:$headingPadding,color:$headingColor,subColor:$headingSubColor,moreText:$headingMoreText,moreTextColor:$headingMoreTextColor,moreLink:$headingMoreLink,wxaMoreLink:$headingWxaMoreLink,appId:$headingAppId,canLaunch:$headingCanLaunch}}" wx:if="{{$headingTitle}}"></template>
+        <swiper autoplay="{{autoplay}}" circular="{{circular}}" class="super-seckill-swiper-box {{list.length>1?'super-seckill-swiper':'super-seckill-single'}}" duration="{{duration}}" indicatorActiveColor="{{indicatorActiveColor}}" indicatorColor="{{indicatorColor}}" indicatorDots="{{indicatorDots}}" interval="{{interval}}">
+            <swiper-item class="super-seckill-swiper-item" wx:if="{{list.length>1}}" wx:for="{{list}}" wx:key="index">
+                <template is="swiperContent" data="{{data:item,index:index,ptpC:ptpC,titleColor:titleColor,desColor:desColor,acmTotal:list.length,modId:modId}}"></template>
+            </swiper-item>
+            <template is="swiperContent" data="{{data:list[0],index:0,ptpC:ptpC,titleColor:titleColor,desColor:desColor,acmTotal:1,modId:modId}}" wx:if="{{list.length==1}}"></template>
+        </swiper>
+    </view>
+</template>
+<import src="swiperContent/index.wxml"></import>
+<import src="../../../../components/heading/index.wxml"></import>

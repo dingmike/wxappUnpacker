@@ -1,0 +1,39 @@
+.module-shop-recommend {
+}
+
+.module-shop-recommend .head {
+    height: 84rpx;
+    width: 100%;
+    line-height: 84rpx;
+    font-size: 24rpx;
+    padding: 0 30rpx;
+}
+
+.module-shop-recommend .items {
+    margin: 0 5rpx 16rpx 16rpx;
+}
+
+.module-shop-recommend .item {
+    border-radius: 8rpx;
+    overflow: hidden;
+    margin-right: 11rpx;
+    width: 232rpx;
+    min-height: 400rpx;
+}
+
+.module-shop-recommend .item__img {
+    width: 232rpx;
+    height: 309rpx;
+}
+
+.module-shop-recommend .item__info {
+    min-height: 91rpx;
+    font-size: 24rpx;
+    padding: 11rpx 16rpx;
+}
+
+.module-shop-recommend .item__title {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}

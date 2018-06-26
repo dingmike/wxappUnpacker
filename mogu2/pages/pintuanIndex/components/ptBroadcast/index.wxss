@@ -1,0 +1,49 @@
+.ptBroadcast-wrap {
+    z-index: 100;
+    position: fixed;
+    top: 120rpx;
+    left: 24rpx;
+    max-width: 702rpx;
+    height: 60rpx;
+    border-radius: 60rpx;
+    background: rgba(0,0,0,.5);
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.ptBroadcast-avatar {
+    width: 60rpx;
+    height: 100%;
+    border-radius: 0 60rpx 60rpx 0;
+    overflow: hidden;
+}
+
+.ptBroadcast-avatar-image {
+    width: 100%;
+    height: 100%;
+}
+
+.ptBroadcast-info {
+    height: 100%;
+    margin-left: 10rpx;
+    margin-right: 20rpx;
+    overflow: hidden;
+}
+
+.ptBroadcast-info-text {
+    float: left;
+    height: 100%;
+    line-height: 60rpx;
+    color: #fff;
+    font-size: 24rpx;
+    overflow: hidden;
+}
+
+.ptBroadcast-info-nick {
+    max-width: 320rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

@@ -1,0 +1,130 @@
+@import "../mask/index.wxss";
+
+@import "components/address/index.wxss";
+
+@import "components/shop/index.wxss";
+
+@import "components/payBar/index.wxss";
+
+@import "components/platformCoupon/index.wxss";
+
+@import "components/bondedGoods/index.wxss";
+
+@import "components/coupon/index.wxss";
+
+@import "components/virtualBox/index.wxss";
+
+@import "components/fenqi/index.wxss";
+
+@import "components/goodsNumDialog/index.wxss";
+
+.pink {
+    color: #ff5777;
+}
+
+.fast-buy .loading-overlay,.fast-buy .ui-toast-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+.fast-buy {
+    position: fixed;
+    width: 100%;
+    bottom: 0rpx;
+    height: 790rpx;
+    z-index: 100;
+    background: #efefef;
+}
+
+.normal-fast-buy {
+    height: 100%;
+}
+
+.ui-panel {
+    padding-bottom: 120rpx;
+}
+
+.salebar-all {
+    margin-top: 20rpx;
+    border: 0;
+}
+
+.salebar-all:before,.salebar-all:after {
+    display: none;
+}
+
+.salebar-fenqi-desc {
+    text-align: right;
+    padding-right: 20rpx;
+}
+
+.presale-desc {
+    flex: 1;
+}
+
+.presale-ask {
+    display: inline-block;
+    width: 36rpx;
+    height: 36rpx;
+    line-height: 36rpx;
+    background: #999;
+    color: #fff!important;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 24rpx;
+}
+
+.fast-buy-scoll {
+    height: 700rpx;
+    overflow: scroll;
+}
+
+.normal-fast-buy-scroll {
+    height: 100%;
+    overflow: auto;
+}
+
+.fast-buy-titlebar {
+    text-align: center;
+    width: 100%;
+    height: 88rpx;
+    line-height: 88rpx;
+    position: relative;
+    color: #333;
+    border-bottom: 1rpx solid #e5e5e5;
+    font-size: 32rpx;
+    background: #fff;
+}
+
+.fast-buy-close {
+    padding: 0;
+    text-align: center;
+    border-radius: 0;
+    position: absolute;
+    font-size: 30rpx;
+    right: 25rpx;
+    top: 0rpx;
+    width: 50rpx;
+    color: #333;
+}
+
+.switch-title {
+    flex: 1;
+}
+
+.salebar-fenqi {
+    border-top: 1rpx solid #ececec;
+}
+
+.bondedgoods-text-tip {
+    height: 60rpx;
+    font-size: 24rpx;
+    color: #FF5777;
+    text-align: left;
+    line-height: 60rpx;
+    padding-left: 32rpx;
+    background-color: #ffe8ee;
+}

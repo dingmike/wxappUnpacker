@@ -1,0 +1,15 @@
+<template name="goodsNumDialog">
+    <view wx:if="{{state==='show'}}">
+        <view class="ui-mask dialog--{{state}}"></view>
+        <view class="dialog dialog--{{state}} dialog-comment">
+            <view class="dialog-head">修改购买数量</view>
+            <view class="dialog-body">
+                <input bindinput="{{$scope}}.inputGoodsNum" class="dialog-input" focus="true" type="number" value="{{counter}}"></input>
+            </view>
+            <view class="dialog-foot">
+                <view bindtap="{{$scope}}.cancelHandler" class="dialog-foot--cancel">取消</view>
+                <view bindtap="{{$scope}}.okHandler" class="dialog-foot--ok">确定</view>
+            </view>
+        </view>
+    </view>
+</template>

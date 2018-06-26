@@ -1,0 +1,3 @@
+.component__footfav {
+    border-left: solid 1px #e5e5e5;
+}

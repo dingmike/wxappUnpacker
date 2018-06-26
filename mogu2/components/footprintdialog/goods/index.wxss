@@ -1,0 +1,125 @@
+.good {
+    height: 240rpx;
+    padding: 14rpx 20rpx;
+    background-color: #fff;
+    border-bottom: 1rpx solid #e5e5e5;
+}
+
+.good-image {
+    width: 200rpx;
+    height: 200rpx;
+    margin-right: 20rpx;
+    background-color: #e5e5e5;
+    overflow: hidden;
+    flex: none;
+}
+
+.good-info {
+    max-width: 518rpx;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.good-top {
+}
+
+.good-title {
+    color: #333;
+    font-size: 28rpx;
+    word-break: break-all;
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+.good-title-tag {
+    color: #ff5777;
+    font-size: 22rpx;
+    padding: 6rpx;
+    height: 36rpx;
+    line-height: 36rpx;
+    background-color: #ffe8ee;
+    border-radius: 2rpx;
+    margin-right: 16rpx;
+}
+
+.good-bottom {
+}
+
+.good-promotion {
+    height: 32rpx;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+}
+
+.good-price {
+    height: 50rpx;
+    align-items: center;
+}
+
+.good-price--icon {
+    width: 52rpx;
+    height: 28rpx;
+    margin-right: 8rpx;
+}
+
+.good-price-now {
+    height: 40rpx;
+    margin-right: 16rpx;
+    color: #ff5777;
+    font-size: 38rpx;
+    font-weight: 500;
+    font-family: Arial,sans-serif;
+    line-height: 50rpx;
+}
+
+.good-price-old {
+    height: 24rpx;
+    color: #999;
+    font-size: 24rpx;
+    font-family: Arial,sans-serif;
+    line-height: 30rpx;
+    text-decoration: line-through;
+    align-items: baseline;
+}
+
+.good-countdown {
+    border-radius: 2rpx;
+    font-size: 22rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+}
+
+.good-countdown--text--start {
+    color: #fd961a;
+    padding-right: 12rpx;
+    background-color: rgba(253,150,26,0.13);
+}
+
+.good-countdown--text--end {
+    color: #ff5777;
+    padding-right: 12rpx;
+    background-color: rgba(255,87,119,0.13);
+}
+
+.footprint-countdown--start {
+    color: #fd961a!important;
+    padding-left: 12rpx;
+    background-color: rgba(253,150,26,0.13);
+}
+
+.footprint-countdown--end {
+    color: #ff5777!important;
+    padding-left: 12rpx;
+    background-color: rgba(255,87,119,0.13);
+}
+
+.footprint-num {
+    font-size: 22rpx;
+}
+
+.footprint-symbol {
+    font-size: 22rpx;
+}

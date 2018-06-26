@@ -1,0 +1,92 @@
+<template name="shopGoods">
+    <view class="ui-view {{type}}-ui-view" style="padding-bottom: {{type=='half'?marginBottom:0}}" wx:if="{{shops&&shops.length}}">
+        <view class="{{type=='normal'?'':'ui-cart-panel-first'}}">
+            <template is="crossShopDiscount" data="{{...$crossShopDiscount}}" wx:if="{{$crossShopDiscount.crossShopDiscountBanner}}"></template>
+        </view>
+        <view class="ui-cart-panel {{i==shops.length-1&&!cartOver&&type=='normal'?'ui-cart-panel-last':''}}" wx:if="{{!item.deleted}}" wx:for="{{shops}}" wx:for-index="i" wx:key="shopId">
+            <view class="ui-shop flex f-ai-c">
+                <label class="ui-shophead flex">
+                    <view bindtap="{{$scope}}.shopChange" class="ui-icon" id="{{item.shopIdEsc}}" style="opacity: {{item.hideShopInput?0:1}}" wx:if="{{!item.hideShopInput}}">
+                        <view class="ui-icon-checked" style="opacity:{{shopMap[item.shopIdEsc]?1:0}}"></view>
+                    </view>
+                    <view class="ui-icon" style="opacity: 0" wx:if="{{item.hideShopInput}}">
+                        <view class="ui-icon-checked" style="opacity: 0"></view>
+                    </view>
+                    <text bindtap="{{$scope}}.navigateShop" class="f-as-c {{item.groupTypeEnum=='INVALID'?'ui-shoptitle-invalid':''}}" data-noHref="{{item.noHref}}" data-shop-id="{{item.shopIdEsc}}">{{item&&item.shopName}}</text>
+                    <image class="ui-shoptag f-as-c" src="{{tagItem&&tagItem.image}}" style="width: {{tagItem&&tagItem.width}}rpx; height: 36rpx;" wx:for="{{item&&item.shopTags}}" wx:for-item="tagItem" wx:key="image"></image>
+                </label>
+                <text bindtap="{{$scope}}.getCoupon" class="ui-coupon f-as-c" data-shopname="{{item.shopName}}" id="{{item.sellerId}}" wx:if="{{item.promotionTag}}">领券<text class="m-icon cart-m-icon m-icon-arrow-right"></text>
+                </text>
+            </view>
+            <view class="ui-goods" wx:if="{{!item.deleted}}">
+                <view class="flex" wx:if="{{!skuDeleteMap[skuItem.stockIdEsc]}}" wx:for="{{item.cartItemGroup}}" wx:for-item="skuItem" wx:key="stockId">
+                    <view bindtap="{{$scope}}.itemBoxChange" class="" data-shop-id="{{item.shopIdEsc}}" id="{{skuItem.stockIdEsc}}" wx:if="{{!skuItem.hideInput}}">
+                        <label>
+                            <view class="ui-icon ui-skuItem-icon" style="opacity:{{skuItem.hideInput?0:1}}">
+                                <view class="ui-icon-checked" style="opacity:{{skuMap[skuItem.stockIdEsc]?1:0}}"></view>
+                            </view>
+                        </label>
+                    </view>
+                    <view wx:if="{{skuItem.hideInput}}">
+                        <label>
+                            <view class="ui-icon ui-skuItem-icon" style="opacity: 0">
+                                <view class="ui-icon-checked" style="opacity: 0"></view>
+                            </view>
+                        </label>
+                    </view>
+                    <view class="flex ui-skuItem">
+                        <view bindtap="{{$scope}}.clickHandler" data-item-id="{{skuItem.itemIdEsc}}" data-ptp-from-cnt="{{skuItem.ptpCnt}}" data-ptp_from="{{skuItem.ptp}}" style="position: relative;">
+                            <image class="ui-sku-img" mode="aspectFill" src="{{skuItem.imgHttps}}"></image>
+                            <text class="ui-invalid" wx:if="{{skuItem.inValid&&item.groupTypeEnum=='INVALID'}}">失效</text>
+                        </view>
+                        <view class="ui-skuInfo">
+                            <view bindtap="{{$scope}}.clickHandler" class="ui-skuTitle" data-item-id="{{skuItem.itemIdEsc}}" data-ptp-from-cnt="{{skuItem.ptpCnt}}" data-ptp_from="{{skuItem.ptp}}">
+                                <text class="packBuy" wx:if="{{skuItem.skuTitleTag}}">{{skuItem.skuTitleTag}}</text>{{skuItem&&skuItem.title}}</view>
+                            <view class="ui-skuDesc">
+                                <text wx:if="{{skuItem.reason}}">{{skuItem.reason}}</text>
+                                <view class="ui-skuDesc-overflow" wx:else>
+                                    <text wx:for="{{skuItem.skuAttributes}}" wx:for-item="skuAttr" wx:key="key">{{skuAttr.key}}：{{skuAttr.value}}；</text>
+                                </view>
+                            </view>
+                            <view class="flex ui-sku-number">
+                                <view class="ui-number" wx:if="{{item.normalGroup}}">
+                                    <button class="ui-modify ui-minus" data-handler="minus" data-num="{{skuItem.number||1}}" data-shopId="{{item.shopIdEsc}}" formType="submit" id="{{skuItem.stockIdEsc}}">
+                                        <text class="m-icon cart-m-icon m-icon-minus {{skuItem.number>1?'m-icon-minus-red':''}}"></text>
+                                    </button>
+                                    <text bindtap="{{$scope}}.openNumBox" class="ui-modify ui-num" data-num="{{skuItem.number||1}}" data-shopId="{{item.shopIdEsc}}" data-stock="{{skuItem.stock}}" id="{{skuItem.stockIdEsc}}">{{skuItem.number}}</text>
+                                    <button class="ui-modify ui-add" data-handler="add" data-num="{{skuItem.number||1}}" data-shopId="{{item.shopIdEsc}}" data-stock="{{skuItem.stock}}" formType="submit" id="{{skuItem.stockIdEsc}}">
+                                        <text class="m-icon cart-m-icon m-icon-add {{skuItem.number<skuItem.stock?'m-icon-add-red':''}}"></text>
+                                    </button>
+                                </view>
+                                <view class="sku-number--alert f-as-c" wx:if="{{!skuItem.inStock&&!skuItem.inValid}}">库存不足</view>
+                            </view>
+                            <view class="flex f-fw-w ui-skuTagswrap">
+                                <view class="{{skuTag.tagClass}}" style="{{skuTag.tagStyle}}" wx:for="{{skuItem&&skuItem.remindTags}}" wx:for-item="skuTag" wx:key="text">{{skuTag.text}}</view>
+                            </view>
+                        </view>
+                        <view class="ui-price flex f-fd-c f-ai-fe">
+                            <view class="ui-pricewrap">
+                                <image class="ui-price-pt" src="{{priceTag}}" wx:if="{{skuItem.isPintuan}}" wx:for="{{skuItem.priceTagList}}" wx:for-item="priceTag" wx:key="*this"></image>
+                                <view class="ui-now-price">¥{{skuItem.nowprice}}</view>
+                                <view class="ui-old-price" wx:if="{{skuItem.nowprice!=skuItem.price}}">¥{{skuItem.price}}</view>
+                            </view>
+                            <form bindsubmit="{{$scope}}.formSubmitHandler" reportSubmit="true">
+                                <button class="ui-delete" data-handler="delete" data-shopId="{{item.shopIdEsc}}" formType="submit" id="{{skuItem.stockIdEsc}}"></button>
+                            </form>
+                        </view>
+                    </view>
+                </view>
+                <view class="shop-coudan flex f-jc-sb f-ai-c" wx:if="{{shopCdMap[item.shopIdEsc]&&shopCdMap[item.shopIdEsc].coudanStatus}}">
+                    <view class="coudan-left flex f-ai-c">
+                        <view class="shop-coudan-tag f-as-c">{{shopCdMap[item.shopIdEsc].promotionTag}}</view>
+                        <view class="coudan-desc f-as-c shop-coudan-desc">{{shopCdMap[item.shopIdEsc].desc}}</view>
+                    </view>
+                    <view bindtap="{{$scope}}.goCoudan" class="shop-coudan-go f-as-c" data-promotion-code="{{shopCdMap[item.shopIdEsc].promotionCode}}" data-promotion-id="{{shopCdMap[item.shopIdEsc].promotionId}}" data-shop-id="{{item.shopIdEsc}}" data-title="{{shopCdMap[item.shopIdEsc].title}}" wx:if="{{shopCdMap[item.shopIdEsc].coudanStatus==2}}">去凑单<text class="m-icon cart-cd-icon m-icon-arrow-right"></text>
+                    </view>
+                </view>
+            </view>
+            <view class="load-more" wx:if="{{!cartOver&&i==shops.length-1}}">正在加载中...</view>
+        </view>
+    </view>
+</template>
+<import src="../crossShopDiscount/index.wxml"></import>

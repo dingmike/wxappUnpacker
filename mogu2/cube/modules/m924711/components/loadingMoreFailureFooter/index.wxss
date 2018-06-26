@@ -1,0 +1,13 @@
+.MCUBE_MOD_ID_924711 .live-list-loading-more-failure-footer-wrap {
+    width: 750rpx;
+    padding: 50rpx 0 0 0;
+    box-sizing: content-box;
+    overflow: hidden;
+}
+
+.MCUBE_MOD_ID_924711 .live-list-loading-more-failure-footer-text {
+    overflow: hidden;
+    color: rgb(102,102,102);
+    font-size: 24rpx;
+    font-family: Arial;
+}

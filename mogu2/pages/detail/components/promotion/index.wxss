@@ -1,0 +1,197 @@
+@import "../coupon/index.wxss";
+
+.component__promotion.promotion {
+    padding: 20rpx 0 0 0;
+}
+
+.component__promotion.promotion .promotion__head {
+    font-size: 24rpx;
+    color: #999999;
+    margin-bottom: 16rpx;
+    padding: 0 32rpx;
+}
+
+.component__promotion.promotion .promotion__coupon {
+    overflow: auto;
+    width: 100%;
+    margin-bottom: 10rpx;
+}
+
+.component__promotion.promotion .promotion__coupon--inner {
+    padding: 0 32rpx;
+}
+
+.component__promotion.promotion .promotion__coupon--item {
+    margin-right: 8rpx;
+    width: 200rpx;
+    display: block;
+}
+
+.component__promotion.promotion .promotion__package {
+    border-top: 1rpx solid #EEEEEE;
+    padding: 30rpx 32rpx;
+}
+
+.component__promotion.promotion .package__title {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.component__promotion.promotion .package__arrow {
+    font-size: 24rpx;
+    color: #999999;
+    height: 34rpx;
+    line-height: 34rpx;
+    white-space: nowrap;
+    word-break: keep-all;
+}
+
+.component__promotion.promotion .package__arrow--icon {
+    font-size: 24rpx;
+    margin-left: 5rpx;
+}
+
+.component__promotion.promotion .package__title--text {
+    font-size: 24rpx;
+    color: #999999;
+}
+
+.component__promotion.promotion .promotion__reduce {
+    padding: 30rpx 32rpx;
+    border-top: 1rpx solid #EEEEEE;
+}
+
+.component__promotion.promotion .reduce__list {
+    width: 80%;
+}
+
+.component__promotion.promotion .reduce__list--item {
+    display: inline;
+    margin-bottom: 5rpx;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.component__promotion.promotion .list__text {
+    font-size: 24rpx;
+    color: #666666;
+    display: inline;
+}
+
+.component__promotion.promotion .tag {
+    width: 72rpx;
+    height: 32rpx;
+    line-height: 32rpx;
+    text-align: center;
+    border-radius: 4rpx;
+    color: #ffffff;
+    font-size: 20rpx;
+    margin-right: 10rpx;
+    background: linear-gradient(to left top,#fb4747,#ff8c5e);
+}
+
+.tag-packageSale::after {
+    content: '打包卖';
+}
+
+.tag-desc::after {
+    content: '促销';
+}
+
+.tag-packageSale-full::after {
+    content: '打包卖';
+}
+
+.tag-reachReduce-full::after {
+    content: '满减';
+}
+
+.tag-itemCountOverReduce-full::after {
+    content: '满减';
+}
+
+.tag-reachGift-full:after {
+    content: '满送券';
+}
+
+.tag-reachFreePostage-full::after {
+    content: '满包邮';
+}
+
+.tag-itemCountOverFreePostage-full::after {
+    content: '满件送';
+}
+
+.tag-itemCountOverDiscount-full::after {
+    content: '满折';
+}
+
+.tag-mlsGold-full::after {
+    content: '美美豆';
+}
+
+.tag-itemCountOverFree-full::after {
+    content: '满免';
+}
+
+.tag-itemCountOverGift-full::after {
+    content: '满件送';
+}
+
+.component__promotion.promotion .reduce__arrow {
+    font-size: 24rpx;
+    color: #999999;
+    height: 34rpx;
+    line-height: 34rpx;
+    white-space: nowrap;
+    word-break: keep-all;
+}
+
+.component__promotion.promotion .reduce__arrow--icon {
+    font-size: 24rpx;
+    color: #999999;
+    margin-left: 5rpx;
+}
+
+.component__promotion.promotion .promotion__dialog--content {
+    padding: 0 32rpx;
+    width: auto;
+}
+
+.component__promotion.promotion .content__item {
+    border-bottom: 1rpx solid #EDEDED;
+}
+
+.component__promotion.promotion .content__item--tag {
+    margin-top: 20rpx;
+}
+
+.component__promotion.promotion .content__item--text.text {
+    margin-left: 20rpx;
+    margin-bottom: 20rpx;
+    width: 100%;
+}
+
+.component__promotion.promotion .text__item {
+    margin-top: 16rpx;
+}
+
+.component__promotion.promotion .text__item--content {
+}
+
+.component__promotion.promotion .text__item--text {
+    font-size: 28rpx;
+    color: #333333;
+}
+
+.component__promotion.promotion .text__item--time {
+    font-size: 22rpx;
+    color: #999999;
+}
+
+.component__promotion.promotion .text__item--icon {
+    font-size: 28rpx;
+    color: #333333;
+}

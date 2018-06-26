@@ -1,0 +1,98 @@
+.address {
+    position: relative;
+    background: #fff;
+    font-size: 24rpx;
+    color: #424242;
+    padding-left: 32rpx;
+    background: #fff url(https://s10.mogucdn.com/p2/170214/126946420_07l7d36300234hlef16ggj1275537_88x10.png) repeat-x;
+    background-size: 10%;
+    min-height: 100rpx;
+    line-height: initial;
+    text-align: left;
+    border-radius: 0;
+}
+
+.address:before,.address:after {
+    display: none;
+}
+
+.address-contacter {
+    padding: 32rpx 66rpx 10rpx 50rpx;
+    font-size: 28rpx;
+}
+
+.address-no {
+    height: 100rpx;
+    line-height: 100rpx;
+    color: #333;
+    font-size: 28rpx;
+    padding-left: 56rpx;
+}
+
+.address-addr {
+    color: #727272;
+    padding: 10rpx 66rpx 32rpx 50rpx;
+    line-height: 32rpx;
+}
+
+.address-arrow {
+    position: absolute;
+    top: 50%;
+    right: 14rpx;
+    transform: translate(-50%,-50%);
+    -webkit-transform: -webkit-translate(-50%,-50%);
+}
+
+.m-icon.address-location {
+    position: absolute;
+    top: 50%;
+    left: 32rpx;
+    color: #999;
+    transform: translate(0,-50%);
+    font-size: 40rpx;
+}
+
+.default-tip {
+    background-color: #FFEEEE;
+    padding: 0 8rpx;
+    color: #000;
+    white-space: nowrap;
+}
+
+.set-default-addr {
+    font-size: 24rpx;
+    line-height: 72rpx;
+    background-color: #fff;
+    padding-left: 80rpx;
+    border-top: solid 1rpx #eee;
+}
+
+.isdefault-addr {
+    border-radius: 100%;
+    border: solid 1px #111;
+}
+
+.addr-common {
+    width: 32rpx;
+    height: 32rpx;
+    display: inline-block;
+    margin-right: 10rpx;
+}
+
+.set-addr-color {
+    color: #000;
+}
+
+.addr-wrap {
+    align-items: center;
+}
+
+.no-select {
+    background: url(http://s3.mogucdn.com/mlcdn/c45406/171225_2jbkbg8bc86h102g6j7fekl2iag9a_32x32.png) no-repeat;
+    background-size: cover;
+}
+
+.select {
+    background: url(http://s15.mogucdn.com/mlcdn/c45406/171225_7jgcce6j4f5ehafh490a95lee3ad7_32x32.png) no-repeat;
+    background-size: cover;
+}

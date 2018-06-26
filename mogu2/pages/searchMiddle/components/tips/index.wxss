@@ -1,0 +1,81 @@
+.tips_wrap {
+    position: absolute;
+    top: 180rpx;
+    width: 100%;
+    height: 1300rpx;
+    background: #fff;
+    z-index: 2;
+}
+
+.tips_item {
+    width: 96%;
+    height: 120rpx;
+    margin-left: 30rpx;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.tip_wrap {
+    min-width: 100rpx;
+    max-width: 12em;
+    margin-right: 36rpx;
+    overflow: hidden;
+}
+
+.tip_wrap_none {
+    max-width: 100%;
+}
+
+.tip_name {
+    max-width: 12em;
+    height: 40rpx;
+    line-height: 40rpx;
+    font-size: 28rpx;
+    color: #333;
+    margin-bottom: 4rpx;
+    overflow: hidden;
+}
+
+.tip_name_none {
+    max-width: 100%;
+    color: #666;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.tip-icon {
+    margin-left: 24rpx;
+    margin-right: 11rpx;
+    font-size: 30rpx;
+    font-weight: bold;
+    color: #999;
+}
+
+.tip_good_number {
+    height: 33rpx;
+    line-height: 33rpx;
+    font-size: 24rpx;
+    color: #999;
+}
+
+.tags_wrap {
+    max-width: 52%;
+    height: 60rpx;
+    align-items: center;
+    margin-top: 30rpx;
+    overflow: hidden;
+}
+
+.tag_item {
+    min-width: 4em;
+    max-width: 7em;
+    overflow: hidden;
+    height: 60rpx;
+    border-radius: 4rpx;
+    margin-right: 10rpx;
+    padding: 0 30rpx;
+    color: #666;
+    line-height: 60rpx;
+    font-size: 24rpx;
+    background-color: #f6f6f6;
+}

@@ -1,0 +1,35 @@
+<template name="wallTuanItemsBox">
+    <view class="J_items_box" id="J_items_box" style="min-height:{{$wall.scrollBoxHeight}}px">
+        <block wx:if="{{$wall.itemPackageList}}">
+            <view class="goods_list_mod clearfix" wx:for="{{$wall.itemPackageList}}" wx:for-item="itemList" wx:key="itemPackageList">
+                <view catchtap="$wall.linkClick" class="goods_item goods_item_v61 pagani_log_link fl" data-acm="{{item.acm}}" data-link="{{item.link}}" data-ptp-c="{{item.ptpC}}" id="pagani_log_{{item.tradeItemId}}_{{item.index}}" wx:for="{{$wall[itemList.name]}}" wx:key="itemList">
+                    <view class="goods_img J_dynamic_imagebox" style="background: #e5e5e5 url({{item.img}}) no-repeat center center; background-size: auto 102%;">
+                        <view catchtap="$wall.linkClick" class="like_link" data-link="{{item.similarityUrl}}" wx:if="{{item.hasSimilarity&&item.similarityUrl}}"></view>
+                    </view>
+                    <view class="top_icon" style="background:url({{item.leftTop}}) no-repeat; background-size:100% auto;" wx:if="{{item.leftTop}}"></view>
+                    <view class="goods_info">
+                        <view class="goods_title text_hide">
+                            <view class="good_title_discount" style="color:{{priceColor}};border-color:{{priceColor}}" wx:if="{{item.discount>0&&item.discount<10}}">{{item.discount+'折'}}</view>
+                            {{item.title||''}}
+                        </view>
+                        <view class="goods_price_old text_hide" style="font-family:Arial;">
+                                {{item.orgPrice?'¥'+item.orgPrice:''}}
+                            </view>
+                        <view class="goods_price text_hide">
+                            <view class="goods_price_now" style="color:{{priceColor}}">{{item.price?'¥'+item.price:''}}</view>
+                            <view class="goods_sale">{{item.sale?'已售'+item.sale:item.salesVolume?'已售'+'item.salesVolume':''}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <view class="wall_loading" wx:if="{{!$wall.endContent}}">正在加载中...</view>
+        <view class="wall_loading" wx:elif="{{$wall.endContent=='end'}}">没有更多商品了~</view>
+        <view class="ui-empty" wx:elif="{{$wall.endContent=='noResult'}}">
+            <view class="ui-empty-box">
+                <image class="ui-empty-image" mode="fitAspect" src="https://s10.mogucdn.com/p2/161213/upload_74hhee883cbf190e3di6cljk23679_514x260.png"></image>
+                <view class="ui-empty-text">抱歉！没找到相关商品~</view>
+            </view>
+        </view>
+    </view>
+</template>

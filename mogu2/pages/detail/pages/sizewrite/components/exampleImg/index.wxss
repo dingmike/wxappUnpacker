@@ -1,0 +1,10 @@
+.sizeWrite-image {
+    width: 750rpx;
+    height: 534rpx;
+    font-size: 0;
+}
+
+.sizeWrite-image .example-img {
+    width: 750rpx;
+    height: 534rpx;
+}

@@ -1,0 +1,176 @@
+.refund-text {
+    font-size: 26rpx;
+    font-weight: 700;
+}
+
+.refund-tip {
+    color: #666;
+}
+
+.freight-icon {
+    display: inline-block;
+    width: 30rpx!important;
+}
+
+.shop-show--refund {
+    padding: 20rpx 30rpx 20rpx 0;
+    border-bottom: 1rpx solid #ececec;
+    font-size: 24rpx;
+    line-height: 42rpx;
+}
+
+.shop {
+    margin: 20rpx 0;
+    border-left: none;
+    border-right: none;
+}
+
+.quest-tip {
+    background: url(https://s10.mogucdn.com/mlcdn/c45406/170831_45h868c78359h25c713l5185663d2_30x30.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 31rpx;
+    width: 264rpx;
+}
+
+.triangle-down {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 10rpx solid transparent;
+    border-right: 10rpx solid transparent;
+    border-top: 16rpx solid rgb(255,235,240);
+    top: 4rpx;
+    left: 65rpx;
+}
+
+.tax-tip {
+    position: absolute;
+    left: 0;
+    top: -74rpx;
+    font-size: 22rpx;
+    color: rgb(255,87,119);
+    background-color: rgb(255,235,240);
+    width: 548rpx;
+    line-height: 30rpx;
+    padding: 10rpx;
+    border-radius: 6rpx;
+}
+
+.mogu-color {
+    color: #ff5777!important;
+}
+
+.shop-title {
+    background: #fff;
+    padding: 20rpx 30rpx;
+    font-weight: 400;
+    border-bottom: 1rpx solid #ececec;
+    color: #424242;
+    font-size: 28rpx;
+}
+
+.shop-title--tip {
+    margin-left: 5rpx;
+}
+
+.shop-title--show {
+    display: block;
+    height: 40rpx;
+    line-height: 40rpx;
+}
+
+.shop-title--im {
+    display: block;
+}
+
+.shop-title--logo {
+    width: 40rpx;
+    height: 40rpx;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-top: -7rpx;
+}
+
+.shop-show {
+    background: #fff;
+    padding-left: 30rpx;
+}
+
+.shop-show--list {
+    color: #666;
+}
+
+.shop-show--item {
+    padding: 20rpx 30rpx 20rpx 0;
+    border-bottom: 1rpx solid #ececec;
+    font-size: 24rpx;
+    line-height: 42rpx;
+    position: relative;
+}
+
+.shop-show--item:last-child {
+    border-bottom: 0;
+}
+
+.m-icon-message {
+    display: inline-block;
+    margin-right: 5rpx;
+    color: #ff5555!important;
+    font-size: 36rpx;
+    vertical-align: middle;
+}
+
+.shop-item-title {
+    display: block;
+}
+
+.shop-item-redpacket {
+    display: inline;
+}
+
+.shop-item-value {
+    display: block;
+    text-align: right;
+}
+
+.pre-sell--unPay {
+    display: none;
+}
+
+.is-active .pre-sell--unPay {
+    display: inline-block;
+}
+
+.inline {
+    display: inline-block!important;
+}
+
+.is-active .pre-sell--hasPayed {
+    display: none;
+}
+
+.is-unactive .pre-sell--unPay {
+    display: inline-block;
+}
+
+.is-unactive .pre-sell--hasPayed {
+    display: none;
+}
+
+.total-price {
+    font-size: 26rpx;
+    font-weight: 700;
+    position: relative;
+    align-items: center;
+}
+
+.promotion-desc {
+    position: relative;
+}
+
+.promotion-desc--value {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}

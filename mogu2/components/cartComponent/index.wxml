@@ -1,0 +1,84 @@
+<template name="cartComponent">
+    <template is="skuNum" data="{{...$skuNum}}"></template>
+    <template is="mask" data="{{...$mask}}" wx:if="{{type!='normal'}}"></template>
+    <template is="loading" data="{{...$loading}}"></template>
+    <template is="toast" data="{{...$toast}}"></template>
+    <view class="cart-wrapper--{{type}} flex {{type=='normal'&&!showEmptyPage&&resource.img&&!$crossShopDiscount.crossShopDiscountBanner?'cart-mt':''}}" hidden="{{!isShow&&type!='normal'}}" style="{{showEmptyPage?'background: #fff;':''}}">
+        <view class="swiper-cart swiper-cart-{{openCoupon}} {{type}}-no-swiper-cart">
+            <view class="cart-banner" wx:if="{{type=='normal'&&!showEmptyPage&&resource&&!$crossShopDiscount.crossShopDiscountBanner}}">
+                <view bindtap="$navigate" data-href="{{resource.link_xcx}}" wx:if="{{resource.img}}">
+                    <image class="cart-banner--image" src="{{resource.img}}"></image>
+                </view>
+            </view>
+            <view class="cart-titlebar" wx:if="{{type!='normal'}}">
+                <text class="cart-titlebar-title">我的购物车</text>
+                <text bindtap="{{$scope}}.closeCartComponent" class="cart-titlebar-close">╳</text>
+            </view>
+            <template is="empty" data="{{...$empty}}" wx:if="{{showEmptyPage}}"></template>
+            <form bindsubmit="{{$scope}}.formSubmitHandler" reportSubmit="true" wx:if="{{!showEmptyPage}}">
+                <template is="shopGoods" data="{{$scope:$scope,$crossShopDiscount:$crossShopDiscount,shops:shops,cartOver:cartOver,shopCdMap:shopCdMap,skuMap:skuMap,shopMap:shopMap,skuDeleteMap:skuDeleteMap,shopCdMapOrigin:shopCdMapOrigin,type:type}}" wx:if="{{type=='normal'}}"></template>
+                <scroll-view scrollY catchscrolltolower="{{$scope}}.cartScrollEvent" class="J_scroll_wallbox" data-s="{{$scope}}.cartScrollEvent" lowerThreshold="50" scrollLeft="0" scrollTop="" style="height: 890rpx;position: fixed;bottom: 0;left: 0;z-index: 100;overflow: hidden;" wx:else>
+                    <template is="shopGoods" data="{{$scope:$scope,$crossShopDiscount:$crossShopDiscount,shops:shops,cartOver:cartOver,shopCdMap:shopCdMap,skuMap:skuMap,shopMap:shopMap,skuDeleteMap:skuDeleteMap,shopCdMapOrigin:shopCdMapOrigin,type:type,marginBottom:marginBottom}}"></template>
+                </scroll-view>
+                <view class="cart-coudan-wrap">
+                    <view class="cart-coudan flex f-jc-sb f-ai-c" style="{{cartLevelCoudan.styles}}" wx:if="{{cartLevelCoudan.coudanStatus}}">
+                        <view class="coudan-left flex f-ai-c">
+                            <view class="coudan-tag f-as-c cart-coudan-tag" style="{{cartLevelCoudan.tagStyle}}" wx:if="{{cartLevelCoudan.activityName}}">{{cartLevelCoudan.activityName}}</view>
+                            <view class="coudan-desc f-as-c cart-coudan-desc">{{cartLevelCoudan.desc}}</view>
+                        </view>
+                        <view bindtap="{{$scope}}.goCoudan" data-promotion-code="{{cartLevelCoudan.promotionCode}}" data-promotion-id="{{cartLevelCoudan.promotionId}}" data-title="{{cartLevelCoudan.title}}" wx:if="{{cartLevelCoudan.coudanStatus==2}}">去凑单<text class="m-icon cart-cd-icon m-icon-arrow-right"></text>
+                        </view>
+                    </view>
+                    <view class="show-{{showRecommend}}">
+                        <view class="tick-recommend flex f-ai-c" style="background: {{barBgColor}}" wx:if="{{recommends&&recommends.length}}">
+                            <view bindtap="{{$scope}}.checkRecommend" class="tick-recommen--check flex f-ai-c">
+                                <view class="ui-icon ui-all-icon">
+                                    <view class="ui-icon-checked" style="opacity:{{isRecommendChecked?1:0}}"></view>
+                                </view>
+                            </view>
+                            <view bindtap="{{$scope}}.goDetail" class="tick-recommend--mask"></view>
+                            <swiper autoplay="{{autoplay}}" bindchange="{{$scope}}.onSwiperChange" circular="{{true}}" class="tick-recommend--swiper" current="{{current>0?current:0}}" vertical="{{true}}" wx:if="{{recommends&&recommends.length}}">
+                                <swiper-item class="flex f-ai-c" wx:for="{{recommends}}" wx:key="index">
+                                    <image class="tick-recommend--tag" mode="aspectFill" src="https://s10.mogucdn.com/mlcdn/c45406/170912_594g9efdl8b4bg38i22e3e9e7ffci_24x60.png"></image>
+                                    <image class="tick-recommend--image" mode="aspectFill" src="{{item.image}}"></image>
+                                    <view class="tick-recommend--title">{{item.title}}</view>
+                                    <view class="tick-recommend--price">¥{{item.price}}</view>
+                                </swiper-item>
+                            </swiper>
+                        </view>
+                    </view>
+                </view>
+                <view class="ui-checkout flex">
+                    <view class="ui-allcheck f-as-c">
+                        <label>
+                            <view bindtap="{{$scope}}.allChange" class="ui-icon ui-all-icon" id="">
+                                <view class="ui-icon-checked" style="opacity:{{allChecked?1:0}}"></view>
+                            </view>
+                            <text bindtap="{{$scope}}.allChange" class="ui-all-text">全选（{{allCheckedNumber}}）</text>
+                        </label>
+                    </view>
+                    <view class="ui-save f-as-c">
+                        <view class="ui-save-price">{{totalPrice}}</view>
+                    </view>
+                    <button class="ui-checkBtn f-as-c" data-handler="checkout" formType="submit">结算</button>
+                </view>
+            </form>
+        </view>
+        <block wx:if="{{type=='normal'}}">
+            <template is="checkout" data="{{$scope:$scope,mixed:mixed,normalGoodsNum:normalGoodsNum,bondedGoodsNum:bondedGoodsNum,type:type}}"></template>
+            <template is="couponList" data="{{...$couponList}}"></template>
+        </block>
+        <view class="swiper-coupon swiper-coupon-{{openCoupon}} {{type}}-coupon-list" wx:if="{{type!='normal'}}">
+            <template is="checkout" data="{{$scope:$scope,mixed:mixed,normalGoodsNum:normalGoodsNum,bondedGoodsNum:bondedGoodsNum,type:type}}" wx:if="{{mixed}}"></template>
+            <template is="couponList" data="{{...$couponList}}" wx:else></template>
+        </view>
+    </view>
+</template>
+<import src="components/shopGoods/index.wxml"></import>
+<import src="components/coupon/index.wxml"></import>
+<import src="components/checkout/index.wxml"></import>
+<import src="../../components/empty/index.wxml"></import>
+<import src="../../components/mask/index.wxml"></import>
+<import src="../../components/loading/index.wxml"></import>
+<import src="../../components/toast/index.wxml"></import>
+<import src="components/skuNum/index.wxml"></import>

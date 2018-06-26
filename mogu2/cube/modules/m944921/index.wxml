@@ -1,0 +1,14 @@
+<template name="944921">
+    <view class="float-pop {{__vx_class}}" style="{{__vx_style}}">
+        <view catchtap="{{$scope}}.clickFloat" class="float-div flex log-item acm-item" data-cube-acm="{{floatObj.acm}}" data-cube-acm-node="{{true}}" data-data-log-content="{{floatObj.acm}}" data-href="{{floatObj.link}}" data-need-pop="{{floatToPopup}}" data-xcx-href="{{floatObj.link_xcx}}" style="{{floatStyle}}" wx:if="{{showFloat}}">
+            <form bindsubmit="{{$scope}}.$vx_formSubmitHandler" class="from_submit_wrap" reportSubmit="true">
+                <button formType="submit"></button>
+            </form>
+            <image class="float-img" src="{{floatObj.image}}"></image>
+        </view>
+        <view class="popup-div">
+            <template is="common-act-popup" data="{{$parent:$parent['$'+label],...$parent['$'+label]['$common-act-popup_15247322529270']}}"></template>
+        </view>
+    </view>
+</template>
+<import src="../../vxNodeModules/@meili/cube-common-popup/commonActPopup.wxml"></import>

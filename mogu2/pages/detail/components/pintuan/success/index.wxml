@@ -1,0 +1,21 @@
+<template name="pintuanSuccess">
+    <view class="module-social-pintuan-success">
+        <view class="success-title flex f-ai-c f-jc-sb">
+            <view class="success-title--text">已拼团成功{{successTuanNum}}单，快拉小伙伴去开团吧</view>
+            <view bindtap="{{$scope}}.showSku" class="success-title--arrow">去开团<i class="success-title--icon m-icon m-icon-arrow-right"></i>
+            </view>
+        </view>
+        <view class="success-tuan flex f-ff-cn">
+            <view class="success-tuan--order order flex f-ai-c f-jc-sb" wx:for="{{successTuan}}">
+                <view class="order-user flex f-ai-c">
+                    <image class="order-user--avatar" lazyLoad="{{true}}" src="{{item.avatar}}"></image>
+                    <view class="order-user--uname">{{item.nick}}</view>
+                </view>
+                <view class="order-tuan flex f-ai-c">
+                    <view class="order-tuan--time">{{item.time}}</view>
+                    <view class="order-tuan--text">已拼满</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,11 @@
+<template name="end">
+    <view class="ui-end">
+        <block wx:if="{{isEnd}}">
+            <view class="ui-end-line"></view>
+            <image class="ui-end-image" src="{{image}}"></image>
+            <view class="ui-end-text">{{text}}</view>
+            <view class="ui-end-line"></view>
+        </block>
+        <view class="ui-end-text" wx:else>{{placeholder}}</view>
+    </view>
+</template>

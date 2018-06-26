@@ -1,0 +1,129 @@
+.viewform {
+    font-size: 26rpx;
+}
+
+.empty-view {
+    height: 20rpx;
+    background-color: #f2f2f2;
+}
+
+.address {
+    padding-left: 20rpx;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    width: 100%;
+    background-color: white;
+    font-size: 24rpx;
+}
+
+.btn-area {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.btn-area button {
+    border-radius: 0;
+}
+
+.btn-set {
+    position: fixed;
+    bottom: 110rpx;
+    width: 100%;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.btn-set button {
+    border-radius: 0;
+}
+
+.section {
+    height: 90rpx;
+    display: -webkit-box;
+    display: flex;
+    margin: 5rpx;
+    border-bottom: 1rpx solid #f1f1f1;
+}
+
+.section-non-line {
+    display: -webkit-box;
+    display: flex;
+    margin: 5rpx;
+    padding-bottom: 20rpx;
+}
+
+.section__title {
+    width: 140rpx;
+    padding-top: 34rpx;
+    padding-left: 45rpx;
+}
+
+.picker-view {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    padding-top: 28rpx;
+    width: 440rpx;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: baseline;
+    align-items: baseline;
+}
+
+.picker-view text {
+    color: #888;
+}
+
+.select-icon {
+    height: 20rpx;
+    width: 34rpx;
+}
+
+.category-title {
+    display: -webkit-box;
+    display: flex;
+    margin-top: 15rpx;
+    margin-bottom: 15rpx;
+    margin-left: 36rpx;
+}
+
+.category-title .name {
+    font-size: 32rpx;
+    font-weight: 900;
+    color: #666;
+}
+
+.category-desc {
+    display: -webkit-box;
+    display: flex;
+    margin-top: 5rpx;
+    margin-left: 36rpx;
+    background-color: #fef6e5;
+    width: 90%;
+}
+
+.category-desc .name {
+    font-size: 20rpx;
+    padding: 10px;
+    color: #6b532f;
+}
+
+.pay-button::after {
+    border-radius: 0;
+}
+
+.pay-button {
+    width: 100%;
+    background-color: #fe3b2e;
+    color: #ffffff;
+}
+
+.detail_addr {
+    height: 90rpx;
+}

@@ -1,0 +1,19 @@
+.MCUBE_MOD_ID_924711 .live-list-loading-error-view-wrap {
+    width: 750rpx;
+    height: 538rpx;
+    overflow: hidden;
+}
+
+.MCUBE_MOD_ID_924711 .live-list-loading-error-view-image {
+    width: 514rpx;
+    height: 258rpx;
+    overflow: hidden;
+}
+
+.MCUBE_MOD_ID_924711 .live-list-loading-error-view-text {
+    margin: 30rpx 0 0 0;
+    overflow: hidden;
+    color: rgb(102,102,102);
+    font-size: 28rpx;
+    font-family: Arial;
+}

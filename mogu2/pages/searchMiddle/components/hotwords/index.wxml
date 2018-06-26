@@ -1,0 +1,15 @@
+<template name="hotwords">
+    <view class="searchBox-hotword flex f-fd-c" style="display: {{hotWordInfo?'flex':'none'}};">
+        <block wx:if="{{hotWordInfo}}">
+            <view class="ht-header">
+                <text class="ht-title">{{title}}</text>
+                <text bindtap="{{$scope}}.changeHotword" class="ht-change" wx:if="{{isShowChange}}">换一换</text>
+            </view>
+            <view class="ht-items-wrap flex f-fw-w">
+                <view bindtap="bindHotNavigate" class="ht-item" data-acm="{{item.acm}}" data-link="{{item.link}}" data-ptp-c="{{ptpC}}" data-ptp-d="{{index}}" data-queryWord="{{item.query}}" style="color: {{item.color}};" wx:for="{{hotWordInfo}}" wx:key="item.acm">
+          {{item.frontword}}
+        </view>
+            </view>
+        </block>
+    </view>
+</template>

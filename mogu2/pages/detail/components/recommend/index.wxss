@@ -1,0 +1,61 @@
+.component__recommend.recommend .recommend__title {
+    height: 80rpx;
+    font-size: 28rpx;
+    background: #efefef;
+}
+
+.component__recommend.recommend .recommend__title--icon {
+    width: 30rpx;
+    height: 30rpx;
+    margin-right: 5rpx;
+}
+
+.component__recommend.recommend .recommend__title--line {
+    width: 48rpx;
+    height: 1rpx;
+    background: #d8d8d8;
+    margin: 0 14rpx;
+}
+
+.component__recommend.recommend .recommend__list {
+    margin: 30rpx;
+}
+
+.component__recommend.recommend .recommend__item {
+    width: 220rpx;
+    margin: 0 15rpx 30rpx 0;
+}
+
+.component__recommend.recommend .recommend__item:nth-child(3n) {
+    margin-right: 0;
+}
+
+.component__recommend.recommend .recommend__item--image {
+    width: 100%;
+    height: 330rpx;
+    background: #e5e5e5;
+}
+
+.component__recommend.recommend .recommend__item--title {
+    height: 50rpx;
+    line-height: 50rpx;
+    font-size: 25rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.component__recommend.recommend .recommend__item--info {
+    font-size: 25rpx;
+}
+
+.component__recommend.recommend .info__icon {
+    width: 52rpx;
+    height: 28rpx;
+    margin-right: 8rpx;
+}
+
+.component__recommend.recommend .info__price {
+    margin-right: 15rpx;
+    font-family: Arial;
+}

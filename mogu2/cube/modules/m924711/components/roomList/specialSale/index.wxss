@@ -1,0 +1,180 @@
+.MCUBE_MOD_ID_924711 .live-list-special-sale-wrap {
+    width: 702rpx;
+    height: 384rpx;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 6rpx;
+    overflow: hidden;
+}
+
+.MCUBE_MOD_ID_924711 .live-list-special-sale-header {
+    width: 100%;
+    height: 118rpx;
+    overflow: hidden;
+}
+
+.MCUBE_MOD_ID_924711 .live-list-special-sale-avatar {
+    width: 70rpx;
+    height: 70rpx;
+    margin: 24rpx 16rpx 0 18rpx;
+    border-radius: 35rpx;
+    background-color: #e5e5e5;
+    overflow: hidden;
+    float: left;
+}
+
+.MCUBE_MOD_ID_924711 .live-list-special-sale-room-mark {
+    width: 250rpx;
+    height: 40rpx;
+    margin: 22rpx 18rpx 0 0;
+    overflow: hidden;
+    float: right;
+}
+
+.MCUBE_MOD_ID_924711 .live-list-special-sale-title {
+    max-width: 300rpx;
+    height: 42rpx;
+    margin-top: 25rpx;
+    color: #333;
+    font-size: 32rpx;
+    line-height: 42rpx;
+    font-family: Arial,Helvetica,sans-serif;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    display: block;
+}
+
+.MCUBE_MOD_ID_924711 .live-list-special-sale-on-live-wrap {
+    margin: 3rpx 0 0 16rpx;
+    overflow: hidden;
+}
+
+.MCUBE_MOD_ID_924711 .live-list-special-sale-on-live-dot {
+    width: 16rpx;
+    height: 16rpx;
+    background-color: #f5342f;
+    border-radius: 8rpx;
+    margin: 0 6rpx 0 0;
+    overflow: hidden;
+}
+
+.MCUBE_MOD_ID_924711 .live-list-special-sale-on-live-text {
+    height: 30rpx;
+    color: #999;
+    font-size: 20rpx;
+    line-height: 30rpx;
+    font-family: Arial,Helvetica,sans-serif;
+}
+
+.MCUBE_MOD_ID_924711 .live-list-special-sale-goods-list-wrap {
+    width: 100%;
+    padding-left: 18rpx;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.MCUBE_MOD_ID_924711 .live-list-special-sale-goods-list-item {
+    border-radius: 4rpx;
+    margin-right: 6rpx;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.MCUBE_MOD_ID_924711 .live-list-special-sale-goods {
+    width: 172rpx;
+    height: 248rpx;
+    background-color: rgba(255,238,238,0.95);
+}
+
+.MCUBE_MOD_ID_924711 .live-list-special-sale-goods-cover {
+    width: 100%;
+    height: 172rpx;
+    background-color: #e5e5e5;
+    overflow: hidden;
+}
+
+.MCUBE_MOD_ID_924711 .live-list-special-sale-goods-promotion-price-container {
+    width: 100%;
+    padding: 0 8rpx 0 8rpx;
+    margin: 3rpx 0 0 0;
+    overflow: hidden;
+}
+
+.MCUBE_MOD_ID_924711 .live-list-special-sale-goods-promotion-price-icon {
+    width: 44rpx;
+    height: 25rpx;
+    overflow: hidden;
+}
+
+.MCUBE_MOD_ID_924711 .live-list-special-sale-goods-promotion-price {
+    max-width: 110rpx;
+    height: 36rpx;
+    margin: 3rpx 0 0 0;
+    color: #fb4747;
+    font-size: 26rpx;
+    line-height: 36rpx;
+    font-family: Arial,Helvetica,sans-serif;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.MCUBE_MOD_ID_924711 .live-list-special-sale-goods-normal-price {
+    max-width: 156rpx;
+    height: 32rpx;
+    margin: -1rpx 8rpx 0 8rpx;
+    color: #999;
+    font-size: 22rpx;
+    line-height: 32rpx;
+    font-family: Arial,Helvetica,sans-serif;
+    text-decoration: line-through;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    display: block;
+}
+
+.MCUBE_MOD_ID_924711 .live-list-special-sale-goods-list-more {
+    width: 132rpx;
+    height: 248rpx;
+    background-color: #e5e5e5;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.MCUBE_MOD_ID_924711 .live-list-special-sale-goods-list-more-content {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.MCUBE_MOD_ID_924711 .live-list-special-sale-goods-list-more-text {
+    max-width: 118rpx;
+    height: 34rpx;
+    color: #333;
+    font-size: 24rpx;
+    line-height: 34rpx;
+    font-family: Arial,Helvetica,sans-serif;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.MCUBE_MOD_ID_924711 .live-list-special-sale-goods-list-more-count {
+    margin-top: -30rpx;
+}
+
+.MCUBE_MOD_ID_924711 .live-list-special-sale-goods-list-more-description {
+    margin-top: 0;
+}
+
+.MCUBE_MOD_ID_924711 .live-list-special-sale-goods-list-more-icon {
+    width: 24rpx;
+    height: 24rpx;
+    margin-top: 14rpx;
+    overflow: hidden;
+}

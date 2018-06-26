@@ -1,0 +1,21 @@
+<template name="shopItem">
+    <view class="{{idx===productList.length-1?'product-list flex product':'product-list flex product  product-border'}}" wx:if="{{isShowMore||idx<2}}" wx:for="{{productList}}" wx:for-index="idx" wx:for-item="itemName" wx:key="index">
+        <view class="item-shop-img">
+            <image mode="aspectFill" src="{{itemName.imgUrl}}"></image>
+        </view>
+        <view class="product-des f-fg-1">
+            <view class="product-des--name">
+                <text class="product-des--tag" wx:if="{{itemName.orderTag=='抽奖团'}}">{{itemName.orderTag}}</text>
+        {{itemName.title}}
+      </view>
+            <view class="product-des--sku">
+                <view class="sku-item-wrap" wx:if="{{skuItem.key&&skuItem.value}}" wx:for="{{itemName.skuAttributes}}" wx:for-item="skuItem" wx:key="index">{{skuItem.key}}：{{skuItem.value}}</view>
+            </view>
+        </view>
+        <view class="product-price">
+            <view class="product-price--origin" wx:if="{{itemName.price!==itemName.nowPrice}}">￥{{itemName.price}}</view>
+            <view class="product-price--price">￥{{itemName.nowPrice}}</view>
+            <view class="product-price--number">×{{itemName.number}}</view>
+        </view>
+    </view>
+</template>

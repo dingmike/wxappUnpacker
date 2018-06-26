@@ -1,0 +1,46 @@
+<import src="../../../components/mg/index.wxml"></import>
+<template is="mg" data="{{...$mg}}"></template>
+<import src="components/orderCard/index.wxml"></import>
+<import src="../../../components/toast/index.wxml"></import>
+<import src="../../../components/empty/index.wxml"></import>
+<import src="../../../components/end/index.wxml"></import>
+<import src="../../../components/loading/index.wxml"></import>
+<import src="../../../components/walltemplate/item_pt.wxml"></import>
+<import src="../../../components/cashier/index.wxml"></import>
+<template is="cashier" data="{{...$cashier}}"></template>
+<template is="toast" data="{{...$toast}}"></template>
+<template is="loading" data="{{...$loading}}"></template>
+<view bindtap="otherClick" class="entrance"></view>
+<scroll-view scrollY bindscrolltolower="PtListScrollEvent" lowerThreshold="500" scrollTop="{{scrollTop}}" style="height: 100%; position:fixed">
+    <view class="rectangle-5" wx:if="{{tipShow}}">
+        <view class="order-tips">{{tipText}}</view>
+        <view class="tip-clear">
+            <icon bindtap="clearTip" size="{{17}}" type="clear"></icon>
+        </view>
+    </view>
+    <view class="tab-wrap flex" id="taps-wrap">
+        <view class="tab-inner" wx:for="{{tabTextList}}" wx:for-item="tabItem" wx:key="{{*this}}">
+            <view bindtap="triggerTabChoose" class="{{tabItem.status==tabOrderStatus?'tab-active tab':'tab'}}" data-index="{{index}}" data-status="{{tabItem.status}}" data-text="{{tabItem.text}}">
+                <text>{{tabItem.text}}</text>
+            </view>
+        </view>
+    </view>
+    <view>
+        <template is="orderCard" data="{{...$orderCard,orderList:orderList,marketType:marketType,remainTimeObj:remainTimeObj}}"></template>
+    </view>
+    <view wx:if="{{isEnd&&!orderList.length}}">
+        <template is="empty" data="{{...$empty,text:'还没有相关拼团订单哦',button:'去开团'}}"></template>
+    </view>
+    <view class="isAjaxLoading" wx:if="{{isEnd&&orderList.length>0}}">
+        -没有更多了-
+    </view>
+    <view class="isAjaxLoading" wx:if="{{!isEnd}}">
+        <view wx:if="{{isAjaxLoading}}">正在加载中...</view>
+    </view>
+    <view wx:if="{{isEnd&&!orderList.length}}">
+        <view class="pt-wall-wrap" id="J_wall_box">
+            <template is="wallPtMore" data="{{...$wallPtMore}}"></template>
+            <template is="wallPtOrderList" data="{{wallList:wallList}}"></template>
+        </view>
+    </view>
+</scroll-view>

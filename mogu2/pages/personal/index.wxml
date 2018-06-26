@@ -1,0 +1,103 @@
+<template name="navItem">
+    <view bindtap="{{link?'handleNavigate':''}}" class="nav-item flex {{index===0?'nav-item--first':''}} expose-log" data-app-id="{{wxa_appId}}" data-href="{{link}}" data-log-index="{{index}}" data-log-mod="10019{{key}}">
+        <image class="nav-icon" mode="aspectFill" src="{{icon}}"></image>
+        <view class="nav-text">{{title}}</view>
+        <view class="nav-desc {{subTitleStyle?'nav-desc-'+subTitleStyle:''}}" wx:if="{{subTitle}}">{{subTitle}}</view>
+        <view class="m-icon m-icon-arrow-right nav-arrow"></view>
+    </view>
+</template>
+<template name="oi">
+    <view bindtap="$navigate" class="order-item {{c}} expose-log" data-log-index="{{l}}" data-log-mod="10018" data-order-status="{{s}}" data-page="orderList">
+        <image class="order-icon" mode="aspectFill" src="{{i}}"></image>
+        <view class="order-text">{{t}}</view>
+        <view class="order-badge" wx:if="{{n>0}}">{{n}}</view>
+    </view>
+</template>
+<import src="../../components/mg/index.wxml"></import>
+<template is="mg" data="{{...$mg}}"></template>
+<import src="../../components/loading/index.wxml"></import>
+<import src="../../components/toast/index.wxml"></import>
+<import src="../../components/imcall/index.wxml"></import>
+<import src="../../components/wall/index.wxml"></import>
+<import src="../../components/activeEntry/index.wxml"></import>
+<import src="../../components/recommendHeader/index.wxml"></import>
+<template is="loading" data="{{...$loading}}"></template>
+<template is="toast" data="{{...$toast}}"></template>
+<view class="user flex f-fd-cr f-jc-sb" style="background-image: url({{header.backgroundImage}}); background-color: {{header.backgroundColor}}">
+    <view class="user-toolbar flex f-ai-c">
+        <view bindtap="$navigate" class="user-toolbar-btn f-fg-1" data-href="/pages/fav/index">
+            <image class="user-toolbar-icon" mode="aspectFill" src="https://s10.mogucdn.com/mlcdn/c45406/180408_45k3i89e7g1c8b670d15h2f1hfglb_38x38.png"></image>
+            <view class="user-toolbar-title">我的收藏</view>
+        </view>
+        <view class="user-toolbar-split"></view>
+        <view bindtap="$navigate" class="user-toolbar-btn f-fg-1" data-href="/pages/footprint/index">
+            <image class="user-toolbar-icon" mode="aspectFill" src="https://s10.mogucdn.com/mlcdn/c45406/180408_0edj97ba6kc031c6179hh5l0k73al_38x38.png"></image>
+            <view class="user-toolbar-title">足迹</view>
+        </view>
+    </view>
+    <view class="user-login f-fg-1 flex f-fd-c f-jc-sb f-ai-c" wx:if="{{needLogin}}">
+        <view class="user-login-tip">点击登录重新授权</view>
+        <view catchtap="handleLogin" class="user-login-btn">马上登录</view>
+    </view>
+    <view class="user-container f-fg-1 flex f-ai-c" wx:elif="{{user.userName}}">
+        <image class="user-avatar" mode="aspectFill" src="{{user.avatarUrl}}"></image>
+        <view class="user-info">
+            <view class="user-name">{{user.userName}}<image catchtap="$launch" class="user-status" data-app-id="{{userStatus.appId}}" data-href="{{userStatus.link}}" src="{{userStatus.img}}" style="width: {{userStatus.w}}rpx; height: {{userStatus.h}}rpx;" wx:if="{{userStatus&&userStatus.img}}"></image>
+            </view>
+            <view catchtap="{{canUseWebView&&addressSrc?'$navigate':'chooseAddress'}}" class="user-address" data-href="{{addressSrc}}">我的收货地址
+                <text class="m-icon m-icon-arrow-right user-address-icon"></text>
+            </view>
+        </view>
+        <image bindtap="{{ads.link?'$navigate':''}}" class="user-ads" data-app-id="{{ads.wxa_appId}}" data-href="{{ads.link}}" src="{{ads.image}}" wx:if="{{ads&&ads.image}}"></image>
+    </view>
+</view>
+<template is="activeEntry" data="{{...$activeEntry}}"></template>
+<view class="notice flex" wx:if="{{notice}}">
+    <image class="notice-icon" mode="aspectFill" src="https://s10.mogucdn.com/mlcdn/c45406/180408_4i8dg3jh20lkj5cjfh77383g4g37i_36x32.png"></image>
+    <view class="notice-text-wrap">
+        <view class="notice-text" wx:if="{{notice.length<25}}">
+            <text class="notice-span">{{notice}}</text>
+        </view>
+        <view class="notice-text notice-text--animate" wx:else>
+            <text class="notice-span">{{notice}}</text>
+            <text class="notice-span">{{notice}}</text>
+        </view>
+    </view>
+    <view class="notice-text-overlay"></view>
+    <view bindtap="onDismissNotice" class="m-icon m-icon-close notice-close"></view>
+</view>
+<view class="order flex">
+    <template is="oi" data="{{s:'created',t:'待付款',n:order.cObligations,i:'https://s10.mogucdn.com/mlcdn/c45406/170603_1l0i2ab4e13027635fclda8f0j8di_38x38.png',l:0}}"></template>
+    <template is="oi" data="{{s:'unreceived',t:'待收货',n:order.cReceipt,i:'https://s10.mogucdn.com/mlcdn/c45406/170603_2l7he60g935kfbih43ad5cl1a3i40_38x38.png',l:1}}"></template>
+    <template is="oi" data="{{s:'received_and_completed',t:'待评价',n:order.cEvaluate,i:'https://s10.mogucdn.com/mlcdn/c45406/170603_6g7327411lb6444c1jjbbkcb75fg5_38x38.png',l:2}}"></template>
+    <template is="oi" data="{{s:'refund_orders',t:'售后',i:'https://s10.mogucdn.com/mlcdn/c45406/170603_61fb0a50ed3gde0l9ikdjdfh47k3c_38x38.png',l:3}}"></template>
+    <template is="oi" data="{{s:'all',t:'全部订单',c:'order-item-all',i:'https://s10.mogucdn.com/mlcdn/c45406/180408_37f6g76ib7j92b1fjfelg4lfbg7cb_40x40.png',l:4}}"></template>
+</view>
+<view class="nav" wx:if="{{group.list.length>0}}" wx:for="{{nav}}" wx:for-item="group" wx:key="group.groupKey">
+    <block wx:for="{{group.list}}" wx:key="index">
+        <view style="position:relative" wx:if="{{item.isIM}}">
+            <template is="navItem" data="{{...item,index:index,key:group.groupKey}}"></template>
+            <template is="imcall" data="{{...$im}}"></template>
+        </view>
+        <template is="navItem" data="{{...item,index:index,key:group.groupKey}}" wx:elif="{{item.visibility}}"></template>
+    </block>
+</view>
+<view class="nav" wx:if="{{showDebug}}">
+    <template is="navItem" data="{{index:0,title:'调试配置',link:'/pages/debug/index?code='+code,icon:'https://s10.mogucdn.com/mlcdn/c45406/170608_723e855k4ghj1793b3i730h67fk8d_38x38.png'}}"></template>
+</view>
+<block wx:if="{{mall}}">
+    <view class="section-header flex f-ai-c">
+        <view class="section-title f-fg-1">分期商城</view>
+        <view bindtap="$launch" class="section-more" data-app-id="wx26550136c4b70208" data-href="/pages/act/index?pageName=wxinstallment">更多<text class="m-icon m-icon-arrow-right"></text>
+        </view>
+    </view>
+    <view class="section-body">
+        <scroll-view scrollX class="mall-list">
+            <image bindtap="{{item.wxa_appId?'$launch':'$navigate'}}" class="mall-image" data-app-id="{{item.wxa_appId}}" data-href="{{item.link}}" mode="aspectFill" src="{{item.image}}" wx:for="{{mall}}" wx:key="index"></image>
+        </scroll-view>
+    </view>
+</block>
+<template is="recommendHeader" data></template>
+<view id="J_wall_box">
+    <template is="wallItemsBox" data="{{$wall:$wall}}"></template>
+</view>

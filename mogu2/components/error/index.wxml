@@ -1,0 +1,7 @@
+<template name="error">
+    <view class="module-base-error flex f-ff-cn f-ai-c f-jc-c">
+        <image class="error-image" mode="widthFix" src="{{image}}" wx:if="{{image}}"></image>
+        <view class="error-title" wx:if="{{title}}">{{title}}</view>
+        <view bindtap="{{$scope}}.onBtnClick" class="error-btn flex f-ai-c f-jc-c" wx:if="{{btnText}}">{{btnText}}</view>
+    </view>
+</template>

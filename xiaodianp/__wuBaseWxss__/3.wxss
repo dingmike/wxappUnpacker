@@ -1,0 +1,509 @@
+.super {
+    position: relative;
+    padding: 180rpx 20rpx 20rpx 20rpx;
+    border: 2rpx solid #ddd;
+    margin-bottom: 130rpx;
+}
+
+.superSecond {
+    padding: 0 20rpx 20rpx;
+}
+
+.superContainer {
+    width: 710rpx;
+    margin: 80rpx auto 0;
+    padding: 0;
+}
+
+.group-container {
+    padding: 0 22rpx;
+}
+
+.group-block {
+    margin-bottom: 60rpx;
+}
+
+.group-block__img {
+    width: 100%;
+    height: 414rpx;
+    border: 1px solid #efefef;
+    text-align: center;
+    position: relative;
+    background: #fff url(https://static.seecsee.com/images/h5/placehold.svg) 50% no-repeat;
+    margin-bottom: 20rpx;
+}
+
+.group-block__img .head-img {
+    height: 100%;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.group-block__img .group-tips {
+    position: absolute;
+    top: -12rpx;
+    left: 18rpx;
+    padding: 0 20rpx;
+    height: 48rpx;
+    line-height: 48rpx;
+    font-weight: 600;
+    text-align: center;
+    background-color: #ff3b30;
+    color: #fff;
+    font-size: 24rpx;
+    z-index: 50;
+}
+
+.group-block__img .group-tips label {
+    position: absolute;
+    display: block;
+    left: -10rpx;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-top: 14rpx solid transparent;
+    border-right: 12rpx solid #c42f27;
+}
+
+.group-block__img .sold-out {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.group-block__img .sold-out__con {
+    display: inline-block;
+    vertical-align: middle;
+    width: 180rpx;
+    height: 180rpx;
+    margin-top: 100rpx;
+    border: 2rpx solid #fff;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.5);
+    text-align: center;
+}
+
+.group-block__img .sold-out__con text {
+    display: block;
+    color: #fff;
+}
+
+.group-block__img .sold-out__con .zh {
+    font-size: 30rpx;
+    line-height: 30rpx;
+    margin-top: 64rpx;
+}
+
+.group-block__img .sold-out__con .en {
+    font-size: 20rpx;
+}
+
+.group-block__superTips {
+    position: absolute;
+    top: -80rpx;
+    left: 175rpx;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    width: 370rpx;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    font-size: 24rpx;
+    font-weight: 600;
+    margin: 20rpx auto;
+}
+
+.group-block__superTips image:first-child {
+    width: 130rpx;
+    height: 130rpx;
+    border-radius: 100%;
+    border: 2rpx solid #ccc;
+    margin-bottom: 20rpx;
+}
+
+.group-block__superTips text {
+    display: block;
+    text-align: center;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.2;
+}
+
+.group-block__superTips .crown {
+    position: absolute;
+    width: 100rpx;
+    height: 100rpx;
+    top: -54rpx;
+    left: 180rpx;
+    border: 0!important;
+}
+
+.group-block__info .brand-line {
+    font-size: 28rpx;
+}
+
+.group-block__info .brand-line .limit {
+    font-size: 28rpx;
+    margin-left: -16rpx;
+}
+
+.group-block__info .name-line {
+    font-size: 24rpx;
+    color: #999;
+}
+
+.group-block__info .price-view {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.group-block__info .price-view .price-tips {
+    display: inline-block;
+    width: 72rpx;
+    height: 32rpx;
+    line-height: 32rpx;
+    text-align: center;
+    font-size: 18rpx;
+    color: #fff;
+    font-weight: 600;
+    background-color: #a58c8c;
+    vertical-align: middle;
+}
+
+.group-block__info .price-view .price-line {
+    font-size: 40rpx;
+    color: #ff3b30;
+    margin: 0 10rpx;
+    font-weight: 600;
+    vertical-align: middle;
+}
+
+.group-block__info .price-view .oriprice-line {
+    font-size: 24rpx;
+    color: #999;
+    text-decoration: line-through;
+    margin-top: 5rpx;
+}
+
+.group-block__info .button {
+    width: 160rpx;
+    height: 70rpx;
+    border-radius: 2px;
+    background-color: #ff3b30;
+    color: #fff;
+    font-size: 30rpx;
+    line-height: 70rpx;
+    text-align: center;
+}
+
+.group-block__info .button.over {
+    background-color: #999;
+}
+
+.group-block__info .member-list {
+    width: 30%;
+    text-align: right;
+}
+
+.group-block__info .member-list .m-img {
+    width: 40rpx;
+    height: 40rpx;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-left: -10rpx;
+}
+
+.group-single-row {
+    margin-bottom: 40rpx;
+}
+
+.group-single-row:last-child {
+    margin-bottom: 80rpx;
+}
+
+.group-single-row-image {
+    border: 1px solid #efefef;
+    position: relative;
+    width: 216rpx;
+    height: 216rpx;
+    background: #fff url(https://static.seecsee.com/images/h5/placehold.svg) 50% no-repeat;
+    margin-right: 20rpx;
+}
+
+.group-single-row-image .head-img {
+    width: 100%;
+    height: 100%;
+}
+
+.group-single-row-image .group-tips {
+    position: absolute;
+    top: -12rpx;
+    left: 8rpx;
+    width: 80rpx;
+    height: 34rpx;
+    font-weight: 600;
+    text-align: center;
+    background-color: #ff3b30;
+    color: #fff;
+    font-size: 22rpx;
+    z-index: 50;
+}
+
+.group-single-row-image .group-tips label {
+    position: absolute;
+    display: block;
+    left: -10rpx;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-top: 14rpx solid transparent;
+    border-right: 12rpx solid #c42f27;
+}
+
+.group-single-row-image .sold-out {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.group-single-row-image .sold-out__con {
+    width: 180rpx;
+    height: 180rpx;
+    margin: 18rpx auto;
+    border: 2rpx solid #fff;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.5);
+    text-align: center;
+}
+
+.group-single-row-image .sold-out__con text {
+    display: block;
+    color: #fff;
+}
+
+.group-single-row-image .sold-out__con .zh {
+    font-size: 30rpx;
+    line-height: 30rpx;
+    margin-top: 64rpx;
+}
+
+.group-single-row-image .sold-out__con .en {
+    font-size: 20rpx;
+}
+
+.group-single-row-info {
+    width: 430rpx;
+}
+
+.group-single-row-info .brand-line {
+    font-size: 28rpx;
+}
+
+.group-single-row-info .brand-line .limit {
+    font-size: 28rpx;
+    margin-left: -16rpx;
+}
+
+.group-single-row-info .name-line {
+    font-size: 24rpx;
+    color: #999;
+}
+
+.group-single-row-info .price-view {
+    margin-top: 50rpx;
+}
+
+.group-single-row-info .price-view .price-tips {
+    width: 72rpx;
+    height: 32rpx;
+    line-height: 32rpx;
+    text-align: center;
+    font-size: 18rpx;
+    color: #896647;
+    font-weight: 600;
+    background-color: #e6dcb6;
+}
+
+.group-single-row-info .price-view .price-line {
+    font-size: 34rpx;
+    color: #ff3b30;
+    margin: auto 10rpx;
+    line-height: 30rpx;
+    font-weight: 600;
+}
+
+.group-single-row-info .price-view .oriprice-line {
+    font-size: 24rpx;
+    line-height: 24rpx;
+    color: #999;
+    text-decoration: line-through;
+}
+
+.group-single-row-info .button {
+    width: 140rpx;
+    height: 60rpx;
+    border-radius: 2px;
+    background-color: #ff3b30;
+    color: #fff;
+    font-size: 26rpx;
+    font-weight: 600;
+    line-height: 60rpx;
+    text-align: center;
+}
+
+.group-single-row-info .button.over {
+    background-color: #999;
+}
+
+.group-double-row {
+    margin: 0 auto 60rpx 15rpx;
+}
+
+.group-double-row-image {
+    border: 1px solid #efefef;
+    position: relative;
+    width: 320rpx;
+    height: 320rpx;
+    background: #fff url(https://static.seecsee.com/images/h5/placehold.svg) 50% no-repeat;
+}
+
+.group-double-row-image .head-img {
+    width: 100%;
+    height: 100%;
+}
+
+.group-double-row-image .group-tips {
+    position: absolute;
+    top: -12rpx;
+    left: 8rpx;
+    width: 80rpx;
+    height: 34rpx;
+    font-weight: 600;
+    text-align: center;
+    background-color: #ff3b30;
+    color: #fff;
+    font-size: 22rpx;
+    z-index: 50;
+}
+
+.group-double-row-image .group-tips label {
+    position: absolute;
+    display: block;
+    left: -10rpx;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-top: 14rpx solid transparent;
+    border-right: 12rpx solid #c42f27;
+}
+
+.group-double-row-image .sold-out {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.group-double-row-image .sold-out__con {
+    width: 180rpx;
+    height: 180rpx;
+    margin: 65rpx auto;
+    border: 2rpx solid #fff;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.5);
+    text-align: center;
+}
+
+.group-double-row-image .sold-out__con text {
+    display: block;
+    color: #fff;
+}
+
+.group-double-row-image .sold-out__con .zh {
+    font-size: 30rpx;
+    line-height: 30rpx;
+    margin-top: 64rpx;
+}
+
+.group-double-row-image .sold-out__con .en {
+    font-size: 20rpx;
+}
+
+.group-double-row-info {
+    width: 320rpx;
+}
+
+.group-double-row-info .brand-line {
+    font-size: 28rpx;
+    height: 80rpx;
+}
+
+.group-double-row-info .brand-line .limit {
+    font-size: 28rpx;
+    margin-left: -16rpx;
+}
+
+.group-double-row-info .price-view {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: end;
+    align-items: flex-end;
+}
+
+.group-double-row-info .price-view .price-tips {
+    width: 72rpx;
+    height: 36rpx;
+    line-height: 36rpx;
+    text-align: center;
+    font-size: 18rpx;
+    font-weight: 600;
+    color: #896647;
+    background-color: #e6dcb6;
+}
+
+.group-double-row-info .price-view .price-line {
+    font-size: 34rpx;
+    color: #ff3b30;
+    margin: auto 10rpx;
+    line-height: 34rpx;
+    font-weight: 600;
+}
+
+.group-double-row-info .price-view .oriprice-line {
+    font-size: 24rpx;
+    line-height: 24rpx;
+    color: #999;
+    text-decoration: line-through;
+}
+
+.group-double-row-info .button {
+    width: 140rpx;
+    height: 60rpx;
+    border-radius: 2px;
+    background-color: #ff3b30;
+    color: #fff;
+    font-size: 26rpx;
+    font-weight: 600;
+    line-height: 60rpx;
+    text-align: center;
+}
+
+.group-double-row-info .button.over {
+    background-color: #999;
+}

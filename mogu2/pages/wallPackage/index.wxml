@@ -1,0 +1,93 @@
+<template name="packageWallSortNav">
+    <view id="scrollIntoViewId" style="height:0;"></view>
+    <view class="wall_nav_box {{scrollNavStickyClass}} {{navClass}}" id="wall_nav_box">
+        <view class="nav_middle {{scrollNavFixedClass}}" wx:if="{{navData&&navData.sortFilter}}">
+            <view class="pkg_title" wx:if="{{title}}">
+                <view class="pkg_title_text">{{title}}</view>
+            </view>
+            <view class="tab_items clearfix">
+                <view bindtap="{{$scope}}.sortTab" class="item {{sortItem.onClass}}" data-sort="{{sortItem.sortKey}}" style="width: {{100/(navData.sortFilter.length+1)}}%" wx:for="{{navData.sortFilter}}" wx:for-item="sortItem" wx:key="sortFilter">
+                    <text class="in_border">{{sortItem.title}}</text>
+                </view>
+                <view bindtap="{{$scope}}.priceOpenTab" class="price_btn {{navData.priceTabOnClass}}" style="width: {{100/(navData.sortFilter.length+1)}}%">
+                    <text class="in_border">价格</text>
+                    <view class="show_arrow_wrap flip_off">
+                        <view class="show_arrow"></view>
+                    </view>
+                </view>
+            </view>
+            <view class="price_box price_{{navData.priceTabOnClass}}" data-type="price">
+                <view class="price_level clearfix">
+                    <view bindtap="{{$scope}}.priceSubmitTab" class="price_range_btn fl" data-max="{{pItem.max}}" data-min="{{pItem.min}}" wx:for="{{navData.priceFilter}}" wx:for-item="pItem" wx:key="priceFilter">{{pItem.min}} - {{pItem.max}}</view>
+                </view>
+                <view class="price_input clearfix">
+                    <view class="label fl">区间(元)</view>
+                    <input bindinput="{{$scope}}.priceInputChange" class="min_price fl" data-type="min" type="number" value="{{navData.priceMin}}"></input>
+                    <text class="fl"></text>
+                    <input bindinput="{{$scope}}.priceInputChange" class="max_price fl" data-type="max" type="number" value="{{navData.priceMax}}"></input>
+                    <view bindtap="{{$scope}}.priceSubmitTab" class="confirm_btn fl">确认</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+<import src="../../components/mg/index.wxml"></import>
+<template is="mg" data="{{...$mg}}"></template>
+<import src="../../components/wall/index.wxml"></import>
+<import src="../../components/skudialog/index.wxml"></import>
+<import src="../../components/toast/index.wxml"></import>
+<import src="../../components/mask/index.wxml"></import>
+<import src="../../components/loading/index.wxml"></import>
+<scroll-view bindscroll="$wall.scrollNavEvent" bindscrolltolower="$wall.wallScrollEvent" class="J_scroll_wallbox" enableBackToTop="true" lowerThreshold="{{$wall.bottomHeight}}" scrollIntoView="{{$wall.scrollIntoViewId}}" scrollY="true" style="height:{{$wall.scrollBoxHeight}}px">
+    <view id="J_wall_box">
+        <template is="packageWallSortNav" data="{{...$wall,title:title,navClass:navClass}}"></template>
+        <view class="J_items_box" id="J_items_box" style="min-height:{{$wall.scrollBoxHeight}}px">
+            <block wx:if="{{$wall.itemPackageList}}">
+                <view class="goods_list_mod clearfix" wx:for="{{$wall.itemPackageList}}" wx:for-item="itemList" wx:key="itemPackageList">
+                    <view catchtap="$wall.linkClick" class="goods_item goods_item_v61 pagani_log_link fl expose-log" data-acm="{{item.acm}}" data-cparam="{{item.cparam||''}}" data-link="{{item.link}}" data-log-btype="{{item.busType||''}}" data-log-iid="{{item.tradeItemId}}" data-log-index="{{item.index}}" data-log-mod="10020{{item.ckey}}" data-log-wall="true" data-ptp-c="{{item.ptpC}}" wx:for="{{$wall[itemList.name]}}" wx:key="itemList">
+                        <view class="goods_img J_dynamic_imagebox" style="background: #e5e5e5 url({{item.img}}) no-repeat; background-size:100% auto;">
+                            <view catchtap="$wall.linkClick" class="like_link" data-link="{{item.similarityUrl}}" wx:if="{{item.similarityUrl}}"></view>
+                        </view>
+                        <view class="top_icon" style="background:url({{item.leftTop}}) no-repeat; background-size:100% auto;" wx:if="{{item.leftTop}}"></view>
+                        <view class="goods_info">
+                            <view class="name_box  clearfix">
+                                <view class="name_tags">
+                                    <view class="title_tag" style="color:{{tag.color}};background:{{tag.bgColor}};" wx:if="{{tag.content}}" wx:for="{{item.nameTags}}" wx:for-item="tag" wx:key="tags">{{tag.content}}</view>
+                                </view>
+                            </view>
+                            <view class="bot_box clearfix">
+                                <view class="p_price fl" style="font-family:Arial;">¥{{item.price}}</view>
+                            </view>
+                        </view>
+                        <view catchtap="getGoodsSku" class="p_cart" data-iid="{{item.tradeItemId}}"></view>
+                    </view>
+                </view>
+            </block>
+            <view class="wall_loading" wx:if="{{!$wall.endContent}}">正在加载中...</view>
+            <view class="wall_loading" wx:elif="{{$wall.endContent=='end'}}">没有更多商品了~</view>
+            <view class="ui-empty" wx:elif="{{$wall.endContent=='noResult'}}">
+                <view class="ui-empty-box">
+                    <image class="ui-empty-image" mode="fitAspect" src="https://s10.mogucdn.com/p2/161213/upload_74hhee883cbf190e3di6cljk23679_514x260.png"></image>
+                    <view class="ui-empty-text">抱歉！没找到相关商品~</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="wall_cart_foot" wx:if="{{isFromCart}}">
+        <view class="cart-foot-left">
+            <view class="cart-amt-foot">
+                <text class="cart-amticon-foot">￥</text>
+                <text>{{totAmount}}</text>
+            </view>
+            <view class="cart-prm-foot">
+                <view class="cart-prm-text">{{promotionText}}</view>
+            </view>
+        </view>
+        <view bindtap="$redirect" class="cart-foot-right" data-href="/pages/cart/index">
+            <text>去购物车</text>
+        </view>
+    </view>
+    <template is="toast" data="{{...$toast}}"></template>
+    <template is="skuDialog" data="{{...$skuDialog}}"></template>
+    <template is="mask" data="{{...$mask}}"></template>
+</scroll-view>

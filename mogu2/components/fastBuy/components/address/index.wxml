@@ -1,0 +1,32 @@
+<template name="address">
+    <form bindsubmit="{{$scope}}.formSubmitHandler" reportSubmit="true">
+        <button class="address" formType="submit">
+            <view class="m-icon m-icon-location address-location"></view>
+            <view class="address-yes" wx:if="{{address}}">
+                <view class="">
+                    <view class="address-contacter">
+                        <text>收货人：{{realName+' '+mobile}}</text>
+                    </view>
+                    <view class="address-addr">
+                        <text>收货地址：{{province+city+area+address}} </text>
+                        <text class="default-tip" wx:if="{{isDefault}}">默认地址</text>
+                    </view>
+                </view>
+            </view>
+            <view class="address-no" wx:else>
+                请填写收货地址
+            </view>
+            <view class="m-icon m-icon-arrow-right address-arrow"></view>
+        </button>
+    </form>
+    <view class="set-default-addr" wx:if="{{!isDefault&&address}}">
+        <view bindtap="{{$scope}}.setDefaultAddr" class="addr-wrap flex" data-address-id="{{addressId}}" wx:if="{{!isSetAddr}}">
+            <text class="addr-common no-select"></text>
+            <text>设为默认地址</text>
+        </view>
+        <view class="addr-wrap set-addr-color flex" wx:else>
+            <text class="addr-common select"></text>
+            <text>默认地址</text>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,19 @@
+<template name="wrapper">
+    <view class="wrapper-scroll-view noscroll" style="{{$wrapper.color?'background-color:'+$wrapper.color+';':''}}{{$wrapper.repeat?'background-repeat:'+$wrapper.repeat+';':''}}{{$wrapper.src?'background-image:url('+$wrapper.src+');':''}}background-position: center 0;" wx:if="{{$wrapper.isUp}}">
+        <template is="modules" data="{{$wrapper:$wrapper}}"></template>
+    </view>
+    <scroll-view bindscroll="scroll" bindscrolltolower="lower" bindscrolltoupper="upper" class="wrapper-scroll-view" enableBackToTop="{{$wrapper.enableBackToTop}}" lowerThreshold="{{$wrapper.lowerThreshold}}" scrollIntoView="{{$wrapper.scrollIntoView}}" scrollLeft="{{$wrapper.scrollLeft}}" scrollTop="{{$wrapper.scrollTop}}" scrollWithAnimation="{{$wrapper.scrollWithAnimation}}" scrollX="{{$wrapper.scrollX}}" scrollY="{{$wrapper.scrollY}}" style="{{$wrapper.scrollBoxHeight?'height:'+$wrapper.scrollBoxHeight+'px;':''}}" upperThreshold="{{$wrapper.upperThreshold}}" wx:else>
+        <view class="wrapper-scroll-inner-view" style="{{$wrapper.color?'background-color:'+$wrapper.color+';':''}}{{$wrapper.repeat?'background-repeat:'+$wrapper.repeat+';':''}}{{$wrapper.src?'background-image:url('+$wrapper.src+');':''}}background-position: center 0;}}">
+            <template is="modules" data="{{$wrapper:$wrapper}}"></template>
+        </view>
+    </scroll-view>
+    <template is="toast" data="{{...$wrapper[$toast]}}"></template>
+</template>
+<template name="modules">
+    <view class="{{'module_row MOD_ID_'+item.module+' module_row_'+item.instId+' MCUBE_MOD_ID_'+item.module}}" id="{{'m'+item.instId}}" wx:if="{{$wrapper['$'+item.moduleName]}}" wx:for="{{$wrapper.modules}}" wx:key="{{item.moduleName}}">
+        <template is="{{item.module}}" data="{{$parent:$wrapper,...$wrapper['$'+item.moduleName]}}" wx:if="{{item.isShow}}"></template>
+        <view style="display:block;height:{{item.modHeight+'px'}}; width:{{item.modWidth+'px'}};" wx:else></view>
+    </view>
+</template>
+<include src="../modules/index.wxml"></include>
+<import src="../../components/toast/index.wxml"></import>

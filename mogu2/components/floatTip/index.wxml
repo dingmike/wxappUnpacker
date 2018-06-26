@@ -1,0 +1,10 @@
+<template name="floatTip">
+    <view bindtap="$launch" class="ftWrap flex f-fd-r f-ai-c ft-show-{{showFloatTip}}" data-acm="{{info.acm}}" data-app-id="{{info.wxa_appId}}" data-fallback="{{info.link||''}}" data-href="{{info.wxa_link||''}}" wx:if="{{info}}">
+        <image class="ftIcon" src="{{info.image}}" wx:if="{{info.image}}"></image>
+        <view class="ftTips flex f-fd-c">
+            <view class="ftTip" style="color: {{info.titleColor}}">{{info.title}}</view>
+            <view class="ftTip ftTipBottom" style="color: {{info.subtitleColor}}">{{info.description}}</view>
+        </view>
+        <view class="ftLeftCursor m-icon m-icon-arrow-right"></view>
+    </view>
+</template>

@@ -1,0 +1,27 @@
+<import src="../../components/mg/index.wxml"></import>
+<template is="mg" data="{{...$mg}}"></template>
+<import src="../../components/loading/index.wxml"></import>
+<import src="../../components/searchBar/index.wxml"></import>
+<import src="../../components/meiliSwiper/index.wxml"></import>
+<import src="../../components/activeEntry/index.wxml"></import>
+<import src="../../components/wall/index.wxml"></import>
+<import src="components/categoryBar/index.wxml"></import>
+<import src="components/recommendShop/index.wxml"></import>
+<template is="loading" data="{{...$loading}}"></template>
+<block wx:if="{{isComponentsShow}}">
+    <template is="searchBar" data="{{...$searchBar}}"></template>
+    <view bindtap="$navigate" class="search-to-class" data-href="/pages/wallCategoryEntry/index">
+        <text class="search-to-class-icon"></text>
+        <text class="search-to-class-text">分类</text>
+    </view>
+    <view style="min-height: {{defaultHeight||'230rpx'}}">
+        <template is="meiliSwiper" data="{{...$meiliSwiper}}"></template>
+    </view>
+    <view style="min-height: {{defaultHeight||'520rpx'}}">
+        <template is="activeEntry" data="{{...$activeEntryCategory}}"></template>
+    </view>
+    <view style="min-height: {{defaultHeight||'800rpx'}}">
+        <template is="categoryBar" data="{{...$categoryBar}}"></template>
+    </view>
+    <template is="recommendShop" data="{{...$recommendShop}}"></template>
+</block>

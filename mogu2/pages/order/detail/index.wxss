@@ -1,0 +1,283 @@
+@import "components/shopList/index.wxss";
+
+@import "components/shopItem/index.wxss";
+
+@import "../../../components/toast/index.wxss";
+
+@import "../../../components/loading/index.wxss";
+
+@import "../../../components/wall/index.wxss";
+
+@import "../../../components/walltemplate/item_pt.wxss";
+
+@import "../../../components/cashier/index.wxss";
+
+.order-copy--shopOrderId {
+    position: absolute;
+    right: 32rpx;
+    top: 15rpx;
+    padding: 1rpx 12rpx;
+    color: #666;
+    border: solid 1rpx #999;
+    border-radius: 3rpx;
+}
+
+.logistics-copy--expressid {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    padding: 1rpx 8rpx;
+    border: solid 1rpx #999;
+    transform: translate(-32rpx,-50%);
+    font-size: 22rpx;
+    border-radius: 3rpx;
+}
+
+.foot-button::after {
+    content: none;
+}
+
+.detail-btn-detele,.detail-btn-cancel {
+    background-color: inherit;
+    padding: inherit;
+    height: inherit;
+    line-height: inherit;
+    color: inherit;
+    font-size: inherit;
+}
+
+.pt-guess-list .goods_item {
+    height: auto;
+    width: auto;
+    margin: 0;
+}
+
+.order-buyer--label {
+    width: 130rpx;
+}
+
+.order-buyer--text {
+    flex: 1;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.wall {
+    padding-top: 50rpx;
+}
+
+.wall-guess-text {
+    padding-left: 20rpx;
+    font-size: 28rpx;
+    font-weight: 400;
+    margin-bottom: 10rpx;
+    color: rgb(94,94,94);
+}
+
+.detail-btn {
+    font-size: 24rpx;
+    height: 50rpx;
+    flex: 0 1 144rpx;
+    text-align: center;
+    line-height: 50rpx;
+    margin-right: 32rpx;
+    border-radius: 4rpx;
+    border: solid 1rpx #ffffff;
+}
+
+.foot {
+    height: 100rpx;
+    padding: 0 12rpx 0 32rpx;
+    background: #fefefe;
+    align-items: center;
+}
+
+.foot-price {
+    color: #333;
+    font-size: 28rpx;
+}
+
+.receiver-wrap {
+    background-color: #fff;
+}
+
+.m-icon-arrow-right {
+    margin-right: 0!important;
+    font-size: 20rpx!important;
+}
+
+.status-title {
+    font-size: 32rpx;
+    line-height: 48rpx;
+    height: 48rpx;
+}
+
+.foot-price--sum {
+    color: #FF5777;
+    font-weight: 400;
+    font-size: 36rpx;
+}
+
+.logistics-info-wrap {
+    margin-left: 30rpx;
+}
+
+.meili-all-base-receiver {
+    padding-left: 30rpx;
+}
+
+.foot-button {
+    height: 66rpx;
+    padding: 0;
+    line-height: 66rpx;
+    font-size: 28rpx;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    max-width: 200rpx;
+    text-align: center;
+    background: #FF5777;
+    color: #fff;
+    margin-right: 20rpx;
+    border-radius: 5rpx;
+}
+
+.foot-button--white {
+    color: #424242;
+    border-left: 1rpx solid #ccc;
+    background: #fdfdfd;
+}
+
+.order-detail-wrap {
+    background-color: rgb(246,246,246);
+}
+
+.discount {
+    margin-bottom: 20rpx;
+}
+
+.discount-item {
+    background: #fff;
+    padding: 20rpx 30rpx;
+    font-size: 24rpx;
+    margin-top: 20rpx;
+    line-height: 42rpx;
+    position: relative;
+}
+
+.discount-item--title {
+    display: block;
+}
+
+.discount-item--value {
+    display: block;
+    text-align: right;
+}
+
+.promotion-desc {
+    position: relative;
+}
+
+.status-wrap {
+    padding-left: 37rpx;
+}
+
+.promotion-desc--value {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.status {
+    background: #ff5777;
+    color: #fff;
+    height: 122rpx;
+}
+
+.logistics {
+    background: #fff;
+    font-size: 24rpx;
+    color: #999;
+}
+
+.receiver {
+    background: #fff;
+    border-top: 1rpx solid #ececec;
+    padding: 20rpx 30rpx 20rpx 0;
+    font-size: 24rpx;
+    margin-left: 30rpx;
+    color: #666;
+}
+
+.receiver-user {
+    padding-left: 10rpx;
+}
+
+.receiver-user--address {
+    color: #999;
+}
+
+.receiver-user--name {
+    height: 36rpx;
+    line-height: 36rpx;
+}
+
+.m-icon-base {
+    width: 40rpx;
+    height: 40rpx;
+    font-size: 40rpx;
+    color: #666;
+    margin-right: 10rpx;
+    line-height: 40rpx;
+}
+
+.logistics-info {
+    padding: 20rpx 10rpx 20rpx 60rpx;
+    border-bottom: 1rpx solid #ddd;
+    position: relative;
+    line-height: 45rpx;
+}
+
+.logistics-info--tel {
+    color: #FF5777;
+}
+
+.logistics-detail {
+    padding: 20rpx 30rpx 20rpx 0;
+}
+
+.logistics-detail--title {
+    margin: 15rpx 0;
+}
+
+.logistics-detail--content {
+    margin-top: 5rpx;
+}
+
+.m-icon-location {
+}
+
+.detail-content--icon {
+    color: #FF5777!important;
+    margin-right: 10rpx;
+    margin-top: 10rpx;
+}
+
+.status-time {
+    font-size: 24rpx;
+}
+
+.detail-content--item {
+    position: relative;
+    line-height: 40rpx;
+    padding-left: 10rpx;
+}
+
+.detail-content--desc {
+    color: #FF5777;
+    max-width: 550rpx;
+}
+
+.detail-content--time {
+    color: #999;
+}

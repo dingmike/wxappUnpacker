@@ -1,0 +1,14 @@
+.cpmponent__bottombar .bottombar__icon-btn {
+    width: 116rpx;
+    border-right: solid 1px #e5e5e5;
+    color: #666666;
+    flex: none;
+}
+
+.cpmponent__bottombar .bottombar__icon-btn--icon {
+    font-size: 38rpx;
+}
+
+.cpmponent__bottombar .bottombar__icon-btn--text {
+    font-size: 22rpx;
+}

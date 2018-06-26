@@ -1,0 +1,33 @@
+.module-social-pintuan-rule {
+    margin-left: 32rpx;
+    padding-right: 32rpx;
+    padding-bottom: 20rpx;
+}
+
+.module-social-pintuan-rule .pintuan-rule--title {
+    height: 90rpx;
+}
+
+.module-social-pintuan-rule .pintuan-rule--title-icon {
+    height: 32rpx;
+    width: 160rpx;
+}
+
+.module-social-pintuan-rule .pintuan-rule--rule {
+}
+
+.module-social-pintuan-rule .rule-text {
+    font-size: 24rpx;
+    color: #666666;
+}
+
+.module-social-pintuan-rule .rule-arrow {
+    font-size: 24rpx;
+    color: #999999;
+}
+
+.module-social-pintuan-rule .rule-arrow--icon {
+    font-size: 24rpx;
+    color: #999999;
+    margin-left: 5rpx;
+}

@@ -1,0 +1,4 @@
+<template name="common-slogan-tag">
+    <view class="mod_tag_border {{__vx_class}}" style="{{colorStyle}} {{__vx_style}}">
+  {{actSlogan}}</view>
+</template>

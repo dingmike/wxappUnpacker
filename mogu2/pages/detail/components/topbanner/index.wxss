@@ -1,0 +1,40 @@
+.module-primary-topbanner.topbanner {
+    height: 80rpx;
+    width: 100%;
+    background-size: 100% 80rpx;
+    background-repeat: no-repeat;
+    padding-right: 5rpx;
+}
+
+.module-primary-topbanner.topbanner .topbanner-container {
+    height: 100%;
+    padding: 6rpx 0 14rpx 0;
+}
+
+.module-primary-topbanner.topbanner .topbanner-text {
+    font-size: 20rpx;
+}
+
+.module-primary-topbanner.topbanner .countdown-time--num {
+    font-size: 22rpx;
+    color: #ffffff;
+    display: block;
+    height: 32rpx;
+    line-height: 32rpx;
+    width: 38rpx;
+    background: #333333;
+    border-radius: 4rpx;
+    text-align: center;
+}
+
+.module-primary-topbanner.topbanner .countdown-time--symbol {
+    font-size: 20rpx;
+    color: #333333;
+    display: block;
+    height: 32rpx;
+    line-height: 32rpx;
+    width: 38rpx;
+    background: transparent;
+    border-radius: 4rpx;
+    text-align: center;
+}

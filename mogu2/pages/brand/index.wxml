@@ -1,0 +1,37 @@
+<import src="../../components/mg/index.wxml"></import>
+<template is="mg" data="{{...$mg}}"></template>
+<import src="../../components/loading/index.wxml"></import>
+<import src="../../components/topTabBar/index.wxml"></import>
+<import src="../../components/meiliSwiper/index.wxml"></import>
+<import src="../../components/activeEntry/index.wxml"></import>
+<import src="../../components/scrollGoods/index.wxml"></import>
+<import src="../../components/heading/index.wxml"></import>
+<import src="../../components/walltemplate/item_tuan.wxml"></import>
+<import src="components/brandsBanner/index.wxml"></import>
+<template is="loading" data="{{...$loading}}"></template>
+<view style="min-height: {{defaultHeight||'90rpx'}}">
+    <template is="topTabBar" data="{{...$topTabBar}}"></template>
+</view>
+<view style="min-height: {{defaultHeight||'280rpx'}}">
+    <template is="meiliSwiper" data="{{...$meiliSwiper}}"></template>
+</view>
+<view class="brand-description-box" style="min-height: {{defaultHeight||'70rpx'}}" wx:if="{{suffixImage}}">
+    <image class="brand-description-img" mode="aspectFill" src="{{suffixImage||''}}"></image>
+</view>
+<view style="min-height: {{defaultHeight||'200rpx'}}">
+    <template is="meiliSwiper" data="{{...$meiliSwiperTop}}"></template>
+</view>
+<view style="min-height: {{defaultHeight||'430rpx'}}">
+    <template is="activeEntry" data="{{...$activeEntry}}"></template>
+</view>
+<view style="min-height: {{defaultHeight||'400rpx'}}">
+    <template is="scrollGoods" data="{{...$scrollGoods}}"></template>
+</view>
+<view style="min-height: {{defaultHeight||'200rpx'}}">
+    <template is="meiliSwiper" data="{{...$meiliSwiperMiddle}}"></template>
+</view>
+<template is="brandsBanner" data="{{...$brandsBanner,$headingTitle:brandShopTitle}}"></template>
+<view id="J_wall_box">
+    <template is="heading_icon_line" data="{{title:wallTitle,titleIcon:$headingTitleIcon,height:$headingHeight,bgColor:$headingBgColor,margin:$headingMargin,padding:$headingPadding,color:$headingColor}}"></template>
+    <template is="wallTuanItemsBox" data="{{$wall:$wall,priceColor:wallPriceColor}}"></template>
+</view>

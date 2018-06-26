@@ -1,0 +1,50 @@
+<template name="wallActTabNav">
+    <view id="scrollIntoViewId" style="height:0;"></view>
+    <view class="wall_nav_box act_wall_nav_box {{scrollNavStickyClass}}" id="wall_nav_box" wx:if="{{navData&&navData.length}}">
+        <view class="nav_middle {{scrollNavFixedClass}}" style="background:{{navStyle.nbg}}">
+            <view class="nav_tabs_scroll nav_tabs_scroll_{{navData.length}}">
+                <view class="scroll_box  border-box">
+                    <block wx:for="{{navData}}" wx:for-item="tab" wx:key="tabList">
+                        <view bindtap="{{$scope}}.sortTab" class="nav_tab {{tab.onClass}}" data-fcid="{{tab.fcid}}" data-pid="{{tab.sourceKey}}" data-tab-index="{{index}}" wx:if="{{tab.onClass}}">
+                            <view class="t_text content-box box-center-y" style="border-bottom:5rpx solid {{navStyle.nl}};color: {{navStyle.nl}};">{{tab.name}}</view>
+                        </view>
+                        <view bindtap="{{$scope}}.sortTab" class="nav_tab" data-fcid="{{tab.fcid}}" data-pid="{{tab.sourceKey}}" data-tab-index="{{index}}" wx:else>
+                            <view class="t_text content-box box-center-y" style="color: {{navStyle.nt}};">{{tab.name}}</view>
+                        </view>
+                    </block>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="wallActItemsBox">
+    <view class="J_items_box J_act_items_box" id="J_items_box" style="min-height:{{$wall.scrollBoxHeight}}px">
+        <block wx:if="{{$wall.itemPackageList}}">
+            <view class="goods_list_mod clearfix" wx:for="{{$wall.itemPackageList}}" wx:for-item="itemList" wx:key="itemPackageList">
+                <view catchtap="$wall.linkClick" class="goods_item fl expose-log" data-acm="{{item.acm}}" data-cparam="{{item.cparam||''}}" data-link="{{item.link}}" data-log-iid="{{item.tradeItemId}}" data-log-index="{{item.index}}" data-log-mod="10020{{item.ckey}}" data-log-wall="true" data-ptp-c="{{item.ptpC}}" wx:for="{{$wall[itemList.name]}}" wx:key="itemList">
+                    <view class="goods_img J_dynamic_imagebox" style="background: #e5e5e5 url({{item.img}}) no-repeat center center; background-size: auto 102%;"></view>
+                    <view class="top_icon" style="background:url({{item.leftTop}}) no-repeat; background-size:100% auto;" wx:if="{{item.leftTop}}"></view>
+                    <view class="bo_pv" wx:if="{{style.showSale!==false}}">已售{{item.saleText||item.pintuanItemSale}}件</view>
+                    <view class="goods_info">
+                        <view class="name_box">
+                            <view class="goods_name" style="color:{{style.nameColor}};">{{item.title}}</view>
+                        </view>
+                        <view class="bot_box clearfix">
+                            <view class="p_tag fl" style="color: {{style.tagColor}}; border:1rpx solid {{style.tagColor}};" wx:if="{{style.tagText}}">{{style.tagText}}</view>
+                            <view class="p_price fl" style="font-family:Arial;color:{{style.styleColor}};">¥{{item.price}}</view>
+                            <block wx:if="{{style.rbShow=='none'}}"></block>
+                            <block wx:elif="{{style.rbShow=='org'}}">
+                                <view class="p_feed fr" style="text-decoration: line-through;font-family:Arial;" wx:if="{{item.orgPrice!=item.price}}">¥{{item.orgPrice}}</view>
+                            </block>
+                            <view class="p_feed fr" wx:else>{{item.botRight}}</view>
+                        </view>
+                        <view class="btn_box" style="background: {{style.buttonBg}};color: {{style.buttonColor}};" wx:if="{{style.buttonText}}">{{style.buttonText}}</view>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <view class="wall_loading" wx:if="{{!$wall.endContent}}">正在加载中...</view>
+        <view class="wall_loading" wx:elif="{{$wall.endContent=='end'}}">没有更多商品了~</view>
+        <view class="wall_loading" wx:elif="{{$wall.endContent=='noResult'}}">抱歉！没找到相关商品~</view>
+    </view>
+</template>

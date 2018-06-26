@@ -1,0 +1,13 @@
+<template name="common-act-popup">
+    <view class="common-act-popup act-popup-overlay {{__vx_class}}" style="{{__vx_style}}" wx:if="{{isShow}}">
+        <view bindtap="{{$scope}}.jumpFun" class="act-popup-content log-item acm-item" data-acm="{{acm}}" data-cube-acm="{{acm}}" data-cube-acm-node="{{true}}" data-data-log-content="{{acm}}" data-href="{{h5PopLink}}" data-xcx-href="{{wxPopLink}}" style="width: {{width*100+'rpx'}}; height: {{height*100+'rpx'}}; background-image: {{'url('+backgroundImg+')'}};" wx:if="{{wxPopLink||h5PopLink}}">
+            <view catchtap="{{$scope}}.clickClose" class="act-popup-close" wx:if="{{showClose}}"></view>
+        </view>
+        <view class="act-popup-content log-item acm-item" data-cube-acm="{{acm}}" data-cube-acm-node="{{true}}" data-data-log-content="{{acm}}" style="width: {{width*100+'rpx'}}; height: {{height*100+'rpx'}}; background-image: {{'url('+backgroundImg+')'}};" wx:else>
+            <view catchtap="{{$scope}}.clickClose" class="act-popup-close" wx:if="{{showClose}}"></view>
+            <form bindsubmit="{{$scope}}.clickBtn" class="act-popup-btn" reportSubmit="true" wx:if="{{showBtn}}">
+                <button class="act-popup-btn-inner" formType="submit"></button>
+            </form>
+        </view>
+    </view>
+</template>

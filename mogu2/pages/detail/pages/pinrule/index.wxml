@@ -1,0 +1,9 @@
+<import src="../../../../components/mg/index.wxml"></import>
+<template is="mg" data="{{...$mg}}"></template>
+<import src="../../../../components/loading/index.wxml"></import>
+<view class="rules">
+    <view class="rules-rule" wx:for="{{rules}}">
+        <view class="rules-rule--title">{{item.title}}</view>
+        <view class="rules-rule--desc" wx:for="{{item.desc}}" wx:for-item="desc">{{desc}}</view>
+    </view>
+</view>

@@ -1,0 +1,15 @@
+<template name="lotteryrule">
+    <view class="module-social-pintuan-lotteryrule">
+        <view class="pintuan-lotteryrule--title flex f-ai-c f-jc-sb">
+            <image class="pintuan-lotteryrule--title-icon" lazyLoad="{{true}}" mode="aspectFit" src="{{titleIcon}}"></image>
+            <view bindtap="$navigate" class="pintuan-lotteryrule--title-arrow flex f-ai-c" data-page="pinrule">详细规则<i class="rule-arrow--icon m-icon m-icon-arrow-right"></i>
+            </view>
+        </view>
+        <view class="pintuan-lotteryrule--content flex f-ff-cn f-ai-fs">
+            <view class="pintuan-lotteryrule--content-desc flex f-ai-fs {{item.class||''}}" wx:for="{{rules}}">
+                <view class="pintuan-lotteryrule--content-desc-title" wx:if="{{item.title}}">{{item.title}}</view>
+                <view class="pintuan-lotteryrule--content-desc-text">{{item.text}}</view>
+            </view>
+        </view>
+    </view>
+</template>

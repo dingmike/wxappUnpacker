@@ -1,0 +1,62 @@
+@import "../../components/wall/index.wxss";
+
+@import "../../components/searchBar/index.wxss";
+
+.like_goods_box {
+    display: block;
+    background: #fff;
+    height: 290rpx;
+    padding: 20rpx 30rpx;
+    border-top: 1rpx solid #e5e5e5;
+}
+
+.like_goods_box .goods_img {
+    width: 250rpx;
+    height: 250rpx;
+    overflow: hidden;
+}
+
+.like_goods_box .goods_img img {
+    width: 100%;
+}
+
+.like_goods_box .goods_info {
+    margin-left: 20rpx;
+    width: 420rpx;
+    overflow: hidden;
+}
+
+.like_goods_box .goods_name {
+    font-size: 36rpx;
+    color: #333;
+    line-height: 40rpx;
+    margin-top: 30rpx;
+    height: 78rpx;
+    overflow: hidden;
+}
+
+.like_goods_box .goods_param {
+    margin-top: 85rpx;
+    height: 34rpx;
+    overflow: hidden;
+}
+
+.like_goods_box .goods_price {
+    font-size: 36rpx;
+    font-weight: bold;
+    color: #ff5777;
+    line-height: 34rpx;
+}
+
+.like_goods_box .goods_flow {
+    font-size: 36rpx;
+    color: #999;
+    line-height: 34rpx;
+    margin-left: 44rpx;
+}
+
+.split_title {
+    height: 75rpx;
+    background: url(https://s10.mogucdn.com/p1/160617/upload_ifrtmnrqmq4dmnjthezdambqhayde_750x75.png) no-repeat;
+    background-size: 100% auto;
+}

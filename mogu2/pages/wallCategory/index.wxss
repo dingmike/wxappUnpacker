@@ -1,0 +1,9 @@
+@import "../../components/loading/index.wxss";
+
+@import "../../components/wall/index.wxss";
+
+@import "../../components/searchBar/index.wxss";
+
+.searchBarContent {
+    border-bottom: 0;
+}

@@ -1,0 +1,9 @@
+<template name="topbanner">
+    <view class="module-primary-topbanner topbanner flex f-jc-fe" style="background-image: url({{image}})" wx:if="{{image}}">
+        <view class="topbanner-container flex f-ff-cn f-jc-sa f-ai-c" wx:if="{{isCountdomShow&&countdown>0}}">
+            <view class="topbanner-text" style="color: {{titleColor}}">{{text}}</view>
+            <template is="countdown" data="{{...$countdown,className:'countdown-time',numClass:'countdown-time--num',symbolClass:'countdown-time--symbol'}}"></template>
+        </view>
+    </view>
+</template>
+<import src="../../../../components/countdown/index.wxml"></import>

@@ -1,0 +1,45 @@
+<template name="liveItemHost">
+    <view class="live-list-live-item-host-wrap expose-log" data-acm="{{acm}}">
+        <view class="live-list-live-item-host-cover-container">
+            <view class="live-list-live-item-host-cover" style="background-image:url({{cover}})">
+                <view class="live-list-live-item-host-on-live-wrap flex f-ai-c">
+                    <view class="live-list-live-item-host-on-live-dot"></view>
+                    <text class="live-list-live-item-host-on-live-text">直播中</text>
+                </view>
+                <view class="live-list-live-item-host-cover-mask">
+                    <view class="live-list-live-item-host-user-count flex f-fd-r f-jc-fs f-ai-c">
+                        <image class="live-list-live-item-host-user-count-image" lazyLoad="{{true}}" mode="aspectFit" src="https://s10.mogucdn.com//mlcdn/c45406/170706_1kha45b73f6fdc3d4jj9ldcel6382_22x22.png"></image>
+                        <text class="live-list-live-item-host-user-count-text">{{visitorCount}}</text>
+                    </view>
+                    <view class="live-list-live-item-host-praise-count flex f-fd-r f-jc-fe f-ai-c">
+                        <text class="live-list-live-item-host-praise-count-text">{{favCount}}</text>
+                        <image class="live-list-live-item-host-praise-count-image" lazyLoad="{{true}}" mode="aspectFit" src="https://s10.mogucdn.com//mlcdn/c45406/170706_3eca7ackkifg6h20bi1k9bld2d4h3_22x22.png"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="live-list-live-item-host-text-container">
+            <view class="flex f-jc-sb">
+                <text class="live-list-live-item-host-room-title live-list-live-item-host-room-title-with-mark" wx:if="{{actorTag&&actorTag.listIcon}}">{{intro}}</text>
+                <text class="live-list-live-item-host-room-title live-list-live-item-host-room-title-without-mark" wx:else>{{intro}}</text>
+                <image class="live-list-live-item-host-list-mark" lazyLoad="{{true}}" mode="aspectFit" src="{{actorTag.listIcon}}" wx:if="{{actorTag&&actorTag.listIcon}}"></image>
+            </view>
+            <text class="live-list-live-item-host-host-name">{{userName}}</text>
+        </view>
+        <view class="live-list-live-item-host-goods-list-container">
+            <view class="live-list-live-item-host-goods-list-wrap flex f-fd-r f-jc-fs f-ai-c" wx:if="{{carts.shopCarts&&carts.shopCarts.length}}">
+                <block wx:if="{{carts.total>4}}">
+                    <image class="live-list-live-item-host-goods-item" lazyLoad="{{true}}" mode="aspectFill" src="{{goodsItem.url}}" wx:if="{{index<3}}" wx:for="{{carts.shopCarts}}" wx:for-item="goodsItem" wx:key="goodsItem"></image>
+                    <view class="live-list-live-item-host-goods-count-wrap flex f-fd-c f-jc-fs f-ai-c">
+                        <text class="live-list-live-item-host-goods-count-title">{{carts.total}}件</text>
+                        <text class="live-list-live-item-host-goods-count-description">直播购</text>
+                    </view>
+                </block>
+                <block wx:else>
+                    <image class="live-list-live-item-host-goods-item" lazyLoad="{{true}}" mode="aspectFill" src="{{goodsItem.url}}" wx:if="{{index<4}}" wx:for="{{carts.shopCarts}}" wx:for-item="goodsItem" wx:key="goodsItem"></image>
+                </block>
+            </view>
+        </view>
+        <image class="live-list-live-item-host-commercial-mark" lazyLoad="{{true}}" mode="aspectFill" src="commercialIcon" wx:if="{{commercialIcon&&commercialIcon.length>0}}"></image>
+    </view>
+</template>

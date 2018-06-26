@@ -1,0 +1,16 @@
+<template name="coupon">
+    <form bindsubmit="{{$scope}}.onCouponClick" class="component__coupon coupon {{className}}" data-diabled="{{isAlreadGet}}" data-id="{{campId}}" data-index="{{index}}" reportSubmit="true" style="background-image: url({{isAlreadGet?disabledCardImage:bizType===8&&specialCardImage?specialCardImage:couponCardImage}})">
+        <button class="coupon__content flex f-ff-cn f-ai-c f-jc-c" formType="submit" hoverClass="none">
+            <view class="coupon__content--price price flex f-ai-b">
+                <view class="price__text flex">{{effect}}</view>
+                <view class="price__unit flex f-ai-c f-jc-c" style="background-image: url({{isAlreadGet?disabledCardImage:bizType===8&&specialCardImage?specialCardImage:couponCardImage}})">
+                    <view class="price__unit--content flex"></view>
+                </view>
+            </view>
+            <view class="coupon__content--desc flex">{{limitDesc}}</view>
+            <view class="coupon__content--tag" wx:if="{{isAlreadGet}}">
+                <view class="tag__text">已领</view>
+            </view>
+        </button>
+    </form>
+</template>

@@ -1,0 +1,27 @@
+<template name="service">
+    <view class="component__service service">
+        <view bindtap="{{$scope}}.showServices" class="service__content flex f-ai-c f-jc-sb" wx:if="{{services&&services.length>0}}">
+            <view class="service__content--item item flex f-ai-c f-jc-fs" wx:if="{{index<3}}" wx:for="{{services}}" wx:for-item="service" wx:key="name">
+                <i class="item__icon m-icon m-icon-toast-yes" style="{{$color.mainTx}}"></i>
+                <text class="item__name" style="{{$color.secondaryTextTx}}">{{service.name}}</text>
+            </view>
+            <i class="service__content--icon m-icon m-icon-arrow-right" style="{{$color.dimTx}}"></i>
+        </view>
+        <view bindtap="{{$scope}}.onCloseClick" class="service__dialog show-{{isServiceShow}} base-dialog">
+            <view catchtap="{{$scope}}.onInnerClick" class="service__dialog--inner base-dialog--inner flex f-ff-cn">
+                <view class="service__dialog--head head base-dialog--head">
+                    <view class="head-title">服务说明</view>
+                    <view bindtap="{{$scope}}.onCloseClick" class="head-close flex f-ai-c f-jc-c">╳</view>
+                </view>
+                <view class="service__dialog--content content base-dialog--content">
+                    <view class="content__item flex f-ai-c" wx:for="{{services}}" wx:for-item="service" wx:key="name">
+                        <view class="content__item--text text">
+                            <text class="text__title" style="{{$color.mainTextTx}}">{{service.name}}</text>
+                            <text class="text__content" style="{{$color.dimTx}}">{{service.content}}</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

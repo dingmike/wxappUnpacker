@@ -1,0 +1,50 @@
+<template name="platformCoupon">
+    <view class="buy-couponlist flex f-ai-fe" hidden="{{!showList}}">
+        <view class="ui-mask"></view>
+        <view class="buy-couponlist-content flex">
+            <view class="buy-couponlist-content--title">
+                <text class="couponlist-shopname">{{title}}</text>
+                <view bindtap="{{$scope}}.callClickCloseCoupon" class="buy-couponlist-content--close">╳</view>
+            </view>
+            <view class="buy-couponlist-content--list platformCoupon">
+                <scroll-view scrollY class="scroll-view-top" scrollTop="{{scrollTop}}">
+                    <view class="new-no-use">
+                        <view bindtap="{{$scope}}.handleChoosePromotion" class="new-nouse-coupon flex" data-promotion-key="empty_0_0">
+                            <view class="new-nouse-text">不使用券</view>
+                            <view>
+                                <radio checked="{{activeKey==='empty_0_0'}}" color="#FB4747"></radio>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="new-can-use" wx:if="{{availableList&&availableList.length>0}}">
+                        <view wx:for="{{availableList}}" wx:key="{{item.promotionKey}}">
+                            <view bindtap="{{$scope}}.handleChoosePromotion" data-promotion-key="{{item.promotionKey}}">
+                                <template is="couponItem" data="{{type:'available',data:item,activeKey:activeKey}}"></template>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="new-add-on" wx:if="{{addOnList&&addOnList.length>0}}">
+                        <view class="promotion-type-text">
+                            <text class="text-line"></text>
+                            <text class="addon-text">凑单后可用</text>
+                        </view>
+                        <view wx:for="{{addOnList}}" wx:key="{{item.promotionKey}}">
+                            <template is="couponItem" data="{{type:'addon',data:item,activeKey:activeKey}}"></template>
+                        </view>
+                    </view>
+                    <view class="new-cannot-use" wx:if="{{unAvailableList&&unAvailableList.length>0}}">
+                        <view class="promotion-type-text">
+                            <text class="text-line"></text>
+                            <text class="addon-text">本单不可用</text>
+                        </view>
+                        <view wx:for="{{unAvailableList}}" wx:key="{{item.promotionKey}}">
+                            <template is="couponItem" data="{{type:'unAvailable',data:item,activeKey:activeKey}}"></template>
+                        </view>
+                    </view>
+                </scroll-view>
+            </view>
+            <view bindtap="{{$scope}}.delegate" class="new-coupon-btn">确定</view>
+        </view>
+    </view>
+</template>
+<import src="./couponItem.wxml"></import>

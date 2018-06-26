@@ -1,0 +1,27 @@
+<template name="checkout">
+    <view class="flex f-ai-fe coupon-container" wx:if="{{mixed}}">
+        <view class="ui-mask" wx:if="{{type==='normal'}}"></view>
+        <view class="flex f-fd-c coupon-content bg-{{type}}">
+            <view bindtap="{{$scope}}.closeCheckout" class="flex f-ai-c co-header coupon-header header-{{type}}">
+                <text class="coupon-header--title">请分开结算以下商品</text>
+                <text class="coupon-header--x" wx:if="{{type==='normal'}}">╳</text>
+                <text class="coupon-header--close" wx:else>返回</text>
+            </view>
+            <form bindsubmit="{{$scope}}.buySingle" class="{{type==='normal'?'':'coupon-form'}}" reportSubmit="true">
+                <view class="coupon-body">
+                    <template is="check" data="{{t:'海外商品',n:bondedGoodsNum,b:true}}"></template>
+                    <template is="check" data="{{t:'其他商品',n:normalGoodsNum,b:false}}"></template>
+                </view>
+            </form>
+        </view>
+    </view>
+</template>
+<template name="check">
+    <view class="flex f-ai-c co-item">
+        <view class="f-fg-1">
+            <view class="co-title">{{t}}</view>
+            <view class="co-desc">共{{n}}件</view>
+        </view>
+        <button class="ui-checkBtn" data-bonded="{{b}}" formType="submit">结算</button>
+    </view>
+</template>

@@ -1,0 +1,134 @@
+<view class="order-container">
+    <view class="order-header">
+        <text class="order-header-text">{{order.summary_info.group_info.group_status==1&&(order.summary_info.status==20006||order.summary_info.status==20001)?order.summary_info.order_type==3?'抽奖团订单':'进行中-拼团中':order.summary_info.status_str}}</text>
+        <button bindtap="gotoContact" class="contactButton" openType="{{serviceData.is_zhuiyi?'contact':''}}" sessionFrom="{{order.summary_info.zhuiyi_type}}">
+            <image class="img" src="https://image.seecsee.com/server_icon-2.png"></image>联系客服</button>
+    </view>
+    <view class="location-container">
+        <view>
+            <image class="location-icon" src="../images/location.png"></image>
+        </view>
+        <view class="order-address">
+            <view class="order-address-detail">
+                <view>
+                    <text>{{order.summary_info.addr_info.addr}}</text>
+                </view>
+                <view>
+                    <text>收件人:{{order.summary_info.addr_info.name}}  {{order.summary_info.addr_info.mobile}}</text>
+                </view>
+                <view wx:if="{{order.summary_info.addr_info.idcard_no}}">
+                    <text>身份证:{{order.summary_info.addr_info.idcard_no}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="order-list">
+        <block wx:for="{{order.list}}" wx:for-item="lit_order" wx:key="id">
+            <view class="order-list-item">
+                <view class="order-list-item-country">
+                    <image mode="aspectFill" src="{{lit_order.base_info.country_flag}}"></image>
+                    <text>{{lit_order.base_info.ship_country}}</text>
+                </view>
+                <view class="order-list-item-goods" wx:for="{{lit_order.data}}" wx:key="id">
+                    <view bindtap="clickProduct" class="order-item-image" data-activityid="{{order.summary_info.group_info.groupon_activity_id}}" data-activitystatus="{{order.summary_info.group_info.activity_status}}" data-id="{{item.item_id}}">
+                        <image mode="aspectFill" src="{{item.item_imgurl}}"></image>
+                    </view>
+                    <view class="order-item-text-info">
+                        <text class="order-item-name">{{item.item_name}}</text>
+                        <text>{{item.attr_value}}</text>
+                    </view>
+                    <view class="order-item-price">
+                        <text>{{item.buy_price}}</text>
+                        <text>x{{item.quantity}}</text>
+                    </view>
+                </view>
+                <view class="order-list-item-fee">
+                    <view class="order-list-item-fee-row">
+                        <view>
+                            <text>运费</text>
+                        </view>
+                        <view>
+                            <text class="order-list-item-fee-row-value">{{lit_order.base_info.ship_fee}}</text>
+                        </view>
+                    </view>
+                    <view class="order-list-item-fee-row">
+                        <view>
+                            <text>税金</text>
+                        </view>
+                        <view>
+                            <text class="order-list-item-fee-row-value">{{lit_order.base_info.ship_tax}}</text>
+                        </view>
+                    </view>
+                    <view class="order-list-item-fee-row" wx:if="{{lit_order.base_info.coupon_price!='0'}}">
+                        <view>
+                            <text>优惠</text>
+                        </view>
+                        <view>
+                            <text class="order-list-item-fee-row-value">￥{{lit_order.base_info.coupon_price}}</text>
+                        </view>
+                    </view>
+                    <view class="order-list-item-fee-row">
+                        <view>
+                            <text>合计（含运费）</text>
+                        </view>
+                        <view>
+                            <text class="order-list-item-fee-row-price">{{lit_order.base_info.total_fee}}</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="empty-view" wx:if="{{lit_order.base_info.show_bottom}}"></view>
+        </block>
+    </view>
+    <view class="view-big-order">
+        <view>
+            <text>定单编号：{{order.summary_info.order_id}}</text>
+        </view>
+        <view wx:for="{{order.summary_info.order_time_array}}" wx:key="*this">
+            <text>{{item}}</text>
+        </view>
+    </view>
+    <view class="order-transport-info" wx:if="{{order.summary_info.transport_info.horizontal.list.length>0&&order.summary_info.group_info.group_status!=1&&order.summary_info.order_type!=3}}">
+        <view class="transport-title">
+            <text>订单状态</text>
+        </view>
+        <ul class="track-h">
+            <li class="track-h-item {{index<=order.summary_info.transport_info.horizontal.cur_idx?'active-h':''}}" wx:for="{{order.summary_info.transport_info.horizontal.list}}" wx:key="*this">
+                <span class="track-h-node"></span>
+                <span class="track-h-desc">{{item}}</span>
+            </li>
+        </ul>
+        <ul class="track-v">
+            <li class="track-v-item {{index==0?'active-v':''}} {{item.node_type==1?'node-b-n':''}}" wx:for="{{order.summary_info.transport_info.vertical}}" wx:key="node_name">
+                <view class="track-v-item-left">
+                    <view class="track-v-node"></view>
+                </view>
+                <view class="track-v-desc">
+                    <view class="track-v-desc-status">
+                        <text>{{item.node_name}}</text>
+                        <text>{{item.node_time_str}}</text>
+                    </view>
+                    <view class="track-v-desc-next" wx:if="{{item.show_next_node}}">
+                        <text wx:if="{{item.next_node}}">下一步 > {{item.next_node}}</text>
+                    </view>
+                </view>
+            </li>
+        </ul>
+    </view>
+    <view>
+        <text>
+
+</text>
+    </view>
+</view>
+<view class="commodityfixbtn" wx:if="{{order.summary_info.remain_second>0&&order.summary_info.status==10001}}">
+    <view class="total_info">
+        <text class="total_info-tips">合计:</text>
+        <text class="total_info-price">{{order.summary_info.total_fee}}</text>
+        <text class="total_info-second"> {{order.summary_info.remain_second_str}}
+      </text>
+    </view>
+    <view bindtap="clickRepay" class="" data-id="{{order.summary_info.order_id}}" data-isGrouponOrder="{{order.summary_info.groupinfo?true:false}}">
+        <text class="pay_btn-text">付款</text>
+    </view>
+</view>

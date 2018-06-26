@@ -1,0 +1,171 @@
+.mogu-color {
+    color: #ff5777!important;
+}
+
+.latest-ship-time {
+    height: 70rpx;
+    line-height: 50rpx;
+    font-size: 24rpx;
+    color: #666;
+}
+
+.bonded-refund-tip {
+    height: 26rpx;
+    line-height: 25rpx;
+    font-size: 18rpx;
+    width: 170rpx;
+    text-align: center;
+    color: #ff5777;
+    border: solid 1rpx #ff5777;
+}
+
+.product {
+    padding: 20rpx 0;
+    position: relative;
+    width: 100%;
+    padding: 20rpx 30rpx 20rpx 0;
+    min-height: 180rpx;
+}
+
+.product-border {
+    border-bottom: solid 1rpx #eee;
+}
+
+.product-des--refund {
+    position: absolute;
+    bottom: 20rpx;
+    right: 30rpx;
+}
+
+.refund-res--button {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    border: 1rpx solid #ccc;
+    background: #fdfdfd;
+    border-radius: 2rpx;
+    padding: 0 13rpx;
+    height: 46rpx;
+    line-height: 46rpx;
+}
+
+.refund-res--red {
+    background-color: #ff5777;
+    color: #fff!important;
+    border: none;
+}
+
+.item-shop-img image {
+    width: 144rpx;
+    height: 172rpx;
+    border: solid 1rpx #eee;
+}
+
+.product-des {
+    margin: 0 15rpx;
+    position: relative;
+}
+
+.product-des--name {
+    color: #333;
+    margin-top: 5rpx;
+    line-height: 36rpx;
+    height: 72rpx;
+    font-size: 24rpx;
+    font-weight: 400;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.sku-item-wrap {
+    margin-right: 10rpx;
+    display: inline;
+    line-height: 36rpx;
+    height: 36rpx;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.refund-res--status {
+    margin-right: 5rpx;
+    color: #727272;
+    font-size: 24rpx;
+}
+
+.product-price--fee {
+    color: #ff5777;
+    position: absolute;
+    top: 140rpx;
+    right: 15px;
+}
+
+.product-price--red {
+    display: inline-block;
+}
+
+.product-price {
+    text-align: right;
+    line-height: 40rpx;
+    font-size: 24rpx;
+    color: #666;
+}
+
+.product-price--number {
+    font-size: 24rpx;
+    color: #999;
+}
+
+.product-price--origin {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.product-des--sku {
+    margin-bottom: 5rpx;
+    font-size: 24rpx;
+    color: #999;
+    overflow: hidden;
+    height: 36rpx;
+    line-height: 36rpx;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 410rpx;
+}
+
+.product-des--tag {
+    margin-right: 6rpx;
+    display: inline-block;
+    padding: 2rpx 5rpx;
+    color: #fff;
+    background-color: #ff5777;
+    font-size: 22rpx;
+}
+
+.discount {
+    margin-bottom: 20rpx;
+}
+
+.discount-item {
+    background: #fff;
+    padding: 20rpx 30rpx;
+    font-size: 24rpx;
+    margin-top: 20rpx;
+    line-height: 42rpx;
+    color: #666;
+}
+
+.discount-item--title {
+    display: block;
+}
+
+.promotion-desc {
+    position: relative;
+}
+
+.promotion-desc--value {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}

@@ -1,0 +1,7 @@
+<template name="topbanner">
+    <swiper autoplay="true" circular="true" class="swiper" duration="{{duration}}" indicatorActiveColor="#FFFFFF" indicatorColor="#FF9DC8" indicatorDots="{{topBanners.length>1}}" interval="{{interval}}" style="height:{{topBanners[0].h}}rpx;">
+        <swiper-item wx:for="{{topBanners}}" wx:key="acm">
+            <image bindtap="$launch" class="slide-image" data-app-id="{{item.wxa_appId}}" data-fallback="{{item.link_xcx}}" data-href="{{item.wxa_link}}" mode="widthFix" src="{{item.img}}"></image>
+        </swiper-item>
+    </swiper>
+</template>

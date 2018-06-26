@@ -1,0 +1,75 @@
+<template name="mvw-game-pop">
+    <view class="mvw-game-pop {{__vx_class}}" style="{{__vx_style}}" wx:if="{{info}}">
+        <view bindtap="{{$scope}}.close" class="mvw-game-mask" wx:if="{{showInfo}}"></view>
+        <view class="mvw-game-pop-bg {{popClass}}" style="background: {{'url('+info.bg+') 0% 0% / 100% no-repeat'}};" wx:if="{{showInfo&&showContent}}">
+            <view bindtap="{{$scope}}.close" class="mvw-game-pop-close"></view>
+            <view class="mvw-game-content-wrapper" wx:if="{{info.giftType!='rule'}}">
+                <view class="mvw-game-top">
+                    <view class="mvw-game-top-title" wx:if="{{info.content&&info.content.hitPopTitle}}">{{info.content.hitPopTitle}}</view>
+                    <view class="mvw-game-top-title" wx:else>{{info.title||''}}</view>
+                    <view class="mvw-game-top-desc" wx:if="{{info.giftType=='movieTicket'&&info.content}}">
+          兑换码：{{info.content.cardCouponCode||''}}
+        </view>
+                    <view class="mvw-game-top-desc" wx:else>
+          {{info.subTitle||''}}
+        </view>
+                </view>
+                <view class="mvw-game-content" wx:if="{{info.content&&(info.giftType=='platformCoupon'||info.giftType=='shopCoupon'||info.giftType=='payPackage'||info.giftType=='platPackage')}}">
+                    <view class="mvw-cut-price" wx:if="{{info.giftType!='platPackage'}}">
+                        <view class="mvw-cut-before">{{info.content.cutPrice||info.content.payPackageAmount||0}}</view>
+                    </view>
+                    <view class="mvw-cut-price" wx:else>
+                        <view class="mvw-cut-before">{{info.content.couponPkgAmount||0}}</view>
+                    </view>
+                    <view class="mvw-limit-price" wx:if="{{info.giftType!='payPackage'&&info.giftType!='platPackage'}}">
+          满{{info.content.limitPrice||0}}可使用
+        </view>
+                </view>
+                <view class="mvw-game-content" wx:elif="{{(info.giftType=='welfareItem'||info.giftType=='itemGift'||info.giftType=='goodsGift')&&info.content}}">
+                    <view bindtap="{{$scope}}.$vx_navigate" data-href="{{info.content.href}}">
+                        <view class="mvw-game-good-img">
+                            <image src="{{info.content.image}}"></image>
+                        </view>
+                        <view wx:if="{{info.giftType=='welfareItem'}}">
+                            <view class="mvw-game-good-name">{{info.content.name||''}}</view>
+                            <view class="mvw-game-good-price">
+                                <view class="price">
+                                    <view class="cny">¥</view>
+                                    <view class="origin">{{info.content.price||0}}</view>
+                                </view>
+                                <view class="mvw-game-del-price">
+                                    <view class="cny">¥</view>
+                                    <view class="del">{{info.content.del||0}}</view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="mvw-game-content" style="padding: 0;" wx:else>
+                    <image class="mvw-game-card-img" src="{{info.content.showPicUrl}}" wx:if="{{info.giftType=='card'&&info.content.showPicUrl}}"></image>
+                </view>
+                <view class="mvw-game-bottom mvw-game-bottom-card" wx:if="{{info.giftType=='memberCard'&&info.content}}">
+                    <view class="mvw-game-bottom-title">
+          卡号：{{info.content.cardCouponCode||''}}
+        </view>
+                    <view class="mvw-game-bottom-desc">
+          密码：{{info.content.cardCouponPw||''}}
+        </view>
+                </view>
+                <view class="mvw-game-bottom" wx:else>
+                    <view class="mvw-game-bottom-title">{{info.text||''}}</view>
+                    <view class="mvw-game-bottom-desc">{{info.text2||''}}</view>
+                </view>
+                <view bindtap="{{$scope}}.closeBtn" class="mvw-game-bottom-btn" data-btn="1" data-href="{{info.btnLink}}" data-xcx="{{info.xcxBtnLink}}" style="{{btnStyle}}" wx:if="{{info.btnType==1}}">{{info.btnText||''}}</view>
+                <view wx:elif="{{info.btnType==2}}">
+                    <view bindtap="{{$scope}}.closeBtn" class="mvw-game-left-btn" data-btn="1" data-href="{{info.btnLink}}" data-xcx="{{info.xcxBtnLink}}" style="{{btnStyle}}">{{info.btnText||''}}</view>
+                    <view bindtap="{{$scope}}.closeBtn" class="mvw-game-right-btn" data-btn="2" data-href="{{info.btnRightLink}}" data-xcx="{{info.xcxBtnRightLink}}" style="{{btnRightStyle}}">{{info.btnRightText||''}}</view>
+                </view>
+            </view>
+            <view class="mvw-game-rule-content" wx:else>
+                <template is="mvw-image" data="{{$parent:$parent['$'+label],...$parent['$'+label]['$mvw-image_15247322536090']}}"></template>
+            </view>
+        </view>
+    </view>
+</template>
+<import src="../../../../../../cube-core/componentClass/internalComponents/mvwImage/index.wxml"></import>

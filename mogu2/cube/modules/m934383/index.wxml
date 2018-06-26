@@ -1,0 +1,46 @@
+<template name="934383">
+    <view class="brand-sale {{__vx_class}}" style="{{moduleStyle}} {{__vx_style}}" wx:if="{{!isEmpty}}">
+        <view class="brand-header">
+            <text class="head-title">{{brandTitle}}</text>
+            <view bindtap="{{$scope}}.$vx_navigate" class="head-right-cornor" data-href="{{rightCornorXcxLink}}" wx:if="{{rightCornorText}}">
+                <text class="head-right-cornor-text">{{rightCornorText}}</text>
+                <text class="iconfont mf-arrow-right head-right-cornor-icon"></text>
+            </view>
+        </view>
+        <block wx:if="{{brands.length===0}}">
+            <block wx:if="{{shopSize}}">
+                <view class="brand-box" wx:for="{{shopSize}}" wx:for-index="__key_0" wx:for-item="n" wx:key="{{n}}"></view>
+            </block>
+        </block>
+        <block wx:else>
+            <block wx:if="{{brands}}">
+                <view class="brand-box" wx:if="{{brand.list.length>0}}" wx:for="{{brands}}" wx:for-index="__key_1" wx:for-item="brand" wx:key="{{brand}}">
+                    <view bindtap="{{$scope}}.$vx_navigate" class="brand-box-head log-item acm-item" data-cube-acm="{{brand.acm}}" data-cube-acm-node="{{true}}" data-data-log-content="{{brand.acm}}" data-data-log-iid="{{brand.shop_id}}" data-href="{{brand.activity_xcx_url?brand.activity_xcx_url:brand.shop_xcx_url}}">
+                        <template is="mvw-image" data="{{$parent:$parent['$'+label],...$parent['$'+label]['$mvw-image_15247322526610'+'_'+__key_1]}}"></template>
+                        <template is="mvw-image" data="{{$parent:$parent['$'+label],...$parent['$'+label]['$mvw-image_15247322526621'+'_'+__key_1]}}"></template>
+                    </view>
+                    <scroll-view bindscroll="{{$scope}}.scrollEvt" class="brand-goods-wrap" scrollX="{{true}}">
+                        <view class="inflex brand-goods-list">
+                            <view bindtap="{{$scope}}.$vx_navigate" class="brand-good log-item acm-item" data-cube-acm="{{good.acm}}" data-cube-acm-node="{{true}}" data-data-log-conent="{{good.acm}}" data-data-log-iid="{{good.item_id}}" data-href="{{good.item_xcx_url}}" wx:for="{{brand.list}}" wx:for-index="__key_2" wx:for-item="good" wx:key="__key_2">
+                                <template is="mvw-image" data="{{$parent:$parent['$'+label],...$parent['$'+label]['$mvw-image_15247322526622'+'_'+__key_1+'_'+__key_2]}}"></template>
+                                <view class="brand-good-discount">{{good.discount+'折'}}</view>
+                                <template is="common-goods-title" data="{{$parent:$parent['$'+label],...$parent['$'+label]['$common-goods-title_15247322526623'+'_'+__key_1+'_'+__key_2]}}"></template>
+                                <template is="common-sale-price" data="{{$parent:$parent['$'+label],...$parent['$'+label]['$common-sale-price_15247322526624'+'_'+__key_1+'_'+__key_2]}}" wx:if="{{good.discountPrice!='10.00'}}"></template>
+                            </view>
+                            <view bindtap="{{$scope}}.$vx_navigate" class="log-item acm-item" data-cube-acm="{{brand.acm}}" data-cube-acm-node="{{true}}" data-data-log-content="{{brand.acm}}" data-data-log-iid="{{brand.shop_id}}" data-href="{{brand.activity_xcx_url?brand.activity_xcx_url:brand.shop_xcx_url}}">
+                                <view class="brand-more" style="{{moreStyle}}">
+                                    <view class="brand-more-text">查看更多
+                  <text class="iconfont mf-arrow-right"></text>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </scroll-view>
+                </view>
+            </block>
+        </block>
+    </view>
+</template>
+<import src="../../../cube-core/componentClass/internalComponents/mvwImage/index.wxml"></import>
+<import src="../../vxNodeModules/@meili/mgj-mofang-base-components/commonTitle/commonGoodsTitle.wxml"></import>
+<import src="../../vxNodeModules/@meili/mgj-mofang-base-components/commonPrice/commonSalePrice.wxml"></import>

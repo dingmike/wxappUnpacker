@@ -1,0 +1,49 @@
+<template name="home">
+    <view class="cashier-home">
+        <view class="cashier-top">
+            <view class="cashier-topbanner" wx:if="{{isShowTopbanner}}">
+                <view class="m-icon m-icon-notice cashier-topbanner-icon"></view>
+                <view class="cashier-notice">
+                    <text animation="{{animationData}}" class="cashier-notice-scroll" id="cashier-notice-scroll">
+                        <text class="cashier-notice-text" wx:for="{{topbanner}}" wx:key="*this">{{item.desc.str}}</text>
+                        <text class="cashier-notice-text" wx:if="{{isCopytopbannerText}}" wx:for="{{topbanner}}" wx:key="*this">{{item.desc.str}}</text>
+                    </text>
+                </view>
+                <view bindtap="{{$scope}}.hideTopbanner" class="m-icon m-icon-close cashier-topbanner-icon"></view>
+            </view>
+            <radio-group bindchange="{{$scope}}.changeMethod" class="cashier-methods">
+                <label wx:for="{{payMethods}}" wx:key="*this">
+                    <view class="cashier-method cashier-method-{{index}} font-gray-{{item.data.isDisabled}}">
+                        <view class="cashier-method-view">
+                            <image class="method-icon" src="{{item.data.icon}}"></image>
+                            <view class="method-text">{{item.data.title}}</view>
+                            <image class="method-actimg" src="{{item.data.leftImgBtn.img}}" style="width:{{item.data.leftImgBtn.w+'rpx'}};height:{{item.data.leftImgBtn.h+'rpx'}}"></image>
+                        </view>
+                        <view class="cashier-method-view">
+                            <view class="method-desc">{{item.data.desc}}</view>
+                            <radio checked="{{item.data.isChecked}}" class="cashier-method-radio" color="#ff5777" disabled="{{item.data.isDisabled}}" value="{{item.payType}}"></radio>
+                        </view>
+                    </view>
+                    <view bindtap="{{$scope}}.goInstallment" class="cashier-staging" wx:if="{{item.payType==='mailoPay'&&item.data.isStaging&&!item.data.isDisabled}}">
+                        <view class="cashier-staging-view">
+                            <view>{{item.data.installmentTitle}}</view>
+                            <image class="method-actimg" src="{{item.data.stageLeftImgBtn.img}}" style="width:{{item.data.stageLeftImgBtn.w+'rpx'}};height:{{item.data.stageLeftImgBtn.h+'rpx'}}"></image>
+                        </view>
+                        <view class="cashier-staging-view">
+                            <view>{{selectedMethod.installmentDesc||item.data.installmentDesc}}</view>
+                            <view class="m-icon m-icon-arrow-right"></view>
+                        </view>
+                    </view>
+                </label>
+            </radio-group>
+        </view>
+        <view class="cashier-bottom">
+            <view class="cashier-hongbao" wx:if="{{selectedMethod.hongbaoUse>0}}">红包已抵扣{{selectedMethod.hongbaoUse}}元</view>
+            <view class="cashier-amount">
+                <text>合计：</text>
+                <text>{{selectedMethod.price}}</text>
+            </view>
+            <view bindtap="{{$scope}}.paySubmit" class="cashier-submit">付款</view>
+        </view>
+    </view>
+</template>

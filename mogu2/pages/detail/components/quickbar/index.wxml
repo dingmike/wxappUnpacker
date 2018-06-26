@@ -1,0 +1,19 @@
+<template name="quickbar">
+    <view class="component__quickbar quickbar" style="bottom: {{bottom}}rpx; z-index: {{zIndex}};">
+        <button bindtap="{{$scope}}.showActionSheet" class="quickbar__share" hoverClass="none" wx:if="{{isShareShow}}">
+            <image class="quickbar__share--image" lazyLoad="{{true}}" src="{{shareIcon||shareImage}}"></image>
+        </button>
+        <template is="shareDialog" data="{{...$shareDialog}}"></template>
+        <view bindtap="{{$scope}}.onImClick" class="quickbar__webim" wx:if="{{webIm}}">
+            <view class="quickbar__webim--tips tips show-{{isWebImTipsShow}} {{isWebImTipsShow!==null?'flex':''}}">
+                <view class="tips__text">欢迎光临 有问题记得来问我哦</view>
+                <view class="tips__arrow-left"></view>
+                <view class="tips__arrow-right"></view>
+            </view>
+            <template is="imcall" data="{{...$imCall}}"></template>
+            <image class="quickbar__webim--icon" lazyLoad="{{true}}" src="{{webImImage}}"></image>
+        </view>
+    </view>
+</template>
+<import src="../../../../components/imcall/index.wxml"></import>
+<import src="../shareDialog/index.wxml"></import>

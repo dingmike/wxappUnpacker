@@ -1,0 +1,107 @@
+@import "../../components/wall/index.wxss";
+
+@import "../../components/searchBar/index.wxss";
+
+@import "../../components/skudialog/index.wxss";
+
+@import "../../components/mask/index.wxss";
+
+.wall_nav_box .item {
+    width: 33%!important;
+}
+
+.wall_nav_box .pkg_title {
+    height: 56rpx;
+    background: #ffeef1;
+}
+
+.wall_nav_box .pkg_title .pkg_title_text {
+    height: 56rpx;
+    line-height: 56rpx;
+    width: 700rpx;
+    margin: 0 auto;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 28rpx;
+    color: #ff5777;
+    text-align: center;
+}
+
+.wall_nav_box_package,.wall_nav_box_package .nav_middle {
+    height: 136rpx;
+}
+
+.wall_nav_box_package .tab_items {
+    border-top: 0;
+}
+
+.J_items_box .goods_item .p_cart {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 120rpx;
+    height: 60rpx;
+    background: url(https://s10.mogucdn.com/mlcdn/c45406/170629_5hkk52d3c9i56f1fgk941fabi7ae4_84x44.png) no-repeat center center;
+    background-size: 66.66% auto;
+}
+
+.wall_cart_foot {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    z-index: 4;
+}
+
+.cart-foot-left {
+    height: 95rpx;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+}
+
+.cart-amt-foot {
+    flex: 2;
+    color: #fc4970;
+    display: flex;
+    align-items: flex-start;
+    padding-left: 20rpx;
+    margin-top: 4rpx;
+}
+
+.cart-amticon-foot {
+    font-size: 28rpx;
+    margin-right: 4rpx;
+}
+
+.cart-prm-foot {
+    flex: 2;
+    display: flex;
+    align-items: flex-start;
+    font-size: 24rpx;
+    color: #b6b6b6;
+    margin-top: 14rpx;
+    padding-left: 20rpx;
+}
+
+.cart-prm-text {
+    display: block;
+    width: 540rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.cart-foot-right {
+    height: 95rpx;
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28rpx;
+    color: #FFFFFF;
+    background-color: #FC5979;
+}

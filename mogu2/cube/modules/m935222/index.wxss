@@ -1,0 +1,120 @@
+@import "../../../cube-core/componentClass/internalComponents/mvwImage/index.wxss";
+
+@import "../../vxNodeModules/@meili/mgj-mofang-base-components/commonTitle/commonGoodsTitle.wxss";
+
+@import "../../vxNodeModules/@meili/mgj-mofang-base-components/commonPrice/commonOriginPrice.wxss";
+
+@import "../../vxNodeModules/@meili/mgj-mofang-base-components/commonPrice/commonSalePrice.wxss";
+
+.MCUBE_MOD_ID_935222 {
+    background-color: #fff;
+}
+
+.MCUBE_MOD_ID_935222 .longCut {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.MCUBE_MOD_ID_935222 .top_title {
+    width: 100%;
+    height: 100rpx;
+    font-size: 28rpx;
+    color: #333;
+}
+
+.MCUBE_MOD_ID_935222 .top_title_l {
+    width: 50%;
+    margin-left: 18rpx;
+}
+
+.MCUBE_MOD_ID_935222 .top_title_r {
+    margin-right: 18rpx;
+    color: #999;
+}
+
+.MCUBE_MOD_ID_935222 .top_title_more {
+    width: 300rpx;
+    text-align: right;
+}
+
+.MCUBE_MOD_ID_935222 .top_icon {
+    height: 100rpx;
+    line-height: 100rpx;
+}
+
+.MCUBE_MOD_ID_935222 .scroll-wrap {
+    height: 440rpx;
+    overflow: auto;
+    background-color: #fff;
+}
+
+.MCUBE_MOD_ID_935222 .top-wrap {
+    height: 440rpx;
+    padding-bottom: 20rpx;
+    white-space: nowrap;
+}
+
+.MCUBE_MOD_ID_935222 .top-goods {
+    position: relative;
+    display: block;
+    height: 418rpx;
+    width: 240rpx;
+    margin-left: 18rpx;
+    border: solid 1rpx #eee;
+    border-radius: 10rpx;
+}
+
+.MCUBE_MOD_ID_935222 .goods-image {
+    width: 240rpx;
+    height: 320rpx;
+}
+
+.MCUBE_MOD_ID_935222 .top_atm_rank {
+    position: absolute;
+    top: 12rpx;
+    left: 12rpx;
+    width: 60rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    border-radius: 30rpx;
+    font-size: 20rpx;
+    color: #fff;
+    text-align: center;
+    background: #ffa007;
+}
+
+.MCUBE_MOD_ID_935222 .top_atm_des {
+    position: absolute;
+    top: 270rpx;
+    left: 12rpx;
+    max-width: 200rpx;
+    height: 36rpx;
+    line-height: 36rpx;
+    padding: 0 10rpx;
+    border-radius: 20rpx;
+    font-size: 20rpx;
+    color: #fff;
+    background: linear-gradient(to right,#ff8c5e,#fb4747);
+}
+
+.MCUBE_MOD_ID_935222 .top_item_title {
+    width: 100%;
+    padding-left: 12rpx;
+    font-size: 30rpx;
+}
+
+.MCUBE_MOD_ID_935222 .goods-price-info {
+    width: 100%;
+    margin-top: -5rpx;
+}
+
+.MCUBE_MOD_ID_935222 .top-goods-price {
+    margin-left: 10rpx;
+    color: #fb4747;
+}
+
+.MCUBE_MOD_ID_935222 .top-goods-orgprice {
+    margin-left: 10rpx;
+    font-size: 22rpx;
+}

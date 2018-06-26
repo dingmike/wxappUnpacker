@@ -1,0 +1,13 @@
+.MCUBE_MOD_ID_677783 .J_toTop {
+    position: fixed;
+    right: 20rpx;
+    bottom: 100rpx;
+    width: 86rpx;
+    height: 86rpx;
+    z-index: 11;
+}
+
+.MCUBE_MOD_ID_677783 .J_toTop .top-btn-img {
+    width: 86rpx;
+    height: 86rpx;
+}

@@ -1,0 +1,29 @@
+.fenqiItem {
+    height: 120rpx;
+    border-bottom: 1rpx solid #e5e5e5;
+    border-radius: 0;
+    background: #fff;
+    text-align: left;
+    padding: 0;
+    font-size: 28rpx;
+    color: #333;
+    text-align: left;
+    align-items: center;
+    background: #fff;
+    line-height: inherit;
+}
+
+.fenqiItem-desc {
+    padding-left: 24rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+}
+
+.fenqiItem-h {
+    font-size: 24rpx;
+    color: #999;
+}
+
+.couponItem-active .fenqiItem-h {
+    color: #ff5777;
+}

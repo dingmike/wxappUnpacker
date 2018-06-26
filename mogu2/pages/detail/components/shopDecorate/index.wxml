@@ -1,0 +1,5 @@
+<template name="shopDecorate">
+    <image bindtap="{{link?'$redirect':''}}" class="module-shopDecorate" data-href="{{link}}" lazyLoad="{{true}}" mode="widthFix" src="{{img}}" wx:if="{{img}}"></image>
+    <template is="occupying" data wx:if="{{img}}"></template>
+</template>
+<import src="../occupying/index.wxml"></import>

@@ -1,0 +1,88 @@
+<import src="../../../components/mg/index.wxml"></import>
+<import src="../../../components/loading/index.wxml"></import>
+<import src="../../../components/toast/index.wxml"></import>
+<template is="mg" data="{{...$mg}}"></template>
+<template is="loading" data="{{...$loading}}"></template>
+<template is="toast" data="{{...$toast}}"></template>
+<view class="content-block" wx:if="{{data.showStatus}}">
+    <view class="line">
+        <text class="hl" wx:if="{{data.failed}}">{{data.statusText}}</text>
+        <text wx:else>{{data.statusText}}</text>
+    </view>
+</view>
+<view class="content-block" wx:if="{{data.showAmount}}">
+    <view class="line">
+        <text class="key">退货运费补贴金额</text>
+        <text class="value">{{data.claimAmount}}元</text>
+    </view>
+</view>
+<view class="content-block" wx:if="{{data.showTimeline}}">
+    <view class="process-list">
+        <view class="process current">
+            <view class="cont">
+                <text>{{data.claimsEndText}}</text>
+            </view>
+            <view class="timestamp">
+                <text>{{data.claimsEnd}}</text>
+            </view>
+        </view>
+        <view class="process">
+            <view class="cont">
+                <text>{{data.claimsStartText}}</text>
+            </view>
+            <view class="timestamp">
+                <text>{{data.claimsStart}}</text>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="content-block tracing-action" wx:if="{{showReApply}}">
+    <view class="line tracing-line">
+        <view bindtap="completeLogistics" class="add-tracing-number">补填物流单号</view>
+    </view>
+</view>
+<view class="block-title">
+    <text>退货运费补贴流程</text>
+    <text class="hl">（必读）</text>
+</view>
+<view class="list-block media-list">
+    <view class="list-container">
+        <view class="list-item">
+            <view class="item-content">
+                <view class="item-inner media-inner">
+                    <view class="item-title">使用上门揽件</view>
+                    <scroll-view scrollX class="item-pic">
+                        <image src="https://s10.mogucdn.com/mlcdn/c45406/170604_893dfd1adg9b6idc5ela6aicl4bji_930x148.png" style="width: 465px; height: 74px;"></image>
+                    </scroll-view>
+                </view>
+            </view>
+        </view>
+        <view class="list-item">
+            <view class="item-content">
+                <view class="item-inner media-inner">
+                    <view class="item-title">自行寄件</view>
+                    <scroll-view scrollX class="item-pic">
+                        <image src="https://s10.mogucdn.com/mlcdn/c45406/170619_087g4g97ab1g04gihad2f9fa3kg63_930x148.png" style="width: 465px; height: 74px;"></image>
+                    </scroll-view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="block-title">FAQ</view>
+<view class="list-block">
+    <view class="list-container">
+        <view class="accordion-item" wx:for="{{faqList}}" wx:key="acm">
+            <view bindtap="accordion" class="item-content item-link" data-index="{{index}}">
+                <view class="item-inner {{item.fold?'':'accordion-item-expanded'}}">
+                    <text class="item-title">{{item.question}}</text>
+                </view>
+            </view>
+            <view class="accordion-item-content {{item.fold?'':'accordion-item-expanded'}}">
+                <view class="content-block">
+                    <text class="faq-content">{{item.answer}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

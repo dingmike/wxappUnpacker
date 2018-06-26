@@ -1,0 +1,36 @@
+<template name="pwd">
+    <view class="cashier-pwd">
+        <view class="cashier-pwdnum">
+            <view class="cashier-pwdnum-bg">
+                <view class="cashier-pwdnum-bg-view"></view>
+                <view class="cashier-pwdnum-bg-view"></view>
+                <view class="cashier-pwdnum-bg-view"></view>
+                <view class="cashier-pwdnum-bg-view"></view>
+                <view class="cashier-pwdnum-bg-view"></view>
+                <view class="cashier-pwdnum-bg-view"></view>
+            </view>
+            <view class="cashier-pwdnum-input" wx:if="{{!isReInput}}">
+                <view class="cashier-pwdnum-input-view" wx:for="{{numHasInput}}" wx:key="*this">
+                    <view class="cashier-pwdnum-input-point"></view>
+                </view>
+            </view>
+            <view class="cashier-pwdnum-input" wx:else>
+                <view class="cashier-pwdnum-input-view" wx:for="{{numHasInputAgain}}" wx:key="*this">
+                    <view class="cashier-pwdnum-input-point"></view>
+                </view>
+            </view>
+        </view>
+        <view class="cashier-keyboard">
+            <view class="cashier-keyboard-top">蘑菇街安全键盘</view>
+            <view class="cashier-keyboard-num">
+                <view bindtap="{{$scope}}.numTap" class="cashier-keyboard-num-view cashier-keyboard-num-{{item}}" data-num="{{item}}" wx:for="{{numArr}}" wx:key="*this">
+                    <block wx:if="{{item==='x'}}">
+                        <view class="cashier-keyboard-num-{{item}}-1"></view>
+                        <view class="cashier-keyboard-num-{{item}}-2">{{item}}</view>
+                    </block>
+                    <block wx:else>{{item}}</block>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

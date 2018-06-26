@@ -1,0 +1,130 @@
+<template name="shopList">
+    <view class="meili-all-vue-order-detail-shop shop" wx:for="{{shopList}}" wx:for-item="shopItem" wx:key="index">
+        <view class="shop-title flex">
+            <view bindtap="$navigate" class="shop-title--show f-fg-1" data-page="shop" data-shop-id="{{shopItem.shopIdEsc}}" wx:if="{{!shopItem.hideShopLink}}">
+                <text class="shop-title--name">{{shopItem.shopName}}</text>
+            </view>
+            <view class="shop-title--show f-fg-1" wx:else>
+                <text class="shop-title--name">{{shopItem.shopName}}</text>
+            </view>
+            <view class="shop-title--im" url="" wx:if="{{shopItem.shopIdEsc}}">
+                <view style="position:relative">
+                    <template is="imcall" data="{{...$imcall,shopId:shopItem.shopIdEsc}}" wx:if="{{marketType==='market_mogujie'}}"></template>
+                    <view class="m-icon m-icon-base m-icon-message"></view>
+                    <text class="shop-title--tip">联系商家</text>
+                </view>
+            </view>
+        </view>
+        <view class="shop-show">
+            <view class="shop-product">
+                <template is="shopItem" data="{{...$shopItem,productList:shopItem.productList,isChannel:isChannel}}"></template>
+            </view>
+            <view class="shop-show--list">
+                <view class="shop-show--item" wx:if="{{shopItem.buyerItemOrderPrice&&shopItem.buyerItemOrderPrice>0||shopItem.shipRemark||orderStageList}}">
+                    <view class="flex order-price" wx:if="{{shopItem.buyerItemOrderPrice&&shopItem.buyerItemOrderPrice>0}}">
+                        <view class="shop-item-title ship-remark--title">商品应付金额：
+                        <view class="shop-item-redpacket" wx:if="{{shopItem.redPacketText}}">已减掉{{shopItem.redPacketText}}</view>
+                        </view>
+                        <view class="f-fg-1 shop-item-value ship-remark--value freight-free">￥{{shopItem.buyerItemOrderPrice}}</view>
+                    </view>
+                    <view class="pre-sell" wx:if="{{orderStageList}}">
+                        <view class="pre-sell--item flex">
+                            <text class="shop-item-title">
+                                <text class="inline">阶段1 定金：</text>
+                                <text class="inline">{{orderStageList.payGoodsText}}</text>
+                            </text>
+                            <text class="f-fg-1 shop-item-value">￥{{orderStageList.payGoodsPrice}}</text>
+                        </view>
+                        <view class="pre-sell--item flex">
+                            <text class="shop-item-title">
+                                <text class="inline">阶段2 尾款：</text>
+                                <text class="inline" wx:if="{{orderStageList.tailGoodsText}}">{{orderStageList.tailGoodsText}}</text>
+                                <text wx:else>{{orderStageList.beginTime}}开始支付尾款</text>
+                            </text>
+                            <text class="f-fg-1 shop-item-value">￥{{orderStageList.tailGoodsPrice}}</text>
+                        </view>
+                    </view>
+                    <view class="flex ship-remark" wx:if="{{shopItem.shipRemark}}">
+                        <text class="shop-item-title ship-remark--title">快递运费：{{shopItem.shipRemark}}</text>
+                        <text class="f-fg-1 shop-item-value ship-remark--value freight-free">￥{{shopItem.originalShipExpense}}</text>
+                    </view>
+                    <view class="flex order-price" wx:if="{{shopItem.isCurrentTariff}}">
+                        <view class="shop-item-title ship-remark--title">关税：
+                        <view class="shop-item-redpacket">{{shopItem.currentTariff>0?shopItem.currentTariff+'元':'卖家承担'}}</view>
+                        </view>
+                    </view>
+                </view>
+                <view bindtap="{{$scope}}.doRefundSubsidy" class="shop-show--refund flex flex-ai-c" data-shoporderid="{{shopItem.shopOrderId}}" wx:if="{{shopItem.isFreight&&shopItem.freightStatusDto}}">
+                    <view class="shop-item-title">
+                        <view class="refund-text">退货运费补贴</view>
+                        <view class="refund-tip">{{shopItem.freightStatusDto.tip}}</view>
+                    </view>
+                    <view class="f-fg-1 shop-item-value {{shopItem.freightStatus!=='UNINSURED'&&'mogu-color'}}">
+                  {{shopItem.freightStatusDto.status}}
+                  <view class="m-icon m-icon-base m-icon-arrow-right freight-icon"></view>
+                    </view>
+                </view>
+                <view class="shop-show--item" wx:if="{{shopItem.priceChangedRemark||shopItem.expenseChangedRemark}}">
+                    <view class="flex price-changed" wx:if="{{shopItem.priceChangedRemark}}">
+                        <text class="shop-item-title price-changed--title">商家改价：</text>
+                        <text class="f-fg-1 shop-item-value price-changed--value">{{shopItem.priceChangedRemark}}</text>
+                    </view>
+                    <view class="flex price-changed" wx:if="{{shopItem.expenseChangedRemark}}">
+                        <text class="shop-item-title price-changed--title">商家改运费：</text>
+                        <text class="f-fg-1 shop-item-value price-changed--value">{{shopItem.expenseChangedRemark}}</text>
+                    </view>
+                </view>
+                <view class="shop-show--item" wx:if="{{shopItem.promoShopInfo||!shopItem.isWaitPay&&(shopItem.promoPlatformInfo||shopItem.modouUseCount||shopItem.useAmount&&shopItem.useAmount>0)}}">
+                    <view class="flex promotion-desc" wx:if="{{shopItem.promoShopInfo}}">
+                        <text class="shop-item-title promotion-desc--title">店铺优惠：</text>
+                        <view class="promotion-desc--list" wx:if="{{shopItem.promoShopInfo.promoDesc&&shopItem.promoShopInfo.promoDesc.length>0}}">
+                            <view wx:for="{{shopItem.promoShopInfo.promoDesc}}" wx:for-item="descItem" wx:key="*this">{{descItem}}</view>
+                        </view>
+                        <text class="f-fg-1 shop-item-value promotion-desc--value">-￥{{shopItem.promoShopInfo.amount/100}}</text>
+                    </view>
+                    <view class="flex promotion-desc" wx:if="{{!shopItem.isWaitPay&&shopItem.promoPlatformInfo}}">
+                        <text class="shop-item-title promotion-desc--title">平台优惠：</text>
+                        <view class="promotion-desc--list" wx:if="{{shopItem.promoPlatformInfo.promoDesc&&shopItem.promoPlatformInfo.promoDesc.length>0}}">
+                            <view wx:for="{{shopItem.promoPlatformInfo.promoDesc}}" wx:for-item="descItem" wx:key="{{*this}}">{{descItem}}</view>
+                        </view>
+                        <text class="f-fg-1 shop-item-value promotion-desc--value">-￥{{shopItem.promoPlatformInfo.amount/100}}</text>
+                    </view>
+                    <view class="flex discount-desc" wx:if="{{!shopItem.isWaitPay&&shopItem.discountAmount&&shopItem.discountAmount>0}}">
+                        <text class="shop-item-title discount-desc--title">支付立减：{{shopItem.discountAmount}}元</text>
+                    </view>
+                    <view class="flex ship-remark" wx:if="{{!shopItem.isWaitPay&&shopItem.modouUseCount}}">
+                        <text class="shop-item-title ship-remark--title">蘑豆：使用{{shopItem.modouUseCount}}粒</text>
+                    </view>
+                    <view class="flex ship-remark" wx:if="{{!shopItem.isWaitPay&&shopItem.useAmount&&shopItem.useAmount>0}}">
+                        <text class="shop-item-title ship-remark--title">支付红包</text>
+                        <text class="f-fg-1 shop-item-value ship-remark--value freight-free">-￥{{shopItem.useAmount}}</text>
+                    </view>
+                </view>
+                <view class="shop-show--item flex total-price" wx:if="{{shopItem.shopPrice>=0}}">
+                    <view bindtap="{{$scope}}.showTaxTips" class="shop-item-title total-price--title {{shopItem.isTaxCompliance?'quest-tip':''}}" data-isTaxCompliance="{{shopItem.isTaxCompliance}}" data-shopOrderId="{{shopItem.shopOrderId}}">
+                        <text>{{shopItem.shopPriceTitle}}（含运费）{{text}}</text>
+                    </view>
+                    <text class="f-fg-1 shop-item-value total-price--value">￥{{shopItem.shopPrice}}</text>
+                    <view class="tax-tip" wx:if="{{shopItem.isTaxCompliance&&taxId==shopItem.shopOrderId}}">该订单中如有任何商品及店铺优惠，均是按照美丽优选平台活动规则提供给用户的平台补贴，不返不退</view>
+                    <text class="triangle-down" wx:if="{{shopItem.isTaxCompliance&&taxId==shopItem.shopOrderId}}"></text>
+                </view>
+                <view class="shop-show--item order-trade" wx:if="{{shopItem.isWaitPay}}">
+                    <view bindtap="copyToClipboard" class="order-copy--shopOrderId" data-code-id="{{shopItem.shopOrderId}}" wx:if="{{shopItem.shopOrderId}}">复制单号</view>
+                    <view>订单编号：{{shopItem.shopOrderId}}</view>
+                    <view wx:if="{{shopItem.created}}">下单时间：{{shopItem.created}}</view>
+                    <view wx:if="{{shopItem.payTime}}">支付时间：{{shopItem.payTime}}</view>
+                    <view wx:if="{{shopItem.shipTime}}">发货时间：{{shopItem.shipTime}}</view>
+                    <view wx:if="{{shopItem.receiveTime}}">收货时间：{{shopItem.receiveTime}}</view>
+                    <view class="flex" wx:if="{{shopItem.buyerComment}}">
+                        <view>
+                            <text class="order-buyer--label">买家留言：</text>
+                        </view>
+                        <view class="order-buyer--text">{{shopItem.buyerComment}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+<import src="../shopItem/index.wxml"></import>
+<import src="../../../../../components/imcall/index.wxml"></import>

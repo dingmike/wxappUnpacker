@@ -1,0 +1,14 @@
+<import src="../../components/mg/index.wxml"></import>
+<template is="mg" data="{{...$mg}}"></template>
+<view class="auth-txt">
+    此商品由蘑菇街女装精选小程序提供，需要您先完成授权，才能跳到指定页面挑选商品。
+</view>
+<view class="auth-box">
+    <image class="auth-img" src="https://s10.mogucdn.com/mlcdn/c45406/171101_7e87fhel7ajchfg0fkj4c2h2gi69e_640x448.png"></image>
+    <view class="auth-txt">
+        <view class="auth-group">
+            <button bindtap="back" class="auth-btn">返回</button>
+            <button bindtap="auth" class="auth-btn red-btn">重新授权</button>
+        </view>
+    </view>
+</view>

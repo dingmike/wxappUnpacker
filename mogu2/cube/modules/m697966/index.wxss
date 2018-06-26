@@ -1,0 +1,61 @@
+@import "../../../cube-core/componentClass/internalComponents/mvwImage/index.wxss";
+
+.MCUBE_MOD_ID_697966 {
+    overflow: hidden;
+}
+
+.MCUBE_MOD_ID_697966 image {
+    height: auto;
+}
+
+.MCUBE_MOD_ID_697966 .swiper-container {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.MCUBE_MOD_ID_697966 .swiper-wrapper {
+    transition-property: transform;
+    transition-property: transform,-webkit-transform;
+    font-size: 0;
+}
+
+.MCUBE_MOD_ID_697966 .swiper-wrapper.transiting {
+    transition-duration: 300ms;
+}
+
+.MCUBE_MOD_ID_697966 .swiper-slide {
+    width: 750rpx;
+    display: inline-block;
+}
+
+.MCUBE_MOD_ID_697966 .swiper-slide_a {
+    width: 750rpx;
+    display: block;
+}
+
+.MCUBE_MOD_ID_697966 .swiper-slide_img {
+    width: 750rpx;
+    border-radius: 10rpx;
+}
+
+.MCUBE_MOD_ID_697966 .swiper-pagination {
+    position: absolute;
+    left: 50%;
+    transform: translate3d(-50%,0,0);
+    bottom: 5rpx;
+}
+
+.MCUBE_MOD_ID_697966 .swiper-pagination_bullet {
+    display: inline-block;
+    margin: 0 10rpx;
+    height: 12rpx;
+    width: 12rpx;
+    border-radius: 100%;
+    background: #ffffff;
+}
+
+.MCUBE_MOD_ID_697966 .swiper-pagination_bullet.active {
+    background: #fe6c9c;
+}

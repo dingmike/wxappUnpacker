@@ -1,0 +1,7 @@
+<template name="liveCount">
+    <view class="live-list-live-count flex f-fd-c f-jc-c f-ai-c" wx:if="{{show}}">
+        <text class="live-list-live-count-text">{{viewedCount}}</text>
+        <view class="live-list-live-count-line"></view>
+        <text class="live-list-live-count-text">{{totalCount}}</text>
+    </view>
+</template>

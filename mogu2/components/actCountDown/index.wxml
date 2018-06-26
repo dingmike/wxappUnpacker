@@ -1,0 +1,18 @@
+<template name="actCountDown">
+    <block wx:if="{{isShowCountdown}}">
+        <view class="actCountdownWrap">
+            <view class="actCountdownContent" style="background: {{countdownInfo.countdownBgColor}}">
+                <view class="countdownLeft">
+                    <view class="countdownTips" style="color: {{countdownInfo.countdownTipsColor}}">{{countdownTips}}</view>
+                    <view class="countdownWrap" style="color: {{countdownInfo.countdownColor}}">
+                        <template is="countdown" data="{{...$countdown,numClass:'cart-num',symbolClass:'cart-symbol'}}"></template>
+                    </view>
+                </view>
+                <view bindtap="{{$scope}}.popRuleModal" class="actRule" style="color: {{countdownInfo.actRuleColor}}">{{countdownInfo.actRule}}</view>
+            </view>
+        </view>
+        <template is="ruleModal" data="{{...$ruleModal}}"></template>
+    </block>
+</template>
+<import src="../countdown/index.wxml"></import>
+<import src="components/ruleModal/index.wxml"></import>

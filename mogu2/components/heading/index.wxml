@@ -1,0 +1,45 @@
+<template name="heading_title_subTitle">
+    <view class="heading-4-box" style="height: {{height||'110rpx'}}; margin: {{margin||0}}; padding: {{padding||0}}; background-color: {{bgColor||'#fff'}};" wx:if="{{title&&subTitle}}">
+        <view class="heading-4-title-box">
+            <view class="heading-4-empty"></view>
+            <view class="heading-4-title" style="color: {{color||'#202020'}};">{{title}}</view>
+            <view class="heading-4-empty"></view>
+        </view>
+        <view class="heading-4-subTitle" style="color: {{subColor||'#666666'}};">{{subTitle}}</view>
+    </view>
+</template>
+<template name="heading">
+    <view class="heading-3-box" style="height: {{height||'40rpx'}}; background-color: {{bgColor||'#fff'}}; margin: {{margin||0}}; padding: {{padding||0}};" wx:if="{{title&&titleIcon}}">
+        <view class="heading-3-icon" style="background-image: url({{titleIcon}});"></view>
+        <view class="heading-3-title" style="color: {{color||'#333'}};">{{title}}</view>
+    </view>
+</template>
+<template name="heading_icon_line">
+    <view class="heading-2-box" style="height: {{height||'40rpx'}}; background-color: {{bgColor||'#fff'}}; margin: {{margin||0}}; padding: {{padding||0}};" wx:if="{{title}}">
+        <view class="heading-2-empty"></view>
+        <view class="heading-2-icon" style="background-image: url({{titleIcon||'https://s10.mogucdn.com/mlcdn/c45406/170908_80l930ljeib78ld95d2k45d9b0efc_40x40.png'}});"></view>
+        <view class="heading-2-title" style="color: {{color||'#999999'}};">{{title}}</view>
+        <view class="heading-2-empty"></view>
+    </view>
+</template>
+<template name="heading_more">
+    <block wx:if="{{title}}">
+        <view bindtap="$launch" class="heading-1-box" data-app-id="{{appId}}" data-fallback="{{moreLink||''}}" data-href="{{wxaMoreLink}}" style="height: {{height||'50rpx'}}; background-color: {{bgColor||'#fff'}}; margin: {{margin||0}}; padding: {{padding||0}};" wx:if="{{canLaunch&&wxaMoreLink&&appId}}">
+            <view class="heading-1-title" style="color: {{color||'#666'}}; font-size: {{fontSize||'28rpx'}}; font-weight: {{fontWeight||'normal'}};">{{title}}</view>
+            <view class="heading-1-more" style="color: {{moreTextColor||'#999'}}">
+                <text class="heading-1-more-title">{{moreText||'更多'}}</text>
+                <text class="heading-1-more-icon m-icon m-icon-arrow-right"></text>
+            </view>
+        </view>
+        <view bindtap="$navigate" class="heading-1-box" data-href="{{moreLink||''}}" style="height: {{height||'50rpx'}}; background-color: {{bgColor||'#fff'}}; margin: {{margin||0}}; padding: {{padding||0}};" wx:elif="{{moreLink}}">
+            <view class="heading-1-title" style="color: {{color||'#666'}}; font-size: {{fontSize||'28rpx'}}; font-weight: {{fontWeight||'normal'}};">{{title}}</view>
+            <view class="heading-1-more" style="color: {{moreTextColor||'#999'}}">
+                <text class="heading-1-more-title">{{moreText||'更多'}}</text>
+                <text class="heading-1-more-icon m-icon m-icon-arrow-right"></text>
+            </view>
+        </view>
+        <view class="heading-1-box" style="height: {{height||'50rpx'}}; background-color: {{bgColor||'#fff'}}; margin: {{margin||0}}; padding: {{padding||0}};" wx:else>
+            <view class="heading-1-title" style="color: {{color||'#666'}}; font-size: {{fontSize||'28rpx'}}; font-weight: {{fontWeight||'normal'}};">{{title}}</view>
+        </view>
+    </block>
+</template>

@@ -1,0 +1,167 @@
+<import src="../../components/mg/index.wxml"></import>
+<template is="mg" data="{{...$mg}}"></template>
+<import src="../../components/walltemplate/item_act.wxml"></import>
+<import src="../../components/salesEntry/index.wxml"></import>
+<import src="../../components/toast/index.wxml"></import>
+<import src="../../components/loading/index.wxml"></import>
+<view class="main-game-container">
+    <view class="rpk-login-container" style="margin-top:{{bgTopMarginTop}}rpx" wx:if="{{!isLogin}}">
+        <view bindtap="loginClick" class="rpk-login-btn"></view>
+    </view>
+    <view wx:else>
+        <viiew class="rpk-game-mask-container" wx:if="{{showGameMask}}">
+            <image class="{{gameImgCls}}" mode="gamemaskimg" src="{{gameImgUrl}}"></image>
+        </viiew>
+        <view class="rpk-share-container" style="height:{{bgHeight}}rpx" wx:if="{{isShareShow}}">
+            <view class="rpk-share-wrap" style="margin-top:{{bgTopMarginTop}}rpx">
+                <view class="rpk-share-content">
+                    <view class="rpk-share-avator-wrap">
+                        <image class="rpk-share-avator" mode="avatorimg" src="{{userInfo.avator}}"></image>
+                    </view>
+                    <view class="rpk-share-nickname">
+                        <text>{{userInfo.nickName}}</text>
+                    </view>
+                    <view class="rpk-share-text1-info">
+                        <text>给你发了一个红包</text>
+                    </view>
+                    <view class="rpk-share-text2-info">
+                        <text>立即拆开看看</text>
+                    </view>
+                    <view class="rpk-share-openbtn-wrap">
+                        <form bindsubmit="rpkFormHanddle" class="rpk-form-openbtn" reportSubmit="true">
+                            <image class="rpk-share-openbtn" mode="btnimg" src="https://s10.mogucdn.com/mlcdn/c45406/170919_0cefbka6hj5kf8ffd993f9ekbbka7_185x185.png"></image>
+                            <button bindtap="openRedPacket" class="form-submit" formType="submit"></button>
+                        </form>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="rpk-share-container" style="height:{{bgShareHeight}}rpx" wx:if="{{isResultShow}}">
+            <view class="rpk-result-wrap">
+                <view class="rpk-result-header" style="background-image: url({{stateImgUrl}})" wx:if="{{isOpenSuccess}}">
+                    <view bindtap="goRpkHomePage" class="stat1001-btn" wx:if="{{isSelf}}"></view>
+                </view>
+                <view class="rpk-result-common" style="background-image: url({{redPocketInfo.image}})" wx:if="{{isRedPocketShow}}">
+                    <view class="result-common-title">
+                        {{redPocketInfo.title}}
+                    </view>
+                    <view class="result-common-subtitle">
+                        {{redPocketInfo.subTitle}}
+                    </view>
+                    <view class="result-common-wrap">
+                        <form bindsubmit="rpkFormHanddle" class="rpk-form-common" reportSubmit="true">
+                            <view class="result-common-info">
+                                <view class="result-common-cashsn">
+                                    <text class="result-common-cashsymbol">￥</text>
+                                    <text class="result-common-cashnumber">{{redPocketInfo.payPackageMoney}}</text>
+                                </view>
+                                <view class="result-common-check">
+                                    点击去查看
+                                </view>
+                            </view>
+                            <button bindtap="goRedPocketInfoPage" class="form-submit" data-jumpurl="{{redPocketInfo.jumpUrl}}" data-packageid="{{redPocketInfo.payPackageId}}" formType="submit"></button>
+                        </form>
+                    </view>
+                </view>
+                <view class="rpk-result-common" style="background-image: url({{cashInfo.image}})" wx:if="{{isCashShow}}">
+                    <view class="result-common-title">
+                        {{cashInfo.title}}
+                    </view>
+                    <view class="result-common-subtitle">
+                        {{cashInfo.subTitle}}
+                    </view>
+                    <view class="result-common-wrap">
+                        <form bindsubmit="rpkFormHanddle" class="rpk-form-common" reportSubmit="true">
+                            <view class="result-common-info">
+                                <view class="result-common-cashsn">
+                                    <text class="result-common-cashsymbol">￥</text>
+                                    <text class="result-common-cashnumber">{{cashInfo.cutPrice}}</text>
+                                </view>
+                                <view class="result-common-check">
+                                    点击去查看
+                                </view>
+                            </view>
+                            <button bindtap="goCashInfoPage" class="form-submit" data-couponid="{{cashInfo.couponId}}" data-jumpurl="{{cashInfo.jumpUrl}}" formType="submit"></button>
+                        </form>
+                    </view>
+                </view>
+                <view class="rpk-result-common" style="background-image: url({{couponInfo.image}})" wx:if="{{isCouponShow}}">
+                    <view class="result-common-title">
+                        {{couponInfo.title}}
+                    </view>
+                    <view class="result-common-subtitle">
+                        {{couponInfo.shopName}}
+                    </view>
+                    <view class="result-common-wrap">
+                        <form bindsubmit="rpkFormHanddle" class="rpk-form-common" reportSubmit="true">
+                            <view class="result-common-info">
+                                <view class="result-common-cashsn">
+                                    <text class="result-common-cashsymbol">￥</text>
+                                    <text class="result-common-cashnumber">{{couponInfo.cutPrice}}</text>
+                                </view>
+                                <view class="result-common-check">
+                                    点击去查看
+                                </view>
+                            </view>
+                            <button bindtap="goCouponInfoPage" class="form-submit" data-couponid="{{couponInfo.couponId}}" data-jumpurl="{{couponInfo.jumpUrl}}" formType="submit"></button>
+                        </form>
+                    </view>
+                </view>
+                <view class="result-center-wrap" wx:if="{{isBannerShow}}">
+                    <form bindsubmit="rpkFormHanddle" class="rpk-form-banner" reportSubmit="true">
+                        <image mode="btnimg" src="{{bannerInfo.imageUrl}}" style="height: {{bannerInfo.height}}rpx; width: 750rpx;"></image>
+                        <button bindtap="goRpkHomePageByBanner" class="form-submit" data-link="{{bannerInfo.link}}" formType="submit"></button>
+                    </form>
+                </view>
+                <view class="rpk-result-list">
+                    <view class="result-list-tip"></view>
+                    <view class="result-list-content" wx:if="{{isUserListEmpty===false}}">
+                        <view class="result-list-element" wx:for="{{userInfoList}}" wx:for-item="userInfoItem" wx:key="index">
+                            <view class="list-element-left">
+                                <view class="element-left-avator-wrap">
+                                    <view class="element-left-avator" style="background-image: url({{userInfoItem.avatar}})"></view>
+                                </view>
+                                <view class="element-left-info-wrap">
+                                    <view class="element-left-info-name">
+                                            {{userInfoItem.userName}}
+                                        </view>
+                                    <view class="element-left-info-time">
+                                            {{userInfoItem.time}}
+                                        </view>
+                                </view>
+                            </view>
+                            <view class="list-element-right">
+                                <view class="element-right-text">
+                                        {{userInfoItem.prizeString}}
+                                    </view>
+                                <view class="element-right-empty"></view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="rpk-result-empty" wx:else>
+                        <view class="result-empty-element"></view>
+                    </view>
+                </view>
+                <view class="rpk-float-banner">
+                    <view bindtap="backToRpkHome" class="rpk-left-banner" style="background-image: url({{bmBannerInfo.left}});background-size: 350rpx {{bmBannerInfo.leftHeight}}rpx;"></view>
+                    <view bindtap="backToActHome" class="rpk-right-banner" style="background-image: url({{bmBannerInfo.right}});background-size: 350rpx {{bmBannerInfo.rightHeight}}rpx;">
+                        <view class="rpk-pop-banner" if="{{bmBannerInfo.pop.length>0}}" style="background-image: url({{bmBannerInfo.pop}});"></view>
+                    </view>
+                </view>
+                <view class="rpk-bottom-banner">
+                    <template is="salesEntry" data="{{...$salesEntry,bgColor:topBgColor||'#764dcb'}}"></template>
+                </view>
+                <block wx:if="{{showWall}}">
+                    <view class="J-wall-rpk-header">
+                        <image class="J-wall-rpk-img" mode="wallimg" src="https://s10.mogucdn.com/mlcdn/c45406/171227_1l4735hgb4d1feia3jb856d042k5g_750x61.jpg"></image>
+                    </view>
+                    <view id="J_wall_box">
+                        <template is="wallActItemsBox" data="{{$wall:$wall,style:itemStyle}}"></template>
+                    </view>
+                </block>
+            </view>
+        </view>
+    </view>
+    <template is="toast" data="{{...$toast}}"></template>
+    <template is="loading" data="{{...$loading}}"></template>
+</view>

@@ -1,0 +1,30 @@
+.big-image {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+.share-image {
+    width: 94%;
+}
+
+.empty-title {
+    margin: 10rpx 10rpx 0 10rpx;
+    padding-top: 30rpx;
+    padding-left: 60rpx;
+    border-radius: 5rpx;
+    text-align: left;
+    font-size: 26rpx;
+    color: black;
+    letter-spacing: 2rpx;
+}
+
+.empty-text {
+    padding: 0 60rpx;
+    border-radius: 5rpx;
+    text-align: left;
+    font-size: 22rpx;
+    color: gray;
+    letter-spacing: 2rpx;
+}

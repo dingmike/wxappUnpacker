@@ -1,0 +1,48 @@
+<template name="sku">
+    <view class="module-base-sku flex f-ff-cn sku {{className}}">
+        <view bindtap="$navigate" class="sku-sizehelper flex f-jc-sb f-ai-c" data-href="/pages/detail/pages/sizehelp/index?itemId={{itemId}}" wx:if="{{sizeHelper&&sizeHelper.entrance}}">
+            <view class="sizehelper-left">
+                <view class="sizehelper-title">{{sizeHelper.title}}</view>
+                <view class="sizehelper-size f-ff-rn f-ai-c" wx:if="{{sizeHelper.size}}">
+                    <view class="sizehelper-size--text">{{sizeHelper.size}}</view>
+                    <view class="sizehelper-size--desc">{{sizeHelper.sizeDesc}}</view>
+                </view>
+            </view>
+            <view class="sizehelper-right">{{sizeHelper.entrance}}<i class="m-icon m-icon-arrow-right"></i>
+            </view>
+        </view>
+        <view class="sku-props flex f-ff-cn">
+            <block wx:if="{{fullProps.dimension!==0}}">
+                <view class="sku-props--prop prop flex f-ff-cn" wx:if="{{fullProps[type].count>0}}" wx:for="{{fullProps.types}}" wx:for-item="type" wx:key="*this">
+                    <view class="prop-label">{{fullProps[type].label}}：</view>
+                    <view class="prop-items flex f-fw-w">
+                        <view bindtap="{{$scope}}.onPropClick" class="prop-items--item flex f-ai-c f-jc-c {{prop.selected?'selected':''}} {{prop.disabled?'disabled':''}}" data-id="{{id}}" data-type="{{type}}" wx:for="{{fullProps[type].list}}" wx:for-index="id" wx:for-item="prop">{{prop.propItem.name}}</view>
+                    </view>
+                </view>
+            </block>
+        </view>
+        <view class="sku-number number" wx:if="{{isNumberShow}}">
+            <view class="number-label flex">
+                <view class="number-num"> 数量：</view>
+                <view class="number-limit" wx:if="{{skuInfo.limitDesc}}">({{skuInfo.limitDesc}})</view>
+            </view>
+            <view class="number-calculator inflex">
+                <view bindtap="{{$scope}}.reduceNumber" class="number-calculator--reduce number-calculator--operation {{number<=minNumber?'disabled':''}}">-</view>
+                <input bindblur="{{$scope}}.blurNumber" bindinput="{{$scope}}.inputNumber" class="number-calculator--value" confirmType="done" cursorSpacing="{{10}}" disabled="{{minNumber===maxNumber}}" maxlength="{{-1}}" style="{{numberWidth>0?'width: '+numberWidth+'rpx;':''}}" type="number" value="{{number}}"></input>
+                <view bindtap="{{$scope}}.increaseNumber" class="number-calculator--increase number-calculator--operation {{number>=maxNumber&&maxNumber>-1?'disabled':''}}">+</view>
+            </view>
+        </view>
+        <view class="sku-installment installment" wx:if="{{choose&&choose.installmentAll&&choose.installmentAll.length>0}}">
+            <view class="installment-label flex f-ai-fs">
+                <view class="installment-title">白付美分期购（可选）</view>
+                <view class="installment-tag flex f-ai-c f-jc-c" style="background-color: {{installmentTag.bgColor}}; color: {{installmentTag.textColor}};" wx:if="{{installmentTag&&installmentTag.text}}">{{installmentTag.text}}</view>
+            </view>
+            <view class="installment-props flex f-fw-w">
+                <view bindtap="{{$scope}}.onInstallment" class="module-base-sku-installment-props--item item flex f-ff-cn f-ai-c f-jc-c {{item.disabled?'disabled':choose.installmentNum===item.num?'selected':''}}" data-disabled="{{item.disabled}}" data-num="{{item.num}}" wx:for="{{choose.installmentAll}}" wx:key="num">
+                    <view class="item-price">{{item.num===1?'下月还¥'+item.originPerPrice:item.perPriceText}}</view>
+                    <view class="item-fee">{{item.num===1?item.originFee+'服务费':item.feeText}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

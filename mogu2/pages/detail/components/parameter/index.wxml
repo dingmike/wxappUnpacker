@@ -1,0 +1,11 @@
+<template name="parameter">
+    <view class="component__parameter" id="moduleTabpanelParameter">
+        <blcok wx:if="{{rule&&rule.tables}}">
+            <template is="ruleInfo" data="{{...$ruleInfo}}"></template>
+        </blcok>
+        <template is="productInfo" data="{{...$productInfo}}" wx:if="{{info&&info.set}}"></template>
+        <view class="parameter__empty" wx:if="{{!(info&&info.set)&&!(rule&&rule.tables)}}">店主没有上传详细参数</view>
+    </view>
+</template>
+<import src="../ruleInfo/index.wxml"></import>
+<import src="../productInfo/index.wxml"></import>

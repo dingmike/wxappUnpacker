@@ -1,0 +1,73 @@
+.rush-item-wrapper {
+    font-size: 28rpx;
+    color: #333;
+    padding: 0 24rpx;
+    margin-bottom: 18rpx;
+    background: url(https://s10.mogucdn.com/mlcdn/c45406/171222_2k2bfl48a1djh641b4aaehj9efa8a_750x250.png) no-repeat;
+    background-size: 100% auto;
+    height: 250rpx;
+    color: #333;
+}
+
+.rush-item-header {
+    width: 100%;
+    height: 60rpx;
+    margin-bottom: 10rpx;
+    font-size: 24rpx;
+}
+
+.rush-icon-orange {
+    color: #FD7456;
+}
+
+.rush-item-icon {
+    margin-right: 5rpx;
+}
+
+.rush-item-content {
+    padding-bottom: 20rpx;
+}
+
+.rush-item-image {
+    width: 160rpx;
+    height: 160rpx;
+    overflow: hidden;
+    margin-right: 40rpx;
+}
+
+.rush-item-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 364rpx;
+    width: 364rpx;
+    min-height: 40rpx;
+}
+
+.rush-item-desc {
+    font-size: 52rpx;
+}
+
+.rush-item-tag {
+    width: 80rpx;
+    height: 32rpx;
+    line-height: 32rpx;
+    color: #fff;
+    font-size: 20rpx;
+    text-align: center;
+    background: #FF90EF;
+    border-radius: 20rpx;
+    margin: 28rpx 0 0 10rpx;
+}
+
+.rush-item-center {
+    padding-top: 30rpx;
+}
+
+.rush-item-btn {
+    width: 130rpx;
+    height: 130rpx;
+    background: url(https://s10.mogucdn.com/mlcdn/c45406/171219_1001g3g1bahcgf6h2b7g00556ed3k_130x130.png) no-repeat;
+    background-size: 100% auto;
+    margin-top: 24rpx;
+}

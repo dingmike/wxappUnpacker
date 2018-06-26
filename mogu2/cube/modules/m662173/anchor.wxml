@@ -1,0 +1,7 @@
+<template name="anchor">
+    <view class="{{__vx_class}}" style="{{__vx_style}}">
+        <form bindsubmit="{{$scope}}.formSubmitHandler" data-anchor-index="{{acmIndex}}" reportSubmit="true">
+            <button class="anchor" data-anchor-index="{{acmIndex}}" formType="submit" style="left: {{item.x+'%'}}; top: 0px; margin-top: {{item.my+'%'}}; width: {{item.w+'%'}}; height: 0px; padding-bottom: {{item.mh+'%'}};" xcxHref="{{targetUrl}}"></button>
+        </form>
+    </view>
+</template>

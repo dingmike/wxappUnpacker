@@ -1,0 +1,19 @@
+<template name="847329">
+    <view class="{{__vx_class}}" style="{{isRequesting?emptyStyle:''}} {{__vx_style}}" wx:if="{{isShow}}">
+        <view class="collapse-wrap" style="{{isCollapse?collapseStyle:''}}">
+            <view class="flex f-fw-w f-fs-0 active-entry" style="{{boxStyle}}" wx:if="{{list&&list.length>=minCount}}">
+                <view bindtap="{{$scope}}.$vx_launch" class="f-fs-0 active-entry-item log-item acm-item" data-app-id="{{item.wxa_appId||''}}" data-cube-acm="{{item.acm}}" data-cube-acm-node="{{true}}" data-data-log-content="{{item.acm}}" data-data-log-index="{{index}}" data-fallback="{{item.link_xcx}}" data-href="{{item.wxa_appId?item.wxa_link:item.link_xcx}}" style="{{itemStyle}}" wx:for="{{list}}" wx:key="index">
+                    <form bindsubmit="{{$scope}}.$vx_formSubmitHandler" class="from_submit_wrap" reportSubmit="true">
+                        <button formType="submit"></button>
+                    </form>
+                    <template is="mvw-image" data="{{$parent:$parent['$'+label],...$parent['$'+label]['$mvw-image_15247322529810'+'_'+index]}}" wx:if="{{item.image}}"></template>
+                    <view class="active-entry-item-title long-cut" style="{{titleStyle+';color: '+(item.titleColor||configData.title[0].color)}}" wx:if="{{item.title&&(configData.box[0].type==='image_link_title'||configData.box[0].type==='image_link_title_subTitle')}}">{{item.title}}</view>
+                    <view class="active-entry-item-subTitle long-cut" style="{{subTitleStyle+';color: '+(item.subTitleColor||configData.subTitle[0].color)}}" wx:if="{{item.subTitle&&configData.box[0].type==='image_link_title_subTitle'}}">{{item.subTitle}}</view>
+                    <template is="mvw-image" data="{{$parent:$parent['$'+label],...$parent['$'+label]['$mvw-image_15247322529811'+'_'+index]}}" wx:if="{{item.imageTag}}"></template>
+                </view>
+            </view>
+        </view>
+        <view bindtap="{{$scope}}.showMore" class="collapse-btn-wrap" style="{{isCollapse?moreStyle:''}}" wx:if="{{isCollapse}}"></view>
+    </view>
+</template>
+<import src="../../../cube-core/componentClass/internalComponents/mvwImage/index.wxml"></import>

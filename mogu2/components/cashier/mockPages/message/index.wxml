@@ -1,0 +1,40 @@
+<template name="message">
+    <view class="cashier-message">
+        <view class="cashier-verification">
+            <text class="cashier-phone">手机尾号{{phoneNumTail}}</text>
+            <view class="cashier-verification-prompt" wx:if="{{numHasInput.length===0}}">请输入验证码</view>
+            <view class="cashier-verification-num" wx:else>{{numHasInputStr}}</view>
+            <text bindtap="{{$scope}}.sendSms" class="cashier-verification-send" wx:if="{{canSendSms}}">发送验证码</text>
+            <text class="cashier-verification-send" wx:else>{{countdownStr}}</text>
+        </view>
+        <view class="cashier-protocol" wx:if="{{isNeedSignProtocol}}">
+            <label bindtap="{{$scope}}.changeCheckedProtocol">
+                <radio checked="{{checkedProtocol}}" class="cashier-protocol-radio" color="#ff5777"></radio>
+                <text class="cashier-protocol-text">本人已阅读并同意签署</text>
+            </label>
+            <text bindtap="{{$scope}}.showProtocol" class="cashier-protocol-title">用户服务协议</text>
+        </view>
+        <view class="cashier-keyboard">
+            <view class="cashier-keyboard-top">蘑菇街安全键盘</view>
+            <view class="cashier-keyboard-num">
+                <view bindtap="{{$scope}}.numTap" class="cashier-keyboard-num-view cashier-keyboard-num-{{item}}" data-num="{{item}}" wx:for="{{numArr}}" wx:key="*this">
+                    <block wx:if="{{item==='x'}}">
+                        <view class="cashier-keyboard-num-{{item}}-1"></view>
+                        <view class="cashier-keyboard-num-{{item}}-2">{{item}}</view>
+                    </block>
+                    <block wx:else>{{item}}</block>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{isShowProtocol}}">
+        <view class="protocol-text">
+            <scroll-view scrollY class="protocol-scroll">
+                <image lazyLoad class="protocol-scroll-img" src="https://s10.mogucdn.com/mlcdn/c45406/170915_{{item}}_600x2148.jpg" wx:for="{{protocolUrlArr}}" wx:key="*this"></image>
+            </scroll-view>
+            <view bindtap="{{$scope}}.hideProtocol" class="protocol-close">x</view>
+        </view>
+        <template is="mask" data="{{isShow:true}}"></template>
+    </view>
+</template>
+<import src="../../../../components/mask/index.wxml"></import>

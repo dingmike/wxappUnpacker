@@ -1,0 +1,142 @@
+<view wx:if="{{isShow===false}}">
+    <view class="seeloading" id="seeloading">
+        <view class="img_view">
+            <image alt="see" class="seeloading_img" src="/images/seeloading.png"></image>
+        </view>
+        <view class="loading_info">正在加载...</view>
+    </view>
+</view>
+<scroll-view bindscroll="scroll" scrollY="{{true}}" wx:else>
+    <view class="big-bannner">
+        <image bindtap="bigBannerClick" mode="widthFix" src="{{bannerURL}}"></image>
+    </view>
+    <view class="coupon-container" wx:if="{{$couponList$couponList&&$couponList$couponList.length>0}}">
+        <view class="coupon-list item-flex">
+            <view bindtap="$couponList$clickGetCoupon" class="list-fill {{item.receiveFlag==0?'':'clicked'}}" data-id="{{item.id}}" data-receiveFlag="{{item.receiveFlag}}" data-wpyclickgetcoupon-a="{{$couponList$moduleId}}" wx:for="{{$couponList$couponList}}" wx:key="id">
+                <view class="box">
+                    <view class="info">
+                        <text class="rmb">￥</text>
+                        <text class="price">{{item.couponPrice}}</text>
+                    </view>
+                    <view class="desc">{{item.desc}}</view>
+                    <view class="name">{{item.type?item.name:''}}</view>
+                </view>
+                <view class="box">
+                    <text class="btn">{{item.receiveFlag==0?'领取':'已领取'}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="coupon-overlap"></view>
+    </view>
+    <view class="tab-item" id="groupon">
+        <view>
+            <view class="category-title" wx:if="{{$newUserGroup$groupData.icon||$newUserGroup$groupData.mainTitle}}">
+                <view class="name">
+                    <view class="icon" wx:if="{{$newUserGroup$groupData.icon}}">
+                        <image mode="aspectFit" src="{{$newUserGroup$groupData.icon}}"></image>
+                    </view>
+                    <view class="zh">{{$newUserGroup$groupData.mainTitle}}</view>
+                    <view class="en"> {{$newUserGroup$groupData.subTitle}}</view>
+                </view>
+            </view>
+            <view class="group-container {{$newUserGroup$groupData.data[0].type==4?'superContainer':''}} {{$newUserGroup$groupData.styleType==3?'flex-wrap':''}}">
+                <block wx:if="{{!$newUserGroup$groupData.styleType||$newUserGroup$groupData.styleType==1}}">
+                    <view bindtap="$newUserGroup$clickProduct" class="group-block {{$newUserGroup$item.type==4?'super':''}}" data-id="{{$newUserGroup$item.id||$newUserGroup$item.grouponActivityId}}" data-type="{{$newUserGroup$item.type}}" wx:for="{{$newUserGroup$groupData.data}}" wx:for-index="$newUserGroup$index" wx:for-item="$newUserGroup$item" wx:key="$newUserGroup$id">
+                        <view class="group-block__superTips" wx:if="{{$newUserGroup$item.type==4}}">
+                            <image class="circle" src="{{$newUserGroup$item.appIcon}}"></image>
+                            <image class="crown" src="https://static.seecsee.com/xcx/images/king.svg"></image>
+                            <text>我跟你说</text>
+                            <text>{{$newUserGroup$item.introduction}}</text>
+                        </view>
+                        <view class="group-block__img">
+                            <image class="head-img" mode="aspectFill" src="{{$newUserGroup$item.bannerUrl}}" style="width:{{$newUserGroup$item.width}}rpx"></image>
+                            <view class="group-tips">
+                                <label></label>
+                                <text wx:if="{{$newUserGroup$item.type==2}}">新人专享  </text>{{$newUserGroup$item.type==3?'抽奖团':$newUserGroup$item.grouponSuccessNumber+'人团'}}</view>
+                            <view class="sold-out" wx:if="{{$newUserGroup$item.insale==1}}">
+                                <view class="sold-out__con">
+                                    <text class="zh">已售罄</text>
+                                    <text class="en">Sold out</text>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="group-block__info">
+                            <view class="brand-line">
+                                <text class="limit" wx:if="{{$newUserGroup$item.productLimit}}">【限量{{$newUserGroup$item.productLimit}}件】</text>{{$newUserGroup$item.brandName}}</view>
+                            <view class="name-line">{{$newUserGroup$item.sellPoint}}</view>
+                            <view class="price-view">
+                                <view class="flex-center">
+                                    <text class="price-tips">拼团价</text>
+                                    <text class="price-line">¥{{$newUserGroup$item.price}}</text>
+                                    <text class="oriprice-line"> ¥{{$newUserGroup$item.skuPrice}}</text>
+                                </view>
+                                <view class="member-list">
+                                    <image class="m-img" mode="aspectFit" src="{{($newUserGroup$member.uImg||$newUserGroup$member.headimg)+'?imageView2/5/w/40/h/40'}}" wx:if="{{$newUserGroup$index<5}}" wx:for="{{$newUserGroup$item.member}}" wx:for-index="$newUserGroup$index" wx:for-item="$newUserGroup$member" wx:key="$newUserGroup$key"></image>
+                                </view>
+                                <view class="button {{$newUserGroup$item.insale==1&&'over'}}">{{$newUserGroup$item.insale==1?'已售罄':$newUserGroup$item.status==1?'待开抢':$newUserGroup$item.type==3?'我要抢':$newUserGroup$item.type==4?'去参团':'去开团'}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+                <block wx:if="{{$newUserGroup$groupData.styleType==2}}">
+                    <view bindtap="$newUserGroup$clickProduct" class="group-single-row flex-center" data-id="{{$newUserGroup$item.id||$newUserGroup$item.grouponActivityId}}" data-type="{{$newUserGroup$item.type}}" wx:for="{{$newUserGroup$groupData.data}}" wx:for-index="$newUserGroup$index" wx:for-item="$newUserGroup$item" wx:key="$newUserGroup$id">
+                        <view class="group-single-row-image">
+                            <image class="head-img" mode="aspectFill" src="{{$newUserGroup$item.itemImgurl}}"></image>
+                            <view class="group-tips">
+                                <label></label>
+                                <text wx:if="{{$newUserGroup$item.type==2}}">新人专享  </text>{{$newUserGroup$item.type==3?'抽奖团':$newUserGroup$item.grouponSuccessNumber+'人团'}}</view>
+                            <view class="sold-out" wx:if="{{$newUserGroup$item.insale==1}}">
+                                <view class="sold-out__con">
+                                    <text class="zh">已售罄</text>
+                                    <text class="en">Sold out</text>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="group-single-row-info">
+                            <view class="brand-line text-ellipsis">
+                                <text class="limit" wx:if="{{$newUserGroup$item.productLimit}}">【限量{{$newUserGroup$item.productLimit}}件】</text>{{$newUserGroup$item.brandName}}</view>
+                            <view class="name-line text-ellipsis">{{$newUserGroup$item.sellPoint}}</view>
+                            <view class="price-view flex-align-end item-between">
+                                <view class="flex-align-end item-justify-center">
+                                    <text class="price-tips">拼团价</text>
+                                    <text class="price-line">¥{{$newUserGroup$item.price}}</text>
+                                    <text class="oriprice-line"> ¥{{$newUserGroup$item.skuPrice}}</text>
+                                </view>
+                                <view class="button {{$newUserGroup$item.insale==1&&'over'}}">{{$newUserGroup$item.insale==1?'已售罄':$newUserGroup$item.status==1?'待开抢':$newUserGroup$item.type==3?'我要抢':$newUserGroup$item.type==4?'去参团':'去开团'}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+                <block wx:if="{{$newUserGroup$groupData.styleType==3}}">
+                    <view bindtap="$newUserGroup$clickProduct" class="group-double-row flex-center item-column" data-id="{{$newUserGroup$item.id||$newUserGroup$item.grouponActivityId}}" data-type="{{$newUserGroup$item.type}}" wx:for="{{$newUserGroup$groupData.data}}" wx:for-index="$newUserGroup$index" wx:for-item="$newUserGroup$item" wx:key="$newUserGroup$id">
+                        <view class="group-double-row-image">
+                            <image class="head-img" mode="aspectFill" src="{{$newUserGroup$item.itemImgurl}}"></image>
+                            <view class="group-tips">
+                                <label></label>
+                                <text wx:if="{{$newUserGroup$item.type==2}}">新人专享  </text>{{$newUserGroup$item.type==3?'抽奖团':$newUserGroup$item.grouponSuccessNumber+'人团'}}</view>
+                            <view class="sold-out" wx:if="{{$newUserGroup$item.insale==1}}">
+                                <view class="sold-out__con">
+                                    <text class="zh">已售罄</text>
+                                    <text class="en">Sold out</text>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="group-double-row-info">
+                            <view class="brand-line text-ellipsis-double">
+                                <text class="limit" wx:if="{{$newUserGroup$item.productLimit}}">【限量{{$newUserGroup$item.productLimit}}件】</text>{{$newUserGroup$item.brandName}}</view>
+                            <view class="price-view">
+                                <text class="price-tips">拼团价</text>
+                                <text class="price-line">¥{{$newUserGroup$item.price}}</text>
+                                <text class="oriprice-line"> ¥{{$newUserGroup$item.skuPrice}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+            </view>
+        </view>
+    </view>
+    <view class="item-btn">
+        <navigator class="mall_btn" openType="switchTab" url="/pages/mall">回到商城首页<text class="triangle"></text>
+        </navigator>
+    </view>
+</scroll-view>

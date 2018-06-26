@@ -1,0 +1,20 @@
+<template name="seckillSliderVerify">
+    <view class="module-sliderverify sliderverify" wx:if="{{isShow}}">
+        <view class="sliderverify-content">
+            <view class="sliderverify-content--jigsaw jigsaw">
+                <image class="jigsaw-bg" mode="aspectFill" src="{{imageUrl}}"></image>
+                <view class="jigsaw-mask" style="left: {{maskLeft}}%; width: {{slideLength}}%; padding-bottom: {{slideLength}}%;"></view>
+                <view class="jigsaw-slide" style="left: {{slideLeft}}%; width: {{slideLength}}%; padding-bottom: {{slideLength}}%; background-image: url({{imageUrl}}); background-position: {{correctPosition}}% -158rpx"></view>
+            </view>
+            <view class="sliderverify-content--text text-{{tips.type}}">{{tips.text}}</view>
+            <view class="sliderverify-content--slider slider">
+                <view class="slider-bar flex f-jc-fe" style="width: {{barWidth}}%">
+                    <view catchtouchend="{{$scope}}.onSliderEnd" catchtouchmove="{{$scope}}.onSliderMove" class="slider-bar--btn"></view>
+                </view>
+            </view>
+            <view bindtap="{{$scope}}.hideSlider" class="sliderverify-close flex f-ai-c f-jc-c">
+                <view class="m-icon m-icon-close"></view>
+            </view>
+        </view>
+    </view>
+</template>

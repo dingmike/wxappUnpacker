@@ -1,0 +1,38 @@
+<import src="../../../components/mg/index.wxml"></import>
+<template is="mg" data="{{...$mg}}"></template>
+<import src="../../../components/loading/index.wxml"></import>
+<import src="../../../components/toast/index.wxml"></import>
+<import src="../../../components/error/index.wxml"></import>
+<import src="../../../components/walltemplate/item_pt.wxml"></import>
+<template is="loading" data="{{...$loading}}"></template>
+<template is="toast" data="{{...$toast}}"></template>
+<scroll-view bindscroll="$wall.scrollNavEvent" bindscrolltolower="$wall.wallScrollEvent" class="lottery-result J_scroll_wallbox" lowerThreshold="{{$wall.bottomHeight}}" scrollIntoView="{{$wall.scrollIntoViewId}}" scrollY="true" style="height:{{$wall.scrollBoxHeight}}px">
+    <view class="lottery-result--prize prize flex f-fd-c f-fw-n f-jc-c f-ai-c">
+        <view class="prize-title prize-title--{{type}} {{type==='prize'?'flex f-ai-fe f-jc-c':''}}">{{prizeText}}</view>
+        <view class="prize-desc prize-desc--{{type}}">{{prizeDescText}}</view>
+        <view bindtap="$redirect" class="prize-button" data-page="coupon" data-type="platform" wx:if="{{showButton}}">查看优惠券</view>
+    </view>
+    <view bindtap="$redirect" class="lottery-result--item item flex f-fd-r f-fw-n f-ai-c" data-href="{{itemInfo.link}}">
+        <image class="item-image" mode="aspectFill" src="{{itemInfo.pic}}"></image>
+        <view class="item-tag">抽奖团</view>
+        <view class="item-title">{{itemInfo.title}}</view>
+    </view>
+    <view class="lottery-result--user user" wx:if="{{lotteryProcess==='hasLottery'&&awardUsers&&awardUsers.length>0}}">
+        <view class="user-title">一等奖中奖名单</view>
+        <view class="user-list">
+            <view class="user-list--item flex f-fd-r f-fw-n f-ai-c f-jc-sb" wx:for="{{awardUsers}}">
+                <view class="user-list--item-user flex f-fd-r f-fw-n f-ai-c">
+                    <image class="user-list--item-user-avatar" src="{{item.avatar}}"></image>
+                    <view class="user-list--item-user-uname" style="color: {{item.currentUser?'#ff5777':'#333333'}}">{{item.nick}}</view>
+                </view>
+                <view class="user-list--item-order" style="color: {{item.currentUser?'#ff5777':'#666666'}}">订单编号：{{item.orderId}}</view>
+            </view>
+        </view>
+    </view>
+    <block wx:else>
+        <template is="wallPtMore" data="{{...$wallPtMore}}"></template>
+        <view id="J_wall_box">
+            <template is="wallPtItemsBox" data="{{$wall:$wall}}"></template>
+        </view>
+    </block>
+</scroll-view>

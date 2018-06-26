@@ -1,0 +1,39 @@
+<import src="../../../components/mg/index.wxml"></import>
+<template is="mg" data="{{...$mg}}"></template>
+<import src="../../../components/toast/index.wxml"></import>
+<import src="../../../components/captcha/index.wxml"></import>
+<import src="../../../components/empty/index.wxml"></import>
+<import src="../../../components/countdown/index.wxml"></import>
+<import src="../../../components/loading/index.wxml"></import>
+<template is="toast" data="{{...$toast}}"></template>
+<template is="loading" data="{{...$loading}}"></template>
+<template is="empty" data="{{...$empty}}" wx:if="{{isLoaded&&error}}"></template>
+<view class="bind-phone-wrap" wx:elif="{{isLoaded&&!isBindMobile}}">
+    <view class="bind-title">绑定手机</view>
+    <view class="bind-tel">
+        <input bindblur="getInputMobile" bindinput="handleInputMobile" class="bind-tel-input" placeholder="手机号" placeholderStyle="color: rgb(204, 204, 204);" type="number" value="{{input_mobile}}"></input>
+        <view bindtap="clearInput" class="close-wrap" wx:if="{{input_mobile!==''}}">
+            <label class="close"></label>
+        </view>
+    </view>
+    <view class="bind-vericode">
+        <input bindblur="getInputCode" bindinput="handleInputCode" class="bind-vericode-input" placeholder="验证码" placeholderStyle="color: rgb(204, 204, 204);" type="number"></input>
+        <view bindtap="valedateCaptchaForBind" class="bind-vericode-label" style="color: {{isFirstGetCode?'#666666':'#FF5777'}}" wx:if="{{!countdownStart}}"> {{isFirstGetCode?'获取验证码':'重新发送'}} </view>
+        <view class="bind-vericode-label" wx:else>
+            <template is="countdown" data="{{...$countdown,className:'',numClass:''}}"></template>
+        </view>
+    </view>
+    <template is="captcha" data="{{...$captcha}}" wx:if="{{isNeedCaptcha}}"></template>
+    <view bindtap="checkBindMobileSms" class="bind-confirm {{telVery.isVeried&&codeVery.isVeried?'':'disabled'}}">确认</view>
+</view>
+<view class="change-phone-wrap" wx:elif="{{isLoaded&&isBindMobile}}">
+    <view class="change-title">为了您的账户安全，请验证现有手机号</view>
+    <view class="change-phone">现有手机号：{{mobile}}</view>
+    <input bindblur="getInputCode" bindinput="handleInputCode" class="change-input" placeholder="输入验证码" placeholderStyle="color: #EDEDED;" type="number"></input>
+    <view bindtap="valedateCaptchaForChange" class="change-getcode" wx:if="{{!countdownStart}}">{{isFirstGetCode?'获取验证码':'重新发送'}}</view>
+    <view class="change-countdown" wx:else>
+        <template is="countdown" data="{{...$countdown,className:'change-countdown-text',numClass:''}}"></template>
+    </view>
+    <template is="captcha" data="{{...$captcha}}" wx:if="{{isNeedCaptcha}}"></template>
+    <view bindtap="checkChangeMobileSms" class="change-next {{codeVery.isVeried?'':'disabled'}}">下一步</view>
+</view>

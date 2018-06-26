@@ -1,0 +1,52 @@
+<template name="wallPtCountList">
+    <view class="wall_nav_box {{scrollNavStickyClass}}" id="wall_nav_box" wx:if="{{navData&&navData.length}}">
+        <view class="nav_middle {{scrollNavFixedClass}}">
+            <view class="nav_tabs_scroll">
+                <view class="scroll_box  border-box">
+                    <view bindtap="{{$scope}}.sortTab" class="nav_tab {{tab.onClass}}" data-fcid="{{tab.fcid}}" data-pid="{{tab.pid}}" data-tab-index="{{index}}" wx:for="{{navData}}" wx:for-item="tab" wx:key="tabList">
+                        <view class="t_text content-box box-center-y" style="min-width: {{750/navData.length-32*navData.length}}rpx" wx:if="{{navData&&navData.length>0&&navData.length<5}}">{{tab.name}}</view>
+                        <view class="t_text content-box box-center-y" wx:else>{{tab.name}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="$navigate" class="goods_item goods_item_v61 ptWall-item" data-acm="{{item.acm}}" data-href="{{item.item_group_xcx_url||item.item_xcx_url}}" wx:for="{{wallList}}" wx:key="index">
+        <view class="ptWall-item-image-wrap">
+            <image lazyLoad class="ptWall-item-image" mode="aspectFill" src="{{item.image}}"></image>
+            <block wx:if="{{item.ptClassify}}">
+                <view class="ptWall-item-normal ptWall-item-new" wx:if="{{item.ptClassify==='3'||item.ptClassify==='8'}}">抽奖团</view>
+            </block>
+        </view>
+        <view class="ptWall-item-info">
+            <view class="ptWall-item-info-title">{{item.title}}</view>
+            <view class="ptWall-item-info-descr">{{item.itemAdvantageDesc}}</view>
+            <view class="ptWall-item-info-price">
+                <text class="ptWall-item-info-price-tuanPrice-dollar" style="font-family:Arial;">￥</text>
+                <text class="ptWall-item-info-price-tuanPrice">{{item.discountPrice}}</text>
+                <text class="ptWall-item-info-price-oldPrice" style="font-family:Arial;">￥{{item.price}}</text>
+            </view>
+            <view class="ptWall-item-info-tag" wx:if="{{item.effectETime&&item.ptClassify==='3'}}">
+                <view class="ptWall-item-count">仅剩
+            <template is="countdownlist" data="{{...$countdown,countdownIndex:index,numClass:'cart-num',symbolClass:'cart-symbol'}}"></template>
+                </view>
+            </view>
+            <view class="super-wrap" wx:elif="{{item.ptClassify==='8'}}">
+                <view class="super-probar-bg" wx:if="{{item.groupProgress}}">
+                    <view class="super-probar" style="width: {{item.groupProgress}};"></view>
+                </view>
+                <view class="super-info">
+                    <view class="super-left" wx:if="{{item.leftNum}}">只差{{item.leftNum}}个团</view>
+                    <view class="super-lottery" wx:if="{{item.openAwardNum}}">{{item.openAwardNum}}个团满开奖</view>
+                </view>
+            </view>
+            <block wx:if="{{item.displayTag&&item.displayTag==='SELL_OUT'}}">
+                <view class="ptWall-item-info-btn ptWall-item-info-btn-out">去看看</view>
+                <image class="ptWall-item-info-soldOutImage" mode="aspectFill" src="https://s10.mogucdn.com/mlcdn/c45406/170624_0374e45428kf5li3fl7e9l8ldj4cf_116x140.png"></image>
+            </block>
+            <view class="ptWall-item-info-btn ptWall-item-info-btn-ing" wx:if="{{item.ptClassify==8}}">立即抽奖</view>
+            <view class="ptWall-item-info-btn ptWall-item-info-btn-ing" wx:elif="{{item.ptClassify==3}}">去开团</view>
+        </view>
+    </view>
+</template>
+<import src="../../../../components/countdown/index.wxml"></import>

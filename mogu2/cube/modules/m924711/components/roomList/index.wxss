@@ -1,0 +1,29 @@
+@import "../miniLoadingView/index.wxss";
+
+@import "../loadingErrorView/index.wxss";
+
+@import "../emptyView/index.wxss";
+
+@import "liveItemHost/index.wxss";
+
+@import "specialSale/index.wxss";
+
+@import "../loadingMoreFooter/index.wxss";
+
+@import "../loadingMoreFailureFooter/index.wxss";
+
+@import "liveCount/index.wxss";
+
+.MCUBE_MOD_ID_924711 .live-list-room-list-container {
+    overflow: hidden;
+}
+
+.MCUBE_MOD_ID_924711 .live-list-room-list-wrap {
+    margin: 0 0 24rpx 0;
+    overflow: hidden;
+}
+
+.MCUBE_MOD_ID_924711 .live-list-room-list-item-wrap {
+    margin: 18rpx 0 0 0;
+    overflow: hidden;
+}

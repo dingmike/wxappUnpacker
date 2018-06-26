@@ -1,0 +1,129 @@
+.component__rate.rate {
+    padding: 0 30rpx;
+}
+
+.component__rate.rate .rate__head {
+    width: 100%;
+    font-size: 24rpx;
+    padding: 24rpx 0;
+}
+
+.component__rate.rate .rate__tags {
+    padding-top: 4rpx;
+    padding-bottom: 20rpx;
+}
+
+.component__rate.rate .rate__tags--item {
+    display: inline-block;
+    height: 48rpx;
+    line-height: 48rpx;
+    border-radius: 4rpx;
+    font-size: 24rpx;
+    padding: 0 20rpx;
+    margin-right: 10rpx;
+    margin-top: 16rpx;
+}
+
+.component__rate.rate .rate__tags--negative {
+    background-color: #F6F6F6;
+}
+
+.component__rate.rate .list__item {
+    padding-top: 8rpx;
+}
+
+.component__rate.rate .list__item--user {
+    height: 84rpx;
+    margin-bottom: 20rpx;
+}
+
+.component__rate.rate .user__content {
+}
+
+.component__rate.rate .user__content--avatar {
+    width: 60rpx;
+    height: 60rpx;
+    overflow: hidden;
+    border-radius: 50%;
+    background: #e5e5e5;
+}
+
+.component__rate.rate .avatar__image {
+    width: 100%;
+    height: 100%;
+}
+
+.component__rate.rate .user__content--info {
+    margin-left: 16rpx;
+}
+
+.component__rate.rate .info__name {
+    font-size: 24rpx;
+    line-height: 33rpx;
+}
+
+.component__rate.rate .info__shape {
+    height: 32rpx;
+    font-size: 20rpx;
+    line-height: 30rpx;
+    border-radius: 4rpx;
+    border-width: 1px;
+    border-style: solid;
+    margin-top: 7rpx;
+}
+
+.component__rate.rate .info__shape--fit {
+    color: #fff;
+    padding: 0 8rpx;
+}
+
+.component__rate.rate .info__shape--size {
+    padding: 0 8rpx;
+}
+
+.component__rate.rate .user__tag--title {
+    font-size: 28rpx;
+}
+
+.component__rate.rate .user__tag--sub {
+    font-size: 16rpx;
+    line-height: 1;
+}
+
+.component__rate.rate .list__item--content {
+    line-height: 33rpx;
+    font-size: 24rpx;
+    word-break: break-all;
+    margin-bottom: 10rpx;
+}
+
+.component__rate.rate .list__item--atts {
+    font-size: 22rpx;
+    line-height: 36rpx;
+    margin-bottom: 16rpx;
+}
+
+.component__rate.rate .atts__sku {
+    padding-left: 22rpx;
+}
+
+.component__rate.rate .list__item--imgs {
+    margin-bottom: 20rpx;
+    font-size: 0;
+}
+
+.component__rate.rate .imgs__item {
+    width: 160rpx;
+    height: 160rpx;
+    display: inline-block;
+    margin-bottom: 10rpx;
+    margin-right: 10rpx;
+}
+
+.component__rate.rate .list__item--explain {
+    font-size: 24rpx;
+    line-height: 33rpx;
+    border-top: 1rpx solid #e5e5e5;
+    padding-top: 16rpx;
+    margin-bottom: 40rpx;
+}

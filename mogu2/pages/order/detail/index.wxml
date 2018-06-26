@@ -1,0 +1,148 @@
+<import src="../../../components/mg/index.wxml"></import>
+<template is="mg" data="{{...$mg}}"></template>
+<import src="components/shopList/index.wxml"></import>
+<import src="../../../components/toast/index.wxml"></import>
+<import src="../../../components/loading/index.wxml"></import>
+<import src="../../../components/cashier/index.wxml"></import>
+<template is="cashier" data="{{...$cashier}}"></template>
+<template is="toast" data="{{...$toast}}"></template>
+<template is="loading" data="{{...$loading}}"></template>
+<import src="../../../components/wall/index.wxml"></import>
+<import src="../../../components/walltemplate/item_pt.wxml"></import>
+<scroll-view bindscroll="$wall.scrollNavEvent" bindscrolltolower="$wall.wallScrollEvent" class="J_scroll_wallbox" lowerThreshold="{{$wall.bottomHeight}}" scrollIntoView="{{$wall.scrollIntoViewId}}" scrollY="true" style="height:{{$wall.scrollBoxHeight}}px">
+    <view>
+        <view class="order-detail-wrap">
+            <view class="meili-all-vue-order-detail-status status flex f-ai-c" wx:if="{{statusList}}">
+                <view class="status-wrap f-fg-1">
+                    <view class="status-title">{{statusList.statusTitle}}</view>
+                    <view class="status-time" wx:if="{{statusList.remainTime>=0&&(statusList.prevTimeText||statusList.timeText)}}">
+          {{statusList.prevTimeText}}{{statusList.remainTimeString}} {{statusList.timeText}}
+        </view>
+                </view>
+                <view class="detail-btn" wx:if="{{marketType==='market_mogujie'&&(cancelShow||deleteShow)}}">
+                    <form bindsubmit="cancelOpt" data-payOrderId="{{payOrderId}}" data-shopOrderId="{{shopOrderId}}" reportSubmit="true" wx:if="{{cancelShow}}">
+                        <button class="detail-btn-cancel" formType="submit">取消订单</button>
+                    </form>
+                    <form bindsubmit="deleteOpt" data-payOrderId="{{payOrderId}}" data-shopOrderId="{{shopOrderId}}" reportSubmit="true" wx:if="{{deleteShow}}">
+                        <button class="detail-btn-detele" formType="submit">删除订单</button>
+                    </form>
+                </view>
+            </view>
+            <view class="logisticsWrap" wx:if="{{logisticsList}}">
+                <view class="meili-all-vue-order-detail-logistics logistics" wx:if="{{logisticsList.packageTrackInfos&&logisticsList.packageTrackInfos.length>0}}" wx:for="{{logisticsList.packageTrackInfos}}" wx:for-item="itemLogistics" wx:key="index">
+                    <view class="logistics-info-wrap" wx:if="{{itemLogistics.expressName||itemLogistics.expressId||itemLogistics.deliveryNodeDetails&&itemLogistics.deliveryNodeDetails.length>0}}">
+                        <view class="logistics-info" wx:if="{{itemLogistics.expressName&&itemLogistics.expressId}}">
+                            <view>配送方式：
+                    <text class="logistics-info--name">{{itemLogistics.expressName}}</text>
+                            </view>
+                            <view class="express-id">快递单号：
+                    <text class="logistics-info--number">{{itemLogistics.expressId}}</text>
+                            </view>
+                            <view bindtap="phoneCall" data-phone="{{itemLogistics.expressPhone}}" wx:if="{{itemLogistics.expressPhone}}">官方电话：
+                    <text class="logistics-info--tel">{{itemLogistics.expressPhone}}</text>
+                            </view>
+                            <view bindtap="copyToClipboard" class="logistics-copy--expressid" data-code-id="{{itemLogistics.expressId}}" wx:if="{{itemLogistics.expressId}}">复制快递单号</view>
+                        </view>
+                        <view bindtap="goLogisticsDetail" class="logistics-detail" data-orderId="{{shopOrderId}}">
+                            <view class="logistics-detail--content detail-content flex">
+                                <view class="m-icon m-icon-base m-icon-truck detail-content--icon"></view>
+                                <view class="detail-content--list f-fg-1" wx:if="{{itemLogistics.deliveryNodeDetails&&itemLogistics.deliveryNodeDetails.length>0}}">
+                                    <view class="detail-content--item">
+                                        <view class="detail-content--desc">{{itemLogistics.deliveryNodeDetails[0].details}}</view>
+                                        <view class="detail-content--time">{{itemLogistics.deliveryNodeDetails[0].nodeTimeString}}</view>
+                                    </view>
+                                </view>
+                                <view class="detail-content--list f-fg-1" wx:else>
+                                    <view class="detail-content--item">
+                                        <view class="detail-content--desc" wx:if="{{itemLogistics.expressNameType==='other'}}">该快递公司暂不支持在线查看物流信息</view>
+                                        <view wx:else>
+                                            <view class="detail-content--desc" wx:if="{{itemLogistics.expressId}}">卖家已通知快递公司（{{itemLogistics.expressName}}）揽件，等待快递公司揽件中</view>
+                                            <view class="detail-content--time" wx:if="{{itemLogistics.expressId&&itemLogistics.created}}">{{itemLogistics.createdTime}}</view>
+                                        </view>
+                                    </view>
+                                </view>
+                                <view class="m-icon m-icon-base m-icon-arrow-right"></view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="receiver-wrap">
+                    <view class="meili-all-base-receiver receiver flex" wx:if="{{logisticsList.receiverAddressInfo}}">
+                        <view class="m-icon m-icon-base m-icon-location"></view>
+                        <view class="receiver-user flex f-fd-c f-jc-c f-fg-1">
+                            <view class="receiver-user--name">
+                  {{logisticsList.receiverAddressInfo.realName}} {{logisticsList.buyerMobile}}
+              </view>
+                            <view class="receiver-user--address">
+                  {{logisticsList.receiverAddressInfo.address}}
+              </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <template is="shopList" data="{{...$shopList,orderStageList:orderStageList,shopList:shopList,marketType:marketType,isTaxCompliance:isTaxCompliance,isChannel:isChannel}}"></template>
+            <view class="meili-all-vue-order-detail-discount discount" wx:if="{{discountList}}">
+                <view class="discount-list">
+                    <view class="discount-item" wx:if="{{discountList.isWaitPay&&(discountList.promotionDesc||discountList.modouUseCount||discountList.useAmount&&discountList.useAmount>0)}}">
+                        <view class="flex promotion-desc" wx:if="{{discountList.promotionDesc&&discountList.promotionDesc.length>0}}">
+                            <text class="discount-item--title promotion-desc--title">平台优惠：</text>
+                            <view class="discount-item--list promotion-desc--list" wx:if="{{discountList.promotionDesc&&discountList.promotionDesc.length>0}}">
+                                <view wx:for="{{discountList.promotionDesc}}" wx:for-item="itemDesc" wx:key="{{*this}}">{{itemDesc}}</view>
+                            </view>
+                            <text class="discount-item--value f-fg-1 promotion-desc--value">-￥{{discountList.platformPromoAmount}}</text>
+                        </view>
+                        <view class="flex ship-remark" wx:if="{{discountList.modouUseCount}}">
+                            <text class="discount-item--title ship-remark--title">蘑豆：使用{{discountList.modouUseCount}}粒</text>
+                        </view>
+                        <view class="flex ship-remark" wx:if="{{discountList.useAmount&&discountList.useAmount>0}}">
+                            <text class="discount-item--title ship-remark--title">支付红包</text>
+                            <text class="discount-item--value f-fg-1 ship-remark--value freight-free">-￥{{discountList.useAmount}}</text>
+                        </view>
+                    </view>
+                    <view class="discount-item" wx:if="{{virtualItemInfo}}">
+                        <view bindtap="copyToClipboard" class="order-copy--shopOrderId" data-code-id="{{virtualItemInfo.virtualCode}}">复制</view>
+                        <view>{{virtualItemInfo.virtualCodeDesc}}{{virtualItemInfo.virtualCode}}</view>
+                        <view>{{virtualItemInfo.expiryDateDesc}}</view>
+                    </view>
+                    <view class="discount-item pay-channel" wx:if="{{discountList.payChannel}}">
+                        <view class="pay-channel--title">支付方式：{{discountList.payChannel}}</view>
+                    </view>
+                    <view class="discount-item order-trade" wx:if="{{!discountList.isWaitPay}}">
+                        <view bindtap="copyToClipboard" class="order-copy--shopOrderId" data-code-id="{{discountList.shopOrderId}}" wx:if="{{discountList.shopOrderId}}">复制单号</view>
+                        <view>订单编号：{{discountList.shopOrderId}}</view>
+                        <view wx:if="{{discountList.created}}">下单时间：{{discountList.created}}</view>
+                        <view wx:if="{{discountList.payTime}}">支付时间：{{discountList.payTime}}</view>
+                        <view wx:if="{{discountList.shipTime}}">发货时间：{{discountList.shipTime}}</view>
+                        <view wx:if="{{discountList.receiveTime}}">收货时间：{{discountList.receiveTime}}</view>
+                        <view class="flex" wx:if="{{discountList.buyerComment}}">
+                            <view>
+                                <text class="order-buyer--label">买家留言：</text>
+                            </view>
+                            <view class="order-buyer--text">{{discountList.buyerComment}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="meili-all-vue-order-detail-foot foot flex" wx:if="{{footDataList}}">
+                <view class="foot-price f-fg-1 price" wx:if="{{footDataList.payOrderPrice>=0}}">总计:
+        <text class="foot-price--sum f-as-b">￥{{footDataList.payOrderPrice}}</text>
+                </view>
+                <view class="f-fg-1" wx:if="{{footDataList.operationsList.length>0}}" wx:for="{{footDataList.operationsList}}" wx:for-item="operation" wx:key="index">
+                    <form bindsubmit="operateClick" data-footDataList="{{footDataList}}" data-operationName="{{operation.operationName}}" data-ordertags="{{orderTags}}" reportSubmit="true">
+                        <button class="foot-button f-fg-1 foot-button--red" formType="submit">{{operation.operationDesc}}</button>
+                    </form>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="wall" wx:if="{{hasWallInited}}">
+        <view class="wall-guess-text" wx:if="{{!isPintuan}}">猜你喜欢</view>
+        <view class="guess-list" wx:if="{{!isPintuan}}">
+            <template is="wallItemsBox" data="{{$wall:$wall}}"></template>
+        </view>
+        <view class="pt-guess-list" wx:if="{{isPintuan}}">
+            <template is="wallPtMore" data="{{...$wallPtMore}}"></template>
+            <template is="wallPtItemsBox" data="{{$wall:$wall}}"></template>
+        </view>
+    </view>
+</scroll-view>

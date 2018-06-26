@@ -1,0 +1,16 @@
+<template name="history">
+    <view class="searchBox-history flex f-fd-c">
+        <view class="his-header">
+            <text class="his-title">历史搜索</text>
+            <text bindtap="{{$scope}}.clearStorageList" class="his-change">清除</text>
+        </view>
+        <view class="his-items-wrap flex f-fw-w" wx:if="{{isShowHisList}}">
+            <view bindtap="bindHisNavigate" class="his-item" data-queryWord="{{item}}" wx:for="{{hisList}}" wx:key="*this">
+          {{item}}
+        </view>
+        </view>
+        <view class="his-none" wx:else>
+        暂无搜索历史
+      </view>
+    </view>
+</template>

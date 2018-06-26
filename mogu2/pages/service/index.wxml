@@ -1,0 +1,10 @@
+<import src="../../components/mg/index.wxml"></import>
+<import src="../../components/imcall/index.wxml"></import>
+<template is="mg" data="{{...$mg}}"></template>
+<view class="main">
+    <image class="service-image" src="https://s10.mogucdn.com/mlcdn/c45406/171226_4glj03e52i11dh59b3a2cjg5645l0_156x204.png"></image>
+    <text class="service-text">蘑菇街官方客服</text>
+    <view bindtap="imCallClick" class="service-btn">
+        <template is="imcall" data="{{...$imcall}}"></template>
+    </view>
+</view>

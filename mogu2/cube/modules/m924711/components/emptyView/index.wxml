@@ -1,0 +1,6 @@
+<template name="emptyView">
+    <view class="live-list-empty-view-wrap flex f-fd-c f-jc-fe f-ai-c" hidden="{{!show}}">
+        <image class="live-list-empty-view-image" lazyLoad="{{true}}" mode="aspectFit" src="{{image}}"></image>
+        <text class="live-list-empty-view-text">{{text}}</text>
+    </view>
+</template>

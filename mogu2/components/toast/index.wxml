@@ -1,0 +1,7 @@
+<template name="toast">
+    <view class="ui-toast-overlay" hidden="{{!show}}">
+        <view class="ui-toast">
+            <text class="ui-toast-msg">{{message}}</text>
+        </view>
+    </view>
+</template>

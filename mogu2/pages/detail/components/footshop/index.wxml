@@ -1,0 +1,8 @@
+<template name="footshop">
+    <form bindsubmit="{{$scope}}.onShopClick" class="component__footshop footentry" data-from-page="detail" data-jump-type="4" data-shop-id="{{shopId}}" reportSubmit="true">
+        <button class="footentry__btn flex f-ff-cn f-ai-c f-jc-c" formType="submit" hoverClass="none">
+            <i class="footentry__btn--icon m-icon m-icon-shop" style="{{$color.secondaryTextTx}}"></i>
+            <view class="footentry__btn--text" style="{{$color.secondaryTextTx}}">小店</view>
+        </button>
+    </form>
+</template>

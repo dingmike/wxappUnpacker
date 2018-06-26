@@ -1,0 +1,40 @@
+<template name="header">
+    <view class="header">
+        <view class="coupon-wrapper">
+            <view class="coupon {{couponInfo.isNew?'coupon--is-new':'coupon--normal'}}" style="background-image:url({{couponInfo.isNew?styleConfig.newUserBackgroupImage:styleConfig.backgroupImage}});">
+                <view class="coupon-dialog--coupon" style="background-image: url({{styleConfig.sendSuccessImage}});" wx:if="{{ifShowDialog}}">
+                    <view class="coupon-dialog--coupon-left">
+                        <template is="couponLeft" data="{{cutPrice:couponInfo.cutPriceFormat,isNew:couponInfo.isNew,styleConfig:styleConfig}}"></template>
+                    </view>
+                </view>
+                <view catchtap="redirectToDetail" class="coupon-dialog--coupon-button" wx:if="{{ifShowDialog}}">
+                    立即使用
+                </view>
+                <template is="couponLeft" data="{{cutPrice:couponInfo.cutPriceFormat,isNew:couponInfo.isNew,isPurple:couponInfo.isNew,styleConfig:styleConfig}}"></template>
+                <view class="coupon--right-column">
+                    <view class="coupon--right-column--button {{couponInfo.hasSend||couponInfo.leftNum===0?'coupon--right-column--button_is-grey':'coupon--right-column--button_normal'}}" style="color:{{couponInfo.hasSend||couponInfo.leftNum===0?styleConfig.haveSentTextColor:styleConfig.sendTextColor}};background:linear-gradient(left top, {{couponInfo.hasSend||couponInfo.leftNum===0?styleConfig.haveSentButtonColor:styleConfig.sendButtonColor}}, {{couponInfo.hasSend||couponInfo.leftNum===0?styleConfig.haveSentButtonColor:styleConfig.sendButtonColorDeep}});background:-webkit-linear-gradient(left top, {{couponInfo.hasSend||couponInfo.leftNum===0?styleConfig.haveSentButtonColor:styleConfig.sendButtonColor}}, {{couponInfo.hasSend||couponInfo.leftNum===0?styleConfig.haveSentButtonColor:styleConfig.sendButtonColorDeep}});">{{couponInfo.buttonContent}}
+                    </view>
+                </view>
+                <view class="header--coupon-button">
+                    <form bindsubmit="submitSend" reportSubmit="true">
+                        <button class="submit-button" formType="submit"></button>
+                    </form>
+                </view>
+            </view>
+            <view class="trust"></view>
+        </view>
+        <view wx:if="{{!isHideShopIcon}}">
+            <view wx:if="{{!isShowAct}}">
+                <view class="header--shop-icon-view">
+                    <image class="header--shop-icon" src="{{itemInfo.shopIcon?itemInfo.shopIcon+'_160x160.jpg':''}}"></image>
+                </view>
+                <text class="header--shop-desc">{{itemInfo.shopName}}</text>
+            </view>
+            <view class="header--act" wx:if="{{isShowAct}}">
+                <button bindtap="shareClick" class="share-button" openType="share"></button>
+                <image class="header--act-image" mode="aspectFit" src="{{styleConfig.shareImage}}"></image>
+            </view>
+        </view>
+    </view>
+</template>
+<import src="../couponLeft/index.wxml"></import>

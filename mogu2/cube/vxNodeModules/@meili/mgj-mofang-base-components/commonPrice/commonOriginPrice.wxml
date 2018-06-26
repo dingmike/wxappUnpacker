@@ -1,0 +1,3 @@
+<template name="common-origin-price">
+    <text class="price-original {{classData}} {{__vx_class}}" style="{{__vx_style}}" wx:if="{{originPrice!==null&&originPrice>=0}}">¥{{originPrice}}</text>
+</template>

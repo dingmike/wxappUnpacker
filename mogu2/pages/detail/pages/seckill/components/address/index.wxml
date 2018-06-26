@@ -1,0 +1,13 @@
+<template name="seckillAddress">
+    <view bindtap="{{$scope}}.onAddressClick" class="seckill__address address flex f-ai-c f-jc-sb">
+        <view class="address__content flex f-fd-c f-fw-w">
+            <view class="address__content--title title flex f-ai-c">
+                <view class="title__dot" style="{{$color.mainBg}}"></view>
+                <view class="title__text" style="{{$color.mainTx}}">{{defaultAddr?'':'请先设置'}}默认地址</view>
+                <view class="title__desc" style="{{$color.dimTx}}">（秒杀商品自动发向默认地址）</view>
+            </view>
+            <view class="address__content--default" style="{{$color.secondaryTextTx}}" wx:if="{{defaultAddr}}">{{defaultAddr}}</view>
+        </view>
+        <i class="address__arrow m-icon m-icon-arrow-right" style="{{$color.dimTx}}"></i>
+    </view>
+</template>

@@ -1,0 +1,36 @@
+<import src="../../../components/mg/index.wxml"></import>
+<template is="mg" data="{{...$mg}}"></template>
+<import src="../../../components/loading/index.wxml"></import>
+<import src="../../../components/toast/index.wxml"></import>
+<import src="../../../components/end/index.wxml"></import>
+<import src="../components/balance/index.wxml"></import>
+<import src="../components/topBanner/index.wxml"></import>
+<template is="loading" data="{{...$loading}}"></template>
+<template is="toast" data="{{...$toast}}"></template>
+<view class="hongbao">
+    <template is="topbanner" data="{{...$topbanner}}" wx:if="{{$topbanner.topBanners.length>0}}"></template>
+    <template is="newBalance" data="{{...$balance}}"></template>
+    <view class="tab-bar" wx:if="{{tabConfig.showTab}}">
+        <view bindtap="tabClicked" class="tab-bar-inner {{tab===selectedTab?'bottom-border':'bottom-border-no'}}" data-tab="{{tab}}" wx:for="{{tabConfig.tabs}}" wx:for-index="tab" wx:key="item.merchantId">
+            <text class="{{tab===selectedTab?'selected-title':'normal-title'}}">{{item.text}}</text>
+        </view>
+    </view>
+    <view class="hongbao-list">
+        <view bindtap="$navigate" class="hongbao-item" data-href="/pages/hongbao/detail/index" data-id="{{item.id}}" wx:for="{{hongbaoList}}" wx:key="id">
+            <view class="hongbao-item-inner {{item.hongbaoClass}} {{item.iconClass}}">
+                <view class="hongbao-item-amount">
+                    <text>可用余额：</text>{{item.amountText}}元</view>
+                <view class="hongbao-item-type">{{item.typeText}}</view>
+                <view catch:tap="active" class="active-btn" wx:if="{{item.showActiveButton}}">实名激活</view>
+                <view catch:tap="withdraw" class="withdraw-btn" data-id="{{item.id}}" wx:elif="{{item.showWithdrawButton}}">提现</view>
+            </view>
+            <view class="hongbao-valid-time">{{item.statusText}} <text class="warn-text">{{item.warnText}}</text>
+            </view>
+        </view>
+    </view>
+    <template is="end" data="{{...$end,isEnd:isEnd}}" wx:if="{{hongbaoList.length>0}}"></template>
+    <view class="empty-block" wx:else>
+        <view class="empty-icon"></view>
+        <text>还没有红包</text>
+    </view>
+</view>

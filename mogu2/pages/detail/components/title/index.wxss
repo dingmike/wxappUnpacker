@@ -1,0 +1,8 @@
+.component__title.title {
+    margin: 18rpx 150rpx 0 30rpx;
+}
+
+.component__title.title .title__text {
+    font-size: 32rpx;
+    line-height: 45rpx;
+}

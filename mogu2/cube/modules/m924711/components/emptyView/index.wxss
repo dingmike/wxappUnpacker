@@ -1,0 +1,19 @@
+.MCUBE_MOD_ID_924711 .live-list-empty-view-wrap {
+    width: 750rpx;
+    height: 452rpx;
+    overflow: hidden;
+}
+
+.MCUBE_MOD_ID_924711 .live-list-empty-view-image {
+    width: 514rpx;
+    height: 258rpx;
+    overflow: hidden;
+}
+
+.MCUBE_MOD_ID_924711 .live-list-empty-view-text {
+    margin: 30rpx 0 0 0;
+    overflow: hidden;
+    color: rgb(102,102,102);
+    font-size: 28rpx;
+    font-family: Arial;
+}

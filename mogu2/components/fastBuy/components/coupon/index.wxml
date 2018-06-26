@@ -1,0 +1,19 @@
+<template name="coupon">
+    <view class="buy-couponlist flex f-ai-fe" hidden="{{!showList}}">
+        <view class="ui-mask"></view>
+        <view class="buy-couponlist-content flex">
+            <view class="buy-couponlist-content--title">
+                <text class="couponlist-shopname">{{title}}</text>
+                <view bindtap="{{$scope}}.callClickCloseCoupon" class="buy-couponlist-content--close">╳</view>
+            </view>
+            <form bindsubmit="{{$scope}}.formSubmitHandler" class="buy-couponlist-content--list" data-type="callClickPromotionItem" reportSubmit="true">
+                <block wx:if="{{list}}">
+                    <button class="flex {{proItem.promotionKey==activeKey?'couponItem couponItem-active':'couponItem'}}" data-active-key="{{activeKey}}" data-cat="{{isExpressList?'logisticsCode':''}}" data-type="chooseCouponItem" formType="submit" id="{{proItem.promotionKey}}" wx:for="{{list}}" wx:for-item="proItem" wx:key="promotionKey">
+                        <text class="{{proItem.promotionKey==activeKey?'m-icon m-icon-right':'m-icon m-icon-right couponItem-icon--unvisi'}}"></text>
+                        <text class="couponItem-desc" data-active-key="{{activeKey}}" data-cat="{{isExpressList?'logisticsCode':''}}" data-type="chooseCouponItem" id="{{proItem.promotionKey}}">{{proItem.promotionDesc}}</text>
+                    </button>
+                </block>
+            </form>
+        </view>
+    </view>
+</template>

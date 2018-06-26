@@ -1,0 +1,48 @@
+<template name="907077">
+    <view class="{{__vx_class}}" id="recommend1and6" style="background-color: {{style.modBgColor||''}}; margin-top: {{style.marginTop/100*100+'rpx'}}; {{__vx_style}}">
+        <block wx:if="{{!isEmpty&&list.length==0}}">
+            <block wx:if="{{placeHolder}}">
+                <view class="rcm-list flex f-fw-w" wx:for="{{placeHolder}}" wx:key="index">
+                    <view class="placeholder rcm-first-item" wx:if="{{index===0}}"></view>
+                    <view class="placeholder rcm-other-item" wx:else></view>
+                </view>
+            </block>
+        </block>
+        <block wx:if="{{list.length>0}}">
+            <block wx:if="{{list}}">
+                <view class="rcm-list flex f-fw-w" wx:for="{{list}}" wx:for-index="allIndex" wx:for-item="allItem" wx:key="allIndex">
+                    <block wx:if="{{allItem.list&&allItem.list.length>0}}">
+                        <block wx:if="{{allItem.list}}">
+                            <view class="flex f-fw-w" wx:for="{{allItem.list}}" wx:key="index">
+                                <view bindtap="{{$scope}}.$vx_navigate" class="rcm-item-block rcm-item-banner {{item.className}} log-item acm-item" data-cube-acm="{{item.acm}}" data-cube-acm-node="{{true}}" data-data-log-content="{{item.acm}}" data-href="{{item.link}}" wx:if="{{index==0}}">
+                                    <template is="mvw-image" data="{{$parent:$parent['$'+label],...$parent['$'+label]['$mvw-image_15247322521390'+'_'+allIndex+'_'+index]}}"></template>
+                                </view>
+                                <view class="rcm-item-block rcm-item-good flex {{item.className}}" wx:if="{{index>0}}">
+                                    <view bindtap="{{$scope}}.$vx_navigate" class="rcm-item-goodsItem log-item acm-item" data-cube-acm="{{item.acm}}" data-cube-acm-node="{{true}}" data-data-log-content="{{item.acm}}" data-href="{{item.link}}">
+                                        <view class="rcm-item-goodsItem-tag flex f-fd-c f-jc-c" style="background-image: {{'url('+tagImg+')'}};" wx:if="{{item.benefit_point_r2&&item.benefit_point_r2>0}}">
+                                            <text class="rcm-item-goodsItem-tagText">{{item.benefit_point_r1||'直降'}}</text>
+                                            <text class="rcm-item-goodsItem-tagPrice">
+                                                <text class="iconfont mf-rmb inline-flex"></text>{{item.benefit_point_r2||''}}</text>
+                                        </view>
+                                        <view class="rcm-item-goodsItem-image">
+                                            <template is="mvw-image" data="{{$parent:$parent['$'+label],...$parent['$'+label]['$mvw-image_15247322521401'+'_'+allIndex+'_'+index]}}"></template>
+                                        </view>
+                                        <view class="rcm-item-goodsItem-info" style="background-color: {{allItem.list[0].bgColor}};">
+                                            <view class="rcm-item-goodsItem-infoPrice long-cut" wx:if="{{item.discountPrice}}">
+                                                <text class="iconfont mf-rmb inline-flex"></text>{{item.discountPrice}}
+                    </view>
+                                            <view class="rcm-item-goodsItem-infoPrice long-cut" wx:else></view>
+                                            <view class="rcm-item-goodsItem-infoKeyword long-cut" style="color: {{allItem.list[0].bgColor}};" wx:if="{{item.keyword}}">{{item.keyword||''}}
+                    </view>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                        </block>
+                    </block>
+                </view>
+            </block>
+        </block>
+    </view>
+</template>
+<import src="../../../cube-core/componentClass/internalComponents/mvwImage/index.wxml"></import>

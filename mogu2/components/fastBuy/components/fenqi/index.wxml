@@ -1,0 +1,22 @@
+<template name="fenqi">
+    <view class="buy-couponlist flex f-ai-fe" hidden="{{!showList}}">
+        <view class="ui-mask"></view>
+        <view class="buy-couponlist-content flex">
+            <view class="buy-couponlist-content--title">
+                <text class="couponlist-shopname">{{title}}</text>
+                <view bindtap="{{$scope}}.callClickCloseCoupon" class="buy-couponlist-content--close">╳</view>
+            </view>
+            <form bindsubmit="{{$scope}}.formSubmitHandler" class="buy-couponlist-content--list" reportSubmit="true">
+                <block wx:if="{{list}}">
+                    <button class="{{proItem.perPrice==activeKey?'couponItem fenqiItem flex couponItem-active':'couponItem flex fenqiItem'}}" data-active-fee="{{activeFee}}" data-active-key="{{activeKey}}" data-active-num="{{activeNum}}" data-fee="{{proItem.fee}}" data-num="{{proItem.num}}" data-type="chooseFenqiItem" formType="submit" id="{{proItem.perPrice}}" wx:for="{{list}}" wx:for-item="proItem" wx:key="promotionKey">
+                        <text class="{{proItem.perPrice==activeKey?'m-icon m-icon-right':'m-icon m-icon-right couponItem-icon--unvisi'}}"></text>
+                        <view>
+                            <view class="fenqiItem-desc">{{proItem.title}}</view>
+                            <view class="fenqiItem-desc fenqiItem-h">{{proItem.desc}}</view>
+                        </view>
+                    </button>
+                </block>
+            </form>
+        </view>
+    </view>
+</template>

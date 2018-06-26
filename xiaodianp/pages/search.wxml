@@ -1,0 +1,68 @@
+<view class="search item-flex item-around {{isTop&&isFixed&&'fixed'}}">
+    <view class="search-con item-flex item-between">
+        <view class="search-con_icon">
+            <image src="../images/search.svg" width="100%"></image>
+        </view>
+        <input bindconfirm="searchGoods" bindinput="bindKeyInput" confirmType="search" focus="true" placeholder="搜索想要的商品" placeholderStyle="color: #999" type="text" value="{{searchWord}}"></input>
+        <view class="search-con_clear">
+            <label bindtap="deleteSearchWord">×</label>
+        </view>
+    </view>
+    <view bindtap="clearSearchResult" class="search-btn">取消</view>
+</view>
+<view class="history" wx:if="{{!historyHide&&historyList.length>0}}">
+    <view class="history-head">历史搜索 <image bindtap="clearSearchHistory" src="../images/delete.svg" title="清空历史搜索"></image>
+    </view>
+    <view class="history-tips">
+        <label bindtap="clickTags" data-wpyclicktags-a="{{item}}" wx:for="{{historyList}}" wx:key="*this">{{item}}</label>
+    </view>
+</view>
+<view class="goods" wx:if="{{historyHide}}">
+    <block wx:if="{{count&&goodsList&&goodsList.length}}">
+        <view class="tab item-flex item-around {{isFixed&&'fixed'}} {{isTop&&'fixed-tab'}}">
+            <view bindtap="itemSortResult" class="{{tabIndex==0&&'cur'}}" data-wpyitemsortresult-a="0">综合</view>
+            <view bindtap="itemSortResult" class="{{tabIndex==1&&'cur'}}" data-wpyitemsortresult-a="1">最新</view>
+            <view bindtap="itemSortResult" class="{{tabIndex==2&&'cur'}}" data-wpyitemsortresult-a="2">最热</view>
+            <view bindtap="itemSortResult" class="price {{(tabIndex==3||tabIndex==4)&&'cur'}}" data-wpyitemsortresult-a="3">价格<label class="price-asc {{tabIndex==3&&'price'}}"></label>
+                <label class="price-desc {{tabIndex==4&&'price'}}"></label>
+            </view>
+        </view>
+        <view bindtouchmove="touchmove" bindtouchstart="touchstart" class="item-container" style="margin-top:{{isFixed?'104rpx':0}}">
+            <view class="item" wx:for="{{goodsList}}" wx:key="*this">
+                <view bindtap="clickProduct" class="item-block" data-wpyclickproduct-a="{{item.itemId||item.id}}" data-wpyclickproduct-b="{{item.activityType}}">
+                    <view class="head-img">
+                        <image lazyLoad="true" mode="aspectFit" src="{{item['itemImgurl']+'?imageView2/5/w/360/h/360'}}"></image>
+                        <view class="item-tips" wx:if="{{item.activityType!=0}}">
+                            <label></label>活动中</view>
+                        <view class="sold-out" wx:if="{{item.stock==0}}">
+                            <view class="sold-out__con">
+                                <text class="zh">已售罄</text>
+                                <text class="en">Sold out</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="name-line">
+                        <text class="name">{{item.itemName}}</text>
+                    </view>
+                    <view class="price-view">
+                        <view class="{{item.price!=item.oriPrice?'price-line':'price-line-none'}}">
+                            <text>¥{{item['price']}}</text>
+                        </view>
+                        <view class="oriprice-line" wx:if="{{item.oriPrice&&item.price!=item.oriPrice}}">
+                            <text>¥{{item['oriPrice']}}</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="loading" wx:if="{{isShowLoading}}">{{loadingWord}}</view>
+    </block>
+    <view class="warn" wx:else>
+        <view>
+            <image src="../images/warn.svg"></image>
+        </view>
+        <view>
+            <label>没有符合的商品哦~</label>
+        </view>
+    </view>
+</view>

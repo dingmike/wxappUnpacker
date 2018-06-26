@@ -1,0 +1,30 @@
+<template name="specialSale">
+    <view class="live-list-special-sale-wrap" style="background-image:url({{saleData.bgImg}});" wx:if="{{saleData&&saleData.specialSalesGoods&&saleData.specialSalesGoods.goods&&saleData.specialSalesGoods.goods.length>0}}">
+        <view class="live-list-special-sale-header">
+            <image class="live-list-special-sale-avatar" lazyLoad="{{true}}" mode="aspectFill" src="{{saleData.actorAvatar}}"></image>
+            <image class="live-list-special-sale-room-mark" lazyLoad="{{true}}" mode="aspectFit" src="{{saleData.roomMark}}"></image>
+            <text class="live-list-special-sale-title">{{saleData.title}}</text>
+            <view class="live-list-special-sale-on-live-wrap flex f-ai-c">
+                <view class="live-list-special-sale-on-live-dot"></view>
+                <text class="live-list-special-sale-on-live-text">直播中</text>
+            </view>
+        </view>
+        <view class="live-list-special-sale-goods-list-wrap">
+            <view class="live-list-special-sale-goods-list-item live-list-special-sale-goods expose-log" data-acm="{{goodsItem.acm}}" wx:for="{{saleData.specialSalesGoods.goods}}" wx:for-item="goodsItem" wx:key="goodsItem">
+                <image class="live-list-special-sale-goods-cover" lazyLoad="{{true}}" mode="aspectFill" src="{{goodsItem.cover}}"></image>
+                <view class="live-list-special-sale-goods-promotion-price-container flex f-ai-c">
+                    <image class="live-list-special-sale-goods-promotion-price-icon" lazyLoad="{{true}}" mode="aspectFit" src="{{goodsItem.priceIcon}}" wx:if="{{goodsItem.priceIcon}}"></image>
+                    <text class="live-list-special-sale-goods-promotion-price">{{goodsItem.promotionPrice}}</text>
+                </view>
+                <text class="live-list-special-sale-goods-normal-price">{{goodsItem.normalPrice}}</text>
+            </view>
+            <view class="live-list-special-sale-goods-list-item live-list-special-sale-goods-list-more" style="background-image:url({{saleData.specialSalesGoods.moreIcon}});">
+                <view class="live-list-special-sale-goods-list-more-content flex f-fd-c f-jc-c f-ai-c">
+                    <text class="live-list-special-sale-goods-list-more-text live-list-special-sale-goods-list-more-count">{{saleData.specialSalesGoods.goodsCount}}件</text>
+                    <text class="live-list-special-sale-goods-list-more-text live-list-special-sale-goods-list-more-description">直播特卖</text>
+                    <image class="live-list-special-sale-goods-list-more-icon" lazyLoad="{{true}}" mode="aspectFit" src="https://s10.mogucdn.com/mlcdn/c45406/180322_4j09fd3ei0iaeabdblk5b86agfl60_36x36.png"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

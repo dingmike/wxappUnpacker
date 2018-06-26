@@ -1,0 +1,85 @@
+.component__ruleInfo .rule__info {
+    background-color: #fff;
+}
+
+.component__ruleInfo .rule__key {
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 28rpx;
+    color: #666;
+    background-color: #efefef;
+    padding-left: 36rpx;
+}
+
+.component__ruleInfo .rule__desc {
+    font-weight: 400;
+    font-size: 24rpx;
+    color: #999999;
+    padding: 10rpx 30rpx;
+    white-space: pre-wrap;
+}
+
+.component__ruleInfo .rule__disclaimer {
+    width: 750rpx;
+    min-height: 100rpx;
+    font-size: 24rpx;
+    color: #999999;
+    padding: 28rpx 32rpx;
+}
+
+.component__ruleInfo .rule__table {
+    font-size: 24rpx;
+}
+
+.component__ruleInfo .rule__table--item.table {
+}
+
+.component__ruleInfo .table__line {
+    min-height: 100rpx;
+    color: #333;
+    padding: 28rpx 0 28rpx 36rpx;
+    border-bottom: 1rpx solid #e5e5e5;
+    position: relative;
+}
+
+.component__ruleInfo .table__choose {
+    background-color: #ffeeee;
+}
+
+.component__ruleInfo .table__line:first-child {
+    height: 80rpx;
+    line-height: 80rpx;
+    padding: 0 0 0 36rpx;
+    color: #666;
+    background-color: #f7f9fa;
+    border-bottom: none;
+}
+
+.component__ruleInfo .table__line:first-child .table__line--item {
+    padding-left: 0;
+}
+
+.component__ruleInfo .table__line--item {
+    width: 100%;
+    align-items: baseline;
+    word-break: break-all;
+    padding-left: 5rpx;
+}
+
+.component__ruleInfo .table__line--units {
+    font-size: 16rpx;
+    color: #666;
+}
+
+.component__ruleInfo .table__line--recommend {
+    width: 26rpx;
+    height: 26rpx;
+    line-height: 26rpx;
+    font-size: 20rpx;
+    color: #fff;
+    text-align: center;
+    border-radius: 0 0 4rpx 4rpx;
+    background-color: #fb4747;
+    position: absolute;
+    top: 0;
+}

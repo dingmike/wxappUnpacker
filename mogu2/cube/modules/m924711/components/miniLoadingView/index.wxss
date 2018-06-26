@@ -1,0 +1,35 @@
+@-webkit-keyframes rotate {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.MCUBE_MOD_ID_924711 .live-list-mini-loading-view-wrap {
+    width: 750rpx;
+    overflow: hidden;
+}
+
+.MCUBE_MOD_ID_924711 .live-list-mini-loading-view {
+    width: 40rpx;
+    height: 40rpx;
+    margin: 30rpx 0 0 0;
+    overflow: hidden;
+    background-image: url(https://s10.mogucdn.com//mlcdn/c45406/170720_5a5dlj28ek8977ei9c5jla734f3lb_40x40.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    animation: rotate 1050ms infinite;
+}

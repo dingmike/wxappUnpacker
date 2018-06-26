@@ -1,0 +1,21 @@
+.cpmponent__bottombar .bottombar__button-btn {
+    width: 100%;
+    position: relative;
+}
+
+.cpmponent__bottombar .bottombar__button-btn.disabled {
+    background: #cdcdcd;
+    color: #ffffff;
+}
+
+.cpmponent__bottombar .bottombar__button-btn--text {
+    font-size: 28rpx;
+}
+
+.cpmponent__bottombar .bottombar__button-btn--text.has-next {
+    font-size: 32rpx;
+}
+
+.cpmponent__bottombar .bottombar__button-btn--next-text {
+    font-size: 24rpx;
+}

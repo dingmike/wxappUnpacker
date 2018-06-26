@@ -1,0 +1,12 @@
+<template name="pinshareInfo">
+    <block wx:if="{{flagTuanInfo}}">
+        <template is="game-pop" data="{{...$gamePop}}"></template>
+        <template is="detail" data="{{...$detail}}"></template>
+        <template is="dialog" data="{{...$dialog}}"></template>
+        <template is="rule" data="{{...$rule}}" wx:if="{{isShowRuleArea}}"></template>
+    </block>
+</template>
+<import src="../detail/index.wxml"></import>
+<import src="../detail-dialog/index.wxml"></import>
+<import src="../rule/index.wxml"></import>
+<import src="../../../../components/gamePop/index.wxml"></import>

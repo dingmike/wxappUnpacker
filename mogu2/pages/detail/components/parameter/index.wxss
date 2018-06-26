@@ -1,0 +1,17 @@
+@import "../ruleInfo/index.wxss";
+
+@import "../productInfo/index.wxss";
+
+.component__parameter {
+    width: 750rpx;
+}
+
+.component__parameter .parameter__empty {
+    height: 150rpx;
+    line-height: 150rpx;
+    color: #999;
+    font-size: 30rpx;
+    text-align: center;
+    background-color: #f8f8f8;
+    padding: 0 32rpx;
+}

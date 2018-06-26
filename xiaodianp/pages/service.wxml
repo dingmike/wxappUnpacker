@@ -1,0 +1,19 @@
+<view class="service_msg">
+    <view class="msg_con">
+        <label class="msg_con__title">贴心客服</label>
+        <label class="msg_con__tips">有任何问题请联系客服</label>
+        <view class="msg_con__connect" wx:if="{{service_config.mobile!==''}}">
+            <image src="/images/icon_mobile.png"></image>
+            <text>客服电话 {{service_config.mobile}}</text>
+        </view>
+        <view class="msg_con__connect" wx:if="{{service_config.wechat!==''}}">
+            <image src="/images/icon_wechat.png"></image>
+            <text>微信号 {{service_config.wechat}}</text>
+        </view>
+        <image alt="" bindtap="click" class="msg_con__qrc_image" src="{{service_config.qrc_img}}"></image>
+        <label class="msg_con__work">工作时间</label>
+        <label class="msg_con__time" wx:if="{{str_time_1!==''}}">{{str_time_1}}</label>
+        <label class="msg_con__time" wx:if="{{str_time_2!==''}}">{{str_time_2}}</label>
+    </view>
+    <view class="msg_f">SEE小电铺提供服务</view>
+</view>

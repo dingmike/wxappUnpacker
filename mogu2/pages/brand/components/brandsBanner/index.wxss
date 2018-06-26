@@ -1,0 +1,302 @@
+@import "../../../../components/heading/index.wxss";
+
+.longHidden {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.brandsShowEntry {
+    margin-top: 16rpx;
+}
+
+.brandsWrap {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+    height: 580rpx;
+    background-color: #fefcfa;
+    overflow-y: hidden;
+}
+
+.todayKing {
+    display: flex;
+    flex-direction: row;
+    margin-left: 0;
+    margin-top: 25rpx;
+    padding-left: 10rpx;
+    width: 126rpx;
+    height: 34rpx;
+    line-height: 34rpx;
+    vertical-align: middle;
+    border-radius: 0 101rpx 101rpx 0;
+    background-color: #770000;
+    color: #fff;
+}
+
+.kingImg {
+    margin-top: 9rpx;
+    margin-right: 4rpx;
+    width: 24rpx;
+    height: 17rpx;
+    flex-shrink: 0;
+}
+
+.kingTitle {
+    margin-top: 8rpx;
+    width: 72rpx;
+    height: 19rpx;
+    line-height: 19rpx;
+    vertical-align: middle;
+    font-size: 18rpx;
+    flex-shrink: 0;
+}
+
+.brandsTitleWrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    flex-shrink: 0;
+    width: 370rpx;
+    height: 300rpx;
+    background-color: #fff6ea;
+    z-index: 1;
+}
+
+.brandsTitle {
+    position: absolute;
+    top: 0;
+    left: 60rpx;
+    width: 258rpx;
+    height: 300rpx;
+    overflow: hidden;
+}
+
+.brandsLogoWrap {
+    margin-top: 32rpx;
+    margin-bottom: 13rpx;
+    width: 100%;
+    height: 103rpx;
+    line-height: 103rpx;
+    border-bottom: 2rpx solid #c4a67b;
+    font-size: 36rpx;
+    font-weight: bold;
+    text-align: center;
+}
+
+.brandsLogo {
+    width: 172rpx;
+    height: 78rpx;
+    line-height: 78rpx;
+    text-align: center;
+}
+
+.brandsSubtitle {
+    margin-top: 9rpx;
+    height: 33rpx;
+    line-height: 33rpx;
+    text-align: center;
+    font-size: 24rpx;
+    color: #333;
+}
+
+.brandsEntry {
+    margin-top: 14rpx;
+    margin-left: 30rpx;
+    width: 188rpx;
+    height: 38rpx;
+    line-height: 38rpx;
+    border: solid 1rpx #c0955a;
+    font-size: 22rpx;
+    color: #c1955a;
+    text-align: center;
+}
+
+.brandsBigImg {
+    position: relative;
+    width: 100%;
+    height: 300rpx;
+}
+
+.brandsImgWrap {
+    width: 100%;
+    height: 300rpx;
+}
+
+.brandsImg {
+    width: 100%;
+    height: 100%;
+}
+
+.brandsNum {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding-left: 15rpx;
+    padding-right: 15rpx;
+    height: 28rpx;
+    line-height: 28rpx;
+    text-align: center;
+    opacity: 0.65;
+    background-image: linear-gradient(to right,rgba(193,193,193,0.66),#000000);
+    font-size: 18rpx;
+    color: #fff;
+}
+
+.brandsImgListWrap {
+    display: flex;
+    flex-direction: row;
+    padding-left: 14rpx;
+    width: 100%;
+    flex-shrink: 0;
+    height: 320rpx;
+    background: #fff;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    overflow-scrolling: touch;
+    -webkit-overflow-scrolling: touch;
+}
+
+.brandsImgBlock {
+    margin-top: 15rpx;
+    margin-right: 10rpx;
+    width: 200rpx;
+    height: 244rpx;
+    background-color: #fff;
+}
+
+.brandsImgEntry {
+    margin: 10rpx;
+    width: 180rpx;
+    height: 180rpx;
+}
+
+.priceWrap {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    width: 100%;
+    height: 33rpx;
+    line-height: 33rpx;
+    padding-left: 10rpx;
+}
+
+.priceNow {
+    margin-right: 6rpx;
+    font-size: 24rpx;
+    font-weight: bold;
+    color: #770000;
+    overflow: hidden;
+}
+
+.pricePre {
+    height: 28rpx;
+    font-size: 20rpx;
+    font-weight: 300;
+    text-decoration: line-through;
+    color: #999;
+    overflow: hidden;
+}
+
+.brandsPlaceholder {
+    width: 1rpx;
+    height: 280rpx;
+    flex-shrink: 0;
+}
+
+.brandsMoreImg {
+    position: relative;
+    margin-top: 15rpx;
+    margin-right: 10rpx;
+    width: 180rpx;
+    height: 224rpx;
+    border: solid 1rpx #f3f3f3;
+    flex-shrink: 0;
+}
+
+.brandsMoreIcon {
+    position: absolute;
+    top: 64rpx;
+    left: 72rpx;
+    width: 36rpx;
+    height: 36rpx;
+    line-height: 36rpx;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 50%;
+    border: solid 1rpx #979797;
+    color: #979797;
+}
+
+.brandIcon {
+    font-size: 18rpx;
+    width: 18rpx;
+    text-align: center;
+    margin-left: 5rpx;
+}
+
+.watchMore {
+    position: absolute;
+    top: 115rpx;
+    left: 50rpx;
+    width: 80rpx;
+    height: 20rpx;
+    line-height: 20rpx;
+    font-size: 20rpx;
+    color: #666;
+}
+
+.totalNum {
+    position: absolute;
+    top: 138rpx;
+    left: 70rpx;
+    height: 25rpx;
+    line-height: 25rpx;
+    font-size: 18rpx;
+    color: #620001;
+}
+
+.brandsNormalBigImg {
+    width: 100%;
+    height: 300rpx;
+}
+
+.brandsNormalWrap {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 16rpx;
+    width: 100%;
+    height: 356rpx;
+    background-color: #fefcfa;
+    overflow-y: hidden;
+}
+
+.brandsNormalBottomBar {
+    position: relative;
+    flex-shrink: 0;
+    width: 100%;
+    height: 56rpx;
+    background: #fff;
+    font-size: 24rpx;
+    color: #757575;
+}
+
+.brandsNormalTip {
+    position: absolute;
+    top: 12rpx;
+    left: 26rpx;
+    height: 33rpx;
+    line-height: 33rpx;
+}
+
+.brandsNormalNum {
+    position: absolute;
+    top: 12rpx;
+    right: 17rpx;
+    height: 33rpx;
+    line-height: 33rpx;
+}

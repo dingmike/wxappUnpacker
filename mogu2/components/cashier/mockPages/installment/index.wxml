@@ -1,0 +1,31 @@
+<template name="installment">
+    <view class="cashier-installment-container">
+        <radio-group bindchange="{{$scope}}.changeInstallment" class="cashier-installments" name="installment">
+            <label wx:for="{{installmentList}}" wx:key="*this">
+                <view class="cashier-installment cashier-installment-{{index}} font-gray-{{!item.enable}}">
+                    <view>
+                        <radio checked="{{item.checked}}" class="cashier-installment-radio" color="#ff5777" disabled="{{!item.enable}}" value="{{item.installmentId}}"></radio>
+                        <text class="installment-periods">{{item.number}}</text>
+                    </view>
+                    <view>
+                        <view class="installment-detail" wx:if="{{item.periods==0}}">{{item.totalPriceLabel}}   {{item.totalPrice}}元</view>
+                        <view class="installment-detail" wx:else>
+                            <text>{{item.eachPriceLabel}}</text>
+                            <text class="installment-eachPrice">{{item.eachPrice}}</text>
+                            <text>元</text>
+                        </view>
+                        <view class="installment-fee">{{item.fee}}</view>
+                    </view>
+                </view>
+            </label>
+        </radio-group>
+        <view class="cashier-bottom">
+            <view class="cashier-hongbao" wx:if="{{selectedMethod.hongbaoUse>0}}">红包已抵扣{{selectedMethod.hongbaoUse}}元</view>
+            <view class="cashier-amount">
+                <text>合计：</text>
+                <text>{{selectedMethod.price}}</text>
+            </view>
+            <view bindtap="{{$scope}}.paySubmit" class="cashier-submit">付款</view>
+        </view>
+    </view>
+</template>

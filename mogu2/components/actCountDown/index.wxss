@@ -1,0 +1,45 @@
+@import "../countdown/index.wxss";
+
+@import "components/ruleModal/index.wxss";
+
+.actCountdownWrap {
+    position: relative;
+    width: 750rpx;
+    height: 82rpx;
+    padding: 24rpx 24rpx 10rpx 24rpx;
+}
+
+.actCountdownContent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 702rpx;
+    height: 48rpx;
+    padding: 0 24rpx;
+    border-radius: 100rpx;
+    line-height: 48rpx;
+    font-size: 24rpx;
+    background: #ffd8e3;
+}
+
+.countdownLeft {
+    display: flex;
+    flex-direction: row;
+}
+
+.countdownTips {
+    color: #666;
+}
+
+.countdownWrap .module-base-countdown {
+    position: absolute;
+    font-size: 24rpx;
+    color: inherit;
+    z-index: 3;
+}
+
+.actRule {
+    font-size: 22rpx;
+    color: #ff5777;
+}

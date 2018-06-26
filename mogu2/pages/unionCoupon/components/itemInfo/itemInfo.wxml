@@ -1,0 +1,21 @@
+<template name="itemInfo">
+    <view class="item-info-wrap">
+        <view bindtap="redirectToDetail" class="item-info">
+            <view class="{{actId==3?'item-info--item-img-view-act3':'item-info--item-img-view'}}">
+                <image class="item-info--item-tag" src="{{styleConfig.itemImageTag}}" vIf="{{styleConfig.itemImageTag!==''}}"></image>
+                <image class="item-info--item-img" src="{{itemInfo.itemImage&&actId!=3?itemInfo.itemImage+'_380x380.jpg':itemInfo.itemImage}}"></image>
+            </view>
+            <view class="item-info--item-content" wx:if="{{actId!=3}}">
+                <text class="item-info--title">{{itemInfo.title}}</text>
+                <view class="item-info--item-price">
+                    <text class="item-info--original-price">市场价￥{{itemInfo.originalPriceFormat}}</text>
+                    <view class="item-info--after-cut">
+                        <image class="item-info--coupon-icon" mode="aspectFit" src="{{styleConfig.itemPriceTag}}"></image>
+                        <text class="item-info--after-cut-unit">￥</text>
+                        <text class="item-info--after-cut-price">{{itemInfo.afterCut}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

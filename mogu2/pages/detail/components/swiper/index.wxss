@@ -1,0 +1,47 @@
+.module-primary-swiper.swiper {
+    max-height: 780rpx;
+    margin-bottom: 10rpx;
+    overflow: hidden;
+}
+
+.module-primary-swiper .swiper-scroll {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.module-primary-swiper .swiper-content {
+    transition: left;
+    position: absolute;
+}
+
+.module-primary-swiper .swiper-image {
+    width: 520rpx;
+    max-height: 780rpx;
+    flex: none;
+    box-shadow: 0 2rpx 20rpx 0 rgba(0,0,0,0.1);
+    background-image: url(https://s10.mogucdn.com/mlcdn/c45406/171227_01b9eadgc49c10fd68a0k05651bhh_1040x1560.png);
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.module-primary-swiper .swiper-video {
+    position: relative;
+}
+
+.module-primary-swiper .swiper-video-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.3);
+}
+
+.module-primary-swiper .swiper-video-btn {
+    width: 120rpx;
+    height: 120rpx;
+    background: url('https://s10.mogucdn.com/mlcdn/c45406/180123_6cl1abf9b77h3k8k5323a9h2f8i1f_120x120.png') no-repeat;
+    background-size: contain;
+}

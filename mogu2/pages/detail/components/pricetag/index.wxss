@@ -1,0 +1,7 @@
+.pricetag {
+    height: 32rpx;
+    line-height: 32rpx;
+    text-align: center;
+    font-size: 20rpx;
+    padding: 0 6rpx;
+}

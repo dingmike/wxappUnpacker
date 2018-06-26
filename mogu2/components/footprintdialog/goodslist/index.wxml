@@ -1,0 +1,11 @@
+<template name="goodslist">
+    <view class="fp-group">
+        <block wx:for="{{groups}}" wx:for-index="groupIndex" wx:for-item="group" wx:key="{{group.date}}">
+            <view class="fp-date">{{group.date}}</view>
+            <view class="fp-goods">
+                <template is="good" data="{{item:item,$countdown:$countdown}}" wx:for="{{group.goods}}" wx:for-index="goodIndex" wx:key="{{item.itemId}}"></template>
+            </view>
+        </block>
+    </view>
+</template>
+<import src="../goods/index.wxml"></import>

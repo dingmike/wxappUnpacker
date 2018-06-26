@@ -1,6 +1,7 @@
 const wu=require("./wuLib.js");
 const path=require("path");
 const UglifyJS=require("uglify-es");
+const {js_beautify}=require("js-beautify");
 const {VM}=require('vm2');
 function jsBeautify(code){
 	return UglifyJS.minify(code,{mangle:false,compress:false,output:{beautify:true,comments:true}}).code;
@@ -29,7 +30,7 @@ function splitJs(name,cb){
 		cb({[name]:8});
 	});
 }
-module.exports={jsBeautify:jsBeautify,splitJs:splitJs};
+module.exports={jsBeautify:jsBeautify,wxsBeautify:js_beautify,splitJs:splitJs};
 if(require.main===module){
     wu.commandExecute(splitJs,"Split and beautify weapp js file.\n\n<files...>\n\n<files...> js files to split and beautify.");
 }

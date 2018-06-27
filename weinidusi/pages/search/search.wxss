@@ -1,0 +1,114 @@
+@import "../../__wuBaseWxss__/0.wxss";
+
+page {
+    padding: 30rpx 81rpx 0 81rpx;
+}
+
+.search_wrap {
+    height: 67rpx;
+    width: 586rpx;
+    box-sizing: border-box;
+    padding: 0 25rpx;
+    background-color: white;
+    font-size: 0;
+    display: block;
+    border-radius: 10rpx;
+    position: relative;
+}
+
+.search_input {
+    width: 90%;
+    height: 100%;
+    font-size: 30rpx;
+    color: #757d87;
+    z-index: 1;
+}
+
+.seacrh_btn {
+    width: 80rpx;
+    height: 67rpx;
+    position: absolute;
+    background-image: url(https://wuhoucdn.oss-cn-hangzhou.aliyuncs.com/read_poem/img/Searchicon2.png);
+    background-size: 34rpx 34rpx;
+    background-repeat: no-repeat;
+    background-position: center;
+    right: 0;
+    top: 0;
+    z-index: 5;
+}
+
+.list_content {
+    height: 725rpx;
+    width: 598rpx;
+    background-color: white;
+    padding: 42rpx 36rpx 60rpx 36rpx;
+    box-sizing: border-box;
+    overflow: scroll;
+}
+
+.list_title {
+    font-size: 30rpx;
+    color: #7b7b79;
+    font-weight: bold;
+    text-align: center;
+    margin: 48rpx auto 19rpx auto;
+}
+
+.list_item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18rpx 0;
+    border-bottom: 1rpx solid #e3e3e3;
+}
+
+.list_content .list_item:last-child {
+    border: none;
+}
+
+.item_name {
+    font-size: 30rpx;
+    color: #202020;
+    width: 60%;
+}
+
+.item_author {
+    font-size: 28rpx;
+    color: #979797;
+    width: 200rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: right;
+}
+
+.btn_wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 38rpx;
+}
+
+.icon_upload,.icon_back {
+    width: 34rpx;
+    height: 34rpx;
+    margin-right: 11rpx;
+}
+
+.upload_btn,.back_btn {
+    height: 80rpx;
+    width: 253rpx;
+    border: 2rpx solid #4d4d4d;
+    color: #4d4d4d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30rpx;
+    border-radius: 100rpx;
+}
+
+.no_search {
+    text-align: center;
+    font-size: 32rpx;
+    padding-top: 50rpx;
+}

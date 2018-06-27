@@ -1,0 +1,15 @@
+<view class="scrollView">
+    <slot></slot>
+    <scroll-view bindscroll="scroll" class="content_wrap" id="scroll" scrollTop="{{s_distance}}" scrollY="true">
+        <view class="poem_title">{{poem.poetry_name}}</view>
+        <view class="poem_author">—{{poem.author}}—</view>
+        <view class="poem_content">
+            <text>{{poem.poetry_content}}</text>
+        </view>
+    </scroll-view>
+    <view class="scroll_wrap" wx:if="{{false}}">
+        <movable-area class="scroll_bar">
+            <movable-view bindchange="move" class="scroll_btn" direction="vertical" friction="1000" y="{{m_distance}}"></movable-view>
+        </movable-area>
+    </view>
+</view>

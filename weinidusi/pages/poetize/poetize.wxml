@@ -1,0 +1,24 @@
+<view class="poetize_wrap">
+    <view class="author_info">
+        <image class="author_avatar" src="{{userInfo.avatarUrl}}"></image>
+        <text class="author_name">{{userInfo.nickName}}</text>
+    </view>
+    <form bindsubmit="formSubmit" reportSubmit="true">
+        <view class="poetize_main">
+            <view class="title">
+                <view class="title_t">标题</view>
+                <input maxlength="20" name="title" placeholder="填写标题"></input>
+            </view>
+            <view class="title">
+                <view class="title_t">作者</view>
+                <input maxlength="20" name="author" placeholder="填写作者"></input>
+            </view>
+            <view class="content">
+                <view class="title_t">主题</view>
+                <textarea class="textarea" maxlength="-1" name="content" placeholder="填写主题"></textarea>
+            </view>
+        </view>
+        <button bindgetphonenumber="getPhoneNumber" class="sub_btn" formType="submit" openType="{{!getPhone?'getPhoneNumber':''}}">上传我的诗</button>
+    </form>
+</view>
+<tabBar></tabBar>

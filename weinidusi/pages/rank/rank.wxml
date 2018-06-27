@@ -1,0 +1,57 @@
+<view class="swiper">
+    <swiper autoplay="true" circular="true" indicatorActiveColor="rgba(255,255,255,1)" indicatorColor="rgba(176,176,176,1)" indicatorDots="{{imgUrls.length>1?'true':''}}">
+        <swiper-item wx:for="{{imgUrls}}">
+            <image class="swiper_item" src="{{item.pic}}"></image>
+        </swiper-item>
+    </swiper>
+    <button catchtap="dialog" class="rule_btn" data-show="1"></button>
+</view>
+<view class="rank_list">
+    <view class="rank_tabs">
+        <view catchtap="tabs_change" class="tabs_item" data-tabs="0">全国榜<view class="tabs_border" wx:if="{{tabs==0}}"></view>
+        </view>
+        <view catchtap="tabs_change" class="tabs_item" data-tabs="1">好友排行榜<view class="tabs_border" wx:if="{{tabs==1}}"></view>
+        </view>
+    </view>
+    <view class="poem_list">
+        <view class="poem_item" wx:for="{{poem_list}}">
+            <image class="icon_rank" src="{{icon_rank[index]}}" wx:if="{{index==0}}"></image>
+            <view class="rank_num" wx:if="{{index>0}}">NO.<text>
+</text>
+                <text>{{index+1}}</text>
+            </view>
+            <view class="author_info">
+                <image class="author_avatar" src="{{item.headimgurl}}"></image>
+                <view class="author_name">{{item.nickname}}</view>
+            </view>
+            <view catchtap="select_poem" class="poem_info" data-url="{{item.url}}">
+                <view catchtap="navigateTo" class="poem_name" data-url="../poem/poem?type=record&id={{item.id}}&from=rank">{{item.poetry_name}}</view>
+                <progressBar current_poem_url="{{current_poem_url}}" poem="{{item}}" src="{{item.url}}" width="296"></progressBar>
+            </view>
+            <view class="like_info">
+                <view class="like_num">
+                    <image catchtap="heart" class="heart {{item.is_like?'heart_beat':''}}" data-has_dig="{{item.has_dig}}" data-id="{{item.id}}" data-index="{{index}}" src="{{item.has_dig>0||item.is_like||tabs==0?'https://wuhoucdn.oss-cn-hangzhou.aliyuncs.com/read_poem/img/heart_highlight.png':'https://wuhoucdn.oss-cn-hangzhou.aliyuncs.com/read_poem/img/heart_normal.png'}}"></image>
+                    <view>{{item.dig_num}}</view>
+                </view>
+                <button class="share_btn" data-avatar="{{item.headimgurl}}" data-id="{{item.id}}" data-img="{{item.share.share_img}}" data-title="{{item.share.share_title}}" openType="share" wx:if="{{tabs==1}}"></button>
+            </view>
+        </view>
+    </view>
+</view>
+<tabBar target="rank"></tabBar>
+<view class="mask" wx:if="{{dialog}}"></view>
+<view class="rule_dialog" wx:if="{{dialog}}">
+    <image class="rule_header" src="https://wuhoucdn.oss-cn-hangzhou.aliyuncs.com/read_poem/img/rule_header.png"></image>
+    <view class="rule_content">
+        <scroll-view scrollY="true">
+            <text>{{rule}}</text>
+        </scroll-view>
+    </view>
+    <view catchtap="dialog" data-show="0" style="background-color:white;">
+        <view class="confirm"></view>
+    </view>
+    <view catchtap="dialog" data-show="0" style="text-align:center;">
+        <image class="dialog_close" src="https://wuhoucdn.oss-cn-hangzhou.aliyuncs.com/read_poem/img/dialog_close.png" wx:if="{{false}}"></image>
+    </view>
+</view>
+<button class="invite_friend" data-form="share_btn" openType="share" wx:if="{{tabs==1}}"></button>

@@ -1,0 +1,370 @@
+@import "../../__wuBaseWxss__/0.wxss";
+
+page {
+    background-color: #f2f1ed;
+    padding-bottom: 180rpx!important;
+}
+
+.header {
+    height: 200rpx;
+    width: 750rpx;
+    background-image: url(https://wuhoucdn.oss-cn-hangzhou.aliyuncs.com/read_poem/img/my_header.png);
+    background-size: 100% 100%;
+    position: relative;
+}
+
+.user_info {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 45rpx 0 0 45rpx;
+}
+
+.user_avatar {
+    width: 98rpx;
+    height: 98rpx;
+    border-radius: 50%;
+    margin-right: 33rpx;
+}
+
+.user_name {
+    font-size: 34rpx;
+    font-weight: bold;
+    letter-spacing: 3rpx;
+    color: white;
+}
+
+.rule_btn {
+    position: absolute;
+    top: -5rpx;
+    right: 46rpx;
+    width: 94rpx;
+    height: 110rpx;
+    background-image: url(https://wuhoucdn.oss-cn-hangzhou.aliyuncs.com/read_poem/img/rule_btn.png?v=1.0);
+    background-size: 100% 100%;
+}
+
+.my_list {
+}
+
+.my_tabs {
+    font-size: 30rpx;
+    height: 90rpx;
+    width: 750rpx;
+    color: #5c5c5a;
+    background-color: #f2f1ed;
+    border-bottom: 1rpx solid #e4dfd7;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.tabs_item {
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    line-height: 90rpx;
+    position: relative;
+}
+
+.tabs_border {
+    width: 106rpx;
+    height: 4rpx;
+    background-color: #5c5c5a;
+    position: absolute;
+    bottom: -2rpx;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.poem_list {
+    padding: 0 30rpx;
+    background-color: #f2f1ed;
+    margin-bottom: 50rpx;
+}
+
+.poem_item {
+    padding: 40rpx 0;
+    display: flex;
+    border-bottom: 1rpx solid #e4dfd7;
+    justify-content: space-between;
+}
+
+.icon_rank {
+    width: 65rpx;
+    height: 88rpx;
+}
+
+.rank_info {
+    width: 120rpx;
+    text-align: center;
+}
+
+.rank_num {
+    font-size: 26rpx;
+    line-height: 35rpx;
+    height: 100%;
+    padding-top: 20rpx;
+}
+
+.rank_num text:last-child {
+    padding: 4rpx 10rpx;
+    background-color: #e0d4c8;
+    border-radius: 100rpx;
+}
+
+.author_info {
+    margin-right: 20rpx;
+}
+
+.author_avatar {
+    width: 90rpx;
+    height: 90rpx;
+    border-radius: 50%;
+}
+
+.author_name {
+    font-size: 20rpx;
+    text-align: center;
+    white-space: 2rpx;
+}
+
+.poem_info {
+    width: 296rpx;
+}
+
+.poem_name {
+    width: 296rpx;
+    font-size: 26rpx;
+    margin-bottom: 45rpx;
+    padding-left: 15rpx;
+    box-sizing: border-box;
+    text-decoration: underline;
+    color: #1e98ea;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.like_info {
+    display: flex;
+    padding-top: 15rpx;
+}
+
+.like_num {
+    font-size: 20rpx;
+    color: #a3a3a3;
+    text-align: center;
+    margin-right: 40rpx;
+}
+
+.like_num view {
+    margin-top: 18rpx;
+}
+
+.heart {
+    width: 49rpx;
+    height: 41rpx;
+}
+
+.share_btn {
+    width: 100rpx;
+    height: 100rpx;
+    background-image: url("https://wuhoucdn.oss-cn-hangzhou.aliyuncs.com/read_poem/img/share_btn.png?v=1.1");
+    background-size: 50rpx 50rpx;
+    background-repeat: no-repeat;
+    background-position: top center;
+}
+
+.heart_beat {
+    animation: heart_beat;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+@-webkit-keyframes heart_beat {
+    0% {
+        transform: scaleX(1);
+    }
+
+    30% {
+        transform: scale3d(1.25,0.75,1);
+    }
+
+    40% {
+        transform: scale3d(0.75,1.25,1);
+    }
+
+    50% {
+        transform: scale3d(1.15,0.85,1);
+    }
+
+    65% {
+        transform: scale3d(0.95,1.05,1);
+    }
+
+    75% {
+        transform: scale3d(1.05,0.95,1);
+    }
+
+    to {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes heart_beat {
+    0% {
+        transform: scaleX(1);
+    }
+
+    30% {
+        transform: scale3d(1.25,0.75,1);
+    }
+
+    40% {
+        transform: scale3d(0.75,1.25,1);
+    }
+
+    50% {
+        transform: scale3d(1.15,0.85,1);
+    }
+
+    65% {
+        transform: scale3d(0.95,1.05,1);
+    }
+
+    75% {
+        transform: scale3d(1.05,0.95,1);
+    }
+
+    to {
+        transform: scaleX(1);
+    }
+}
+
+.more_btn {
+    text-align: center;
+    position: fixed;
+    top: 80%;
+    right: 0;
+    background-image: url(https://wuhoucdn.oss-cn-hangzhou.aliyuncs.com/read_poem/img/more_info.png?v=1.3);
+    background-size: 100% 100%;
+    width: 214rpx;
+    height: 77rpx;
+}
+
+.more_btn_lm {
+    margin-top: 40rpx;
+}
+
+.writePoem_list {
+    padding: 0 30rpx;
+    background-color: #f2f1ed;
+    font-size: 32rpx;
+}
+
+.wlm {
+    margin-bottom: 300rpx;
+}
+
+.writePoem_item {
+    margin-top: 40rpx;
+    display: flex;
+    justify-content: space-between;
+}
+
+.writePoem_name {
+    font-weight: bold;
+    color: #4a4848;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.status {
+    color: #727272;
+}
+
+.approve {
+    color: #63a952;
+}
+
+.mask {
+    background-color: rgba(0,0,0,0.5);
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.rule_dialog {
+    z-index: 101;
+    font-size: 0;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-60%);
+}
+
+.rule_header {
+    width: 586rpx;
+    height: 155rpx;
+    border-top-left-radius: 10rpx;
+    border-top-right-radius: 10rpx;
+}
+
+.rule_content {
+    height: 542rpx;
+    width: 586rpx;
+    background-color: white;
+    box-sizing: border-box;
+    padding: 40rpx 80rpx 0rpx 80rpx;
+    font-size: 26rpx;
+    position: relative;
+    overflow: scroll;
+}
+
+.confirm {
+    width: 273rpx;
+    height: 68rpx;
+    background-image: url(https://wuhoucdn.oss-cn-hangzhou.aliyuncs.com/read_poem/img/confirm.png);
+    background-size: 273rpx 68rpx;
+    margin: 0 auto;
+    bottom: 68rpx;
+    padding: 30rpx;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.dialog_close {
+    width: 63rpx;
+    height: 63rpx;
+}
+
+.no_item {
+    font-size: 28rpx;
+    text-align: center;
+    padding-top: 150rpx;
+}
+
+.no_item view {
+    margin-bottom: 64rpx;
+}
+
+.no_item image {
+    width: 265rpx;
+    height: 92rpx;
+}
+
+.go_upload {
+    margin: 50rpx auto;
+    text-align: center;
+}
+
+.go_upload image {
+    width: 265rpx;
+    height: 92rpx;
+}

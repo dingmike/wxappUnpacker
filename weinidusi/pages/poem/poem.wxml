@@ -1,0 +1,41 @@
+<view class="poem_wrap">
+    <view class="poem_header" wx:if="{{options.type==='record'}}">
+        <image class="author_avatar" src="{{poem.data.headimgurl}}"></image>
+        <view class="author_info">
+            <text class="author_name">{{poem.data.nickname}}</text>
+            <text class="author_text" wx:if="{{poem.is_own!=1}}">
+读了一首诗,诗中有TA的样子</text>
+        </view>
+    </view>
+    <view class="poem_header" wx:if="{{options.type==='text'}}">
+        <image class="author_avatar" src="{{poem.poetry.headimgurl}}"></image>
+        <view class="author_info">
+            <text class="author_name">{{poem.poetry.nickname}}</text>
+        </view>
+    </view>
+    <scrollView poem="{{poem.poetry}}" show_avatar="{{false}}"></scrollView>
+</view>
+<view class="progressBar_wrap {{false?'p_mb':''}}">
+    <progressBar auto="{{auto}}" current_poem_url="{{poem.data.url}}" poem="{{poem.data}}" src="{{poem.data.url}}" width="589" wx:if="{{options.type==='record'}}"></progressBar>
+</view>
+<view class="share_wrap" wx:if="{{poem.is_own===1&&options.type==='record'}}">
+    <button class="share_btn" openType="share">温暖好友</button>
+    <view catchtap="navigateTo" class="poster_btn" data-url="../poster/poster?id={{poem.data.id}}&uid={{poem.uid}}">生成专属卡片</view>
+</view>
+<view class="like_wrap" wx:if="{{poem.is_own!=1&&options.type==='record'}}">
+    <view catchtap="like" class="icon_like">
+        <image class="{{poem.data.has_dig===2?'heart_beat':''}}" src="{{poem.data.has_dig>0||options.from=='rank'?'https://wuhoucdn.oss-cn-hangzhou.aliyuncs.com/read_poem/img/heart_highlight.png':'https://wuhoucdn.oss-cn-hangzhou.aliyuncs.com/read_poem/img/heart_normal.png'}}"></image>
+        <text>为他点赞</text>
+    </view>
+    <view catchtap="navigateTo" class="join_btn" data-url="../record/record?id={{poem.data.poetry_id}}">我要读这首诗</view>
+</view>
+<view class="hr"></view>
+<view class="join_user">
+    <view class="join_title" wx:if="{{options.type==='record'}}">{{poem.is_own===1?'你读的这首诗已温暖':'TA读的这首诗已温暖'}}<text style="color:#ff4545;">{{poem.data.dig_num}}</text>个好友</view>
+    <view class="join_title" wx:if="{{options.type==='text'&&poem.list.length>0}}">他们都读了这首诗</view>
+    <view class="join_title" wx:if="{{options.type==='text'&&poem.list.length==0}}">还没有人读这首诗哦</view>
+    <scroll-view class="join_avatar" scrollX="true">
+        <image catchtap="listen" data-url="../poem/poem?type=record&id={{item.id}}" src="{{item.headimgurl}}" wx:for="{{poem.list}}"></image>
+    </scroll-view>
+</view>
+<tabBar></tabBar>

@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "scrollView": "../../component/scrollView/scrollView",
+        "progressBar": "../../component/progressBar/progressBar",
+        "tabBar": "../../component/tabBar/tabBar"
+    }
+}

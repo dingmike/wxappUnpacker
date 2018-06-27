@@ -1,0 +1,99 @@
+@import "../../__wuBaseWxss__/0.wxss";
+
+page {
+    padding: 30rpx 58rpx;
+    box-sizing: border-box;
+}
+
+.poetize_wrap {
+    width: 633rpx;
+}
+
+.author_info {
+    display: flex;
+    align-items: center;
+    height: 110rpx;
+    background-color: #757d87;
+    border-top-left-radius: 30rpx;
+    border-top-right-radius: 30rpx;
+    padding-left: 24rpx;
+    box-shadow: 0 1rpx 3rpx rgba(26,26,26,.1);
+}
+
+.author_avatar {
+    width: 74rpx;
+    height: 74rpx;
+    border-radius: 50%;
+    margin-right: 26rpx;
+}
+
+.author_name {
+    font-size: 30rpx;
+    color: white;
+}
+
+.poetize_main {
+    padding: 26rpx 34rpx 78rpx 34rpx;
+    background-color: #fff;
+    display: block;
+    box-shadow: 0 1rpx 3rpx rgba(26,26,26,.1);
+    border-bottom-left-radius: 20rpx;
+    border-bottom-right-radius: 20rpx;
+}
+
+.title {
+    margin-bottom: 24rpx;
+}
+
+.title_t {
+    font-size: 28rpx;
+    color: #4b4b4b;
+    font-weight: bold;
+}
+
+.title input {
+    width: 100%;
+    background-color: #f4f3f1;
+    padding: 0rpx 17rpx;
+    box-sizing: border-box;
+    height: 60rpx;
+    margin-top: 19rpx;
+    font-size: 24rpx;
+}
+
+.content {
+}
+
+.content textarea {
+    height: 510rpx;
+    width: 567rpx;
+    background-color: #f4f3f1;
+    margin-top: 19rpx;
+    font-size: 24rpx;
+    padding: 16rpx 17rpx;
+    box-sizing: border-box;
+}
+
+.textarea::-webkit-scrollbar {
+    width: 8rpx;
+    border-radius: 10rpx;
+    background-color: #dedede;
+}
+
+.textarea::-webkit-scrollbar-thumb {
+    height: 20rpx;
+    width: 20rpx;
+    border-radius: 50%;
+    box-shadow: 0,5rpx,0,#000;
+}
+
+.sub_btn {
+    font-size: 30rpx;
+    color: #4d4d4d;
+    border: 2rpx solid #4d4d4d;
+    width: 253rpx;
+    height: 80rpx;
+    border-radius: 100rpx;
+    line-height: 80rpx;
+    margin: 44rpx auto;
+}

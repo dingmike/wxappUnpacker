@@ -1,0 +1,74 @@
+@import "../../__wuBaseWxss__/0.wxss";
+
+.form_tab {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 50;
+    width: 100%;
+    background-color: white;
+}
+
+.tabBar {
+    height: 110rpx;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+    padding-top: 22rpx;
+    background-color: white;
+    white-space: nowrap;
+    font-size: 0;
+}
+
+.tab_item {
+    font-size: 20rpx;
+    color: #9ea1a5;
+    height: 100%;
+    text-align: center;
+    margin-bottom: 13rpx;
+    flex: 1;
+}
+
+.tab_item:first-of-type image {
+    width: 46rpx;
+    height: 46rpx;
+}
+
+.tab_item:nth-of-type(2) image {
+    width: 52rpx;
+    height: 46rpx;
+}
+
+.tab_item:nth-of-type(3) image {
+    width: 46rpx;
+    height: 47rpx;
+}
+
+.tab_item:last-of-type image {
+    width: 42rpx;
+    height: 47rpx;
+}
+
+.wuhou {
+    margin: 40rpx auto;
+    text-align: center;
+    margin-top: 60rpx;
+    position: absolute;
+    bottom: 100rpx;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.wuhou image {
+    width: 330rpx;
+    height: 34rpx;
+}
+
+.mt {
+    margin-top: 180rpx;
+}
+
+.ipx_padding {
+    padding-bottom: 20rpx;
+}

@@ -1,0 +1,23 @@
+<form bindsubmit="search" class="search_wrap">
+    <input class="search_input" name="keyword" placeholder="搜索"></input>
+    <button class="seacrh_btn" formType="submit"></button>
+</form>
+<view class="poem_list">
+    <view class="list_title">诗库</view>
+    <scroll-view bindscrolltolower="nextPage" class="list_content" scrollY="true">
+        <view class="no_search" wx:if="{{no_search}}">没有搜索到相关内容</view>
+        <view catchtap="navigateTo" class="list_item" data-id="{{item.id}}" data-navtype="redirectTo" data-url="../record/record?id={{item.id}}" wx:for="{{poem_list}}">
+            <view class="item_name">{{item.poetry_name}}</view>
+            <view class="item_author">{{item.nickname}}</view>
+        </view>
+    </scroll-view>
+</view>
+<view class="btn_wrap">
+    <view catchtap="navigateTo" class="upload_btn" data-url="../poetize/poetize">
+        <image class="icon_upload" src="https://wuhoucdn.oss-cn-hangzhou.aliyuncs.com/read_poem/img/Upload.png"></image>上传我的诗
+  </view>
+    <view catchtap="navigateTo" class="back_btn" data-navType="back">
+        <image class="icon_back" src="https://wuhoucdn.oss-cn-hangzhou.aliyuncs.com/read_poem/img/Leftarrow.png"></image>返回上一页
+  </view>
+</view>
+<tabBar is_mt="true"></tabBar>

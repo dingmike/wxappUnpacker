@@ -1,0 +1,209 @@
+@import "../../__wuBaseWxss__/0.wxss";
+
+page {
+    padding: 55rpx 0 150rpx 0;
+}
+
+.poem_wrap {
+    width: 634rpx;
+    margin: 0 auto 55rpx auto;
+    margin-bottom: 0;
+}
+
+.poem_header {
+    height: 130rpx;
+    width: 634rpx;
+    background-color: #757d87;
+    border-top-left-radius: 20rpx;
+    border-top-right-radius: 20rpx;
+    font-size: 29rpx;
+    color: #e8ecf1;
+    display: flex;
+    align-items: center;
+    padding-left: 23rpx;
+    box-sizing: border-box;
+}
+
+.author_avatar {
+    height: 74rpx;
+    width: 74rpx;
+    border-radius: 50%;
+    margin-right: 26rpx;
+}
+
+.progressBar_wrap {
+    margin-top: 76rpx;
+    padding: 0 55rpx;
+    box-sizing: border-box;
+}
+
+.p_mb {
+    margin-bottom: 99rpx;
+}
+
+.hr {
+    width: 678rpx;
+    height: 2rpx;
+    background-color: #e8e3db;
+    margin: 0 auto;
+}
+
+.join_user {
+    margin-top: 43rpx;
+}
+
+.join_title {
+    font-size: 30rpx;
+    text-align: center;
+    margin-top: 42rpx;
+}
+
+.join_avatar {
+    margin: 0 auto;
+    margin-top: 43rpx;
+    text-align: center;
+    font-size: 0;
+    width: 640rpx;
+    white-space: nowrap;
+}
+
+.join_avatar image {
+    width: 68rpx;
+    height: 68rpx;
+    border: 2rpx solid #fff;
+    border-radius: 50%;
+    margin-right: 12rpx;
+}
+
+.join_avatar image:last-child {
+    margin-right: 0;
+}
+
+.like_wrap {
+    width: 634rpx;
+    margin: 65rpx auto 54rpx auto;
+    font-size: 30rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon_like {
+    color: #a3a3a3;
+    display: flex;
+    align-items: center;
+}
+
+.like_wrap image {
+    width: 49rpx;
+    height: 41rpx;
+    margin-right: 19rpx;
+}
+
+.join_btn {
+    width: 244rpx;
+    height: 74rpx;
+    border: 2rpx solid #4d4d4d;
+    border-radius: 100rpx;
+    line-height: 74rpx;
+    text-align: center;
+    font-weight: bold;
+}
+
+.share_wrap {
+    width: 634rpx;
+    margin: 65rpx auto 54rpx auto;
+    font-size: 30rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.share_btn {
+    font-size: 30rpx;
+}
+
+.share_btn,.poster_btn {
+    width: 253rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    border: 2rpx solid #4d4d4d;
+    text-align: center;
+    border-radius: 100rpx;
+}
+
+.author_name {
+    font-size: 24rpx;
+    color: #edece8;
+}
+
+.author_text {
+    font-size: 24rpx;
+    color: #d5dbe1;
+}
+
+.heart_beat {
+    animation: heart_beat;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+@-webkit-keyframes heart_beat {
+    0% {
+        transform: scaleX(1);
+    }
+
+    30% {
+        transform: scale3d(1.25,0.75,1);
+    }
+
+    40% {
+        transform: scale3d(0.75,1.25,1);
+    }
+
+    50% {
+        transform: scale3d(1.15,0.85,1);
+    }
+
+    65% {
+        transform: scale3d(0.95,1.05,1);
+    }
+
+    75% {
+        transform: scale3d(1.05,0.95,1);
+    }
+
+    to {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes heart_beat {
+    0% {
+        transform: scaleX(1);
+    }
+
+    30% {
+        transform: scale3d(1.25,0.75,1);
+    }
+
+    40% {
+        transform: scale3d(0.75,1.25,1);
+    }
+
+    50% {
+        transform: scale3d(1.15,0.85,1);
+    }
+
+    65% {
+        transform: scale3d(0.95,1.05,1);
+    }
+
+    75% {
+        transform: scale3d(1.05,0.95,1);
+    }
+
+    to {
+        transform: scaleX(1);
+    }
+}

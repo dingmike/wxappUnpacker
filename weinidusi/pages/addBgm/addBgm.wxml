@@ -1,0 +1,24 @@
+<view class="header_pic"></view>
+<view class="title">添加背景音乐</view>
+<scroll-view class="bgm_list" scrollY="true">
+    <view catchtap="select_bgm" class="bgm_item" data-id="{{item.id}}" data-index="{{index}}" data-url="{{item.music_url}}" wx:for="{{bgm_list}}">
+        <view class="bgm_name">
+            <image class="icon_select {{bgm_sclected===index?'':'icon_border'}}" src="{{bgm_sclected===index?'https://wuhoucdn.oss-cn-hangzhou.aliyuncs.com/read_poem/img/icon_selected.png':'https://wuhoucdn.oss-cn-hangzhou.aliyuncs.com/read_poem/img/transport.png'}}"></image>
+            <text>{{item.music_name}}</text>
+        </view>
+        <image class="icon_music" src="https://wuhoucdn.oss-cn-hangzhou.aliyuncs.com/read_poem/img/icon_music.png"></image>
+    </view>
+</scroll-view>
+<view class="hint">滑动查看更多</view>
+<progressBar class="progressBar" current_poem_url="{{current_poem_url}}" play="{{bgm_src}}" poem="{{bgm}}" src="{{bgm_src}}" width="557"></progressBar>
+<view class="btn_wrap">
+    <view catchtap="navigateTo" class="rec_btn" data-navtype="redirectTo" data-url="../record/record?id={{poem_id}}">
+        <image class="icon_rec" src="https://wuhoucdn.oss-cn-hangzhou.aliyuncs.com/read_poem/img/icon_rec.png"></image>重新录制
+  </view>
+    <form bindsubmit="getFormId" reportSubmit="true">
+        <button bindgetphonenumber="confirm" class="upload_btn" formType="submit" openType="{{!getPhone?'getPhoneNumber':''}}">
+            <image class="icon_cloud" src="http://wuhoucdn.oss-cn-hangzhou.aliyuncs.com/read_poem/img/icon_cloud.png"></image>已选好，确认上传
+    </button>
+    </form>
+</view>
+<tabBar is_mt="true"></tabBar>

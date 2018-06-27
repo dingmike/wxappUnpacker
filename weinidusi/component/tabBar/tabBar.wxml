@@ -1,0 +1,11 @@
+<view class="wuhou">
+    <image src="https://wuhoucdn.oss-cn-hangzhou.aliyuncs.com/read_poem/img/wuhou_logo.png?v=1.0"></image>
+</view>
+<form bindsubmit="sub" class="form_tab {{is_ipx?'ipx_padding':''}}" reportSubmit="true">
+    <view class="tabBar">
+        <button catchtap="navigateTo" class="tab_item" data-navType="{{item.navtype}}" data-url="{{item.url}}" formType="submit" wx:for="{{tabBar}}">
+            <image src="{{target==item.id?item.highlight_icon:item.normal_icon}}"></image>
+            <view>{{item.text}}</view>
+        </button>
+    </view>
+</form>

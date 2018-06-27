@@ -1,0 +1,67 @@
+<view class="header">
+    <view class="user_info">
+        <image class="user_avatar" src="{{userInfo.avatarUrl}}"></image>
+        <text class="user_name">{{userInfo.nickName}}</text>
+    </view>
+    <button catchtap="dialog" class="rule_btn" data-show="1"></button>
+</view>
+<view class="my_list">
+    <view class="my_tabs">
+        <view catchtap="tabs_change" class="tabs_item" data-tabs="0">我读的诗<view class="tabs_border" wx:if="{{tabs==0}}"></view>
+        </view>
+        <view catchtap="tabs_change" class="tabs_item" data-tabs="1">我写的诗<view class="tabs_border" wx:if="{{tabs==1}}"></view>
+        </view>
+    </view>
+    <view class="poem_list" wx:if="{{tabs==0}}">
+        <view catchtap="select_poem" class="poem_item" data-url="{{item.url}}" wx:for="{{poem_list.list}}">
+            <view class="rank_info">
+                <image class="icon_rank" src="{{icon_rank[index]}}" wx:if="{{index==0}}"></image>
+                <view class="rank_num" wx:if="{{index>0}}">NO.<text>
+</text>
+                    <text>{{index+1}}</text>
+                </view>
+            </view>
+            <view class="poem_info">
+                <view catchtap="navigateTo" class="poem_name" data-url="../poem/poem?type=record&id={{item.id}}">{{item.poetry_name}}</view>
+                <progressBar current_poem_url="{{current_poem_url}}" poem="{{item}}" src="{{item.url}}" width="296"></progressBar>
+            </view>
+            <view class="like_info">
+                <view class="like_num">
+                    <image class="heart {{item.is_like?'heart_beat':''}}" data-index="{{index}}" src="https://wuhoucdn.oss-cn-hangzhou.aliyuncs.com/read_poem/img/heart_highlight.png"></image>
+                    <view>{{item.dig_num}}</view>
+                </view>
+                <button class="share_btn" data-avatar="{{item.share.share_img}}" data-id="{{item.id}}" data-title="{{item.share.share_title}}" openType="share"></button>
+            </view>
+        </view>
+    </view>
+    <view class="writePoem_list" wx:if="{{tabs==1}}">
+        <view class="no_item" wx:if="{{poem_list.list.length==0}}">
+            <view>你还没有上传自己的诗哦,快来分享吧！</view>
+            <image catchtap="navigateTo" data-url="../poetize/poetize" src="https://wuhoucdn.oss-cn-hangzhou.aliyuncs.com/read_poem/img/go_upload.png" wx:if="{{poem_list.list.length>0}}"></image>
+        </view>
+        <view catchtap="navigateTo" class="writePoem_item" data-url="../poem/poem?type=text&id={{item.id}}" wx:if="{{poem_list.list.length>0}}" wx:for="{{poem_list.list}}">
+            <view class="writePoem_name">{{item.poetry_name}}</view>
+            <view class="status {{item.status>0?'approve':''}}">{{item.status<0?'被退回':''}} {{item.status>0?'已通过':''}} {{item.status==0?'审核中':''}}</view>
+        </view>
+        <view class="go_upload">
+            <image catchtap="navigateTo" class="go_upload" data-url="../poetize/poetize" src="https://wuhoucdn.oss-cn-hangzhou.aliyuncs.com/read_poem/img/go_upload.png"></image>
+        </view>
+    </view>
+</view>
+<view class="mask" wx:if="{{dialog}}"></view>
+<view class="rule_dialog" wx:if="{{dialog}}">
+    <image class="rule_header" src="https://wuhoucdn.oss-cn-hangzhou.aliyuncs.com/read_poem/img/rule_header.png"></image>
+    <view class="rule_content">
+        <scroll-view scrollY="true">
+            <text>{{rule}}</text>
+        </scroll-view>
+    </view>
+    <view catchtap="dialog" data-show="0" style="background-color:white;">
+        <view class="confirm"></view>
+    </view>
+    <view catchtap="dialog" data-show="0" style="text-align:center">
+        <image class="dialog_close" src="https://wuhoucdn.oss-cn-hangzhou.aliyuncs.com/read_poem/img/dialog_close.png" wx:if="{{false}}"></image>
+    </view>
+</view>
+<tabBar mt="{{mt}}" target="my"></tabBar>
+<button class="more_btn" openType="contact"></button>

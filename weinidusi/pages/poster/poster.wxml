@@ -1,0 +1,4 @@
+<view class="poster_wrap">
+    <image bindload="loadingCompleted" class="poster" src="{{pic}}"></image>
+    <view catchtap="download" class="downLoad">保存卡片</view>
+</view>

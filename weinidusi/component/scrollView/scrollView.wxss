@@ -1,0 +1,74 @@
+.scrollView {
+    width: 634rpx;
+    height: 571rpx;
+    font-size: 26rpx;
+    background-color: white;
+    overflow: hidden;
+    border-bottom-left-radius: 20rpx;
+    border-bottom-right-radius: 20rpx;
+    box-shadow: 0 0rpx 20rpx rgba(26,26,26,.1);
+    padding: 31rpx 50rpx 50rpx 50rpx;
+    box-sizing: border-box;
+    text-align: center;
+    position: relative;
+}
+
+.content_wrap {
+    width: 100%;
+    height: 100%;
+}
+
+.scroll_wrap {
+    position: absolute;
+    right: 20rpx;
+    top: 25rpx;
+    z-index: 10;
+}
+
+.scroll_bar {
+    width: 8rpx;
+    height: 490rpx;
+    background-color: #dedede;
+    border-radius: 30rpx;
+    margin: 0 auto;
+}
+
+.scroll_btn {
+    width: 25rpx;
+    height: 25rpx;
+    background-size: 100% 100%;
+    left: -8rpx;
+    box-shadow: 0 1rpx 10rpx rgba(26,26,26,.5);
+    background-color: white;
+    border-radius: 50%;
+}
+
+.poem_title {
+    font-size: 36rpx;
+    letter-spacing: 10rpx;
+    word-break: break-all;
+    text-align: center;
+}
+
+.poem_author {
+    margin-top: 13rpx;
+    letter-spacing: 10rpx;
+    text-align: center;
+}
+
+.poem_author_avatar {
+    height: 173rpx;
+    width: 173rpx;
+    border-radius: 50%;
+    margin-top: 18rpx;
+}
+
+.poem_content {
+    margin-top: 27rpx;
+    letter-spacing: 10rpx;
+    line-height: 40rpx;
+}
+
+.poem_content text {
+    word-break: break-all;
+}

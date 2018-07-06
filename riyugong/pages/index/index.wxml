@@ -23,8 +23,8 @@
         </view>
         <view class="enrollment-images">
             <image src="{{userInfo.avatarUrl}}" wx:if="{{avaData}}"></image>
-      <image src="{{item.avatar}}" wx:for="{{studyUser}}"></image>
-    </view>
+            <image src="{{item.avatar}}" wx:for="{{studyUser}}"></image>
+        </view>
     </view>
     <view animation="{{animationData}}" class="signUp" wx:if="{{showModalStatus}}">
         <view class="signUp-title">

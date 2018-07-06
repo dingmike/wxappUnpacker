@@ -1,0 +1,13 @@
+.wx_page {
+    font-size: 0;
+}
+
+.detail_static_image {
+    width: 100%;
+}
+
+.detail_static_desc {
+    font-size: 14px;
+    line-height: 1.2;
+    padding: 10px;
+}

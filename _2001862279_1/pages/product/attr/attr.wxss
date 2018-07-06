@@ -1,0 +1,49 @@
+.parameter_box {
+    margin-top: 20rpx;
+}
+
+.detail_box_title {
+    padding: 50rpx 30rpx 40rpx 50rpx;
+    position: relative;
+    font-size: 16px;
+    line-height: 36rpx;
+    font-weight: 500;
+}
+
+.detail_box_title::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 2px;
+    height: 14px;
+    background-color: #353535;
+    left: 30rpx;
+    bottom: 44rpx;
+}
+
+.table_wrp {
+    padding: 0 30rpx;
+    font-size: 14px;
+}
+
+.tr {
+    display: flex;
+    height: 40rpx;
+    margin-bottom: 30rpx;
+}
+
+.table .tr:last-child {
+    margin-bottom: 0;
+}
+
+.tr .td:last-child {
+    text-align: right;
+}
+
+.td_value {
+    flex: 1;
+}
+
+.detail_box_bd {
+    padding-bottom: 50rpx;
+}

@@ -79,12 +79,19 @@ Page({
     },
     _onLoad: function() {
         var t = this;
-        this.data.type = a.globalData.type, wx.showNavigationBarLoading();
+        this.data.type = a.globalData.type,
+            wx.showNavigationBarLoading();
         var e = a.globalData.openid;
-        t.updateUserInfo(), console.log(e), this.setData({
+        t.updateUserInfo(),
+            console.log(e),
+            this.setData({
             openid: e,
             bgimg: a.globalData.bgimg
-        }), t.addUser(), t.getStudyUser(), t.getLastDay(), t.getConnaissances(), t.getCard(), 
+        }), t.addUser(),
+            t.getStudyUser(),
+            t.getLastDay(),
+            t.getConnaissances(),
+            t.getCard(),
         new Date().getHours() >= 10 && this.setData({
             joinBtn: "您已经错过规定打卡时间 点击学习"
         });

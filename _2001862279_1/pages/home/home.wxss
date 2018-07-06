@@ -1,0 +1,106 @@
+.home_page {
+    font-size: 14px;
+}
+
+.home_hd {
+    background-color: #FFFFFF;
+    text-align: center;
+    padding-bottom: 30rpx;
+    padding-top: 40rpx;
+    font-size: 0;
+}
+
+.user_avatar {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 100%;
+    border: 1rpx solid #eee;
+}
+
+.user_name {
+    font-size: 17px;
+    color: #3A3A3E;
+    line-height: 42rpx;
+    margin-top: 20rpx;
+}
+
+.order_area {
+    background-color: #FFFFFF;
+    margin-top: 20rpx;
+}
+
+.order_hd_link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1rpx solid #eee;
+    margin-left: 30rpx;
+}
+
+.order_title_extra {
+    flex: 1;
+    text-align: right;
+    padding-right: 54rpx;
+    font-size: 14px;
+    color: #9A9A9A;
+}
+
+.order_title_extra .icon_arrow {
+    border-color: #9A9A9A;
+    top: 32rpx;
+}
+
+.order_title {
+    font-size: 16px;
+    line-height: 44rpx;
+    display: inline-block;
+    padding: 20rpx 0;
+}
+
+.order_tabs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.order_tab_item {
+    flex: 1;
+    text-align: center;
+}
+
+.tab_icon_wrp {
+    position: relative;
+    display: inline-block;
+    margin: 34rpx 0 8rpx;
+}
+
+.tab_num {
+    position: absolute;
+    font-size: 22rpx;
+    min-width: 30rpx;
+    height: 30rpx;
+    background-color: #FF3F3F;
+    color: #FFFFFF;
+    border-radius: 15rpx;
+    text-align: center;
+    top: -6rpx;
+    left: 36rpx;
+    line-height: 30rpx;
+    padding: 0 .3em;
+    box-sizing: border-box;
+}
+
+.tab_icon {
+    width: 54rpx;
+    height: 54rpx;
+}
+
+.tab_title {
+    margin-bottom: 30rpx;
+}
+
+.navigator-hover {
+    background: transparent;
+    opacity: 1;
+}

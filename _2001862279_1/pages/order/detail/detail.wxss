@@ -1,0 +1,157 @@
+.wx_page {
+    font-size: 14px;
+    padding-bottom: 80rpx;
+}
+
+.icon_arrow {
+    position: static;
+    border-color: #9A9A9A;
+}
+
+.area_box {
+    margin-top: 20rpx;
+    background-color: #FFFFFF;
+}
+
+.addr_area,.express_area {
+    padding: 0 30rpx;
+}
+
+.addr_empty {
+    padding: 40rpx 0;
+    position: relative;
+}
+
+.addr_info,.express_info {
+    padding: 20rpx 0;
+    line-height: 34rpx;
+}
+
+.icon_addr {
+    width: 54rpx;
+}
+
+.addr_info_hd {
+    margin-bottom: 14rpx;
+}
+
+.icon_more_wrp {
+    padding-left: 20rpx;
+}
+
+.express_time {
+    margin-top: 10rpx;
+}
+
+.express_area {
+    display: block;
+}
+
+.express_info {
+    min-height: 80rpx;
+}
+
+.empty_box {
+    color: #9A9A9A;
+}
+
+.navigator-hover {
+    background: transparent;
+    opacity: 1;
+}
+
+.goods_item {
+    padding-left: 30rpx;
+    display: flex;
+    background-color: #FFFFFF;
+}
+
+.goods_cover {
+    font-size: 0;
+    padding: 20rpx 0;
+}
+
+.goods_cover_img {
+    width: 150rpx;
+    height: 150rpx;
+    margin-right: 25rpx;
+}
+
+.goods_info {
+    font-size: 14px;
+    line-height: 36rpx;
+    padding: 20rpx 0;
+    border-bottom: 1rpx solid #EEEEEE;
+    padding-right: 20rpx;
+    flex: 1;
+}
+
+.goods_list .goods_item:last-child .goods_info {
+    border-bottom: none;
+}
+
+.goods_title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.goods_description {
+    margin-top: 6rpx;
+    color: #9A9A9A;
+}
+
+.goods_description_item {
+    margin-right: 6rpx;
+}
+
+.goods_cost {
+    margin-top: 10rpx;
+}
+
+.goods_price {
+    color: #353535;
+    margin-right: 20rpx;
+}
+
+.goods_num {
+    color: #9A9A9A;
+}
+
+.order_area_box {
+    margin-left: 30rpx;
+    padding: 24rpx 0;
+    padding-right: 30rpx;
+    border-bottom: 1rpx solid #EEEEEE;
+    line-height: 36rpx;
+}
+
+.order_area_box:last-child {
+    border-bottom: none;
+}
+
+.order_state {
+    color: #FA7834;
+}
+
+.order_price_list {
+    border-top: 1rpx solid #EEEEEE;
+}
+
+.wx_value {
+    text-align: right;
+}
+
+.order_price_item {
+    margin-bottom: 10rpx;
+}
+
+.order_price_item:last-child {
+    margin-bottom: 0;
+}
+
+.order_detail_area {
+    color: #9A9A9A;
+}

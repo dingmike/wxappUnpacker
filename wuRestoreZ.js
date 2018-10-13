@@ -1,6 +1,22 @@
 const wu=require("./wuLib.js");
 const {VM}=require('vm2');
+function catchZGroup(code,groupPreStr,cb){
+	const debugPre="(function(z){var a=11;function Z(ops,debugLine){";
+	let zArr={};
+	for(let preStr of groupPreStr){
+		let content=code.slice(code.indexOf(preStr)),z=[];
+		content=content.slice(content.indexOf("(function(z){var a=11;"));
+		content=content.slice(0,content.indexOf("})(__WXML_GLOBAL__.ops_cached.$gwx"))+"})(z);";
+		let vm=new VM({sandbox:{z:z,debugInfo:[]}});
+		vm.run(content);
+		if(content.startsWith(debugPre))for(let i=0;i<z.length;i++)z[i]=z[i][1];
+		zArr[preStr.match(/function gz\$gwx(\d*\_\d+)/)[1]]=z;
+	}
+	cb({"mul":zArr});
+}
 function catchZ(code,cb){
+	let groupTest=code.match(/function gz\$gwx(\d*\_\d+)\(\)\{\s*if\( __WXML_GLOBAL__\.ops_cached\.\$gwx\d*\_\d+\)/g);
+	if(groupTest!==null)return catchZGroup(code,groupTest,cb);
 	let z=[],vm=new VM({sandbox:{
 		z:z,
 		debugInfo:[]
@@ -207,7 +223,19 @@ function restoreSingle(ops,withScope=false){
 		return scope(ans);
 	}
 }
+function restoreGroup(z){
+	let ans=[];
+	for(let g in z.mul){
+		let singleAns=[];
+		for(let e of z.mul[g])singleAns.push(restoreSingle(e,false));
+		ans[g]=singleAns;
+	}
+	let ret=[];//Keep a null array for remaining global Z array.
+	ret.mul=ans;
+	return ret;
+}
 function restoreAll(z){
+	if(z.mul)return restoreGroup(z);
 	let ans=[];
 	for(let e of z)ans.push(restoreSingle(e,false));
 	return ans;
